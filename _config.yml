@@ -1,3 +1,35 @@
-name: Robert Lin
+# Site settings
+title: Robert Lin
+description: "a blog"
+url: "https://bobheadxi.github.io"
+author:
+  name: "Robert Lin"
+  email: "robertlin@alumni.ubc.ca"
+  url: "https://github.com/bobheadxi"
 
-theme: jekyll-theme-minimal
+# Build settings
+baseurl: /
+markdown: kramdown
+source: .
+destination: ./_site
+permalink: /:title
+paginate: 8
+paginate_path: /page:num/
+
+# Default values
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+
+# Plugins
+gems:
+  - jekyll-paginate
+
+# Options
+custom_header: false
+custom_nav_footer: false
+reverse: false
