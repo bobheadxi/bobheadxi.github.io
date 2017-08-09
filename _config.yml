@@ -8,8 +8,9 @@ author:
   url: "https://github.com/bobheadxi"
 
 # Build settings
-baseurl: /
+baseurl: /blog/
 markdown: kramdown
+highlighter: rouge
 source: .
 destination: ./_site
 permalink: /:title
