@@ -7,7 +7,7 @@ title: Projects
 *[Source](https://github.com/d4rken/reddit-android-appstore) / Android, Java, JUnit*  
 The r/Android App Store is an Android application that allows users to conveniently browse a massive community-curated app list. I contributed a range of bug fixes, features and backend restructuring to the project.  
 
-![](https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview.png?raw=true)
+![](https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true)
 
 __________________  
 ## Facebook Messenger Bot with Spotify Integration
