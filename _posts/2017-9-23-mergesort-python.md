@@ -43,7 +43,7 @@ For this post, I will go with Method 2, but I will include an implementation of 
 
 This allows the algorithm to compare the elements of each half to one another to sort them.
 
-```
+```python
 elif right[y] < left[x]:
 	result.append(right[y])
 	y+=1
@@ -56,7 +56,7 @@ This works, but can be optimized a bit - if we reach the end of the first half, 
 
 The complete implementation actually took me a while to get right because I'm bad at Python, but the resulting `merge()` looks like this:
 
-```
+```python
 def merge(left, right):
 	result = []
 	x, y = 0, 0
@@ -78,7 +78,7 @@ def merge(left, right):
 
 And a quick test to verify it works:
 
-```
+```python
 left = [5,6,7,8]
 right = [1,2,3,4]
 print(merge(left,right)) # output = [1, 2, 3, 4, 5, 6, 7, 8]
@@ -92,19 +92,19 @@ Using only `merge()`, we can sort an entire list simply by recursively dividing 
 
 To do this we need a function, `sort()`, that calculates a `mid` and calls itself on `list[:mid]` (the first half) and `list[mid:]`(the second half). By using `merge()` on the halves, you eventually end up with a sorted list.
 
-```
+```python
 def mergesort(list):
-	if len(list) < 2:				   	   	# stop recursion when 
-		return list							# sublists are size 1 or 0
-	mid = int (len(list)/2)					# calculate midpoint
-	left = mergesort(list[:mid])			# recursive sort 1st half
-	right = mergesort(list[mid:])			# recursive sort 2nd half
-	return merge(left, right)				# merge the two halves
+	if len(list) < 2:					# stop recursion when 
+		return list						# sublists are size 1 or 0
+	mid = int (len(list)/2)				# calculate midpoint
+	left = mergesort(list[:mid])		# recursive sort 1st half
+	right = mergesort(list[mid:])		# recursive sort 2nd half
+	return merge(left, right)			# merge the two halves
 ```
 
 Running a similar test from before verifies that this works:
 
-```
+```python
 list = [2,5,1,8,3,8,0]
 print(mergesort(list)) # output = [0, 1, 2, 3, 5, 8, 8]
 ```
@@ -124,7 +124,7 @@ The process is as follows:
 
 The implementation, using the same `merge()` from part one:
 
-```
+```python
 def bottomup_mergesort(list):
 	length = len(list)
 	size = 1
@@ -142,7 +142,7 @@ def bottomup_mergesort(list):
 
 And a test to verify it works:
 
-```
+```python
 randlist = []
 for x in range (0, 100001):
 	randlist.append(random.randint(0, 100))
@@ -159,7 +159,7 @@ The premise behind the in-place mergesort is that by using an auxillary array, `
 
 I won't go too much into the details, but here are my implementations of both a normal mergesort and a bottom-up mergesort, based on the algorithm implemented in the Coursera course:
 
-```
+```python
 def merge(list, temp, low, mid, high):
 	'''
 	Merges two sorted halves of a list in order.
