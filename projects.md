@@ -13,7 +13,7 @@ __________________
 The "r/Android App Store" is an Android application that allows users to conveniently browse a massive [community-curated list of apps](https://www.reddit.com/r/android/wiki/apps) including all sorts of Android applications and games. The app features a comprehensive featureset and boasts a very strong userbase - the two major releases I participated in, v0.7 and v0.8, already has over [10,000 cumulative downloads](http://www.somsubhra.com/github-release-stats/?username=d4rken&repository=reddit-android-appstore). With over 20 merged pull requests, some of my contributions include:
 - **new features** such a redesign of one of the app's pages, the ability to automatically tag newly added apps as "new", the ability to save selected filters, a popup to show changelogs pulled from GitHub, markdown to HTML conversion for text, and more
 
-- **refactoring** parts of the app's backend to utilise Dagger 2's dependency injection capabilities to enable easier testing, as well as making performance improvements by providing application-scoped (singleton) OkHttpClient instances through Dagger
+- **refactoring** parts of the app's backend to utilise `Dagger 2`'s dependency injection capabilities to enable easier testing, as well as making performance improvements by providing application-scoped (singleton) `OkHttpClient` and `Retrofit` instances through Dagger
 
 - rewriting **unit tests** for one of the refactored modules for more comprehensive coverage, and provided unit tests for some of my own contirbutions
 
