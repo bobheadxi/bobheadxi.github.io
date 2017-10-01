@@ -15,7 +15,7 @@ The "r/Android App Store" is an Android application that allows users to conveni
 
 - **refactoring** parts of the app's backend to utilise [Dagger](https://github.com/google/dagger)'s dependency injection capabilities to enable easier testing, as well as making performance improvements by providing application-scoped (singleton) [OkHttpClient](https://github.com/square/okhttp) and [Retrofit](https://github.com/square/retrofit) instances through Dagger
 
-- rewriting **unit tests** for one of the refactored modules for more comprehensive coverage, and provided unit tests for some of my own contirbutions
+- rewriting **unit tests** using [JUnit](http://junit.org/junit5/) and [Mockito](http://site.mockito.org) for one of the refactored modules for more comprehensive coverage, and provided unit tests for some of my own contirbutions
 
 - a wide range of **bug fixes** to improve the app's stability
 
@@ -39,7 +39,7 @@ This bot allows you to interact with [Spotify](http://spotify.com) through the [
 
 - the ability to **"host" a playlist** - other users can then request for songs to be added to the playlist, which then have to be approved by the host
 
-- **unit tests** written using [Mocha](https://mochajs.org)
+- **unit tests** written using [Mocha](https://mochajs.org) and [Sinon](http://sinonjs.org)
 
 - **continuous integration tools** and code coverage reporting built in to the repository with [Travis](https://travis-ci.org) and [Coveralls](https://coveralls.io)
 
