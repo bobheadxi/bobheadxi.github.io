@@ -7,6 +7,15 @@ layout: landing-page
 </style>
 
 <body>
+    <script>
+        // special thanks to https://github.com/caseyscarborough/github-activity
+        GitHubActivity.feed({
+            username: "bobheadxi",
+            selector: "#feed",
+            limit: 20
+        });
+    </script>
+
     <h1>
         <img src={{ site.url }}/assets/images/me.jpg width="500"
         alt="Robert (Pin-Chun) Lin">
@@ -25,6 +34,10 @@ layout: landing-page
     <p>If you would like to get in touch, please 
         <a href="mailto:robertlin@alumni.ubc.ca?Subject=Hi%20Robert!" target="_top">email me</a>.
     </p>
+
+    <p>---</p>
+
+    <div id="feed" style="width:580px;height:430px;margin:0 auto;"></div>
 
 <!-- TODO
     <p>
