@@ -6,6 +6,13 @@ title: Projects
 Featured here are some of the things I have been doing in my spare time, though I am always working on new things that might not be listed here. Drop by my [GitHub](https://github.com/bobheadxi) to see more :-)
 
 __________________
+### Sleuth: UBC's Search Engine (Work in Progress)
+[ `club project` ]    
+*Python, Django, Scrapy, Solr / [Source](https://github.com/ubclaunchpad/sleuth)*
+
+Ever wanted to find something specific about the University of British Columbia - such as your course site - only to find yourself wading through a hundred irrelevant Google results? Sleuth is a service that will allow anyone to search up UBC-relevant content gathered by our own web crawlers and indexed by our own database built on Solr. These services will be available through a RESTful API and our own website to demo our functionaltiy. It is a work in progress slated for an initial release this December. Follow the project on GitHub to stay up to date on our status!
+
+__________________
 ### "r/Android App Store" Android Application
 [ `open-source` ]    
 *Android, Java, JUnit / [Source](https://github.com/d4rken/reddit-android-appstore)*  
@@ -45,5 +52,3 @@ This bot allows you to interact with [Spotify](http://spotify.com) through the [
 
 All this is conveniently done through Facebook Messenger in a seamless experience. I am currently working on almost entirely rewriting the backend, building a comprehensive testing suite, and setting up a cleaner development pipeline that will ensure I always have a stable instance of the bot up on Heroku. I will then be submitting the bot to Facebook to make it accessible to everyone.
 ![](https://github.com/bobheadxi/facebook-spotify-chatbot/blob/dev/screenshots/screenshots0-2-1.png?raw=true)
-
-__________________
