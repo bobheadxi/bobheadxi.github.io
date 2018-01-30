@@ -1,6 +1,16 @@
 ---
+title: "Python and Mergesorts"
 layout: post
-title: Mergesorts in Python
+date: 2016-02-24 22:44
+image: /assets/images/markdown.jpg
+headerImage: false
+tag:
+- python
+- algorithm
+star: false
+category: blog
+author: robert
+description: Markdown summary with different options
 ---
 
 Two weeks into my second year of university, I have learned a very important lesson:
