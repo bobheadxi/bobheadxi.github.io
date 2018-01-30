@@ -15,9 +15,19 @@ category: project
 author: robert
 externalLink: false
 ---
+<p align="center">
+    <img src="https://github.com/bobheadxi/facebook-spotify-chatbot/blob/dev/screenshots/screenshots0-2-1.png?raw=true" />
+</p>
 
-[ `personal project` ]   
-*Node.js, JavaScript, Mocha / [Source](https://github.com/bobheadxi/facebook-spotify-chatbot)*   
+<p align="center">
+    <img src="https://travis-ci.org/bobheadxi/facebook-spotify-chatbot.svg?branch=dev" />
+    <img src="https://img.shields.io/github/languages/top/bobheadxi/facebook-spotify-chatbot.svg" />
+    <img src="https://img.shields.io/github/contributors/bobheadxi/facebook-spotify-chatbot.svg" />
+</p>
+
+<p align="center">
+    <a href="https://github.com/bobheadxi/facebook-spotify-chatbot">GitHub Repository</a>
+</p>
 
 This bot allows you to interact with [Spotify](http://spotify.com) through the [Facebook Messenger](https://www.messenger.com) interface and allows the creation of more tightly controlled public playlists. Written in JavaScript using the [Node.js](https://nodejs.org/en/) framework, hosted on [Heroku](https://www.heroku.com), and making extensive use of [Facebook](https://developers.facebook.com/docs/messenger-platform/) and [Spotify](https://developer.spotify.com/web-api/)'s RESTful APIs, this bot currently features:
 - **song search**, which presents the user with an attractive scrolling view that shows the song name, album art, album name and artist
@@ -31,4 +41,3 @@ This bot allows you to interact with [Spotify](http://spotify.com) through the [
 - **continuous integration tools** and code coverage reporting built in to the repository with [Travis](https://travis-ci.org) and [Coveralls](https://coveralls.io)
 
 All this is conveniently done through Facebook Messenger in a seamless experience. I am currently working on almost entirely rewriting the backend, building a comprehensive testing suite, and setting up a cleaner development pipeline that will ensure I always have a stable instance of the bot up on Heroku. I will then be submitting the bot to Facebook to make it accessible to everyone.
-![](https://github.com/bobheadxi/facebook-spotify-chatbot/blob/dev/screenshots/screenshots0-2-1.png?raw=true)

@@ -5,6 +5,7 @@ date: 2018-01-01 00:00
 tag:
 - android
 - java
+- open-source
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false
 projects: true
@@ -14,11 +15,22 @@ category: project
 author: robert
 externalLink: false
 ---
+<p align="center">
+    <img src="https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true" />
+</p>
 
-[ `open-source` ]    
-*Android, Java, JUnit / [Source](https://github.com/d4rken/reddit-android-appstore)*  
+<p align="center">
+    <img src="https://img.shields.io/github/downloads/d4rken/reddit-android-appstore/total.svg"
+        alt="Total Downloads" />
+    <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore.svg" />
+    <img src="https://img.shields.io/github/contributors/d4rken/reddit-android-appstore.svg" />
+</p>
 
-The "r/Android App Store" is an Android application that allows users to conveniently browse a massive [community-curated list of apps](https://www.reddit.com/r/android/wiki/apps) including all sorts of Android applications and games. The app features a comprehensive featureset and boasts a very strong userbase - the two major releases I participated in, v0.7 and v0.8, already has over [10,000 cumulative downloads](http://www.somsubhra.com/github-release-stats/?username=d4rken&repository=reddit-android-appstore). With over 20 merged pull requests, some of my contributions include:
+<p align="center">
+    <a href="https://github.com/d4rken/reddit-android-appstore">GitHub Repository</a>
+</p>
+
+The "r/Android App Store" is an Android application that allows users to conveniently browse a massive [community-curated list of apps](https://www.reddit.com/r/android/wiki/apps) including all sorts of Android applications and games. The app features a comprehensive featureset and boasts a very strong userbase - the two major releases I participated in, v0.7 and v0.8, already has over [30,000 cumulative downloads](http://www.somsubhra.com/github-release-stats/?username=d4rken&repository=reddit-android-appstore). With over 20 merged pull requests, some of my contributions include:
 - **new features** such a redesign of one of the app's pages, the ability to automatically tag newly added apps as "new", the ability to save selected filters, a popup to show changelogs pulled from GitHub, markdown to HTML conversion for text, and more
 
 - **refactoring** parts of the app's backend to utilise [Dagger](https://github.com/google/dagger)'s dependency injection capabilities to enable easier testing, as well as making performance improvements by providing application-scoped (singleton) [OkHttpClient](https://github.com/square/okhttp) and [Retrofit](https://github.com/square/retrofit) instances through Dagger
@@ -32,5 +44,3 @@ The "r/Android App Store" is an Android application that allows users to conveni
 - **reviewing pull requests** made by new contributors and addressing bug reports and issues raised by the community
 
 Check out my pull requests in more detail [here](https://github.com/d4rken/reddit-android-appstore/pulls?utf8=✓&q=is%3Apr%20is%3Aclosed%20author%3Abobheadxi%20is%3Amerged%20base%3Adev)!
-
-![](https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true)
