@@ -15,18 +15,21 @@ category: project
 author: robert
 externalLink: false
 ---
+
 <p align="center">
     <img src="https://github.com/bobheadxi/facebook-spotify-chatbot/blob/dev/screenshots/screenshots0-2-1.png?raw=true" />
+</p>
+
+<p align="center">
+    <a href="https://github.com/bobheadxi/facebook-spotify-chatbot">
+        <img src="https://img.shields.io/badge/GitHub-facebook--spotify--chatbot-red.svg?style=for-the-badge" alt="Website Repository"/>
+    </a>
 </p>
 
 <p align="center">
     <img src="https://travis-ci.org/bobheadxi/facebook-spotify-chatbot.svg?branch=dev" />
     <img src="https://img.shields.io/github/languages/top/bobheadxi/facebook-spotify-chatbot.svg" />
     <img src="https://img.shields.io/github/contributors/bobheadxi/facebook-spotify-chatbot.svg" />
-</p>
-
-<p align="center">
-    <a href="https://github.com/bobheadxi/facebook-spotify-chatbot">GitHub Repository</a>
 </p>
 
 This bot allows you to interact with [Spotify](http://spotify.com) through the [Facebook Messenger](https://www.messenger.com) interface and allows the creation of more tightly controlled public playlists. Written in JavaScript using the [Node.js](https://nodejs.org/en/) framework, hosted on [Heroku](https://www.heroku.com), and making extensive use of [Facebook](https://developers.facebook.com/docs/messenger-platform/) and [Spotify](https://developer.spotify.com/web-api/)'s RESTful APIs, this bot currently features:

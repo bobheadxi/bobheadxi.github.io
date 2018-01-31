@@ -13,10 +13,18 @@ hidden: true # don't count this post in blog pagination
 description: "widely used portal for luxuriously browsing a popular community-curated collection of Android applications"
 category: project
 author: robert
+star: true
 externalLink: false
 ---
+
 <p align="center">
     <img src="https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true" />
+</p>
+
+<p align="center">
+    <a href="https://github.com/d4rken/reddit-android-appstore">    
+        <img src="https://img.shields.io/badge/GitHub-r%2FAndroid%20App%20Store-red.svg?style=for-the-badge" alt="GitHub Repository"/>
+    </a>
 </p>
 
 <p align="center">
@@ -24,10 +32,6 @@ externalLink: false
         alt="Total Downloads" />
     <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore.svg" />
     <img src="https://img.shields.io/github/contributors/d4rken/reddit-android-appstore.svg" />
-</p>
-
-<p align="center">
-    <a href="https://github.com/d4rken/reddit-android-appstore">GitHub Repository</a>
 </p>
 
 The "r/Android App Store" is an Android application that allows users to conveniently browse a massive [community-curated list of apps](https://www.reddit.com/r/android/wiki/apps) including all sorts of Android applications and games. The app features a comprehensive featureset and boasts a very strong userbase - the two major releases I participated in, v0.7 and v0.8, already has over [30,000 cumulative downloads](http://www.somsubhra.com/github-release-stats/?username=d4rken&repository=reddit-android-appstore). With over 20 merged pull requests, some of my contributions include:

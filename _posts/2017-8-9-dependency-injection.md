@@ -1,8 +1,8 @@
 ---
 title: "Dagger and Dependency Injection for Testable Code"
 layout: post
-date: 2016-02-24 22:44
-image: /assets/images/markdown.jpg
+date: 2017-08-09 22:12
+image: 
 headerImage: false
 tag:
 - java
@@ -11,7 +11,7 @@ tag:
 star: false
 category: blog
 author: robert
-description: Markdown summary with different options
+description: A quick intro to dependency injection with Dagger
 ---
 
 As the summer progressed, my part time job selling pickles began to take up 4 to 7 hours per day, pretty much every single day. As fun as eating, chopping, packing, and talking about pickles was, I felt I needed a change of pace in my spare time. Something fun. Unfortunately, _Game of Thrones_ only came along once a week, so I filled the rest of my time with something just as fun: sitting in front of a laptop for hours on end.

@@ -1,8 +1,8 @@
 ---
 title: "Python and Mergesorts"
 layout: post
-date: 2016-02-24 22:44
-image: /assets/images/markdown.jpg
+date: 2017-09-23 22:44
+image: 
 headerImage: false
 tag:
 - python
@@ -10,7 +10,7 @@ tag:
 star: false
 category: blog
 author: robert
-description: Markdown summary with different options
+description: I don't know what I am doing.
 ---
 
 Two weeks into my second year of university, I have learned a very important lesson:
