@@ -15,7 +15,7 @@ author: robert
 externalLink: false
 ---
 
-There are lots of awesome people out there who take fantastic photographs. There are better edited photographs. There are better composed photographs. There are photographs that document the incredible events - the beautiful, the tragic, the miraculous. There are photographs that document the small things in life - people, friends, family, loved ones. These photographs might be in the news, on Instagram, in a book, in a Snap that disappears after 7 seconds, even - they are everywhere, and oftentimes I will still find that a photo I took on the go with my phone are the ones that holds the most meaningful memories.
+There are lots of awesome people out there who take fantastic photographs. There are better edited photographs. There are better composed photographs. There are photographs that document incredible events - the beautiful, the tragic, the miraculous. There are photographs that document the small things in life - people, friends, family, loved ones. These photographs might be in the news, on Instagram, in a book, in a Snap that disappears after 7 seconds, even - they are everywhere, and oftentimes I will still find that a photo I took on the go with my phone are the ones that holds the most meaningful memories.
 
 So why do I still take these? I have to lug around a camera all day. I am not a particularly big fan of having the big chunky thing out in my hands. On hikes, I often end up slowing my team down when I stop to take off my bag, rummage through my stuff to find my camera, struggle with the strap getting tangled up in the mess, then finally take my photo. In my rush this photo often turns out to be... not great.
 
