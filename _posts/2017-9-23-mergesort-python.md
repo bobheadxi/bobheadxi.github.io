@@ -228,5 +228,5 @@ def bottomup_mergesort(list):
 
 # Part 4: Complexity Analysis
 
-I will get back to this. Cheers!
+I will get back to this, pretty tired now. Cheers!
 

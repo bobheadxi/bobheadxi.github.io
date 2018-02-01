@@ -1,6 +1,6 @@
 # main text of home
 name: robert lin
-bio: lunch eater
+bio: lunch eater, mathematics major, software developer, bioinformatics intern
 
 # if it's an external image, update below for true
 # better with square images
@@ -51,7 +51,7 @@ instagram: savethefade
 authors:
     robert:
         name: Robert Lin
-        bio: lunch eater
+        bio: Enthusiastic eater of lunches
         external-image: false
         picture: assets/images/profile.jpg
 

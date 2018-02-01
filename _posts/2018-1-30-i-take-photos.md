@@ -9,13 +9,13 @@ image: https://68.media.tumblr.com/d4320ac06aa3d4c55b6382fdd230a92d/tumblr_p1t1l
 headerImage: true
 photography: true
 hidden: true # don't count this post in blog pagination
-description: "hi all"
+description: "the why"
 category: photography
 author: robert
 externalLink: false
 ---
 <p align="center" width="80%">
- <i>“The picture that you took with your camera is the imagination you want to create with reality.”</i>
+    <i>“The picture that you took with your camera is the imagination you want to create with reality.”</i>
 </p>
 
 <p align="center">
@@ -25,17 +25,17 @@ externalLink: false
     <img src="https://scontent-sea1-1.cdninstagram.com/vp/a0b1de30b39046b32b0109a3bc843389/5B0489F1/t51.2885-15/e35/18812767_1901981953399680_1985384255034753024_n.jpg" width="80%">
 </p>
 
-There are lots of awesome people out there who take fantastic photographs. There are better edited photographs. There are better composed photographs. There are photographs that document incredible events - the beautiful, the tragic, the miraculous. There are photographs that document the small things in life - people, friends, family, loved ones. These photographs might be in the news, on Instagram, in a book, in a Snap that disappears after 7 seconds, even - they are everywhere, and oftentimes I will still find that a photo I took on the go with my phone are the ones that holds the most meaningful memories.
+There are lots awesome photographers out there. There are better edited photographs. There are better composed photographs. There are photographs that document incredible events - the beautiful, the tragic, the miraculous. There are photographs that document the small things in life - people, friends, family, loved ones. These photographs might be in the news, on Instagram, in a book, in a Snap that disappears after 7 seconds, even - they are everywhere, and oftentimes I will still find that a photo I took on the go with my phone are the ones that holds the most meaningful memories.
 
 So why do I still take these? I have to lug around a camera all day. I am not a particularly big fan of having the big chunky thing out in my hands. On hikes, I often end up slowing my team down when I stop to take off my bag, rummage through my stuff to find my camera, struggle with the strap getting tangled up in the mess, then finally take my photo. In my rush this photo often turns out to be... not great.
 
-So why do I still take these? I suppose the easy answer would be that I just enjoy it, and you can probably stop reading right here.
+I suppose the easy answer would be that I do this just because I kind of enjoy it, and you can probably stop reading right here.
 
 <p align="center">
     <img src='https://drscdn.500px.org/photo/68463705/m%3D900/v2?user_id=1282247&webp=true&sig=35392cf5d512f4f0dd4e0405ddcda38478723784527b48670093167ccfaf8bc9' width="75%" />
 </p>
 
-To me, there's just a little bit more to it. Perhaps one day someone will read this and bring it up and I will be terribly embarrased and delete this whole post, but to me these photographs embody a feeling that I don't really know how to put into words. True, some are rather meaningless, especially some of my earlier work, but as the years have passed I have gained a firmer grasp of what I want to show - but as with all things in life, what I want to show will probably change and shift.
+However, I've always felt that there is just a little bit more to it. Perhaps one day someone will read this and bring it up and I will be terribly embarrased and delete this whole post, but to me these photographs embody a feeling that I don't really know how to put into words. True, some are rather meaningless, especially some of my earlier work, but as the years have passed I have gained a firmer grasp of what I want to show - but as with all things in life, what I want to show will probably change and shift.
 
 If you find that you like these photos, thank you! If not, thank you for looking anyway. They might not be very good, but these photographs help keep me grounded, and they do mean quite a lot to me.
 
