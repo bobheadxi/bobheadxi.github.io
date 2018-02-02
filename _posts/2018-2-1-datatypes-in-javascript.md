@@ -20,7 +20,7 @@ Despite my last blog post from way back in 2017, I have not learned any lessons 
     <img src="https://st2.depositphotos.com/1859627/9435/i/950/depositphotos_94358986-stock-photo-taiwanese-braised-pork-rice.jpg" alt="I do like watermarks and stock photos" width="70%" />
 </p>
 
-Well this particular picture isn't mine but you get the idea.
+This particular picture isn't mine but you get the idea.
 
 # Prelude
 At work, part of my job has been slowly revamping my team's various scattered web platforms - a collection of about 3 servers serving 6 different websites - into a more consolidated and (hopefully) neater codebase.
@@ -297,7 +297,13 @@ const jsonFormat = {
 }
 ```
 - `toJSON()` just needs convert the keys, nothing fancy to be done
-- for `fromJSON()` to take an object using the `jsonFormat` keys, the function needs to first reverse the `jsonFormat`, rename the keys of the input using the reversed format (essentially translating it back to its original form), then populate and format the class's data
+- for `fromJSON()` to take an object using the `jsonFormat` keys, the function needs to first reverse the `jsonFormat`, rename the keys of the input using the reversed format (essentially translating it back to its original form), then populate and format the class' data
+
+Quick note: I return `this` in `fromJSON()` to allow the function to be chained during construction:
+
+```js
+const data = new MyType({}).fromJSON(req.body);
+```
 
 So how to go about renaming and swapping keys? The implementations are fairly straight forward and is conceptually similar to `iterateAndPopulateObject()`, so I'll just include them here:
 
