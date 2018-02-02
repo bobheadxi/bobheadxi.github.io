@@ -11,7 +11,7 @@ tag:
 star: false
 category: blog
 author: robert
-description: a simple take on datatypes in Javascript
+description: a simple take on polymorphic classes for object casting in Javascript
 ---
 
 Despite my last blog post from way back in 2017, I have not learned any lessons regarding ground beef and continue to eat it on a daily basis. Though I suppose I have changed slightly - I eat more ground pork now, for no real reason other than to make this beauty every day:
@@ -55,7 +55,7 @@ router.post('/do_thing', (req, res) => {
 
 Let's ignore that wild SQL string there for today and look at that big bad list of parameters, most (actually, all) of which boil down to `this.thing = that.thing`. There are several endpoints that take the same parameters as well, where this whole list is copy and pasted.
 
-The fact that these parameter objects are passed into the various queries to do their thing meant that before I started on separating the SQL and database component of the server, I had to work out an effective and standardised way to pass this stuff around.
+The fact that these parameter objects are passed into the various queries to do their thing meant that before I started on separating the SQL and database component of the server, I had to work out an effective and standardised way to pass this stuff around - some form of **object casting in Javascript** (which a reader pointed out should probably have been the title of this post to being with).
 
 # Solution
 
@@ -345,6 +345,20 @@ function swapKeyValues(object) {
 };
 ```
 
-And of course I wrote unit tests to make sure `toJSON()` and `fromJSON()` worked as intended, but this post is getting rather long so I'll leave it out. Feel free to get in touch through my email if you have any questions or suggestions about this though! I personally have found this very handy and although I'm sure it could use some changes to improve its flexibility (one thing I'm hoping to look into is implementing some sort of field validations, such as checking if required fields are present) I think this is far better than the original sprawling list of `this.thing = that.thing`.
+**Update**: A reader asked about a line in `renameKeys()` that I think is pretty cool:
+```js
+return { [newKey]: target[key] };
+```
+This allows you to use a string variable, `newKey`, as the name of a key when instantiating a dictionary:
+```js
+const key = 'chicken';
+const object = { [key]: 'wing' };
+expect(object).to.deep.equal({
+    chicken: 'wing'
+})
+```
+Nifty!
+
+Of course, I also wrote unit tests to make sure `toJSON()` and `fromJSON()` worked as intended, but this post is getting rather long so I'll leave it out. Feel free to get in touch through my email if you have any questions or suggestions about this though! I personally have found this very handy and although I'm sure it could use some changes to improve its flexibility (one thing I'm hoping to look into is implementing some sort of field validations, such as checking if required fields are present) I think this is far better than the original sprawling list of `this.thing = that.thing`.
 
 Thanks for reading, and I hope you found this useful!
