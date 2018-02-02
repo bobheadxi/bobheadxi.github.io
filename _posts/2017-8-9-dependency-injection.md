@@ -34,15 +34,13 @@ public class BodyParserTest {
 
     @Before
     public void setup() {
-        MockitoAnnotations.initMocks(this);
-        when(encodingFixer.fixHtmlEscapes(anyString())).then(new Answer<String>() {
-            // define the behaviour
-        });
+        // init encoding fixer, some other setup
         bodyParser = new BodyParser(encodingFixer);
     }
 
     @Test
     public void testBodyParser() throws IOException {
+        // call `parseBody()` to test it
         Collection<AppInfo> appInfos = bodyParser.parseBody(TestBody.HTMLBODY);
         // various assertions
     }
