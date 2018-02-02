@@ -272,9 +272,7 @@ toJSON() {
 }
 
 /**
-* Populates this object using its JSON format. Note that fields
-* requiring conversion (e.g. data formatting) should have their
-* fields formatted BEFORE being used as an input to this function.
+* Populates this object from an input using its JSON format.
 * e.g: `let hist = new types.PendingLibraryHistory({}).fromJSON(jsonInput);`
 * @param {Object} input Object containing desired JSON-formatted data.
 * @returns {DataType} self
@@ -284,7 +282,8 @@ fromJSON(input) {
     input = renameKeys(input, reversedFormat);
     iterateObjectAndPopulate(input, this.data);
     this.format(this.data); // Aha! Passing this function as a
-                            // parameter came in handy.
+                            // parameter came in handy, I can
+			    // now call it wherever I want
     return this;
 }
 ```
@@ -298,8 +297,7 @@ const jsonFormat = {
 ```
 - `toJSON()` just needs convert the keys, nothing fancy to be done
 - for `fromJSON()` to take an object using the `jsonFormat` keys, the function needs to first reverse the `jsonFormat`, rename the keys of the input using the reversed format (essentially translating it back to its original form), then populate and format the class' data
-
-Quick note: I return `this` in `fromJSON()` to allow the function to be chained during construction:
+- I return `this` in `fromJSON()` to allow the function to be chained during construction:
 
 ```js
 const data = new MyType({}).fromJSON(req.body);
