@@ -157,10 +157,28 @@ public class BodyParserTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        // stuff to set up mocked behaviours
+        // the following code sets up our @Mock AppParser and @Mock CategoryParser
+        doAnswer(new Answer<Void>() {
+            // when you call categoryParser.parse(), return null
+            @Override
+            public Void answer(InvocationOnMock invocation) throws Throwable {
+                return null;
+            }
+        }).when(categoryParser).parse(isA(AppInfo.class), anyList());
+        
+        doAnswer(new Answer<Void>() {
+            // when you call appParser.parse(), return null
+            @Override
+            public Void answer(InvocationOnMock invocation) throws Throwable {
+                return null;
+            }
+        }).when(appParser).parse(isA(AppInfo.class), anyMap());
 
+        // set up a set of mocked AppParsers to give to BodyParser
         Set<AppParser> appParsers = new HashSet<>();
-        // stuff to fill Set of mocked AppParser
+        for (int i=0; i<5; i++) {
+            appParsers.add(appParser);
+        }
 
         bodyParser = new BodyParser(categoryParser, appParsers);
     }
