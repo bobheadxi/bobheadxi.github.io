@@ -65,7 +65,12 @@ public class BodyParser {
     }
 
     public Collection<AppInfo> parseBody(String bodyString) {
-        // some processing
+        Collection<AppInfo> parsedOutput = new ArrayList<>();
+        List<String> lines = Arrays.asList(bodyString.split("\n"));
+        
+        // function `parseCategoryBlocks()` calls the `parse()` function
+        // of each of the `AppParser` classes in the list `appParser`
+        parsedOutput.addAll(parseCategoryBlocks(new ArrayList<>(), lines));
         return parsedOutput;
     }
 
