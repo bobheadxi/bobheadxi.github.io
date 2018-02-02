@@ -305,7 +305,7 @@ Quick note: I return `this` in `fromJSON()` to allow the function to be chained 
 const data = new MyType({}).fromJSON(req.body);
 ```
 
-So how to go about renaming and swapping keys? The implementations are fairly straight forward and is conceptually similar to `iterateAndPopulateObject()`, so I'll just include them here:
+So how to go about renaming and swapping keys? Since the implementations are fairly straight forward and is conceptually similar to `iterateAndPopulateObject()`, I'll just include them here:
 
 ```js
 /**
@@ -337,15 +337,14 @@ function renameKeys(target, newKeys) {
 * @returns {Object}
 */
 function swapKeyValues(object) {
-   const newObject = {};
-   Object.keys(object).forEach((key) => {
-       newObject[object[key]] = key;
-   });
-   return newObject;
+    const keyValues = Object.keys(object).map((key) => {
+        return { [object[key]]: key };
+    });
+    return Object.assign({}, ...keyValues);
 };
 ```
 
-**Update**: A reader asked about a line in `renameKeys()` that I think is pretty cool:
+**Update**: A reader asked about a line in these helpers that I think is pretty cool:
 ```js
 return { [newKey]: target[key] };
 ```
