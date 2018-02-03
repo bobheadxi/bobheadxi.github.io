@@ -44,15 +44,13 @@ public class BodyParserTest {
 
     @Before
     public void setup() {
-        MockitoAnnotations.initMocks(this);
-        when(encodingFixer.fixHtmlEscapes(anyString())).then(new Answer<String>() {
-            // define the behaviour
-        });
+        // init encoding fixer, some other setup
         bodyParser = new BodyParser(encodingFixer);
     }
 
     @Test
     public void testBodyParser() throws IOException {
+        // call `parseBody()` to test it
         Collection<AppInfo> appInfos = bodyParser.parseBody(TestBody.HTMLBODY);
         // various assertions
     }
@@ -75,7 +73,12 @@ public class BodyParser {
     }
 
     public Collection<AppInfo> parseBody(String bodyString) {
-        // some processing
+        Collection<AppInfo> parsedOutput = new ArrayList<>();
+        List<String> lines = Arrays.asList(bodyString.split("\n"));
+        
+        // function `parseCategoryBlocks()` calls the `parse()` function
+        // of each of the `AppParser` classes in the list `appParser`
+        parsedOutput.addAll(parseCategoryBlocks(new ArrayList<>(), lines));
         return parsedOutput;
     }
 
@@ -164,10 +167,28 @@ public class BodyParserTest {
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
-        // stuff to set up mocked behaviours
+        // the following code sets up our @Mock AppParser and @Mock CategoryParser
+        doAnswer(new Answer<Void>() {
+            // when you call categoryParser.parse(), return null
+            @Override
+            public Void answer(InvocationOnMock invocation) throws Throwable {
+                return null;
+            }
+        }).when(categoryParser).parse(isA(AppInfo.class), anyList());
+        
+        doAnswer(new Answer<Void>() {
+            // when you call appParser.parse(), return null
+            @Override
+            public Void answer(InvocationOnMock invocation) throws Throwable {
+                return null;
+            }
+        }).when(appParser).parse(isA(AppInfo.class), anyMap());
 
+        // set up a set of mocked AppParsers to give to BodyParser
         Set<AppParser> appParsers = new HashSet<>();
-        // stuff to fill Set of mocked AppParser
+        for (int i=0; i<5; i++) {
+            appParsers.add(appParser);
+        }
 
         bodyParser = new BodyParser(categoryParser, appParsers);
     }

@@ -10,6 +10,7 @@ headerImage: true
 photography: true
 hidden: true # don't count this post in blog pagination
 description: the why
+hidedescription: true
 category: photography
 author: robert
 externalLink: false
