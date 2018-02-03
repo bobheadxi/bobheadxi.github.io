@@ -1,9 +1,9 @@
 ---
-title: "Dagger and Dependency Injection for Testable Code"
+title: "Dependency Injection for Testable Code"
 layout: post
 date: 2017-08-09 22:12
-image: 
-headerImage: false
+image: https://instagram.fyvr3-1.fna.fbcdn.net/vp/1d1f99fef6be28181e981978ddcf40d6/5B202698/t51.2885-15/e35/19622780_503826899957203_4867511051014373376_n.jpg
+headerImage: true
 tag:
 - java
 - android
@@ -11,10 +11,20 @@ tag:
 star: false
 category: blog
 author: robert
-description: A quick intro to dependency injection with Dagger
+description: with Java and the Dagger library
 ---
 
-As the summer progressed, my part time job selling pickles began to take up 4 to 7 hours per day, pretty much every single day. As fun as eating, chopping, packing, and talking about pickles was, I felt I needed a change of pace in my spare time. Something fun. Unfortunately, _Game of Thrones_ only came along once a week, so I filled the rest of my time with something just as fun: sitting in front of a laptop for hours on end.
+As the summer progressed, my part time job selling pickles began to take up 4 to 7 hours per day, pretty much every single day. As fun as eating, chopping, packing, and talking about pickles was, I felt I needed a change of pace in my spare time. Something fun. 
+
+<p align="center">
+    <img src="https://instagram.fyvr3-1.fna.fbcdn.net/vp/b5a3762a00c93b5f4c363164c84182f0/5B095EEC/t51.2885-15/e35/17663478_1545807698763875_1964684638676844544_n.jpg" width="50%">
+</p>
+
+<p align="center">
+    <i>Courtesy of Kaylin and Hobbs' <a href="https://www.instagram.com/kaylinandhobbs/">Instagram</a>, check them out!</i>
+</p>
+
+Unfortunately, _Game of Thrones_ only came along once a week, so I filled the rest of my time with something just as fun: sitting in front of a laptop for hours on end.
 
 I started off with a small Javascript project, my [Facebook Messenger bot](https://github.com/bobheadxi/facebook-spotify-chatbot).  Work on my bot, however, has dwindled over the last few weeks in favour of an open source project, the [r/Android App Store](https://github.com/d4rken/reddit-android-appstore). It is a neat little application that allows you to conveniently browse a list of apps curated by the folks over at [r/Android](https://reddit.com/r/Android), as well as games picked by the [r/AndroidGaming](https://reddit.com/r/AndroidGaming) community. There is a surprisingly large user base: release v0.6.0, which was the latest release when I first started working on the app, had over 19,000 direct downloads from GitHub, which doesn’t even include downloads from FDroid. The app features a nice variety of options including themes, filtering by category, search, and the ability to take a look at each app’s description and screenshots, courtesy of several scrapers. All this was largely built, it seems, by [Matthias Urhahn (d4rken)](https://github.com/d4rken) and [Garret Yoder (garretyoder)](https://github.com/garretyoder), whose code I will be frequently referencing in this post. As a side note, d4rken is also the developer of a popular Android app called [SD Maid](https://play.google.com/store/apps/details?id=eu.thedarken.sdm&hl=en) and he has been a tremendous help to me ever since I started working on the [r/Android App Store](https://github.com/d4rken/reddit-android-appstore).
 

@@ -9,7 +9,7 @@ image: https://68.media.tumblr.com/d4320ac06aa3d4c55b6382fdd230a92d/tumblr_p1t1l
 headerImage: true
 photography: true
 hidden: true # don't count this post in blog pagination
-description: "the why"
+description: the why
 category: photography
 author: robert
 externalLink: false

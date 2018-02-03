@@ -2,8 +2,8 @@
 title: "this.thing = that.thing"
 layout: post
 date: 2018-02-01 18:17
-image: 
-headerImage: false
+image: https://seeklogo.com/images/J/javascript-logo-E967E87D74-seeklogo.com.png
+headerImage: true
 tag:
 - javascript
 - node
@@ -11,7 +11,7 @@ tag:
 star: false
 category: blog
 author: robert
-description: a simple take on polymorphic classes for object casting in Javascript
+description: object casting with polymorphic classes in Javascript
 ---
 
 Despite my last blog post from way back in 2017, I have not learned any lessons regarding ground beef and continue to eat it on a daily basis. Though I suppose I have changed slightly - I eat more ground pork now, for no real reason other than to make this beauty every day:
