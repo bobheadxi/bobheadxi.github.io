@@ -16,11 +16,11 @@ author: robert
 externalLink: false
 ---
 <p align="center" width="80%">
-    <i>“The picture that you took with your camera is the imagination you want to create with reality.”</i>
+    <i>“Some inspirational quote about photography and life.”</i>
 </p>
 
 <p align="center">
-— Scott Lorenzo
+— Some Person
 </p>
 <p align="center">
     <img src="https://scontent-sea1-1.cdninstagram.com/vp/a0b1de30b39046b32b0109a3bc843389/5B0489F1/t51.2885-15/e35/18812767_1901981953399680_1985384255034753024_n.jpg" width="80%">
