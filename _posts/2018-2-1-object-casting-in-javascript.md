@@ -20,6 +20,10 @@ Despite my last blog post from way back in 2017, I have not learned any lessons 
     <img src="https://st2.depositphotos.com/1859627/9435/i/950/depositphotos_94358986-stock-photo-taiwanese-braised-pork-rice.jpg" alt="I do like watermarks and stock photos" width="70%" />
 </p>
 
+<p align="center">
+    <i>I do like watermarks.</i>
+</p>
+
 This particular picture isn't mine but you get the idea.
 
 # Prelude

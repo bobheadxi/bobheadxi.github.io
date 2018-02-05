@@ -8,6 +8,7 @@ tag:
 - java
 - android
 - theory
+- design
 star: false
 category: blog
 author: robert
