@@ -205,7 +205,7 @@ describe('#constructor()', function () {
             genome: null
         };
         const data = new DataType(input, 'sample', definition);
-        expect(data).to.deep.equal({
+        expect(data.data).to.deep.equal({
             bisulphite: 'conversion',
             farm: {
                 nested: 'chicken',
