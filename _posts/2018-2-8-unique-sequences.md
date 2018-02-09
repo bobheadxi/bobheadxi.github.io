@@ -14,7 +14,7 @@ author: robert
 description: and an introduction to epigenetics
 ---
 
-It's been raining a lot. When it stops raining and the sun comes out, it's pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and forget how you ended up there.
+It's been raining a lot. When it stops raining and the sun comes out, it can be pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and wonder how you ended up there.
 
 <p align="center">
     <a href="http://bobheadxi.tumblr.com/post/170642555355/grey-deys-and-tumblr-gif-size-limits-by-robert">
@@ -26,7 +26,7 @@ It's been raining a lot. When it stops raining and the sun comes out, it's prett
     <i>Rain, coffee, cough hee, and rain.</i>
 </p>
 
-Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent questions I've had recently:
+Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent questions I've asked recently:
 
 - why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
 - why is tumblr's gif file size limit so damn small? 
@@ -35,19 +35,19 @@ Not to say that "how did I get here?" is a particularly bad question. In fact, i
 - why does water come out of both of these shower faucets simultaneously?
 - what do you do with long hairs that you lose in the shower?
 
-The last question there has, I've learned, an ingenious solution: stick it on the shower wall for the next person to admire. The wooden giraffe turns out to be a failed endeavour in setting up a wooden giraffe smuggling business - seems like demand for wooden giraffes was not quite as high as expected.
+The last question there has, I've learned, an ingenious solution: stick it on the shower wall for the next person to admire. The wooden giraffe turned out to be a failed endeavour in setting up a wooden giraffe smuggling business - seems like demand for wooden giraffes was not quite as high as expected.
 
-The rest of the questions, like most questions in life, are a bit more mysterious, and went largely unanswered.
+The rest of the questions were a bit more mysterious and, like most questions, went largely unanswered.
 
 # Prelude
 
-First off, a note that all of the following is extremely simplified and is mostly based off what I've read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
+First off, a disclaimer: all of the following is extremely simplified and is mostly based off what I've learned at work and read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
 
 Anyway, a quick introduction to the study of epigenetics:
 
 > The plethora of cell types within an organism share a unifying genome. Despite this genetic unity, the various cell types, functions and phenotypes within an individual's cytome remain widely varied due to vast differences in their gene expression, both quantitatively and qualitatively. These variances are known to be dictated by so-called epigenetic mechanisms, such that individual cell types and developmental states, within an individual organism, have unique epigenomes. Thus, epigenetic mechanisms are crucially relevant in differentiation and development of all cell types, including those which do so in pathological contexts.<sup>[[1]](#r1)</sup>
 
-In a nutshell, it is the study of the mechanisms that cause expression variances within an organism's cells. One such epigenetic mechanism is [DNA methylation](https://en.wikipedia.org/wiki/DNA_methylation), a process by which methyl groups are added to cytosine or adenine, with cytosine methylation being the most widespread (in mammalian DNA at least).<sup>[[2]](#r2)</sup>
+In a nutshell, epigenetics is the study of the mechanisms that cause expression variances within an organism's cells. One such epigenetic mechanism is [DNA methylation](https://en.wikipedia.org/wiki/DNA_methylation), the process through which methyl groups are added to cytosine or adenine, with cytosine methylation being the most widespread in mammalian DNA.<sup>[[2]](#r2)</sup>
 
 <p align="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/DNA_methylation.png" width="80%" />
@@ -57,7 +57,7 @@ In a nutshell, it is the study of the mechanisms that cause expression variances
     <i style="font-size:90%;">diagram by user Mariuswalter, distributed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a> license</i>
 </p>
 
-One way in which DNA methylation affects gene expression is how it attracts and repels various DNA-binding proteins thanks to its position in the DNA helix at what are known as [CpG islands](https://en.wikipedia.org/wiki/CpG_site), which are often near transcription start sites.<sup>[[4]](#r4)</sup> Methylation at these sites can cause gene silencing<sup>[[3]](#r3)</sup> by limiting transcription in the area.
+DNA methylation can affect gene expression thanks to how it attracts and repels various DNA-binding proteins due to its position in the DNA helix at what are known as [CpG islands](https://en.wikipedia.org/wiki/CpG_site). These are often near transcription start sites,<sup>[[4]](#r4)</sup> and methylation at these sites can cause gene silencing<sup>[[3]](#r3)</sup> by limiting transcription in the area.
 
 <p align="center">
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cpg_islands.svg/1024px-Cpg_islands.svg.png" width="90%" />
@@ -67,9 +67,9 @@ One way in which DNA methylation affects gene expression is how it attracts and 
     <i style="font-size:90%;">diagram by Carl Fedrik, distributed under a <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a> license</i>
 </p>
 
-DNA methylation and its gene silencing effects has close associations with the onset of various cancer types<sup>[[8]](#r8)</sup> - there's [this great video on YouTube](https://www.youtube.com/watch?v=UUM7HiFkDd4) by the Garvan Institute of Medical Research that quickly goes over DNA methylation biomarkers and its role in cancers. Epigenetic modifications like hypomethylation (gene activation) and hypermethylation (gene silencing) alter gene expressions, enabling cancer traits such as increased cell growth, immune cell evasion, and the ability to spread to other parts of the other body.
+DNA methylation and its gene silencing effects has close associations with the onset of many cancer types<sup>[[8]](#r8)</sup> - there's [this great video on YouTube](https://www.youtube.com/watch?v=UUM7HiFkDd4) by the Garvan Institute of Medical Research that gives a quick rundown of DNA methylation biomarkers and its role in cancers. Epigenetic modifications like hypomethylation (gene activation) and hypermethylation (gene silencing) enable cancer traits such as increased cell growth, immune cell evasion, and the ability to spread to other parts of the other body.
 
-A stronger understanding of how DNA methylation causes cancer can facilitate earlier diagnosis (from cancer cell that enter the blood and other bodily fluids) and better prediction of treatment response, so as to allow for better treatment recommendations.
+A stronger understanding of how DNA methylation causes cancer has many potential benefits. It can facilitate earlier diagnosis (from easily accessible cancer cells that enter the blood and other bodily fluids) as well as better prediction of how patient might respond to therapy, so as to allow for better treatment recommendations.
 
 <p align="center">
 	<img src="/assets/images/methylation.png" />
@@ -79,9 +79,9 @@ A stronger understanding of how DNA methylation causes cancer can facilitate ear
 	<i>Still from <a href="https://www.youtube.com/watch?v=UUM7HiFkDd4">YouTube video</a> by the Garvan Institute of Medical Research</i>
 </p>
 
-There are several methods available to analyze DNA methylation, such as [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process). This process focuses on detecting histone modification.<sup>[[9]](#r9)</sup>
+There are several methods available to study and analyze DNA methylation. [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process), for example, focuses on examining histone modification.<sup>[[9]](#r9)</sup>
 
-Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/Bisulfite_sequencing), which focusses on cytosine methylation. Simply put, it converts unmethylated cytosines to uracils.<sup>[[1]](#r1)</sup> After conversion, the methylated cytosines remain and become unmethylated cytosines upon PCR amplification. Given a successful application of bisulfite modification, you can then assume that any remaining cytosines were originally methylated cytosines.<sup>[[1]](#r1)</sup> During PCR amplification, the uracil in the bisulfite converted DNA is also replaced with thymine.<sup>[[7]](#r7)</sup> This means that when sequenced, the modification appears as a cytosine to thymine conversion.
+Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/Bisulfite_sequencing), used primarily for studying cytosine methylation. Simply put, it converts *unmethylated* cytosines to uracils,<sup>[[1]](#r1)</sup> leaving behind the methylated cytosines. Then, during PCR amplification, the uracil in the bisulfite converted DNA is replaced with thymine.<sup>[[7]](#r7)</sup> This means that when sequenced, the modification appears as a cytosine to thymine conversion. Given a successful application of bisulfite modification, you can then assume that any remaining cytosines were originally methylated cytosines.<sup>[[1]](#r1)</sup>
 
 <p align="center">
     <img src="https://www.epigentek.com/catalog/images/headers/catdesc/dna-bisulfite-conversion.png" width="90%" />
@@ -91,7 +91,7 @@ Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/
     <i style="font-size:90%;">diagram from <a href="https://www.epigentek.com/catalog/dna-bisulfite-conversion-c-75_21_47.html">Epigentek documentation</a></i>
 </p>
 
-My team often receives such bisulfite converted sequences, albeit with an additional step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rates is used to calculate the overall efficiency of the bisulfite conversion.
+My team often receives such bisulfite converted sequences, albeit with an additional inertesting step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rate is used to assess the effectiveness of the bisulfite conversion, which we provide as feedback to the lab or our collaborators.
 
 # The Problem
 
@@ -107,11 +107,11 @@ The process of bisulfite conversion has an important consequence: to identify no
 
 These spike-ins do get affected by the bisulfite conversion, and in the event a perfect or near-perfect conversion, then the reduced complexity of the spike-in sequences (the result of replacing all cytosines with thymines) could potentially cause our pipeline to mistakenly identify spike-ins that aren't actually there in the sample.
 
-To address these concerns, I was tasked with checking if our plasmid spike-ins are sufficiently unique following bisulfite conversion, so that the team could decide if we can continue to use the spike-ins as identifiers in bisulfite converted libraries.
+To address these concerns, I was tasked with checking if our plasmid spike-ins are still sufficiently unique following bisulfite conversion, so that the team could decide if we can continue to use the spike-ins as identifiers in bisulfite converted libraries.
 
 # Solution
 
-The spike-ins are kept in a [MySQL](https://www.mysql.com) database and retrieving all the relevant data I needed was a trivial task with the help of a handy Python driver called [MySQLdb](http://mysqlclient.readthedocs.io). 
+The spike-ins used by the lab are kept in a [MySQL](https://www.mysql.com) database. Retrieving all the relevant data I needed was a trivial task with the help of a handy Python driver called [MySQLdb](http://mysqlclient.readthedocs.io). 
 
 Command line tools are the name of the game at the Genome Sciences Centre, so I also made use of Python's [argparse](https://docs.python.org/3/library/argparse.html) module to allow my script to be configured from the command line. I highly recommend checking out the documentation for the module - it is incredibly flexible and offers heaps of options for everything imaginable. An example below:
 
@@ -216,7 +216,7 @@ SeqIO.write(records_converted, 'bisulphite_converted_spikeins.fa', 'fasta')
 Perfect. With all the sequences prepared in neat FASTA files, I move on to the real problem. In order to check if these spike-ins are usable when bisulfite modified, I have to match them against:
  - the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
  - bisulfite modified human genome
- - the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search)
+ - the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
  - bisulfite-converted NT database
  - unconverted spike-ins
  - other bisulfite-modified spike-ins
@@ -225,7 +225,7 @@ One weapon of choice within my team for such tasks is [blastall](https://www.ncb
 
 The program is capable of searching for sequences from a FASTA file (where I have my spike-ins) and searching for similarities against a [BLAST database](https://www.ncbi.nlm.nih.gov/books/NBK279688/). This meant I had to convert a few things (the spike-in FASTA files, and the human genomes, both of which were also in FASTA files) into this database format.
 
-Python has great support for executing shell commands programmatically, which means I was easily able to run the BLAST command line tools I needed. First off, I had to format the relevant FASTA files into databases:
+Python makes executing shell commands programmatically pretty simple, which means I was able to run the BLAST command line tools I needed without much fuss. First off, I had to format the relevant FASTA files into databases:
 
 ```python
 # see blast formatdb documentation
@@ -252,7 +252,7 @@ for p in processes: p.wait()
 
 I recommend just reading the documentation for these tools since they have so many options it makes my head spin. I will mention that the `-m 8` parameter specifies that the output should be in blast-tab (tab delimited) format. XML was another option, but I found that the reports ended up being absolutely massive in size, and there were some issues opening it on the puny VM I decided to run these on because I didn't really want to submit a ticket to have Biopython installed on one of our clusters.
 
-Now, to qualify as a "hit", a match must have an identity of at least 30 base pairs - in other words, it must have an exact match of at least 30 base pairs. This is not really a hard rule, but a general guideline - I later increased the threshold upon consulting with my supervisor, who noted that the presence of adapters in the sequence might raise some false positives.
+Now, to qualify as a "hit", a match must have an identity of at least 30 base pairs - in other words, it must have an exact match of at least 30 base pairs. This is not really a hard rule, but a general guideline - I later increased the threshold upon consulting with my supervisor, who noted that the presence of adapters used in cloning within the sequence might raise some false positives, since most of the spike-ins will share the same adapters.
 
 ```python
 BLAST_HITS_ALLOWED = 30 # later used 52 base pairs as cutoff
@@ -293,7 +293,7 @@ That was pretty much it. I wrapped the functionality into a neat little command 
 
 For some perspective, the GSC's largest cluster has over 500 nodes totalling 6000 cores (12000 threads), 20 terabytes of ram, and over 700 terabytes of scratch space. Yes, you read those numbers right.
 
-For even more perspective, the first human genome took [over 12 years and $1 billion to sequence](https://en.wikipedia.org/wiki/Human_Genome_Project). Today, with over a decade's worth of algorithmic and technological advancements, we can sequence a human genome for a few thousand dollars in less than a day.
+For even more perspective, the first human genome took [over 12 years and $1 billion to sequence](https://en.wikipedia.org/wiki/Human_Genome_Project). Today, with over a decade's worth of algorithmic and technological advancements, we can now sequence a human genome for a few thousand dollars in less than a day.
 
 Amazing stuff.
 
