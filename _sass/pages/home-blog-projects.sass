@@ -68,8 +68,6 @@
     > .item:hover > .url > .title
         color: $delta
 
-    // maybe we can't nest html5 elements
-    // can you help me?
     aside
         position: relative
         top: 2px
@@ -104,8 +102,6 @@
     > .item:hover > .url > .title
         color: $delta
 
-    // maybe we can't nest html5 elements
-    // can you help me?
     aside
         position: relative
         top: 2px
@@ -119,6 +115,30 @@
 
     .item:hover .url aside
         color: $alpha
+
+.blog > .list > .item
+    > .post-tags
+        color: $gama
+        font-weight: 300
+        font-size: 1.4rem
+        text-transform: uppercase
+        text-align: right
+        display: block
+        margin-bottom: 2rem
+        margin-top: -2rem
+        letter-spacing: 1px
+        -webkit-font-smoothing: antialiased
+        text-rendering: optimizeLegibility
+    > .post-tags > .item
+        padding: 2px 8px
+        border-radius: 3px
+        font-size: 1.1rem
+        background: $epsilon
+        color: $alpha
+        letter-spacing: 1px
+        margin: 3px 1px
+        text-decoration: none
+        display: inline-block
 
 .blog > .list > .item > .url,
 .projects > .list > .item > .url
