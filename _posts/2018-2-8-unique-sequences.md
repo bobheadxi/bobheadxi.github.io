@@ -26,7 +26,7 @@ It's been raining a lot. When it stops raining and the sun comes out, it can be 
     <i>Rain, coffee, cough hee, and rain.</i>
 </p>
 
-Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent questions I've asked recently:
+Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent (I think) questions I found myself asking recently:
 
 - why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
 - why is tumblr's gif file size limit so damn small? 

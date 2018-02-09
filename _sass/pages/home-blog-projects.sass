@@ -1,5 +1,6 @@
 .home,
 .blog,
+.photos,
 .projects
     margin-top: 125px
 
@@ -22,32 +23,8 @@
             background: #FFF
             box-shadow: #FFF 0 0 0 5px
             border-radius: 3px
-.photos
-    margin-top: 125px
 
-    > .list
-        border-top: 1px solid $epsilon
-        margin-top: 30px
-        padding-top: 40px
-        position: relative
-
-        &:before
-            display: block
-            content: " "
-            width: 7px
-            height: 7px
-            border: $epsilon 1px solid
-            position: absolute
-            top: -5px
-            left: 50%
-            margin-left: -5px
-            background: #FFF
-            box-shadow: #FFF 0 0 0 5px
-            border-radius: 3px
-
-.home > .list,
-.blog > .list,
-.projects > .list
+.blog > .list
     > .item
         display: block
         width: 95%
@@ -56,7 +33,7 @@
     > .item > .url
         width: 100%
         display: block
-        padding: 20px 0
+        padding: 30px 0
         text-decoration: none
 
     > .item > .url > .title
@@ -81,7 +58,10 @@
 
     .item:hover .url aside
         color: $alpha
-.photos > .list
+
+.home > .list,
+.photos > .list,
+.projects > .list
     > .item
         display: block
         width: 95%
@@ -126,7 +106,32 @@
         float: left
         display: block
         margin-bottom: 0rem
-        margin-top: -1.5rem
+        margin-top: -2.5rem
+        letter-spacing: 1px
+        -webkit-font-smoothing: antialiased
+        text-rendering: optimizeLegibility
+    > .post-tags > .item
+        padding: 2px 8px
+        border-radius: 3px
+        font-size: 1rem
+        background: $epsilon
+        color: $alpha
+        letter-spacing: 0.5px
+        margin: 3px 1px
+        text-decoration: none
+        display: inline
+
+.projects > .list > .item,
+    > .post-tags
+        color: $gama
+        font-weight: 300
+        font-size: 1.4rem
+        text-transform: uppercase
+        text-align: left
+        float: left
+        display: block
+        margin-bottom: 0rem
+        margin-top: -0.8rem
         letter-spacing: 1px
         -webkit-font-smoothing: antialiased
         text-rendering: optimizeLegibility
@@ -142,17 +147,8 @@
         display: inline
 
 .blog > .list > .item > .url,
+.photos > .list > .item > .url,
 .projects > .list > .item > .url
-    > .title
-        display: inline
-
-    > .emoji
-        display: inline
-        position: relative
-        top: -4px
-        margin-right: 10px
-
-.photos > .list > .item > .url
     > .title
         display: inline
 
