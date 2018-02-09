@@ -7,7 +7,7 @@ headerImage: true
 tag:
 - python
 - bioinformatics
-- tool
+- tools
 star: false
 category: blog
 author: robert
