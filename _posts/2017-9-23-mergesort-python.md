@@ -21,7 +21,7 @@ Ground beef is not something I want to eat every day.
 Not too long ago, eggs and ground beef was the holy *binity* (is that a word?) of my daily diet, but after half a summer of ground beef in fried rice, pasta sauce, messy pseudo-burgers and every stirfry imaginable, I have decided that the dollars saved on dirt-cheap ground beef is not worth the sanity loss.
 
 <p align="center">
-	<img src="/assets/images/eggenstein.jpg" width="50%" />
+	<img src="/assets/images/posts/eggenstein.jpg" width="50%" />
 </p>
 
 <p align="center">
