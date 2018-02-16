@@ -150,6 +150,26 @@ While it seemed to work for simple projects, at NWHacks, when I attempted to dep
 
 If once you fail, try, try again?
 
+**Update:** Libcompose has proved hell to get working properly. Thanks to some wild conflicts and breakages, I had to rely on the `master` branch of both `docker/docker` and `docker/libcompose` and add a few commit-specific constraints:
+
+```
+[[constraint]]
+  name = "github.com/docker/docker"
+  branch = "master"
+
+# Lock to commit before introduction of prometheus analytics (breaks our build)
+[[override]]
+  name = "github.com/docker/distribution"
+  revision = "13076371a63af450031941c2770e412439de65d4"
+
+# Lock to commit before something that also breaks our build
+[[override]]
+  name = "github.com/xeipuuv/gojsonschema"
+  revision = "0c8571ac0ce161a5feb57375a9cdf148c98c0f70"
+```
+
+And I haven't even tried using it yet. Maybe the docker-compose container wasn't such a bad idea after all.
+
 # SSH Services in Docker
 
 The next issue was testing. For a while most of us tested Inertia on a Google Cloud VPS, but I really wanted a way to test locally, so at some point I [simply ran the Inertia Daemon locally](https://github.com/ubclaunchpad/inertia/pull/30) to make sure everything worked.
