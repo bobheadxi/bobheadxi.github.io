@@ -170,6 +170,8 @@ If once you fail, try, try again?
 
 And I haven't even tried using it yet. Maybe the docker-compose container wasn't such a bad idea after all.
 
+**Update 2:** Docker-compose container is best! Libcompose doesn't support v3 of the docker-compose.yml format, and it's not very actively maintained.
+
 # SSH Services in Docker
 
 The next issue was testing. For a while most of us tested Inertia on a Google Cloud VPS, but I really wanted a way to test locally, so at some point I [simply ran the Inertia Daemon locally](https://github.com/ubclaunchpad/inertia/pull/30) to make sure everything worked.
