@@ -252,41 +252,114 @@ for p in processes: p.wait()
 
 I recommend just reading the documentation for these tools since they have so many options it makes my head spin. I will mention that the `-m 8` parameter specifies that the output should be in blast-tab (tab delimited) format. XML was another option, but I found that the reports ended up being absolutely massive in size, and there were some issues opening it on the puny VM I decided to run these on because I didn't really want to submit a ticket to have Biopython installed on one of our clusters.
 
-Now, to qualify as a "hit", a match must have an identity of at least 30 base pairs - in other words, it must have an exact match of at least 30 base pairs. This is not really a hard rule, but a general guideline - I later increased the threshold upon consulting with my supervisor, who noted that the presence of adapters used in cloning within the sequence might raise some false positives, since most of the spike-ins will share the same adapters.
+Now, to qualify as a proper "hit" for this task, a match must have an identity of at least 30 base pairs - in other words, it must have an exact match of at least 30 base pairs. This is not really a hard rule, but a general guideline - I later increased the threshold upon consulting with my supervisor, who noted that the presence of adapters used in cloning within the sequence might raise some false positives, since most of the spike-ins will share the same adapters.
+
+Each "hit" looks like this:
+
+```
+Query: candidate_4
+       candidate_4_bisulphite_converted
+  Hit: gi|3805839|emb|AL031986.1| (99461)
+       Arabidopsis thaliana DNA chromosome 4, BAC clone F4B14 (ESSA project)
+ HSPs: ----  --------  ---------  ------  ---------------  ---------------------
+          #   E-value  Bit score    Span      Query range              Hit range
+       ----  --------  ---------  ------  ---------------  ---------------------
+          0     0.076      46.09      23           [0:23]            [3937:3960]
+```
+
+A "hit" can have multiple HSPs, or High Scoring Pairs. These HSPs can be parsed for more details, down to which exact base pairs came up as a match:
+
+```
+      Query: candidate_2031_bisulphite candidate_2031_bisulphite_converted
+        Hit: gi|190350061|emb|CU856335.2| S.lycopersicum DNA sequence from cl...
+Query range: [55:87] (1)
+  Hit range: [14413:14445] (1)
+Quick stats: evalue 3.3e-07; bitscore 63.93
+  Fragments: 1 (32 columns)
+     Query - TGTTATTTTTATTTTATTTTTATTTTTGGGTT
+             ||||||||||||||||||||||||||||||||
+       Hit - TGTTATTTTTATTTTATTTTTATTTTTGGGTT
+
+      Query: candidate_484_rc_bisulphite candidate_484_bisulphite_converted_r...
+        Hit: 21 CM000683.1 Homo sapiens chromosome 21, GRCh37 primary referen...
+Query range: [109:140] (1)
+  Hit range: [39684504:39684535] (1)
+Quick stats: evalue 1.1e-07; bitscore 61.95
+  Fragments: 1 (31 columns)
+     Query - ATATTATTTTTTTTTATTTATTTTATTATTA
+             |||||||||||||||||||||||||||||||
+       Hit - ATATTATTTTTTTTTATTTATTTTATTATTA
+```
+
+The output contains a wealth of detailed data and as a result the reports can be huge - upwards of several gigabytes. The formmatting is also strange too, with several available and apparently very inconsistent formats. Thankfully, with Biopython, it's not too hard to extract the information needed determine what qualifies as hits in my case (for flexibility, I added different thresholds to check for):
 
 ```python
-BLAST_HITS_ALLOWED = 30 # later used 52 base pairs as cutoff
 def detect_hits(result):
-    hits_above_threshold = []
+    '''
+    Helper function for detecting hits according to our criteria.
+    Returns a dictionary of lists of high scoring pairs (HSPs).
+    '''
+    thresholds = {
+        'low': [],
+        'medium': [],
+        'high': [],
+    }
     for hit in result:
+        # check each individual high scoring pair
         for hsp in hit:
-            # this condition checks if the match meets our
-            # requirements
-            if hsp.aln_span == hsp.ident_num and hsp.aln_span > BLAST_HITS_ALLOWED:
-                if hsp.hit_id != hit.query_id:
+            if hsp.aln_span == hsp.ident_num and hsp.hit_id != hit.query_id:
+                if 20 < hsp.aln_span < 30:
+                    print 'IN RANGE 20~30'
                     print hsp
                     print '\n'
-                    hits_above_threshold.append(hsp)
-    return hits_above_threshold
+                    thresholds.low.append(hsp)
+                elif 30 < hsp.aln_span < 40:
+                    print 'IN RANGE 30~40'
+                    print hsp
+                    print '\n'
+                    thresholds.medium.append(hsp)
+                elif 40 < hsp.aln_span:
+                    print 'IN RANGE 40+'
+                    print hsp
+                    print '\n'
+                    thresholds.high.append(hsp)
+    return thresholds
+
+def process_report(report, fmt='blast-txt'):
+    '''
+    Helper function for analyzing blast reports. Returns hits that
+    meet our criteria and prints the number of hits.
+    fmt 'blast-txt' and 'blast-xml' recommended.
+
+    Returns a dictionary of lists of hits.
+    '''
+    for result in SearchIO.index(report, fmt):
+        hits = detect_hits(result)
+        print str(len(hits.low))    + ' 20-30bp hits found in ' + report
+        print str(len(hits.medium)) + ' 30-40bp hits found in ' + report
+        print str(len(hits.high))   + ' 40bp+ hits found in '   + report
+        return hits
 ```
 
 Again, with the help of Biopython, parsing the blast-tab output from the various blastall commands was a piece of cake:
 
 ```python
-all_hits_above_threshold = 0
-for report in outputs:
-    resultcount = 0
-    try:
-        for result in SearchIO.parse(report, 'blast-tab'):
-            hits = detect_hits(result)
-            resultcount += 1
-            if len(hits) > 0:
-                all_hits_above_threshold += hits
-    except:
-        print report + ' likely empty or malformed'
-        continue
-    print resultcount
-print all_hits_above_threshold
+low_threshold = []
+med_threshold = []
+high_threshold = []
+print 'Parsing ' + str(outputs.values())
+for report in outputs.values():
+    hits = process_report(report)
+    low_threshold += hits.low
+    med_threshold += hits.medium
+    high_threshold += hits.high_threshold
+
+print '>> Range 20~30bp: ' + str(len(low_threshold)) + ' hits.'
+print [ hit.hit_id+':'+hit.query_id for hit in low_threshold ]
+print '>> Range 30~40bp: ' + str(len(med_threshold)) + ' hits.'
+print [ hit.hit_id+':'+hit.query_id for hit in med_threshold ]
+print '>> Range 40~50bp: ' + str(len(high_threshold)) + ' hits.'
+print [ hit.hit_id+':'+hit.query_id for hit in high_threshold ]
 ```
 
 That was pretty much it. I wrapped the functionality into a neat little command line tool with `arparse` and left the task running... which took 3 or 4 tries thanks to crashes and minor bugs, and when it finally stopped crashing, the script took **2 entire days**! Goes to show how computationally expensive even the simplest of bioinformatics tasks can be.
