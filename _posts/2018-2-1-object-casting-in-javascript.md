@@ -360,6 +360,82 @@ expect(object).to.deep.equal({
 ```
 Nifty!
 
-Of course, I also wrote unit tests to make sure `toJSON()` and `fromJSON()` worked as intended, but this post is getting rather long so I'll leave it out. Feel free to get in touch through my email if you have any questions or suggestions about this though! I personally have found this very handy and although I'm sure it could use some changes to improve its flexibility (one thing I'm hoping to look into is implementing some sort of field validations, such as checking if required fields are present) I think this is far better than the original sprawling list of `this.thing = that.thing`.
+Of course, I also wrote unit tests to make sure `toJSON()` and `fromJSON()` worked as intended.
+
+The nice thing about this approach - any any approach using polymorphic classes, really - is its crazy flexibility, which I took for granted for a very long time. Here is an example of a class that takes an extra constructor parameter to allow more specific customization of its `data`:
+
+```js
+/**
+ * Represents a data point in a chart.
+ * @extends DataType
+ */
+exports.Point = class extends DataType {
+    /**
+     * Casts given object into a chart Point.
+     * @param {Object} object Data for point
+     * @param {number} [decimals] Decimal points to fix to (default: 2)
+     */
+    constructor(object, decimals = 2) {
+        const definition = {
+            key: null,
+            val: null,
+        };
+        const formatFunction = (data) => {
+            data.key = data.key.toFixed(decimals);
+            if (typeof data.val === 'string') data.val = parseInt(data.val);
+        };
+        const jsonFormat = {
+            key: 'x',
+            val: 'y',
+        };
+        super(object, 'Point', definition, jsonFormat, formatFunction);
+    }
+};
+```
+
+And another example that has an extra parameter as well as extra class function to modify the class's `data`:
+
+```js
+/**
+ * Represents a detailed library.
+ * @extends DataType
+ */
+exports.Library = class extends DataType {
+    /**
+     * Casts given object into a Library.
+     * @param {Object} object
+     * @param {boolean} [metric] Whether to include metric data or not.
+     */
+    constructor(object, metric = true) {
+        const definition = {
+            // ...
+        };
+        if (metric) {
+            definition.metric = {
+                // ...
+            };
+        }
+        super(object, 'Library', definition);
+    }
+
+    /**
+     * Attach process information to this library.
+     * @param {Object[]} processes 
+     */
+    addProcesses(processes) {
+        this.data.process = { };
+        for (const p of processes) {
+            this.data.process[p.name] = {
+                description: p.description,
+                date: p.datetime
+            };
+        }
+    };
+};
+```
+
+And if you ever feel like adding functionality across all classes, you can simply implement it in the base `DataType` class. Possibilities everywhere!
+
+Feel free to get in touch through my email if you have any questions or suggestions about this though! I personally have found this very handy and although I'm sure it could use some changes to improve its flexibility (one thing I'm hoping to look into is implementing some sort of field validations, such as checking if required fields are present) I think this is far better than the original sprawling list of `this.thing = that.thing`.
 
 Thanks for reading, and I hope you found this useful!
