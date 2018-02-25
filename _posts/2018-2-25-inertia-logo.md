@@ -28,7 +28,7 @@ There isn't too much a project on GitHub can do in terms of looking attractive a
     <i style="font-size:90%;">Hmmm...</i>
 </p>
 
-I figured pretty early on that I really liked the look of badges, and given their popularity it doesn't seem like I'm the only one. I'm not really sure what makes them so comfortable to look at - perhaps it's something about their colourfulness, or their nice rectangular roundness, or how easy they are to parse at a glance. There is eve an [entire project](https://github.com/badges/shields) dedicated to making these badges. If you're interested, they have a neat [design document](https://github.com/badges/shields/blob/master/spec/SPECIFICATION.md) specifying what makes a good badge as well as a [brief history](https://github.com/badges/shields/blob/master/spec/motivation.md) of the badges.
+I figured pretty early on that I really liked the look of badges, and given their popularity it doesn't seem like I'm the only one. I'm not really sure what makes them so comfortable to look at - perhaps it's something about their colourfulness, or their nice rectangular roundness, or how easy they are to parse at a glance. There is even an [entire project](https://github.com/badges/shields) dedicated to making these badges. If you're interested, they have a neat [design document](https://github.com/badges/shields/blob/master/spec/SPECIFICATION.md) specifying what makes a good badge as well as a [brief history](https://github.com/badges/shields/blob/master/spec/motivation.md) of the badges.
 
 Badges aren't just nice in READMEs - I also use them in my [Project](https://bobheadxi.github.io/projects/) pages:
 
@@ -123,7 +123,7 @@ I was personally pretty happy with this version. In my eyes the gopher even seem
 
 Over the course of half an hour I must have written the word "Inertia" at least a hundred times. My awful handwriting did not help in the slightest and it drove me insane. Towards the end I gave up trying to write in a straight line and resorted to manually moving words and characters until they looked alright. After several iterations I also gave up on including "UBC Launch Pad" - it didn't add much and it seemed rather pointless.
 
-Eventually, though, I thinned out the text and finally ended up with something that I thought was rather nice:
+Eventually, though, I thinned out the text and finally ended up with something that I thought was okay, although in hindsight maybe the text is a bit too small relative to the gopher but oh well:
 
 <p align="center">
     <img src="https://github.com/ubclaunchpad/inertia/raw/master/.static/inertia-with-name.png" width="50%">
