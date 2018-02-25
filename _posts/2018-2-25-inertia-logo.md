@@ -25,7 +25,7 @@ There isn't too much a project on GitHub can do in terms of looking attractive a
 </p>
 
 <p align="center">
-    <i>Hmmm...</i>
+    <i style="font-size:90%;">Hmmm...</i>
 </p>
 
 I figured pretty early on that I really liked the look of badges, and given their popularity it doesn't seem like I'm the only one. I'm not really sure what makes them so comfortable to look at - perhaps it's something about their colourfulness, or their nice rectangular roundness, or how easy they are to parse at a glance. There is eve an [entire project](https://github.com/badges/shields) dedicated to making these badges. If you're interested, they have a neat [design document](https://github.com/badges/shields/blob/master/spec/SPECIFICATION.md) specifying what makes a good badge as well as a [brief history](https://github.com/badges/shields/blob/master/spec/motivation.md) of the badges.
