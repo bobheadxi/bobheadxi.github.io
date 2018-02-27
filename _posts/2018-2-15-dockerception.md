@@ -146,11 +146,11 @@ resp, err := cli.ContainerCreate(
 )
 ```
 
-While it seemed to work for simple projects, at NWHacks, when I attempted to deploy my [team's project](https://bobheadxi.github.io/borrow-me/) using Inertia, it didn't build. The more I think about it, the worse I realise this idea was... but hey, who knows, knowing this might come in handy some day. Either way, now I'm quite eager to see if [libcompose](https://github.com/docker/libcompose) (the library I mentioned earlier) fares any better.
+The bulk of the work that involved the stuff I have mentioned so far and laid the foundation for Inertia's daemon functionality can be seen in [this massive pull request](https://github.com/ubclaunchpad/inertia/pull/30). While this initial approach seemed to work for simple projects, at NWHacks, when I attempted to deploy my [team's project](https://bobheadxi.github.io/borrow-me/) using Inertia, it didn't build - still investigating what the cause is there.
 
-If once you fail, try, try again?
+Oh well. If once you fail, try, try again?
 
-**Update:** Libcompose has proved hell to get working properly. Thanks to some wild conflicts and breakages, I had to rely on the `master` branch of both `docker/docker` and `docker/libcompose` and add a few commit-specific constraints:
+**Update:** So I took a shot at incorporating the libcompose library and it has proved hell to get working properly. Thanks to some wild conflicts and breakages, I had to rely on the `master` branch of both `docker/docker` and `docker/libcompose` and add a few commit-specific constraints:
 
 ```
 [[constraint]]
@@ -170,7 +170,7 @@ If once you fail, try, try again?
 
 And I haven't even tried using it yet. Maybe the docker-compose container wasn't such a bad idea after all.
 
-**Update 2:** Docker-compose container is best! Libcompose doesn't support v3 of the docker-compose.yml format, and it's not very actively maintained.
+**Update 2:** Libcompose doesn't support v3 of the docker-compose.yml format, and it's not very actively maintained. Looks like the docker-compose container approach is best!
 
 # SSH Services in Docker
 

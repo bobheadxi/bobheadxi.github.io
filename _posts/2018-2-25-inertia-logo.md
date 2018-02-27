@@ -134,11 +134,3 @@ Eventually, though, I thinned out the text and finally ended up with something t
 </p>
 
 The Inertia gopher then moved onto the [Inertia README](https://github.com/ubclaunchpad/inertia) alongside some nice badges and lived happily ever after.
-
-<p align="center">
-    <img src="/assets/images/posts/inertia-new-readme.png">
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">Test coverage not quite high enough to show off yet.</i>
-</p>
