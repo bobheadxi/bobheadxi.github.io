@@ -2,10 +2,40 @@
 layout: page
 title: Home
 ---
+<section class="list">
+  <h1 class="title" style="color:#aaa;margin-top:-0.5rem;margin-bottom:-0.3rem;text-align:center;">featured posts</h1>
+  
+  {% for post in site.posts %} {% if post.projects != true %} {% if post.star %}
+  <div class="item" align="center" style="margin-bottom:0.8rem">
+    <a class="url" href="{{ site.url }}{{ post.url }}">
+      <h3 class="title">{{ post.title }}</h3>
+      <div class="post-tags">
+        {% for tag in post.tags %}
+        <a class="item">{{ tag }}</a>
+        {% endfor %}
+      </div>
+    </a>
+  </div>
 
-<p align="center">
-  <i>
-    It should be noted that no ethically-trained software engineer would ever consent to write a DestroyRobert procedure.
-    Basic professional ethics would instead require him to write a DestroyPerson procedure, to which Robert could be given as a parameter.
-  </i>
-</p>
+  {% endif %} {% endif %} {% endfor %}
+</section>
+
+<section class="list">
+  <h1 class="title" style="color:#aaa;margin-top:-0.5rem;margin-bottom:-0.3rem;text-align:center;">featured projects</h1>
+  
+  {% for post in site.posts %} {% if post.projects %} {% if post.star %}
+  <div class="item" align="center">
+    <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
+      <h3 class="title">{{ post.title }}</h3>
+      <div class="post-tags">
+        {% for tag in post.tags %}
+        <a class="item">{{ tag }}</a>
+        {% endfor %}
+      </div>
+      <p> {{ post.description }} </p>
+    </a>
+  </div>
+  {% endif %} {% endif %} {% endfor %}
+
+</section>
+

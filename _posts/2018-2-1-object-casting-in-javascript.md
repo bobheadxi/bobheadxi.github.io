@@ -8,7 +8,7 @@ tag:
 - javascript
 - node
 - design
-star: false
+star: true
 category: blog
 author: robert
 description: object casting with polymorphic classes in Javascript
