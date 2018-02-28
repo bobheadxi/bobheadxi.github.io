@@ -236,15 +236,22 @@ os.system(formatdb_command + my_target_fasta)
 Then, I had to set up something to run my blastall commands in parallel. I used the `subprocess` module for this:
 
 ```python
-outputs = [
-    './nt_unconverted_report.txt',
-    './human_unconverted_report.txt',
-    # etc...
-]
+def build_blast_command(query, target, output):
+    return blastall_command+' -d '+target+' -i '+query+' -o '+output
+
+outputs = {
+    'nt_original':    dir + 'nt_original_report.txt',
+    'nt_converted':   dir + 'nt_converted_report.txt',
+    'human_original': dir + 'human_original_report.txt',
+    'human_ct':       dir + 'human_ct_report.txt',
+    'human_ga':       dir + 'human_ga_report.txt',
+}
 commands = [
-    blastall_command + ' -d ' + nt_db_original     + ' -i ' + args.query + ' -m 8 -o ' + outputs[0],
-    blastall_command + ' -d ' + human_db_original  + ' -i ' + args.query + ' -m 8 -o ' + outputs[1],
-    # etc ...
+    build_blast_command(query, nt_db_original, outputs['nt_original']),
+    build_blast_command(query, nt_db_converted, outputs['nt_converted']),
+    build_blast_command(query, human_db_original, outputs['human_original']),
+    build_blast_command(query, human_db_ct, outputs['human_ct']),
+    build_blast_command(query, human_db_ga, outputs['human_ga']),
 ]
 processes = [subprocess.Popen(cmd, shell=True) for cmd in commands]
 for p in processes: p.wait()
@@ -294,72 +301,92 @@ Quick stats: evalue 1.1e-07; bitscore 61.95
 The output contains a wealth of detailed data and as a result the reports can be huge - upwards of several gigabytes. The formmatting is also strange too, with several available and apparently very inconsistent formats. Thankfully, with Biopython, it's not too hard to extract the information needed determine what qualifies as hits in my case (for flexibility, I added different thresholds to check for):
 
 ```python
-def detect_hits(result):
+def detect_hits(result, verbose=False):
     '''
     Helper function for detecting hits according to our criteria.
     Returns a dictionary of lists of high scoring pairs (HSPs).
     '''
     thresholds = {
-        'low': [],
+        'low':    [],
         'medium': [],
-        'high': [],
+        'high':   [],
+        'xhigh':  [],
     }
     for hit in result:
-        # check each individual high scoring pair
         for hsp in hit:
-            if hsp.aln_span == hsp.ident_num and hsp.hit_id != hit.query_id:
+            if hsp.aln_span == hsp.hit_span and hsp.hit_id != hit.query_id:
                 if 20 < hsp.aln_span < 30:
-                    print 'IN RANGE 20~30'
-                    print hsp
-                    print '\n'
-                    thresholds.low.append(hsp)
+                    if verbose:
+                        print 'IN RANGE 20~30'
+                        print hsp
+                        print '\n'
+                    thresholds['low'].append(hsp)
                 elif 30 < hsp.aln_span < 40:
-                    print 'IN RANGE 30~40'
-                    print hsp
-                    print '\n'
-                    thresholds.medium.append(hsp)
-                elif 40 < hsp.aln_span:
-                    print 'IN RANGE 40+'
-                    print hsp
-                    print '\n'
-                    thresholds.high.append(hsp)
+                    if verbose:
+                        print 'IN RANGE 30~40'                       
+                        print hsp
+                        print '\n'
+                    thresholds['medium'].append(hsp)
+                elif 40 < hsp.aln_span < 50:
+                    if verbose:
+                        print 'IN RANGE 40~50'
+                        print hsp
+                        print '\n'
+                    thresholds['high'].append(hsp)
+                elif 50 < hsp.aln_span:
+                    if verbose:
+                        print 'IN RANGE 50+'
+                        print hsp
+                        print '\n'
+                    thresholds['xhigh'].append(hsp)
     return thresholds
 
-def process_report(report, fmt='blast-txt'):
+def process_report(report, fmt='blast-tab', verbose=False):
     '''
     Helper function for analyzing blast reports. Returns hits that
     meet our criteria and prints the number of hits.
-    fmt 'blast-txt' and 'blast-xml' recommended.
+    fmt 'blast-tab' and 'blast-xml' recommended.
 
     Returns a dictionary of lists of hits.
     '''
-    for result in SearchIO.index(report, fmt):
-        hits = detect_hits(result)
-        print str(len(hits.low))    + ' 20-30bp hits found in ' + report
-        print str(len(hits.medium)) + ' 30-40bp hits found in ' + report
-        print str(len(hits.high))   + ' 40bp+ hits found in '   + report
+    for result in SearchIO.parse(report, fmt):
+        hits = detect_hits(result, verbose)
+        print str(len(hits['low']))    + ' 20-30bp hits found in ' + report
+        print str(len(hits['medium'])) + ' 30-40bp hits found in ' + report
+        print str(len(hits['high']))   + ' 40-50bp hits found in ' + report
+        print str(len(hits['xhigh']))  + ' 50bp+ hits found in '   + report
         return hits
 ```
 
 Again, with the help of Biopython, parsing the blast-tab output from the various blastall commands was a piece of cake:
 
 ```python
+# Parse outputs.
 low_threshold = []
 med_threshold = []
 high_threshold = []
+xhigh_threshold = []
 print 'Parsing ' + str(outputs.values())
 for report in outputs.values():
-    hits = process_report(report)
-    low_threshold += hits.low
-    med_threshold += hits.medium
-    high_threshold += hits.high_threshold
+    hits = process_report(report, verbose=verbose)
+    low_threshold   += hits['low']
+    med_threshold   += hits['medium']
+    high_threshold  += hits['high']
+    xhigh_threshold += hits['xhigh']
 
-print '>> Range 20~30bp: ' + str(len(low_threshold)) + ' hits.'
-print [ hit.hit_id+':'+hit.query_id for hit in low_threshold ]
-print '>> Range 30~40bp: ' + str(len(med_threshold)) + ' hits.'
-print [ hit.hit_id+':'+hit.query_id for hit in med_threshold ]
+# Output results.
+print '>> Range 20~30bp: ' + str(len(low_threshold))  + ' hits.'
+if verbose:
+    print [ hit.hit_id+':'+hit.query_id for hit in low_threshold ]
+print '>> Range 30~40bp: ' + str(len(med_threshold))  + ' hits.'
+if verbose:
+    print [ hit.hit_id+':'+hit.query_id for hit in med_threshold ]
 print '>> Range 40~50bp: ' + str(len(high_threshold)) + ' hits.'
-print [ hit.hit_id+':'+hit.query_id for hit in high_threshold ]
+if verbose:
+    print [ hit.hit_id+':'+hit.query_id for hit in high_threshold ]
+print '>> Range 50bp+: '   + str(len(xhigh_threshold)) + ' hits.'
+if verbose:
+    print [ hit.hit_id+':'+hit.query_id for hit in xhigh_threshold ]
 ```
 
 That was pretty much it. I wrapped the functionality into a neat little command line tool with `arparse` and left the task running... which took 3 or 4 tries thanks to crashes and minor bugs, and when it finally stopped crashing, the script took **2 entire days**! Goes to show how computationally expensive even the simplest of bioinformatics tasks can be.
