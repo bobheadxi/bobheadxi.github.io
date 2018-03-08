@@ -8,6 +8,7 @@ tag:
 - golang
 - docker
 - devops
+- bash
 star: false
 category: blog
 author: robert
@@ -20,10 +21,6 @@ Last Sunday I finally had a morning at home to relax, and at long last I got to 
     <a href="https://www.instagram.com/p/BfCDws3h81K/?taken-by=savethefade">
         <img src="/assets/images/home.jpg" width="75%" />
     </a>
-</p>
-
-<p align="center">
-    <i>Peace.</i>
 </p>
 
 I'll need to eat more jam soon because I'm running a bit short on jars.
