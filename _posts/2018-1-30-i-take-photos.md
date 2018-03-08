@@ -14,7 +14,7 @@ hidedescription: true
 category: photography
 author: robert
 externalLink: false
-star: true
+star: false
 ---
 <p align="center" width="80%">
     <i>“Some inspirational quote about photography and life.”</i>
