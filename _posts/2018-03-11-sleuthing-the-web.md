@@ -77,7 +77,7 @@ Oh well! Learned a lot and I tried my best to help. I think. I hope. I suppose w
 
 I found [UBC Launch Pad](http://www.ubclaunchpad.com) by chance over the summer after my first year at UBC. It seemed really exciting and I applied straight away, churning out the [application pre-task](https://github.com/bobheadxi/Android-Weather) overnight. At the time I was still working on [my first personal project](/facebook-spotify-bot) and the [r/Android App Store](/r-android-appstore), and I was not feeling at all confident. I was pretty certain I wouldn't hear back.
 
-But I did, and I got in, and it turned out to be one of the best decisions I had made in a very long time.
+But I did, and it turned out to be one of the best decisions I had made in a very long time.
 
 My first project at UBC Launch Pad was [Sleuth](/sleuth). The goal of Sleuth changed quite a bit over the course of the semester but at its core we wanted it to be a search engine, geared towards UBC-related content.
 
@@ -101,5 +101,5 @@ WIP
 
 WIP
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbNjI2NDEyOTgwXX0=
+eyJoaXN0b3J5IjpbLTYxMDIyMzg5N119
 -->
