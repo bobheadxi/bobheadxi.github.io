@@ -12,7 +12,7 @@ tag:
 star: true
 category: blog
 author: robert
-description: building a bad search engine
+description: scraping data for a bad search engine
 ---
 
 >*We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:*
@@ -81,7 +81,9 @@ We set up Sleuth as a three-component project:
 - Solr: our Apache Solr instance
 - Frontend: Sleuth's snazzy face
 
-This post will mostly be about the Web component, with a bit about Solr. [Apache Solr](http://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
+This post will mostly be about the Web component's crawling systems, with a bit about Solr. [Apache Solr](http://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
+
+Stay tuned for another post about Sleuth's search API and the systems we built to facilitate it!
 
 # Crawling and Scraping the Web
 
@@ -594,8 +596,4 @@ class GenericPage(SolrDocument):
         super(GenericPage, self).__init__(self.doc, **kwargs)
 ```
 
-And tada! Now running our crawlers rapidly populates our database with beautiful data. Data data data.
-
-# Sleuth's API and Searching the Database
-
-Post is work in progress! Whew this is long.
+And tada! Now running our crawlers rapidly populates our database with beautiful data. Data data data. Coming soon(tm) in another post: Sleuth's search APIs and how it works. Stay tuned!
