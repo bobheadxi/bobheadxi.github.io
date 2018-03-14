@@ -28,6 +28,8 @@ Not too long ago, eggs and ground beef was the holy *binity* (is that a word?) o
 	<i>My rendition of Frankenstein's monster.</i>
 </p>
 
+- TOC
+{:toc}
 # Prelude
 
 Towards the end of summer, with nothing to distract me from pickle sales except a few personal projects, I decided to start a [Coursera course in algorithms](https://www.coursera.org/learn/algorithms-part1/home/info).

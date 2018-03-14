@@ -25,6 +25,9 @@ Last Sunday I finally had a morning at home to relax, and at long last I got to 
 
 I'll need to eat more jam soon because I'm running a bit short on jars.
 
+- TOC
+{:toc}
+
 # Prelude
 
 Outside of work, my main focus has been UBC Launch Pad's [Inertia](https://github.com/ubclaunchpad/inertia) project, of which I am now the project lead. The idea is to provide a [Heroku](https://www.heroku.com)-like application without being restricted to Heroku's servers - in other words, we wanted a simple, plug-and-play continuous deployment solution for any virtual private server (VPS). Since UBC Launch Pad frequently changes hosting providers based on available funding and sponsorship, quick redeployment was always a hastle. We wanted to develop an in-house continuous deployment system to make deploying applications simple and painless, regardless of the hosting provider.

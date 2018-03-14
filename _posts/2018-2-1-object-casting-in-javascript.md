@@ -26,6 +26,9 @@ Despite my last blog post from way back in 2017, I have not learned any lessons 
 
 This particular picture isn't mine but you get the idea.
 
+- TOC
+{:toc}
+
 # Prelude
 At work, part of my job has been slowly revamping my team's various scattered web platforms - a collection of about 3 servers serving 6 different websites - into a more consolidated and (hopefully) neater codebase.
 
@@ -79,7 +82,7 @@ console.log(lunch) // { data: { deepfried: "chicken", steamed: "rice" } }
 
 Wow! Wouldn't that be swell. If I could easily have this work for all my classes, that would be great. So I started setting up my extendible class, which would implement the basic shared functions which other classes can then use.
 
-## Part 1: Basic Value Copying
+## Part 1: Basic Field Population
 Here is the scaffolded class I came up with:
 
 ```js

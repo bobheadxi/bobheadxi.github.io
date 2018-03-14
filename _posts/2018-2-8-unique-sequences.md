@@ -39,6 +39,9 @@ The last question there has, I've learned, an ingenious solution: stick it on th
 
 The rest of the questions were a bit more mysterious and, like most questions, went largely unanswered.
 
+- TOC
+{:toc}
+
 # Prelude
 
 First off, a disclaimer: all of the following is extremely simplified and is mostly based off what I've learned at work and read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
@@ -398,6 +401,7 @@ For even more perspective, the first human genome took [over 12 years and $1 bil
 Amazing stuff.
 
 ### References
+{:.no_toc}
 <p style="font-size:90%;">
     <a name="r1">[1]</a> O’Sullivan, Eileen, and Michael Goggins. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3888804/">DNA Methylation Analysis in Human Cancer.</a>” Methods in molecular biology (Clifton, N.J.) 980 (2013): 131–156. PMC. Web. 4 Feb. 2018.
 </p>
