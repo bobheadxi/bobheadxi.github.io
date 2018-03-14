@@ -59,10 +59,6 @@ At the end of the day, we're all just castles in the sand, and everything we do 
 
 # Prelude
 
-I found [UBC Launch Pad](http://www.ubclaunchpad.com) by chance over the summer after my first year at UBC. It seemed really exciting and I applied straight away, churning out the [application pre-task](https://github.com/bobheadxi/Android-Weather) overnight. At the time I was still working on [my first personal project](/facebook-spotify-bot) and the [r/Android App Store](/r-android-appstore), and I was not feeling at all confident. I was pretty certain I wouldn't hear back.
-
-But I did, and it turned out to be one of the best decisions I had made in a very long time.
-
 My first project at UBC Launch Pad was [Sleuth](/sleuth). The goal of Sleuth changed quite a bit over the course of the semester but at its core we wanted it to be a search engine, geared towards UBC-related content.
 
 The team started out as a five-person team, but ended up being just two people, including myself, which complicated plans a bit. The bulk of our effort ended up going into our content and search components, and the front end was a bit of a tacked-on interface to demo our main "feature": linked results.
@@ -73,17 +69,15 @@ The team started out as a five-person team, but ended up being just two people, 
 
 I think it was pretty neat. Built mostly by team member [Bruno](https://github.com/bfbachmann), the front end is pretty clean, and featured cute, draggable nodes.
 
-This post will briefly go over some of the more interesting parts of Sleuth, and how an amateur (me) approached building a search engine service.
-
 We set up Sleuth as a three-component project:
 
 - Web: Sleuth's API endpoints, database connections, and crawler
 - Solr: our Apache Solr instance
 - Frontend: Sleuth's snazzy face
 
-This post will mostly be about the Web component's crawling systems, with a bit about Solr. [Apache Solr](http://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
+This post will mostly be about the Web component's crawling systems and how an amateur (me) approached data farming for a search engine service, with a bit about Solr. [Apache Solr](http://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
 
-Stay tuned for another post about Sleuth's search API and the systems we built to facilitate it!
+Stay tuned for another post about Solr, Sleuth's search API, the systems we built to facilitate it!
 
 # Crawling and Scraping the Web
 
