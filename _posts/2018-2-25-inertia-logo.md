@@ -71,7 +71,7 @@ So of course I had to do something similar for [Inertia](https://github.com/ubcl
     <i style="font-size:90%;">Ehhhhh</i>
 </p>
 
-As a Golang project, I figured we might as well use a [Golang gopher](https://blog.golang.org/gopher)-inspired logo - it's a pretty popular option that is widely [used](https://github.com/golang/dep) [amongst](https://github.com/360EntSecGroup-Skylar/excelize) [Golang](https://github.com/spf13/cobra) [libraries](https://github.com/src-d/go-git), both official and unofficial.
+As a Golang project, I figured we might as well use a [Golang gopher](https://blog.golang.org/gopher)-inspired logo - it's a pretty popular option that is [widely](https://github.com/kataras/iris) [used](https://github.com/golang/dep) [amongst](https://github.com/goreleaser/goreleaser) [Golang](https://github.com/containous/traefik) [libraries](https://github.com/src-d/go-git), both official and unofficial.
 
 <p align="center">
     <img src="https://golang.org/doc/gopher/biplane.jpg" width="50%">
