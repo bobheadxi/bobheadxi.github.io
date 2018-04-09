@@ -9,6 +9,7 @@ tag:
 - docker
 - devops
 - bash
+- inertia
 star: false
 category: blog
 author: robert

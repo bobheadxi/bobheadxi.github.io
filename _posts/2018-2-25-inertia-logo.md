@@ -5,6 +5,7 @@ date: 2018-02-25 10:00
 tag:
 - doodle
 - logo
+- inertia
 image: https://github.com/ubclaunchpad/inertia/blob/master/.static/inertia-with-name.png?raw=true
 headerImage: true
 photography: true

@@ -9,6 +9,7 @@ tag:
 - solr
 - scrapy
 - rant
+- sleuth
 star: true
 category: blog
 author: robert
