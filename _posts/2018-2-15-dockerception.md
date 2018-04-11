@@ -65,13 +65,18 @@ There were a few options for how the Inertia daemon could be run on a VPS:
 
 The first option was not ideal - not very platform-agnostic, and would require having a special place to host binaries that was not too easily user-accessible, since we don't want the end user to accidentally use it (which ruled out using GitHub releases as a host). The second and third options were closer to what we wanted, and allowed us to lean on Go and Docker's (likely) robust installation scripts to remove platform-specific difficulties from the equation.
 
-We decided to go with the third option, since we had to install Docker anyway, which is itself a rather sizeable download - we wanted to avoid having too many dependencies. This meant that our daemon would have to be a Docker container with the permission to build and start other Docker images.
+We decided to go with the third option, since we had to install Docker anyway, which is itself a rather sizeable download - we wanted to avoid having too many dependencies. This meant that our daemon would have to be a Docker container with the permission to build and start other Docker images. One solution to this was to straight up install Docker again inside our container once it was started up.
 
-Team member [Chad](https://github.com/chadlagore) came across an interesting ["hack"](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) that involved just a few extra steps when running our Inertia image to accomplish this:
+This particular solution [carries a number of unpleasant risks](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/).
+
+Fortunately, team member [Chad](https://github.com/chadlagore) came across an interesting [alternative](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) (also mentioned by the other post) that involved just a few extra steps when running our Inertia image to accomplish this:
+
 - mount the host machine Docker socket onto the container - this granted access to the container, and through this socket, the container will be able to execute Docker commands on the host machine rather than just within itself.
 - mount relevant host directories into the container - this includes things like SSH keys.
 
-This practice is called "Docker-in-Docker" and for the most part seemed [discouraged](https://www.lvh.io/posts/dont-expose-the-docker-socket-not-even-to-a-container.html), since it granted the Docker container considerable access to the host machine through the Docker socket, in contradiction to Docker's design principles. And I can definitely understand why - the video in the link above demonstrates just how much power you have over the host machine if you can access the Docker-in-Docker container (effectively that of a root user, allowing you access to everything, even adding SSH users!). However, for our purposes, if someone does manage to SSH into a VPS to access the daemon container... then the VPS has already been compromised, and I guess that's not really our problem.
+This practice, for the most part, seems [discouraged](https://www.lvh.io/posts/dont-expose-the-docker-socket-not-even-to-a-container.html), since it granted the Docker container considerable access to the host machine through the Docker socket, in contradiction to Docker's design principles. And I can definitely understand why - the video in the link above demonstrates just how much power you have over the host machine if you can access the Docker-in-Docker container (effectively that of a root user, allowing you access to everything, even adding SSH users!). However, for our purposes, if someone does manage to SSH into a VPS to access the daemon container... then the VPS has already been compromised, and I guess that's not really our problem.
+
+Another disadvantage is that this container needs to be run as `root`. Hopefully we are trustworthy, because running a container as root grants an awfule lot of control to the container.
 
 Implementation-wise, this setup was just a long `docker run` command:
 
@@ -131,7 +136,7 @@ docker run -d \
     docker/compose:1.18.0 up --build             `# run official the docker-compose image!`
 ```
 
-From the Daemon, I downloaded and launched the docker-compose image while granting it access to the host's Docker socket and directories (where the cloned repository is). This started a Docker container alongside the Daemon container, which then started the user's project containers alongside itself! 
+From the Daemon, I downloaded and launched the docker-compose image while granting it access to the host's Docker socket and directories (where the cloned repository is). This started a Docker container alongside the Daemon container, which then started the user's project containers alongside itself!
 
 Dockerception - asking Docker to start a container (daemon), which starts another container (docker-compose), which then starts MORE containers (the user's project). Whew.
 
@@ -164,7 +169,7 @@ resp, err := cli.ContainerCreate(
 
 No docker-compose install necessary. While this initial approach seemed to work for simple projects, at NWHacks, when I attempted to deploy my [team's project](https://bobheadxi.github.io/borrow-me/) using Inertia, it didn't build - still investigating what the cause is there. Oh well. If once you fail, try, try again?
 
-The work I have mentioned in this post so far (which laid the foundation for Inertia's daemon functionality) can be seen in [this massive pull request](https://github.com/ubclaunchpad/inertia/pull/30). 
+The work I have mentioned in this post so far (which laid the foundation for Inertia's daemon functionality) can be seen in [this massive pull request](https://github.com/ubclaunchpad/inertia/pull/30).
 
 # SSH Services in Docker
 
@@ -221,8 +226,7 @@ COPY . .
 RUN cat test_key.pub >> $HOME/.ssh/authorized_keys
 ```
 
-The first command writes my line (`"AuthorizedKeysFile..."`) into the given file (`/etc/ssh/sshd_config`) and 
-then copies the key (which I set up beforehand) into the container.  This allows me to SSH into the service.
+The first command writes my line (`"AuthorizedKeysFile..."`) into the given file (`/etc/ssh/sshd_config`) and then copies the key (which I set up beforehand) into the container. This allows me to SSH into the service.
 
 ```bash
 EXPOSE 0-9000
@@ -244,7 +248,7 @@ docker run --rm -d `# run in detached mode and remove when shut down` \
 
 To facilitate simpler building, a [Makefile](https://github.com/ubclaunchpad/inertia/blob/master/Makefile) (which I use in every project nowadays):
 
-```
+```makefile
 SSH_PORT = 22
 VERSION  = latest
 VPS_OS   = ubuntu
@@ -267,7 +271,7 @@ This way you can change what VPS system to test against using arguments, for exa
 And amazingly this worked! The VPS container can be treated just as you would treat a real VPS.
 
 ```bash
-make testenv-ubuntu 
+make testenv-ubuntu
 # note the location of the key that is printed
 cd /path/to/my/dockercompose/project
 inertia init

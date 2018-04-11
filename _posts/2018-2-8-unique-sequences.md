@@ -42,7 +42,7 @@ The rest of the questions were a bit more mysterious and, like most questions, w
 - TOC
 {:toc}
 
-# Prelude
+# Epigenetics and DNA Methylation
 
 First off, a disclaimer: all of the following is extremely simplified and is mostly based off what I've learned at work and read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
 
@@ -96,8 +96,6 @@ Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/
 
 My team often receives such bisulfite converted sequences, albeit with an additional inertesting step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rate is used to assess the effectiveness of the bisulfite conversion, which we provide as feedback to the lab or our collaborators.
 
-# The Problem
-
 The process of bisulfite conversion has an important consequence: to identify normal samples, we typically use the application of plasmid spike-ins. These are random, known sequences of around 180 base pairs that are grown in a lab, then added to samples during preparation for sequencing. The name "plasmid spike-in" comes from the way the oligonucleotide is incorporated into the pCR-TOPO4 plasmid vector and [cloned in E. coli](https://en.wikipedia.org/wiki/Molecular_cloning). During quality control, we check for the presence of these spike-ins in our pre-alignment pipelines. If the expected spike-in is only found in very small quantities, then that is usually a red flag that a sample swap might have occured.
 
 <p align="center">
@@ -112,37 +110,9 @@ These spike-ins do get affected by the bisulfite conversion, and in the event a 
 
 To address these concerns, I was tasked with checking if our plasmid spike-ins are still sufficiently unique following bisulfite conversion, so that the team could decide if we can continue to use the spike-ins as identifiers in bisulfite converted libraries.
 
-# Solution
+# Assessing Oligonucleotide Uniqueness
 
-The spike-ins used by the lab are kept in a [MySQL](https://www.mysql.com) database. Retrieving all the relevant data I needed was a trivial task with the help of a handy Python driver called [MySQLdb](http://mysqlclient.readthedocs.io). 
-
-Command line tools are the name of the game at the Genome Sciences Centre, so I also made use of Python's [argparse](https://docs.python.org/3/library/argparse.html) module to allow my script to be configured from the command line. I highly recommend checking out the documentation for the module - it is incredibly flexible and offers heaps of options for everything imaginable. An example below:
-
-```python
-parser = argparse.ArgumentParser(prog='bisulphite-spikeins.py')
-parser.add_argument(
-    '-u', metavar='user', action='store', dest='user', required=True
-)
-parser.add_argument(
-    '-p', metavar='password', action='store', dest='pwd', required=True
-)
-parser.add_argument(
-    '--verbose', default=False, help='Toggle conversion logs.', action='store_true', dest='verbose'
-)
-args = parser.parse_args()
-kwargs = {
-    'db': 'spike_in',
-    'host': 'seqval01.bcgsc.ca',
-    'port': 3306,
-    'user': args.user,
-    'passwd': args.pwd
-}
-db = MySQLdb.connect(**kwargs)
-c = db.cursor()
-c.execute( ''' my query to get the spike-ins ''' )
-```
-
-Next up I had to generate the reverse complement of each, as well as the bisulfite modified versions and their reverse complements. The reverse complement is important to take into consideration due to the way the [Illumina's](https://www.illumina.com) (the company that builds our sequencers) paired-end sequencing works - strands are sequenced from adapters on both ends.
+To assess the spike-ins, the reverse complement of each sequence had to be generated, as well as the bisulfite modified versions and their reverse complements. The reverse complement is important to take into consideration due to the way the [Illumina's](https://www.illumina.com) (the company that builds our sequencers) paired-end sequencing works - strands are sequenced from adapters on both ends.
 
 <p align="center">
     <img src="http://www.cureffi.org/wp-content/uploads/2012/12/paired-end1.jpg" width="90%" />
@@ -154,7 +124,7 @@ Next up I had to generate the reverse complement of each, as well as the bisulfi
 
 The details of the sequencing process is a fascinating topic as well, but I'll leave that for another blog post. Anyway, here's an example of the different versions of each spike-in that has to be generated:
 
-```
+```text
 Original:   AATGTCGATTCGA   ->  Reverse Complement: TCGAATCGACATT
                  |    |
 Converted:  AATGTTGATTTGA   ->  Reverse Complement: TCAAATCAACATT
@@ -162,7 +132,7 @@ Converted:  AATGTTGATTTGA   ->  Reverse Complement: TCAAATCAACATT
 
 Note that the the original sequence's reverse complement is not the bisulfite conversion of the original sequence's bisulfite conversion's reverse complement (yikes, that was a mouthful). This means that another sequence must be taken into account:
 
-```
+```text
 Original RC:   TCGAATCGACATT
                 |    |  |
 Converted RC:  TTGAATTGATATT
@@ -196,7 +166,7 @@ Now, all these converted sequences are fine and dandy but I needed them in a use
 
 The FASTA format, unlike the more detailed and usually more practical [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format (which includes quality scores for each nuecleotide!!!), is quite simple: it only has a bit of descriptive metadata and then the sequence itself.
 
-```
+```text
 >candidate_2877_original candidate_2877
 tatgttgaagtccctagtcgtatggaaagcgttggcatacaagaagcatttcgaacagcc
 cttcatcattttagtacaaagttctaatccataactatttcattacaagacccttatagg
@@ -217,12 +187,13 @@ SeqIO.write(records_converted, 'bisulphite_converted_spikeins.fa', 'fasta')
 ```
 
 Perfect. With all the sequences prepared in neat FASTA files, I move on to the real problem. In order to check if these spike-ins are usable when bisulfite modified, I have to match them against:
- - the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
- - bisulfite modified human genome
- - the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
- - bisulfite-converted NT database
- - unconverted spike-ins
- - other bisulfite-modified spike-ins
+
+- the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
+- bisulfite modified human genome
+- the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
+- bisulfite-converted NT database
+- unconverted spike-ins
+- other bisulfite-modified spike-ins
 
 One weapon of choice within my team for such tasks is [blastall](https://www.ncbi.nlm.nih.gov/Class/BLAST/blastallopts.txt), an old (and outdated, I think - it has long been supersceded by the [blast+ programs](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), but this is what we have, so oh well) program specifically designed for finding regions of similarity within sequences. The name "BLAST" stands for "Basic Local Alignment Search Tool", which seems reasonably self-explanatory and rolls off the tongue quite nicely.
 
@@ -232,7 +203,7 @@ Python makes executing shell commands programmatically pretty simple, which mean
 
 ```python
 # see blast formatdb documentation
-formatdb_command = 'formatdb -p F -i ' 
+formatdb_command = 'formatdb -p F -i '
 os.system(formatdb_command + my_target_fasta)
 ```
 
@@ -266,7 +237,7 @@ Now, to qualify as a proper "hit" for this task, a match must have an identity o
 
 Each "hit" looks like this:
 
-```
+```text
 Query: candidate_4
        candidate_4_bisulphite_converted
   Hit: gi|3805839|emb|AL031986.1| (99461)
@@ -279,7 +250,7 @@ Query: candidate_4
 
 A "hit" can have multiple HSPs, or High Scoring Pairs. These HSPs can be parsed for more details, down to which exact base pairs came up as a match:
 
-```
+```text
       Query: candidate_2031_bisulphite candidate_2031_bisulphite_converted
         Hit: gi|190350061|emb|CU856335.2| S.lycopersicum DNA sequence from cl...
 Query range: [55:87] (1)
@@ -326,7 +297,7 @@ def detect_hits(result, verbose=False):
                     thresholds['low'].append(hsp)
                 elif 30 < hsp.aln_span < 40:
                     if verbose:
-                        print 'IN RANGE 30~40'                       
+                        print 'IN RANGE 30~40'
                         print hsp
                         print '\n'
                     thresholds['medium'].append(hsp)
@@ -392,16 +363,14 @@ if verbose:
     print [ hit.hit_id+':'+hit.query_id for hit in xhigh_threshold ]
 ```
 
-That was pretty much it. I wrapped the functionality into a neat little command line tool with `arparse` and left the task running... which took 3 or 4 tries thanks to crashes and minor bugs, and when it finally stopped crashing, the script took **2 entire days**! Goes to show how computationally expensive even the simplest of bioinformatics tasks can be.
+And that was more or less it. This particular tool — which I wrapped up as an `argparse` command line application with a wealth of options — ended up seeing quite a big of use as a handy utility for investigating contamination and sample swap events, and I suppose that’s pretty nice.
 
-For some perspective, the GSC's largest cluster has over 500 nodes totalling 6000 cores (12000 threads), 20 terabytes of ram, and over 700 terabytes of scratch space. Yes, you read those numbers right.
-
-For even more perspective, the first human genome took [over 12 years and $1 billion to sequence](https://en.wikipedia.org/wiki/Human_Genome_Project). Today, with over a decade's worth of algorithmic and technological advancements, we can now sequence a human genome for a few thousand dollars in less than a day.
-
+I’ll wrap up this post with a bit of trivia: the first human genome took [over 12 years and about $1 billion to sequence](https://en.wikipedia.org/wiki/Human_Genome_Project). Today, with over a decade’s worth of algorithmic and technological advancements, we can now sequence a human genome for a few thousand dollars, in less than a day.
 Amazing stuff.
 
 ### References
 {:.no_toc}
+
 <p style="font-size:90%;">
     <a name="r1">[1]</a> O’Sullivan, Eileen, and Michael Goggins. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3888804/">DNA Methylation Analysis in Human Cancer.</a>” Methods in molecular biology (Clifton, N.J.) 980 (2013): 131–156. PMC. Web. 4 Feb. 2018.
 </p>

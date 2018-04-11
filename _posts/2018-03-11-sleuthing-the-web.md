@@ -17,6 +17,7 @@ description: scraping data for a bad search engine
 ---
 
 >*We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:*
+>
 > - *did you do it well?*
 >
 > - *did you learn something from the experience?*
