@@ -12,3 +12,8 @@ When he's not working on [UBC Launch Pad](https://github.com/ubclaunchpad) (a so
 On Sundays, Robert tends to a small indoor garden that he has been setting up, growing plants in used jam jars left over from his excessive strawberry jam consumption. He also has a soft spot for mountains, trees, and gifs that loop.
 
 <img src="https://68.media.tumblr.com/f951837326bdcfd98d3c2cead3a1f04b/tumblr_p6rtkzXYNX1rg86u5o1_1280.gif" >
+
+## Reviews
+
+> Friendly, patient, and helpful! Also happy to see Robert nudge the team in order to keep our pace up. Drawing out the application's architecture on the whiteboard was extremely helpful. [...] Great use of emojis, and impressive technical skillset!
+- Anonymous
