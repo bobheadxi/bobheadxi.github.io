@@ -16,4 +16,7 @@ On Sundays, Robert tends to a small indoor garden that he has been setting up, g
 ## Reviews
 
 > Friendly, patient, and helpful! Also happy to see Robert nudge the team in order to keep our pace up. Drawing out the application's architecture on the whiteboard was extremely helpful. [...] Great use of emojis, and impressive technical skillset!
-- Anonymous
+- Anonymous UBC Launch Pad Team Member
+
+> Robert is a highly motiviated individual who seeks to independently resolve problems and perform the necessary research. He has been a significant contributor to important projects in our group; and has demonstrated a desire to expand his knowledge and skill set beyond what is immediately required to complete the task at hand.
+- Manager at the BCGSC
