@@ -32,6 +32,12 @@ title: Home
         <a class="item">{{ tag }}</a>
         {% endfor %}
       </div>
+      <br />
+      <div align="center">
+        {% for badge in post.badges %}
+          {{badge}}
+        {% endfor %}
+      </div>
       <p> {{ post.description }} </p>
     </a>
   </div>
