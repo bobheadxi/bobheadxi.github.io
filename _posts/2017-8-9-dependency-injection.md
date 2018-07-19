@@ -129,7 +129,7 @@ In his review of my pull request, [d4rken](https://github.com/d4rken)  pointed o
 
 A very good question. Oops. To be honest, I had avoided it because I didn’t understand how it worked. A bit of research remedied that - turns out, Dagger is a very nifty library that (in its simplest form) uses [components](https://google.github.io/dagger/api/2.10/dagger/Component.html), [modules](https://google.github.io/dagger/api/2.10/dagger/Module.html) and various method annotations to provide dependencies without any `new BodyParser(new ParserSuite(new EncodingFixer))` nonsense. This allows service creation to be centralized in an organized manner.
 
-For this particular problem, I opted to add the `@Inject` [annotation](http://docs.oracle.com/javaee/7/api/javax/inject/package-summary.html) to the `BodyParser` constructor, like so:
+For this particular problem, I opted to add the `@Inject` [annotation](https://docs.oracle.com/javaee/7/api/javax/inject/package-summary.html) to the `BodyParser` constructor, like so:
 ```java
     @Inject
     public BodyParser(CategoryParser categoryParser, Set<AppParser> appParsers) {

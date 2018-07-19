@@ -62,7 +62,7 @@ I learned quite a few things when I first saw [IGListKit's README](https://githu
 
 ## The Inertia README and Logo
 
-So of course I had to do something similar for [Inertia](https://github.com/ubclaunchpad/inertia), a project that we are hoping hobbyist users both within [UBC Launch Pad](http://www.ubclaunchpad.com) and in the wider Docker community will find useful, needed a bit of snazz. Here's what our README looked like originally:
+So of course I had to do something similar for [Inertia](https://github.com/ubclaunchpad/inertia), a project that we are hoping hobbyist users both within [UBC Launch Pad](https://www.ubclaunchpad.com) and in the wider Docker community will find useful, needed a bit of snazz. Here's what our README looked like originally:
 
 <p align="center">
     <img src="/assets/images/posts/inertia-old-readme.png" width="90%">

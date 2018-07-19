@@ -48,4 +48,4 @@ If you find that you like these photos, thank you! If not, thank you for looking
 All images posted in this section, unless otherwise noted, is by me. :smile:
 
 
-You can find me on [Instagram](https://www.instagram.com/savethefade/), [tumblr](http://bobheadxi.tumblr.com), and [500px](https://500px.com/bobheadxi).
+You can find me on [Instagram](https://www.instagram.com/savethefade/), [tumblr](https://bobheadxi.tumblr.com), and [500px](https://500px.com/bobheadxi).

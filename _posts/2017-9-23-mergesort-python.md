@@ -2,7 +2,7 @@
 title: "Python and Mergesorts"
 layout: post
 date: 2017-09-23 22:44
-image: http://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/Gifs/mergeSort.gif
+image: https://www.personal.kent.edu/~rmuhamma/Algorithms/MyAlgorithms/Sorting/Gifs/mergeSort.gif
 headerImage: true
 tag:
 - python

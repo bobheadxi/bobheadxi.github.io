@@ -2,7 +2,7 @@
 title: "Determining the Uniqueness of Oligonucleotide Sequences"
 layout: post
 date: 2018-02-08 02:20
-image: http://biopython.org/assets/images/biopython_logo_s.png
+image: https://biopython.org/assets/images/biopython_logo_s.png
 headerImage: true
 tag:
 - python
@@ -17,7 +17,7 @@ description: and an introduction to epigenetics
 It's been raining a lot. When it stops raining and the sun comes out, it can be pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and wonder how you ended up there.
 
 <p align="center">
-    <a href="http://bobheadxi.tumblr.com/post/170642555355/grey-deys-and-tumblr-gif-size-limits-by-robert">
+    <a href="https://bobheadxi.tumblr.com/post/170642555355/grey-deys-and-tumblr-gif-size-limits-by-robert">
         <img src="https://78.media.tumblr.com/0b435fbf4181a53fce56a8a54a55f368/tumblr_p3tqj0HOWc1rg86u5o1_1280.gif" width="75%" />
     </a>
 </p>
@@ -115,11 +115,11 @@ To address these concerns, I was tasked with checking if our plasmid spike-ins a
 To assess the spike-ins, the reverse complement of each sequence had to be generated, as well as the bisulfite modified versions and their reverse complements. The reverse complement is important to take into consideration due to the way the [Illumina's](https://www.illumina.com) (the company that builds our sequencers) paired-end sequencing works - strands are sequenced from adapters on both ends.
 
 <p align="center">
-    <img src="http://www.cureffi.org/wp-content/uploads/2012/12/paired-end1.jpg" width="90%" />
+    <img src="https://www.cureffi.org/wp-content/uploads/2012/12/paired-end1.jpg" width="90%" />
 </p>
 
 <p align="center">
-    <i style="font-size:90%;">diagram from <a href="http://www.cureffi.org/2012/12/19/forward-and-reverse-reads-in-paired-end-sequencing/">helpful post</a> by Eric Minikel</i>
+    <i style="font-size:90%;">diagram from <a href="https://www.cureffi.org/2012/12/19/forward-and-reverse-reads-in-paired-end-sequencing/">helpful post</a> by Eric Minikel</i>
 </p>
 
 The details of the sequencing process is a fascinating topic as well, but I'll leave that for another blog post. Anyway, here's an example of the different versions of each spike-in that has to be generated:
@@ -162,7 +162,7 @@ def bisulphite_convert(seq):
     return ''.join(bases)
 ```
 
-Now, all these converted sequences are fine and dandy but I needed them in a useful format. This is where the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format and the sprawling [Biopython](http://biopython.org) library came in handy.
+Now, all these converted sequences are fine and dandy but I needed them in a useful format. This is where the [FASTA](https://en.wikipedia.org/wiki/FASTA_format) format and the sprawling [Biopython](https://biopython.org) library came in handy.
 
 The FASTA format, unlike the more detailed and usually more practical [FASTQ](https://en.wikipedia.org/wiki/FASTQ_format) format (which includes quality scores for each nuecleotide!!!), is quite simple: it only has a bit of descriptive metadata and then the sequence itself.
 
@@ -174,7 +174,7 @@ catgttacacatttaaatgtcatacgaccgagaaatattttgcatttaaatacctgctaa
 gggcgaattcgcccttaattaactgggctcgttgtgcacattgtgttctcttaaaaagtt
 ```
 
-Biopython offers a clean, easy way to generate and write these entries to files through its comprehensive [SeqIO](http://biopython.org/wiki/SeqIO) module:
+Biopython offers a clean, easy way to generate and write these entries to files through its comprehensive [SeqIO](https://biopython.org/wiki/SeqIO) module:
 
 ```python
 # ...
@@ -400,7 +400,7 @@ Amazing stuff.
 </p>
 
 <p style="font-size:90%">
-    <a name="r8">[8]</a> Ehrich M, Turner J, Gibbs P, Lipton L, Giovanneti M, Cantor C, van den Boom D “<a href="http://www.pnas.org/content/105/12/4844.short">Cytosine methylation profiling of cancer cell lines.</a>” Proc Natl Acad Sci USA 105 (2008): 4844–4849
+    <a name="r8">[8]</a> Ehrich M, Turner J, Gibbs P, Lipton L, Giovanneti M, Cantor C, van den Boom D “<a href="https://www.pnas.org/content/105/12/4844.short">Cytosine methylation profiling of cancer cell lines.</a>” Proc Natl Acad Sci USA 105 (2008): 4844–4849
 </p>
 
 <p style="font-size:90%">

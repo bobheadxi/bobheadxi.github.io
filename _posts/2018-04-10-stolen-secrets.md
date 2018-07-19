@@ -16,8 +16,8 @@ description: a summary of a very cool talk I attended
 A few weeks ago I attended an awesome presentation. The speaker, Dr. Peter Kornicki from the University of Cambridge, opened with a story about a second year university student who was mysteriously asked to participate in a very, very secret program... to learn Japanese, alongside 29 other handpicked students.
 
 <p align="center">
-    <a href="http://bobheadxi.tumblr.com">
-        <img src="http://78.media.tumblr.com/7067b3cd5e2109d4e12d2a7c1f5aac20/tumblr_p6hzcql6pg1rg86u5o1_400.gif" width="75%" />
+    <a href="https://bobheadxi.tumblr.com">
+        <img src="https://78.media.tumblr.com/7067b3cd5e2109d4e12d2a7c1f5aac20/tumblr_p6hzcql6pg1rg86u5o1_400.gif" width="75%" />
     </a>
 </p>
 

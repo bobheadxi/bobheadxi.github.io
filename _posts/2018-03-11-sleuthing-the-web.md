@@ -77,7 +77,7 @@ We set up Sleuth as a three-component project:
 - Solr: our Apache Solr instance
 - Frontend: Sleuth's snazzy face
 
-This post will mostly be about the Web component's crawling systems and how an amateur (me) approached data farming for a search engine service, with a bit about Solr. [Apache Solr](http://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
+This post will mostly be about the Web component's crawling systems and how an amateur (me) approached data farming for a search engine service, with a bit about Solr. [Apache Solr](https://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
 
 Stay tuned for another post about Solr, Sleuth's search API, the systems we built to facilitate it!
 
@@ -254,7 +254,7 @@ To test my parsers and avoid trial and erroring my way through, I saved sample p
 ```py
 from scrapy.http import Request, TextResponse
 
-def mock_response(file_name=None, url='http://www.ubc.ca'):
+def mock_response(file_name=None, url='https://www.ubc.ca'):
     '''
     Create a fake Scrapy HTTP response
     file_name can be a relative file path or the desired contents of the mock
@@ -286,8 +286,8 @@ class TestGenericPageParser(TestCase):
         '''
         Test parsing a reddit text post
         '''
-        response = mock_response('/test_data/reddit_text_post.txt', 'http://www.reddit.com/')
-        links = ['http://www.google.com', 'http://www.reddit.com']
+        response = mock_response('/test_data/reddit_text_post.txt', 'https://www.reddit.com/')
+        links = ['https://www.google.com', 'https://www.reddit.com']
         item = parser.parse_post(response, links)
         item = ScrapyRedditPost(item)
         self.assertEqual('UBC', item['subreddit'])
@@ -438,7 +438,7 @@ class SolrConnection(object):
     def __init__(self, url):
         '''
         Creates a SolrConnection form the given base Solr url of the form
-        'http://<solrhostname>:<port>/solr'.
+        'https://<solrhostname>:<port>/solr'.
         '''
         self.url = url
         self.solr = pysolr.Solr(url, timeout=10)

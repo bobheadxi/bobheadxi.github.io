@@ -190,7 +190,7 @@ function isObject(o) {
 }
 ```
 
-A quick unit test (because what implementation would be complete without one?) to prove that it works, courtesy of [Mocha](https://mochajs.org/) and [chai-expect](http://chaijs.com/api/bdd/) (which I have grown to love):
+A quick unit test (because what implementation would be complete without one?) to prove that it works, courtesy of [Mocha](https://mochajs.org/) and [chai-expect](https://chaijs.com/api/bdd/) (which I have grown to love):
 
 ```js
 describe('#constructor()', function () {
@@ -219,7 +219,7 @@ describe('#constructor()', function () {
 });
 ```
 
-Now isn't that beautiful. Not only can I use this for incoming requests, but I can also use this to cleanly populate relevant fields when querying a database (this particular example uses the excellent [pg-promise](http://vitaly-t.github.io/pg-promise/) library):
+Now isn't that beautiful. Not only can I use this for incoming requests, but I can also use this to cleanly populate relevant fields when querying a database (this particular example uses the excellent [pg-promise](https://vitaly-t.github.io/pg-promise/) library):
 
 ```js
 connection.any(myQuery, args)

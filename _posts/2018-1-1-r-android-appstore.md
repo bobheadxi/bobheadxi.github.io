@@ -39,12 +39,12 @@ badges:
     <img src="https://img.shields.io/github/contributors/d4rken/reddit-android-appstore.svg" />
 </p>
 
-The "r/Android App Store" is an Android application that allows users to conveniently browse a massive [community-curated list of apps](https://www.reddit.com/r/android/wiki/apps) including all sorts of Android applications and games. The app features a comprehensive featureset and boasts a very strong userbase - the two major releases I participated in, v0.7 and v0.8, already has over [30,000 cumulative downloads](http://www.somsubhra.com/github-release-stats/?username=d4rken&repository=reddit-android-appstore). With over 20 merged pull requests, some of my contributions include:
+The "r/Android App Store" is an Android application that allows users to conveniently browse a massive [community-curated list of apps](https://www.reddit.com/r/android/wiki/apps) including all sorts of Android applications and games. The app features a comprehensive featureset and boasts a very strong userbase - the two major releases I participated in, v0.7 and v0.8, already has over [30,000 cumulative downloads](https://www.somsubhra.com/github-release-stats/?username=d4rken&repository=reddit-android-appstore). With over 20 merged pull requests, some of my contributions include:
 - **new features** such a redesign of one of the app's pages, the ability to automatically tag newly added apps as "new", the ability to save selected filters, a popup to show changelogs pulled from GitHub, markdown to HTML conversion for text, and more
 
 - **refactoring** parts of the app's backend to utilise [Dagger](https://github.com/google/dagger)'s dependency injection capabilities to enable easier testing, as well as making performance improvements by providing application-scoped (singleton) [OkHttpClient](https://github.com/square/okhttp) and [Retrofit](https://github.com/square/retrofit) instances through Dagger ([related blog post](https://bobheadxi.github.io/dependency-injection/))
 
-- rewriting **unit tests** using [JUnit](http://junit.org/junit5/) and [Mockito](http://site.mockito.org) for one of the refactored modules for more comprehensive coverage, and provided unit tests for some of my own contirbutions
+- rewriting **unit tests** using [JUnit](https://junit.org/junit5/) and [Mockito](https://site.mockito.org) for one of the refactored modules for more comprehensive coverage, and provided unit tests for some of my own contirbutions
 
 - a wide range of **bug fixes** to improve the app's stability
 

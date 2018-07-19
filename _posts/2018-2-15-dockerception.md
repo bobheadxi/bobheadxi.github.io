@@ -279,7 +279,7 @@ inertia remote add local
 # PEM file: inertia test key, User: 'root', Address: 0.0.0.0 (standard SSH port)
 inertia local init
 inertia remote status local
-# Remote instance 'local' accepting requests at http://0.0.0.0:8081
+# Remote instance 'local' accepting requests at https://0.0.0.0:8081
 ```
 
 I could even include instrumented tests and everything worked perfectly:
@@ -293,7 +293,7 @@ func TestInstrumentedBootstrap(t *testing.T) {
     assert.Nil(t, err)
 
     // Check if daemon is online following bootstrap
-    host := "http://" + remote.GetIPAndPort()
+    host := "https://" + remote.GetIPAndPort()
     resp, err := http.Get(host)
     assert.Nil(t, err)
     assert.Equal(t, resp.StatusCode, http.StatusOK)

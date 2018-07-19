@@ -36,7 +36,7 @@ badges:
     <img src="https://img.shields.io/github/contributors/bobheadxi/facebook-spotify-chatbot.svg" />
 </p>
 
-Ever wanted to allow everyone to add songs to your playlist, but disliked how Spotify really allows *anyone* to add *anything* to your playlist if you open it up? This bot allows you to interact with [Spotify](http://spotify.com) through the [Facebook Messenger](https://www.messenger.com) interface and allows the creation of more tightly controlled public playlists. Built on [Node.js](https://nodejs.org/en/), hosted on [Heroku](https://www.heroku.com), and making extensive use of [Facebook](https://developers.facebook.com/docs/messenger-platform/) and [Spotify](https://developer.spotify.com/web-api/)'s RESTful APIs, this bot currently features:
+Ever wanted to allow everyone to add songs to your playlist, but disliked how Spotify really allows *anyone* to add *anything* to your playlist if you open it up? This bot allows you to interact with [Spotify](https://spotify.com) through the [Facebook Messenger](https://www.messenger.com) interface and allows the creation of more tightly controlled public playlists. Built on [Node.js](https://nodejs.org/en/), hosted on [Heroku](https://www.heroku.com), and making extensive use of [Facebook](https://developers.facebook.com/docs/messenger-platform/) and [Spotify](https://developer.spotify.com/web-api/)'s RESTful APIs, this bot currently features:
 
 - **song search**, which presents the user with an attractive scrolling view that shows the song name, album art, album name and artist
 
@@ -46,7 +46,7 @@ Ever wanted to allow everyone to add songs to your playlist, but disliked how Sp
 
 - **robust song approval process** that involves both the host receiving a message to notify them of the request, and the requester receiving a message upon song approval, after which the requested song is seemlessly added to the host's Spotify playlist
 
-- **unit tests** written using [Mocha](https://mochajs.org) and [Sinon](http://sinonjs.org)
+- **unit tests** written using [Mocha](https://mochajs.org) and [Sinon](https://sinonjs.org)
 
 - **continuous integration tools** and code coverage reporting built in to the repository with [Travis](https://travis-ci.org) and [Coveralls](https://coveralls.io)
 
