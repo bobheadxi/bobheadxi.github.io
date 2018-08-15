@@ -13,7 +13,7 @@ plugins:
   - jekyll-feed
   - jekyll-admin
   - jekyll-mentions
-  #- jemoji
+  - jemoji
 jekyll-mentions:
     base_url: https://github.com
 
