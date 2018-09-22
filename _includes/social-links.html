@@ -23,6 +23,12 @@
         </a>
     {% endif %}
 
+    {% if site.tumblr %}
+    <a class="link" data-title="{{ site.tumblr }}.tumblr.com" href="https://{{ site.tumblr }}.tumblr.com" target="_blank">
+        <svg class="icon icon-tumblr"><use xlink:href="#icon-tumblr"></use></svg>
+    </a>
+    {% endif %}
+
     {% if site.pinterest %}
         <a class="link" data-title="pinterest.com/{{ site.pinterest }}" href="https://pinterest.com/{{ site.pinterest }}" target="_blank">
             <svg class="icon icon-pinterest"><use xlink:href="#icon-pinterest"></use></svg>
