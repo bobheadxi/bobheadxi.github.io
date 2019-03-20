@@ -21,9 +21,9 @@ title: Home
 </section> -->
 
 <section class="list">
-  <h1 class="title" style="color:#aaa;margin-top:-0.5rem;margin-bottom:-0.3rem;text-align:center;">featured projects</h1>
-  
-  {% for post in site.posts %} {% if post.projects %} {% if post.star %}
+  <h1 style="font-weight:500;margin-top:-0.5rem;margin-bottom:-0.2rem;text-align:center;">featured open source</h1>
+
+  {% for post in site.posts %} {% if post.open_source %} {% if post.star %}
   <div class="item" align="center">
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
       <h3 class="title">{{ post.title }}</h3>

@@ -9,10 +9,10 @@ tag:
 - hackathon
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false
-projects: true
+open_source: true
 hidden: true # don't count this post in blog pagination
 description: "a goodwill-based marketplace for sharing small, everyday items"
-category: project
+category: open-source
 author: robert
 externalLink: false
 ---

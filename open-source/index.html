@@ -1,10 +1,22 @@
 ---
 layout: page
-title: Projects
+title: Open Source
 ---
+<hr />
+<h1 style="font-weight:500;margin-top:-0.5rem;margin-bottom:-0.2rem;text-align:center;">open source</h1>
+
+<p align="center">
+    The open source community is amazing, and has been a huge part of my learning
+    - so I do my best to give back where I can through contributions and 
+    making my work open-source. Feel free to check out my
+    <a href="https://github.com/bobheadxi">GitHub</a> and
+    <a href="https://twitter.com/bobheadxi">Twitter</a> to see what I'm
+    working on right now!
+</p>
+
 <section class="list">
     {% for post in site.posts %}
-        {% if post.projects %}
+        {% if post.open_source %}
             <div class="item {% if post.star %}star{% endif %}">
                 <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
                     <h3 class="title">{{ post.title }}</h3>

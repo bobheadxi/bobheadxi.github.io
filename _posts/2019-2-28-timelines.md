@@ -13,10 +13,10 @@ tag:
 - graphql
 image: ""
 headerImage: false
-projects: true
+open_source: false # hidden for now
 hidden: true # don't count this post in blog pagination
 description: "the stories of your projects and your communities"
-category: project
+category: open-source
 author: robert
 star: false
 externalLink: false

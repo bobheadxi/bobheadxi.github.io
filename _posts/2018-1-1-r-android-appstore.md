@@ -8,17 +8,16 @@ tag:
 - open-source
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false
-projects: true
+open_source: true
 hidden: true # don't count this post in blog pagination
 description: "widely used portal for luxuriously browsing a popular community-curated collection of Android applications"
-category: project
+category: open-source
 author: robert
 star: true
 externalLink: false
 badges:
 - <img src="https://img.shields.io/github/downloads/d4rken/reddit-android-appstore/total.svg" alt="Total Downloads" />
 - <img src="https://img.shields.io/github/stars/d4rken/reddit-android-appstore.svg" /> 
-- <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore.svg?colorB=FD8600" />
 ---
 
 <p align="center">
@@ -35,7 +34,6 @@ badges:
     <img src="https://img.shields.io/github/downloads/d4rken/reddit-android-appstore/total.svg"
         alt="Total Downloads" />
     <img src="https://img.shields.io/github/stars/d4rken/reddit-android-appstore.svg" />        
-    <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore.svgcolorB=FD8600" />
     <img src="https://img.shields.io/github/contributors/d4rken/reddit-android-appstore.svg" />
 </p>
 
