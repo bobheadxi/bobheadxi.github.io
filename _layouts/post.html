@@ -8,16 +8,22 @@ layout: page
 
 <h1 class="title">{{ page.title }}</h1>
 
+{% if page.organization %}
+    <h2 class="title" style="font-weight:350">{{ page.organization }}</h2>
+{% endif %}
+
 {% if page.open_source!=true and page.hidedescription!=true %}
 <p class="date" style="color:#606060;margin-top:-25px;margin-bottom:30px;">
     <i> {{ page.description }} </i>
 </p>
 {% endif %}
 
-<span class="date">
-    <time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date: "%A. %B %d, %Y" }}</time>
-    {% if site.read-time %} - {% include read-time.html %}{% endif %}
-</span>
+{% if page.experience!=true and page.open_source!=true %}
+    <span class="date">
+        <time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date: "%A. %B %d, %Y" }}</time>
+        {% if site.read-time %} - {% include read-time.html %}{% endif %}
+    </span>
+{% endif %}
 
 {% if site.show-tags %}
     <div class="post-tags">
