@@ -3,10 +3,10 @@ title: ":department_store: Social Lending Platform"
 layout: post
 date: 2018-01-07 12:00
 tag:
+- hackathon
 - python
 - django
 - docker
-- hackathon
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false
 open_source: true

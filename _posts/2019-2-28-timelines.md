@@ -1,5 +1,5 @@
 ---
-title: ":books: Timelines - Project Lifetime Visualization"
+title: ":books: Project Lifetime Visualization"
 layout: post
 date: 2019-02-28 12:19
 tag:
@@ -15,7 +15,7 @@ image: ""
 headerImage: false
 open_source: false # hidden for now
 hidden: true # don't count this post in blog pagination
-description: "the stories of your projects and your communities"
+description: "<i>Timelines</i> - the stories of your projects and your communities"
 category: open-source
 author: robert
 star: false
