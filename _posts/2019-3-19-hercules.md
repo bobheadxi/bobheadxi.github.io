@@ -52,6 +52,7 @@ features upstream!
 My contributions include:
 
 - **new features** such as [reworked interval options](https://github.com/src-d/hercules/pull/245)
+  and a [pluggable logger](https://github.com/src-d/hercules/pull/262)
 - **fixes** for a [race condition](https://github.com/src-d/hercules/pull/232) I
   I discovered, and a small fix to [improve `go mod` support](https://github.com/src-d/hercules/pull/230)
 
