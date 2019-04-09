@@ -99,24 +99,9 @@ Fun fact - Google itself seems to cheat a bit on this by offering the [Google Se
 
 We didn't have the search presence of Google leverage when asking people to conform to our crawler's expectations, so I focused on defining a number of categories. On the top level, I set up two crawlers: a `broad_crawler` that would generically traverse the links in its source pages, and a `custom_crawler` that would take a custom parser module to handle crawling. A crawler is essentially a bot that would visit and retrieve data from sites. These crawlers would then identify and pass web pages to the appropriate `parsers`. The data flow looks a bit like this:
 
-<div class="mermaid" align="center">
-graph TB;
-    w(predefined seed URLs)==>s;
-    w==>t;
-    s(generic URLs)==visited by==>broad_crawler;
-    t(targeted URLs)==visited by==>custom_crawler;
-    broad_crawler==>p{process request};
-    p==>type_1_parser;
-    p==>type_2_parser;
-    custom_crawler==>c[custom callbacks];
-    c-.child links.->t;
-    type_1_parser-.child links.->s;
-    type_2_parser-.child links.->s;
-    type_1_parser==>pipeline;
-    type_2_parser==>pipeline;
-    c==>pipeline;
-    pipeline==>database;
-</div>
+<p align="center">
+    <img src="/assets/images/projects/sleuth-pipeline.png" />
+</p>
 
 ## Parsers
 
