@@ -1,5 +1,5 @@
 ---
-title: ":rainbow: Open-Source Android Application"
+title: ":rainbow: r/Android App Store"
 layout: post
 date: 2018-01-01 00:00
 tag:
