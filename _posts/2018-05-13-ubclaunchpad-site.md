@@ -5,11 +5,12 @@ date: 2018-06-30 12:19
 tag:
 - javascript
 - scss
+- website
 image: ""
 headerImage: false
 open_source: true
 hidden: true # don't count this post in blog pagination
-description: "UBC Launch Pad's official website"
+description: "the official website for Launch Pad, UBC's student-lead software engineering club"
 category: open-source
 author: robert
 star: false
