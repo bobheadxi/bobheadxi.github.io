@@ -47,3 +47,16 @@ The "r/Android App Store" is an Android application that allows users to conveni
 - **reviewing pull requests** made by new contributors and addressing bug reports and issues raised by the community
 
 Check out my pull requests in more detail [here](https://github.com/d4rken/reddit-android-appstore/pulls?utf8=✓&q=is%3Apr%20is%3Aclosed%20author%3Abobheadxi%20is%3Amerged%20base%3Adev)!
+
+<p align="center">
+  <img src="/assets/images/projects/r-reddit-appstore-demo.gif" width="50%" />
+</p>
+
+<p align="center">
+  <i style="font-size:90%;">
+  Demo from my
+  <a href="https://github.com/d4rken/reddit-android-appstore/pull/131">pull request to add a redsigned app details page</a>.
+  </i>
+</p>
+
+<br />
