@@ -22,7 +22,7 @@ externalLink: false
 
 <i>This page is a work in progress - sorry!</i>
 
-Working part-time while taking classes at UBC on RTrade's primary product Temporal (an easy-to-use API interface into distributed and decentralized storage technologies) and its related services. Projects include refactoring the core codebase into extensible and reusable packages, building and integrating a new object encryption/decryption tool, and revamping RTrade's search engine service, Lens, for improved results, more structured data management, and extra features like OCR capabilities.
+Worked part-time while taking classes at UBC on RTrade's primary product Temporal (an easy-to-use API interface into distributed and decentralized storage technologies) and its related services. Projects included refactoring the core codebase into extensible and reusable packages, building and integrating a new object encryption/decryption tool, and revamping RTrade's search engine service, Lens, for improved results, more structured data management, and extra features like OCR capabilities.
 
 Also designed and developed Nexus, an IPFS private network node orchestration and registry agent that serves as the backbone for Temporal's private network service. Nexus handles on-demand deployment, resource management, metadata persistence, and fine-grained access control for IPFS nodes running within Docker containers.
 
