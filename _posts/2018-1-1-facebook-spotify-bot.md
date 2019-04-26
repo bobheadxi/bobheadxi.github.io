@@ -4,7 +4,7 @@ layout: post
 date: 2018-01-01 00:00
 tag:
 - javascript
-- node
+- nodejs
 - rest
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false

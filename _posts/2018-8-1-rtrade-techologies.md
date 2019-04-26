@@ -3,14 +3,14 @@ title: "Software Engineer"
 layout: post
 date: 2018-08-01 12:00
 tag:
+- remote
 - golang
 - ipfs
 - grpc
 - docker
 - postgres
-- tesseract
-image: ""
-headerImage: false
+image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5c999caf86222e0001c7b6c4/1554999397417
+headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
 organization: RTrade Technologies Ltd.

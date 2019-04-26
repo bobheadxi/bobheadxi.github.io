@@ -6,11 +6,16 @@
             {% for thisTag in page.tags %}
                 {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
                     {% if hasSimilar.size == 0 %}
-                    <h4>Related Posts</h4>
+                    <h4>Related</h4>
                     <ul>
                     {% endif %}
                     <li class="relatedPost">
-                        <a href="{{ site.url }}{{ post.url }}">{{ post.title }}
+                        {% if post.experience == true %}
+                            <a href="{{ site.url }}{{ post.url }}">Experience: {{ post.title }} at {{ post.organization }}
+                        {% else %}
+                            <a href="{{ site.url }}{{ post.url }}">{{ post.title }}
+                        {% endif %}
+
                         {% if post.series %}
                             (Series: {{ post.series }})
                         {% endif %}

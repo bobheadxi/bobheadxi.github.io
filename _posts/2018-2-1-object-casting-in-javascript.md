@@ -6,7 +6,7 @@ image: https://seeklogo.com/images/J/javascript-logo-E967E87D74-seeklogo.com.png
 headerImage: true
 tag:
 - javascript
-- node
+- nodejs
 - design
 star: true
 category: blog

@@ -2,12 +2,14 @@
 title: "Software Engineer Intern"
 layout: post
 date: 2019-05-07 9:00
-tag: []
-image: ""
-headerImage: false
+tag:
+- internship
+- golang
+image: /assets/images/experience/riot-games.png
+headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
-organization: Riot Games, Inc
+organization: "Riot Games, Inc"
 description: "Starting May 2019 | Los Angeles, CA"
 category: experience
 author: robert
