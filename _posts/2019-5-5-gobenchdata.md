@@ -15,9 +15,11 @@ hidden: true # don't count this post in blog pagination
 description: "<i>gobenchdata</i> - CLI for inspecting Go benchmarking outputs, GitHub Action for continuous benchmarking, and web app for performance visualization"
 category: open-source
 author: robert
-star: false
+star: true
 externalLink: false
-badges: []
+badges:
+- <img src="https://img.shields.io/badge/github-action-yellow.svg" alt="GitHub Action" />
+- <img src="https://img.shields.io/website/https/gobenchdata.bobheadxi.dev.svg?down_color=grey&down_message=offline&label=demo&up_message=live" alt="demo status">
 ---
 
 <p align="center">
