@@ -10,6 +10,7 @@ headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
 organization: "Riot Games, Inc"
+orgLink: https://www.riotgames.com
 description: "May 2019 - Present | Los Angeles, CA"
 category: experience
 author: robert
