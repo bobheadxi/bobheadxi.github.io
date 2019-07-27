@@ -8,6 +8,7 @@ tag:
 - benchmarking
 - data-viz
 - cli
+- automation
 image: ""
 headerImage: false
 open_source: true

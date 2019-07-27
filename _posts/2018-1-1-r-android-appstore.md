@@ -4,6 +4,7 @@ layout: post
 date: 2018-01-01 00:00
 tag:
 - android
+- mobile
 - java
 - open-source
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
@@ -18,6 +19,7 @@ externalLink: false
 badges:
 - <img src="https://img.shields.io/github/downloads/d4rken/reddit-android-appstore/total.svg" alt="Total Downloads" />
 - <img src="https://img.shields.io/github/stars/d4rken/reddit-android-appstore.svg" /> 
+- <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore?color=b07219" />
 ---
 
 <p align="center">
