@@ -13,7 +13,8 @@ image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5c999ca
 headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
-organization: <a href="https://www.rtradetechnologies.com/">RTrade Technologies Ltd.</a>
+organization: RTrade Technologies Ltd.
+orgLink: https://www.rtradetechnologies.com/
 description: "Sept 2018 - April 2019 | Vancouver, BC"
 category: experience
 author: robert
