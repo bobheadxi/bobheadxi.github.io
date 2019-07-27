@@ -5,6 +5,9 @@ date: 2019-05-07 9:00
 tag:
 - internship
 - golang
+- deployment
+- metrics
+- monitoring
 image: /assets/images/experience/riot-games.png
 headerImage: true
 experience: true
