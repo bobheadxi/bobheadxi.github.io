@@ -11,7 +11,7 @@ image: ""
 headerImage: false
 open_source: true # hide for now
 hidden: true # don't count this post in blog pagination
-description: "ergonomic primitives for working with JSON in Golang HTTP servers and clients"
+description: "<i>res</i> - ergonomic primitives for working with JSON in Golang HTTP servers and clients"
 category: open-source
 author: robert
 star: false
