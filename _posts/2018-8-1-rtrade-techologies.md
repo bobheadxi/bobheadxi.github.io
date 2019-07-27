@@ -13,20 +13,33 @@ image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5c999ca
 headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
-organization: RTrade Technologies Ltd.
-description: "Sep 2018 - April 2019 | Vancouver, BC"
+organization: <a href="https://www.rtradetechnologies.com/">RTrade Technologies Ltd.</a>
+description: "Sept 2018 - April 2019 | Vancouver, BC"
 category: experience
 author: robert
 externalLink: false
 ---
 
-<i>This page is a work in progress - sorry!</i>
+From September 2018 to April 2019, I worked remotely part-time while taking classes
+at UBC on RTrade's primary product [Temporal](https://temporal.cloud/) (an API
+interface into distributed and decentralized storage technologies) and its related services.
+My work involved leveraging technologies like [Golang](https://golang.org/),
+[Docker](https://www.docker.com/), [gRPC](https://grpc.io/),
+[PostgreSQL](https://www.postgresql.org/), and [IPFS](https://ipfs.io/)
+(a globally distributed filesystem) across projects such as:
 
-Worked part-time while taking classes at UBC on RTrade's primary product Temporal (an easy-to-use API interface into distributed and decentralized storage technologies) and its related services. Projects included refactoring the core codebase into extensible and reusable packages, building and integrating a new object encryption/decryption tool, and revamping RTrade's search engine service, Lens, for improved results, more structured data management, and extra features like OCR capabilities.
-
-Also designed and developed Nexus, an IPFS private network node orchestration and registry agent that serves as the backbone for Temporal's private network service. Nexus handles on-demand deployment, resource management, metadata persistence, and fine-grained access control for IPFS nodes running within Docker containers.
-
-Designed and implemented Temporal's gRPC-based V3 API leveraging Protocol Buffer-based code generation to automatically build clients for various languages, allowing easy integration for customers seeking to build integrations.
+* **designing, building, and deploying a new [IPFS node orchestration and registry agent](https://github.com/RTradeLtd/Nexus)**
+  that serves as the backbone for Temporal's private network service. The service
+  handles automated and on-demand deployment, resource management, metadata persistence,
+  and fine-grained access control for IPFS nodes running within Docker containers.
+* revamping [RTrade's **search engine service**](https://github.com/RTradeLtd/Lens)
+  for improved results, more structured data management, improved performance,
+  a new gRPC-based API, and new features like OCR capabilities
+* building and integrating a new [object encryption/decryption tool](https://github.com/RTradeLtd/crypto)
+  for assets stored by customers on the service 
+* [establishing a framework](https://github.com/RTradeLtd/testenv) for quickly
+  deploying production-like test environments for **effective integration testing**
+* refactoring the core codebase into [extensible and reusable packages](https://github.com/search?q=topic%3Atemporal+org%3ARTradeLtd+fork%3Atrue)
 
 Most of the company's work is open-source, so you can see all my pull requests
 for RTrade on [GitHub](https://github.com/search?o=asc&q=author%3Abobheadxi+is%3Amerged+org%3ARTradeLtd&s=created&type=Issues)!
