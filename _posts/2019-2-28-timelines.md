@@ -15,7 +15,7 @@ image: ""
 headerImage: false
 open_source: false # hidden for now
 hidden: true # don't count this post in blog pagination
-description: "<i>Timelines</i> - the stories of your projects and your communities"
+description: "<i>Timelines</i> - Historical analysis of Git repositories and GitHub activity as a service"
 category: open-source
 author: robert
 star: false
