@@ -10,7 +10,6 @@ tag:
 - scrapy
 - rant
 - sleuth
-star: true
 category: blog
 author: robert
 description: scraping data for a bad search engine
