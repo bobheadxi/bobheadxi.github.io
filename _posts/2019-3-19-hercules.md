@@ -38,12 +38,12 @@ badges:
     <img src="https://img.shields.io/github/stars/src-d/hercules.svg?" />
 </p>
 
-Hercules is an fast and highly customizable Git repository analysis engine
+*Hercules* is a fast and highly customizable Git repository analysis engine
 written in Go, built and open-sourced by [source{d}](https://sourced.tech/). It
 runs a highly customizable pipeline of analysis tasks on a Git repository to
-generate all sorts of cool data and insights. I am currently using Hercules as a
-library for a project I am working on, so I've contributed a few fixes and
-features upstream!
+generate all sorts of cool data and insights. I
+[used Hercules extensively for a project I worked on](https://bobheadxi.dev/timelines-recap)
+for a while, so I contributed a few fixes and features upstream!
 
 <p align="center">
     <img src="/assets/images/projects/hercules-burndown-inertia.png" width="100%" />
