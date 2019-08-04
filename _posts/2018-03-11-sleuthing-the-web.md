@@ -10,6 +10,7 @@ tag:
 - scrapy
 - rant
 - sleuth
+- launch-pad
 category: blog
 author: robert
 description: scraping data for a bad search engine

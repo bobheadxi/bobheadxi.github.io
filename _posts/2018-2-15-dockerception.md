@@ -10,6 +10,7 @@ tag:
 - devops
 - bash
 - inertia
+- launch-pad
 star: false
 category: blog
 author: robert

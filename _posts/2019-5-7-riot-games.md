@@ -8,6 +8,7 @@ tag:
 - deployment
 - metrics
 - monitoring
+- data-viz
 image: /assets/images/experience/riot-games.png
 headerImage: true
 experience: true

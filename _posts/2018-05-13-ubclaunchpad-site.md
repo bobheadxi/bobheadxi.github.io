@@ -6,6 +6,7 @@ tag:
 - javascript
 - scss
 - website
+- launch-pad
 image: ""
 headerImage: false
 open_source: true
