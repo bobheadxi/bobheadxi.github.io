@@ -7,6 +7,7 @@ headerImage: true
 tag:
 - misc
 - rant
+- journal
 category: blog
 author: robert
 description: 
