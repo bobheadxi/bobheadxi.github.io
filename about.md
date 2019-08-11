@@ -11,7 +11,9 @@ My [professional experience](https://bobheadxi.dev/) includes time spent at
 I've also worked as a [tech lead with UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad)
 (a student-run software engineering club at my school) and as a
 [web developer with nwPlus](https://bobheadxi.dev/nwhacks2019/) (the group
-that organizes one of the largest hackathons in western Canada).
+that organizes one of the largest hackathons in western Canada). A condensed
+(though often outdated) summary of my work is available in my 
+[resume](https://resume.bobheadxi.dev).
 
 I have a soft spot for [mountains, trees, making gifs that loop](https://pics.bobheadxi.dev/),
 and [occasionally writing](https://bobheadxi.dev/blog/).
