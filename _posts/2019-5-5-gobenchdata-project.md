@@ -39,8 +39,8 @@ badges:
   <a href="https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=7&branchName=master">
     <img src="https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.gobenchdata?branchName=master" alt="CI Status" />
   </a>
-  <a href="https://github.com/marketplace/actions/gobenchdata-to-gh-pages">
-    <img src="https://img.shields.io/badge/view-action-yellow.svg" alt="GitHub Action" />
+  <a href="https://bobheadxi.dev/r/gobenchdata">
+    <img src="https://img.shields.io/badge/view-github%20action-yellow.svg" alt="GitHub Action" />
   </a>
   <a href="https://godoc.org/github.com/bobheadxi/gobenchdata">
     <img src="https://godoc.org/github.com/bobheadxi/gobenchdata?status.svg" alt="GoDoc" />
@@ -64,25 +64,27 @@ It features:
 
 Setup for the Action is very simple:
 
-```hcl
-workflow "Benchmark" {
-  on = "push"
-  resolves = ["gobenchdata to gh-pages"]
-}
+```yml
+name: Benchmark
+on:
+  push:
+    branches: [ master ]
 
-action "filter" {
-  uses = "actions/bin/filter@master"
-  args = "branch master"
-}
-
-action "gobenchdata to gh-pages" {
-  uses = "bobheadxi/gobenchdata@master"
-  needs = ["filter"]
-  secrets = ["GITHUB_TOKEN"]
-  env = {
-    PRUNE = "20"
-  }
-}
+jobs:
+  benchmark:
+    runs-on: ubuntu-latest
+    steps:
+    - name: checkout
+      uses: actions/checkout@v1
+      with:
+        fetch-depth: 1
+    - name: gobenchdata to gh-pages
+      uses: bobheadxi/gobenchdata@v0.3.0
+      with:
+        PRUNE_COUNT: 30
+        GO_TEST_FLAGS: -cpu 1,2
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 ```
 
 Then, a user can simply run `gobenchdata-web` to generate a web app that they
