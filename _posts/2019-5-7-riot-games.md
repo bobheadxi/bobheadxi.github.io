@@ -15,12 +15,12 @@ experience: true
 hidden: true # don't count this post in blog pagination
 organization: "Riot Games, Inc"
 orgLink: https://www.riotgames.com
-description: "May 2019 - Present | Los Angeles, CA"
+description: "May 2019 - August 2019 | Los Angeles, CA"
 category: experience
 author: robert
 externalLink: false
 ---
 
 <p align="center">
-    <i>Coming soon!</i>
+    <i>Will update this soon!</i>
 </p>
