@@ -7,7 +7,7 @@ tag:
 - python
 - git
 - analytics
-image: ""
+image: https://github.com/src-d/hercules/blob/master/doc/dag.png?raw=true
 headerImage: false
 open_source: true
 hidden: true # don't count this post in blog pagination

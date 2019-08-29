@@ -73,14 +73,21 @@
         padding: 20px 0
         text-decoration: none
 
-    > .item > .url > .title
-        margin: 0
-        width: 75%
-        font-weight: 500
-        transition: all ease-in-out .2s
+    > .item > .url
+        > .title
+            margin: 0
+            width: 75%
+            font-weight: 500
+            transition: all ease-in-out .2s
+        > .image
+            filter: saturate(20%)
+            transition: 0.3s
 
-    > .item:hover > .url > .title
-        color: $delta
+    > .item:hover > .url
+        > .title
+            color: $delta
+        > .image
+            filter: saturate(105%)
 
     aside
         position: relative

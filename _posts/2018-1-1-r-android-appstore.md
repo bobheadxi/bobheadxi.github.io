@@ -7,7 +7,7 @@ tag:
 - mobile
 - java
 - open-source
-image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
+image: https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true
 headerImage: false
 open_source: true
 hidden: true # don't count this post in blog pagination
