@@ -16,6 +16,15 @@ author: robert
 description: scraping data for a bad search engine
 ---
 
+<p align="center">
+    <b>
+        :mega: A shorter version of this post is
+        <a href="https://medium.com/ubc-launch-pad-software-engineering-blog/crawling-the-web-for-a-search-engine-a7988ee2e6e9" target="_blank">available on Medium</a>!
+    </b>
+</p>
+
+<br />
+
 >*We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:*
 >
 > - *did you do it well?*

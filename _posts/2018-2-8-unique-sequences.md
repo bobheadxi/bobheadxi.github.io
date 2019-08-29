@@ -13,6 +13,15 @@ author: robert
 description: and an introduction to epigenetics
 ---
 
+<p align="center">
+    <b>
+        :mega: A shorter version of this post is
+        <a href="https://medium.com/@bobheadxi/determining-the-uniqueness-of-oligonucleotide-sequences-f8ae77bca60f" target="_blank">available on Medium</a>!
+    </b>
+</p>
+
+<br />
+
 It's been raining a lot. When it stops raining and the sun comes out, it can be pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and wonder how you ended up there.
 
 <p align="center">
