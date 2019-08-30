@@ -21,6 +21,7 @@ externalLink: false
 badges:
 - <img src="https://img.shields.io/badge/github-action-yellow.svg" alt="GitHub Action" />
 - <img src="https://img.shields.io/website/https/gobenchdata.bobheadxi.dev.svg?down_color=grey&down_message=offline&label=demo&up_message=live" alt="demo status">
+- <img src="https://img.shields.io/github/languages/top/bobheadxi/gobenchdata.svg?colorB=1e90ff" />
 ---
 
 <p align="center">
