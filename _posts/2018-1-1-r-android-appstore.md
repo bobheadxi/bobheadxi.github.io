@@ -55,7 +55,7 @@ With over 20 merged pull requests, some of my contributions include:
   to enable easier testing, as well as making performance improvements by providing
   application-scoped (singleton) [OkHttpClient](https://github.com/square/okhttp)
   and [Retrofit](https://github.com/square/retrofit) instances through Dagger
-  ([related blog post](https://bobheadxi.github.io/dependency-injection/))
+  ([related blog post](/dependency-injection/))
 - rewriting **unit tests** using [JUnit](https://junit.org/junit5/) and
   [Mockito](https://site.mockito.org) for one of the refactored modules for
   more comprehensive coverage, and provided unit tests for some of my own

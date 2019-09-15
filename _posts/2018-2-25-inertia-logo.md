@@ -17,7 +17,7 @@ author: robert
 externalLink: false
 ---
 
-There isn't too much a project on GitHub can do in terms of looking attractive and professional outside of a clean name, concise description, and a clean README. In the past I hadn't really thought much about it since my projects were of rather... low quality and were unlikely to see widespread use. Take this README from my [very first personal project](https://bobheadxi.github.io/facebook-spotify-bot/):
+There isn't too much a project on GitHub can do in terms of looking attractive and professional outside of a clean name, concise description, and a clean README. In the past I hadn't really thought much about it since my projects were of rather... low quality and were unlikely to see widespread use. Take this README from my [very first personal project](/facebook-spotify-bot/):
 
 <p align="center">
     <a href="https://github.com/bobheadxi/facebook-spotify-chatbot">
@@ -31,10 +31,10 @@ There isn't too much a project on GitHub can do in terms of looking attractive a
 
 I figured pretty early on that I really liked the look of badges, and given their popularity it doesn't seem like I'm the only one. I'm not really sure what makes them so comfortable to look at - perhaps it's something about their colourfulness, or their nice rectangular roundness, or how easy they are to parse at a glance. There is even an [entire project](https://github.com/badges/shields) dedicated to making these badges. If you're interested, they have a neat [design document](https://github.com/badges/shields/blob/master/spec/SPECIFICATION.md) specifying what makes a good badge as well as a [brief history](https://github.com/badges/shields/blob/master/spec/motivation.md) of the badges.
 
-Badges aren't just nice in READMEs - I also use them in my [Project](https://bobheadxi.github.io/projects/) pages:
+Badges aren't just nice in READMEs - I also use them in my [Project](/projects/) pages:
 
 <p align="center">
-    <a href="https://bobheadxi.github.io/r-android-appstore/">
+    <a href="/r-android-appstore/">
         <img src="/assets/images/posts/reddit-android-project-page.png" width="60%">
     </a>
 </p>
