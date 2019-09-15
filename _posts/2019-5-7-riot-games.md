@@ -14,7 +14,7 @@ headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
 organization: "Riot Games, Inc"
-orgLink: https://www.riotgames.com
+orgLink: https://www.riotgames.com/en/who-we-are
 description: "May 2019 - August 2019 | Los Angeles, CA"
 category: experience
 author: robert
