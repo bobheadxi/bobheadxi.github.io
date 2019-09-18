@@ -32,7 +32,7 @@ externalLink: false
 
 [Riot Games](https://www.riotgames.com/en/who-we-are) is the company behind
 *[League of Legends](https://na.leagueoflegends.com/en/)*, one of the most-played
-PC video games in the world with an estimated playerbase of over
-[100 million active monthly players in 2016](https://www.forbes.com/sites/insertcoin/2016/09/13/riot-games-reveals-league-of-legends-has-100-million-monthly-players/#3234d67f5aa8).
+PC video games in the world with an estimated playerbase of about
+[8 million peak concurrent players every day - higher than the top 10 games on Steam combined](https://na.leagueoflegends.com/en/news/game-updates/special-event/join-us-oct-15th-celebrate-10-years-league). 
 They are currently headquartered in Los Angeles, California, and have 2,500+
 employees in 20+ offices worldwide.
