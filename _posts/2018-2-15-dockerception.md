@@ -168,7 +168,7 @@ resp, err := cli.ContainerCreate(
 )
 ```
 
-No docker-compose install necessary. While this initial approach seemed to work for simple projects, at NWHacks, when I attempted to deploy my [team's project](https://bobheadxi.github.io/borrow-me/) using Inertia, it didn't build - still investigating what the cause is there. Oh well. If once you fail, try, try again?
+No docker-compose install necessary. While this initial approach seemed to work for simple projects, at NWHacks, when I attempted to deploy my [team's project](/borrow-me/) using Inertia, it didn't build - still investigating what the cause is there. Oh well. If once you fail, try, try again?
 
 The work I have mentioned in this post so far (which laid the foundation for Inertia's daemon functionality) can be seen in [this massive pull request](https://github.com/ubclaunchpad/inertia/pull/30).
 

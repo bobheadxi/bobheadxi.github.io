@@ -19,6 +19,7 @@ externalLink: false
 badges:
 - <img src="https://img.shields.io/github/stars/src-d/hercules.svg?" />
 - <img src="https://img.shields.io/github/contributors/src-d/hercules.svg" />
+- <img src="https://img.shields.io/github/languages/top/src-d/hercules.svg?colorB=1e90ff" />
 ---
 
 <p align="center">

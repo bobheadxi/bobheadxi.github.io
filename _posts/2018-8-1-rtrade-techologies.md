@@ -26,7 +26,7 @@ at UBC on RTrade's primary product [Temporal](https://temporal.cloud/) (an API
 interface into distributed and decentralized storage technologies) and its related services.
 My work involved leveraging technologies like [Golang](https://golang.org/),
 [Docker](https://www.docker.com/), [gRPC](https://grpc.io/),
-[PostgreSQL](https://www.postgresql.org/), and [IPFS](https://ipfs.io/)
+[PostgreSQL](https://www.postgresql.org/), and [Interplanetary Filesystem (IPFS)](https://ipfs.io/)
 (a globally distributed filesystem) across projects such as:
 
 * **designing, building, and deploying a new [IPFS node orchestration and registry agent](https://github.com/RTradeLtd/Nexus)**
@@ -44,3 +44,15 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
 
 Most of the company's work is open-source, so you can see all my pull requests
 for RTrade on [GitHub](https://github.com/search?o=asc&q=author%3Abobheadxi+is%3Amerged+org%3ARTradeLtd&s=created&type=Issues)!
+
+<br />
+
+### About RTrade Technologies
+
+[RTrade Technologies](https://www.rtradetechnologies.com/) designs and builds
+cutting-edge blockchain solutions, with the goal of enabling any blockchain-based
+applications to scale in a secure and efficient manner. Their core product is
+[Temporal](https://play.temporal.cloud/), a suite of open-source APIs for
+distributed data storage solutions that can be easily integrated into any
+existing application stack, quickly and safely scaling projects with turnkey
+[Interplanetary Filesystem (IPFS)](https://ipfs.io/) tools.

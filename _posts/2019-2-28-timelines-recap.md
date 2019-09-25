@@ -65,7 +65,7 @@ During this time, I also started or improved a few other relevant side projects:
 
 * features for my dependencies (primarily [Hercules](https://bobheadxi.dev/hercules))
   that I needed or wanted
-* [logging extensions](https://github.com/bobheadxi/res) for the `uber-go/zap` library
+* [logging extensions](https://github.com/bobheadxi/zapx) for the `uber-go/zap` library
 * a [continuous benchmarking](https://github.com/bobheadxi/gobenchdata) tool for observing performance trends
 * generator for [static, canonical Go package import paths](https://github.com/bobheadxi/twist)
 

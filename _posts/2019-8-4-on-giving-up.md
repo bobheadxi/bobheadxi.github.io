@@ -10,6 +10,7 @@ tag:
 - journal
 category: blog
 author: robert
+hidden: true
 description: 
 ---
 
