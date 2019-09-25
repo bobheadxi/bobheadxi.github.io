@@ -1,5 +1,5 @@
 ---
-title: "Software Engineer"
+title: "Software Engineer (Remote, Part-Time)"
 layout: post
 date: 2018-08-01 12:00
 tag:
@@ -15,7 +15,7 @@ experience: true
 hidden: true # don't count this post in blog pagination
 organization: RTrade Technologies Ltd.
 orgLink: https://www.rtradetechnologies.com/
-description: "Sept 2018 - April 2019 | Vancouver, BC"
+description: "Sept 2018 - April 2019 | Remote"
 category: experience
 author: robert
 externalLink: false
