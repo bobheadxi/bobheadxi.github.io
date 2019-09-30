@@ -1,5 +1,5 @@
 ---
-title: "Software Developer (Remote, Part-Time)"
+title: "Software Developer (Part-Time)"
 layout: post
 date: 2019-10-01 9:00
 tag:

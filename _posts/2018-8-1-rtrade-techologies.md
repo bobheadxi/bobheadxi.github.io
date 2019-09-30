@@ -1,5 +1,5 @@
 ---
-title: "Software Engineer (Remote, Part-Time)"
+title: "Software Engineer (Part-Time)"
 layout: post
 date: 2018-08-01 12:00
 tag:
