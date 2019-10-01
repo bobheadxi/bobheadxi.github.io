@@ -1,8 +1,7 @@
 ---
 title: "Evaluable Expressions in Configuration"
 layout: post
-date: 2019-7-25 11:00
-image: ""
+date:
 headerImage: false
 tag:
 - design
@@ -14,7 +13,7 @@ author: robert
 description: Metaconfiguration with Go!
 ---
 
-My current project at [Riot Games](https://bobheadxi.dev/riot-games/) involves
+One of my projects at [Riot Games](https://bobheadxi.dev/riot-games/) involved
 designing an extension to an internal application specification we have to
 describe services to allow engineers to declaratively define alerts on their
 application. The goal of the specification is to be human-readable for operators
@@ -127,8 +126,9 @@ whole thing kind of convoluted. Configurations fields with dashes in them
 (`my-field`) was also problematic since the Go parser would recognize it as
 arithmetic.
 
-So since I didn't use the parser, I put it up as a [gist](https://gist.github.com/bobheadxi/65a6fc4c77e5b339c48a370f70b11907)!
-I still think it's kind of neat, but not very practical. This implementation
+So since I didn't end up using the parser, I put it up as a
+[gist](https://gist.github.com/bobheadxi/65a6fc4c77e5b339c48a370f70b11907)!
+I still think it's kind of neat, even if it's not very practical. The implementation
 walks an expression like this:
 
 ```
@@ -190,5 +190,3 @@ worked. Woo!
 There were still complications about when in the deploy pipeline this evaluation
 should occur, and how specifications should be stored (evaluated? unevaluated?),
 and so on, but yeah, this post covers the gist of the idea.
-
-That's it for now!
