@@ -2,7 +2,7 @@
 title: "Workshop: A Developer's Guide to Docker"
 layout: post
 date: 2018-11-1 11:00
-image: https://www.docker.com/sites/default/files/d8/styles/role_icon/public/2019-07/Moby-logo.png?itok=sYH_JEaJ
+image: /assets/images/posts/docker-workshop.png
 headerImage: true
 tag:
 - workshop
