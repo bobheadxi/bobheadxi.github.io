@@ -13,7 +13,7 @@ with a passion for technology and [building cool things](https://bobheadxi.dev/o
 My professional experience includes internships at [Riot Games](/riot-games) and
 the [Michael Smith Genome Sciences Center](/bcgsc) as well as part-time software
 development jobs at startups like [Sumus Property Group](/sumus)
-(where I work right now) and [RTrade Technologies](/rtrade-technologies).
+(where I work right now) and [RTrade Technologies](/rtrade-techologies/).
 
 Outside of work and class, I also participated actively as
 a [tech lead in UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad)
