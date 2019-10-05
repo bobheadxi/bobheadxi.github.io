@@ -16,7 +16,7 @@ development jobs at startups like [Sumus Property Group](/sumus)
 (where I work right now) and [RTrade Technologies](/rtrade-technologies).
 
 Outside of work and class, I also participated actively as
-[a tech lead in UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad)
+a [tech lead in UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad)
 (a student-run software engineering club at my university) and as a
 [web developer with nwPlus](https://bobheadxi.dev/nwhacks2019/) (the group
 that organizes one of the largest hackathons in western Canada).
