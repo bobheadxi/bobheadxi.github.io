@@ -8,13 +8,12 @@ title: About
 # About Me
 
 Hey! I am a mathematics student studying at the University of British Columbia
-with a passion for technology and [building cool things](https://bobheadxi.dev/open-source/).
+with [a passion for tech and building cool things](https://bobheadxi.dev/open-source/).
 
 My professional experience includes internships at [Riot Games](/riot-games) and
-the [Michael Smith Genome Sciences Center](/bcgsc) as well as part-time software
-development jobs at startups like [Sumus Property Group](/sumus)
-(where I work right now) and [RTrade Technologies](/rtrade-techologies/).
-
+the [Michael Smith Genome Sciences Center](/bcgsc) as well as part-time, remote
+software development jobs at startups like [Sumus Property Group](/sumus)
+(where I work at the moment) and [RTrade Technologies](/rtrade-techologies/).
 Outside of work and class, I also participated actively as
 a [tech lead in UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad)
 (a student-run software engineering club at my university) and as a
@@ -22,7 +21,7 @@ a [tech lead in UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad)
 that organizes one of the largest hackathons in western Canada).
 
 A condensed (though sometimes outdated) summary of my experience is also available
-in [resume form](https://resume.bobheadxi.dev) if you prefer that!
+in [resume form](https://resume.bobheadxi.dev).
 
 When not fiddling with tech, I have a soft spot for
 [mountains, trees, making gifs that loop](https://pics.bobheadxi.dev/),
