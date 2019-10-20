@@ -24,7 +24,7 @@ description: handling deployment, resource management, metadata persistence, and
 
 The [Interplanetary Filesystem (IPFS)](https://ipfs.io/) is a piece of tech I've
 been working with extensively during my time as a remote software engineer at
-[RTrade Technologies](/2018-8-1-rtrade-techologies.md). We wanted to explore
+[RTrade Technologies](/rtrade-techologies). We wanted to explore
 offering a service that would provide a set of IPFS nodes, hosted on our end,
 that customers can use to bootstrap their private networks - groups of IPFS nodes
 that only talk to each other.
@@ -45,7 +45,7 @@ details and whatnot:
 
 Deploying nodes within containers was the most obvious choice - the tech is kind
 of designed for situations like this, and I've had some experience working
-directly with the Docker API through my work on [Inertia](/_posts/2018-1-29-inertia.md).
+directly with the Docker API through my work on [Inertia](/inertia).
 
 This functionality is neatly encapsualted in package [`Nexus/ipfs`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs)
 within an interface, `ipfs.NodeClient`, which exposes some faily self-explanatory
