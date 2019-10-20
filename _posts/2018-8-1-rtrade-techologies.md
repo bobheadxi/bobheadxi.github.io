@@ -32,7 +32,7 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
 * **designing, building, and deploying a new [IPFS node orchestration and registry agent](https://github.com/RTradeLtd/Nexus)**
   that serves as the backbone for Temporal's private network service. The service
   handles automated and on-demand deployment, resource management, metadata persistence,
-  and fine-grained access control for IPFS nodes running within Docker containers.
+  and fine-grained access control for IPFS nodes running within Docker containers. ([blog post](/_posts/2019-4-20-ipfs-orchestrator.md))
 * revamping [RTrade's **search engine service**](https://github.com/RTradeLtd/Lens)
   for improved results, more structured data management, improved performance,
   a new gRPC-based API, and new features like OCR capabilities
