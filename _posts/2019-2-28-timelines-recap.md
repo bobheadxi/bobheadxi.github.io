@@ -11,6 +11,7 @@ tag:
 - redis
 - postgres
 - graphql
+- analytics
 image: ""
 headerImage: false
 open_source: true # hidden for now
