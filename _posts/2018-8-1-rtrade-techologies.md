@@ -9,7 +9,7 @@ tag:
 - grpc
 - docker
 - postgres
-image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5c999caf86222e0001c7b6c4/1554999397417
+image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5d4df8c0849f34000121bc68/1565499334434
 headerImage: true
 experience: true
 hidden: true # don't count this post in blog pagination
