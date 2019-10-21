@@ -24,22 +24,33 @@ description: handling deployment, resource management, metadata persistence, and
 
 The [Interplanetary Filesystem (IPFS)](https://ipfs.io/) is a piece of tech I've
 been working with extensively during my time as a remote software engineer at
-[RTrade Technologies](/rtrade-techologies). We wanted to explore
-offering a service that would provide a set of IPFS nodes, hosted on our end,
-that customers can use to bootstrap their private networks - groups of IPFS nodes
-that only talk to each other.
+[RTrade Technologies](/rtrade-techologies). It's been interesting, but juggling
+part-time remote dev work with my [UBC Launch Pad involvement](https://bobheadxi.dev/tags/#launch-pad)
+and schoolwork certainly takes a bit of a toll - I'll probably write a blog post
+about that at some point.
 
-So I began work on [Nexus](https://github.com/RTradeLtd/Nexus), the core of the product,
-which handles on-demand deployment, resource management, metadata persistence, and
-fine-grained access control for private IPFS networks running within Docker
-containers on RTrade infrastructure. This post goes over some of the high-level
-components and work that went into the project, with links to implementation
-details and whatnot:
+Anyway - RTrade wanted to explore offering a service that would provide a set of
+IPFS nodes, hosted on our end, that customers can use to bootstrap their private
+networks - groups of IPFS nodes that only talk to each other. It's a bit of a
+underdocumented feature (a quick search for "ipfs private networks" only surfaces
+blog posts from individuals about how to manually deploy such a network), and it
+kind of goes against the whole "open filesystem" concept of IPFS. That said, it
+seemed like it had its use cases - for example, a business could leverage a
+private network that used RTrade-hosted nodes as backup nodes of sorts.
+
+So I began work (from scratch) on [Nexus](https://github.com/RTradeLtd/Nexus),
+a service that handles on-demand deployment, resource management, metadata
+persistence, and fine-grained access control for arbitrary private IPFS networks
+running within Docker containers on RTrade infrastructure. This post is a *very*
+brief run over some of the high-level components and work that went into the
+project, with links to implementation details and whatnot:
 
 * [Deploying Nodes](#deploying-nodes)
 * [Orchestrating Nodes](#orchestrating-nodes)
 * [Access Control](#access-control)
 * [Exposing an API](#exposing-an-api)
+
+TODO: a "package map"
 
 ## Deploying Nodes
 
@@ -48,9 +59,9 @@ of designed for situations like this, and I've had some experience working
 directly with the Docker API through my work on [Inertia](/inertia).
 
 This functionality is neatly encapsualted in package [`Nexus/ipfs`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs)
-within an interface, `ipfs.NodeClient`, which exposes some faily self-explanatory
-[C.R.U.D.](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete) functions
-to manipulate nodes directly:
+within an interface, [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs#NodeClient),
+which exposes some faily self-explanatory [C.R.U.D.](https://en.wikipedia.org/wiki/Create,_read,_update_and_delete)
+functions to manipulate nodes directly:
 
 ```go
 type NodeClient interface {
@@ -108,17 +119,60 @@ to log and act upon node events (for example, if a node crashes).
 
 ## Orchestrating Nodes
 
-TODO
+The core part of Nexus is the predictably named
+[`orchestrator.Orchestrator`](https://godoc.org/github.com/RTradeLtd/Nexus/orchestrator#Orchestrator),
+which exposes an interface very similar to that of `ipfs.NodeClient`, except
+for more high-level "networks". Managed in memory are two registries that cache
+the state of the IPFS networks deployed on the server:
 
-https://godoc.org/github.com/RTradeLtd/Nexus/orchestrator#Orchestrator
-https://godoc.org/github.com/RTradeLtd/Nexus/network
-https://godoc.org/github.com/RTradeLtd/Nexus/registry
+* [`registry.Registry`](https://godoc.org/github.com/RTradeLtd/Nexus/registry),
+  which basically provides cached information about active containers for faster
+  access than constantly querying `dockerd`. It is treated as the live state,
+  and is particularly important for access control, which needs to query container
+  data very often (more on that later).
+* [`network.Registry`](https://godoc.org/github.com/RTradeLtd/Nexus/network),
+  which accepts a set of ports from configuration that the orchestrator can
+  allocate, and when requested scans ports to provide an available. This is used
+  several times during node creation - each node requires a few ports available
+  to expose APIs and do things.
+
+The orchestrator also has access to the RTrade database, which does all the
+normal making sure a customer has sufficient currency to deploy new nodes
+and so on, and syncs the state of deployed networks back to the database. It
+also does things like bootstrap networks on startup that should be online that
+aren't. Overall it is fairly straight-forward - most of the work is encapsulated
+within other components, particularly [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs#NodeClient).
 
 ## Access Control
 
-TODO
+IPFS nodes expose a set of endpoints on different ports: one for its API, one
+for its [gateway](https://github.com/ipfs/go-ipfs/blob/master/docs/gateway.md),
+and one for [swarm communication](https://github.com/ipfs/go-ipfs/blob/master/docs/config.md#swarm).
+We wanted to be able to expose these to customers without having to either
+provide a set of permanent port number on our domain (for example, `nexus.temporal.cloud:1234`)
+or asking them to constantly update the ports they connect to. We also wanted to
+be able to provide the ability to restrict ports to those with valid RTrade
+authentication - particularly the API, which exposes some potentially damaging
+functionality.
 
-https://godoc.org/github.com/RTradeLtd/Nexus/delegator
+We eventually decided to aim for the ability to provide customers with a subdomain
+of `temporal.cloud` with a scheme like `{network_name}.{feature}.{domain}` (for
+example, `my-network.api.nexus.temporal.cloud`) and have Nexus automatically
+delegate requests to the appropriate port (where a node from the appropriate
+network would be listening for requests).
+
+To do this, I created the (again) predictably named
+[`delegator.Engine`](https://godoc.org/github.com/RTradeLtd/Nexus/delegator#Engine)
+over the course of two pull requests ([#13](https://github.com/RTradeLtd/Nexus/pull/13),
+where I implemented a path-based version of the scheme, and [#22](https://github.com/RTradeLtd/Nexus/pull/22),
+where I finally got the subdomain-based routing working) to act as a server for
+delegating requests based on the URL scheme we decided on.
+
+The interface exposed by `delegator.Engine` is not particularly self-explanatory,
+since most of its functions are designed to work as [go-chi/chi](https://github.com/go-chi/chi)
+middleware.
+
+TODO: how this works
 
 ## Exposing an API
 
