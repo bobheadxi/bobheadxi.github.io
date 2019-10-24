@@ -120,17 +120,9 @@ This allows the [orchestrator to bootstrap itself](https://github.com/RTradeLtd/
 after a restart, and is used by [`NodeClient::Watch()`](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L430)
 to log and act upon node events (for example, if a node crashes).
 
-This interface neatly abstracts away the gnarly work for upper layers like
-the orchestrator:
-
-```go
-	if err := o.client.CreateNode(ctx, newNode, opts); err != nil {
-		// ...
-	}
-```
-
-This makes it very easy to generate a mock for testing, which I will talk about
-[later in this article](#testing). This particular example is from
+This interface neatly abstracts away the gnarly work makes it very easy to generate
+a mock for testing, which I will talk about [later in this article](#testing).
+This particular example is from
 [`TestOrchestrator_NetworkUp`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/orchestrator/orchestrator_test.go#L77),
 edited for brevity:
 
@@ -253,7 +245,6 @@ func (e *Engine) NetworkAndFeatureSubdomainContext(next http.Handler) http.Handl
 For most request, the subsequent handler is the redirect handler:
 
 ```go
-// Redirect manages request redirects
 func (e *Engine) Redirect(w http.ResponseWriter, r *http.Request) {
 	// retrieve network
 	n, ok := r.Context().Value(keyNetwork).(*ipfs.NodeInfo)
@@ -267,9 +258,10 @@ func (e *Engine) Redirect(w http.ResponseWriter, r *http.Request) {
 	if feature == "" {
 		res.R(w, r, res.ErrBadRequest("no feature provided"))
 		return
-  }
+	}
 
-  // do things
+	// ... do things
+}
 ```
 
 I'll just take a quick moment to plug my library, [`res`](github.com/bobheadxi/res),
