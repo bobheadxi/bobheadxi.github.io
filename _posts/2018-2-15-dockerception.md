@@ -7,7 +7,6 @@ headerImage: true
 tag:
 - golang
 - docker
-- bash
 - inertia
 - testing
 - launch-pad
