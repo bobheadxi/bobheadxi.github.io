@@ -9,6 +9,8 @@ tag:
 - docker
 - ipfs
 - grpc
+- testing
+- tech-writeup
 category: blog
 author: robert
 description: handling deployment, resource management, metadata persistence, and access control for arbitrary IPFS private networks running within Docker containers
@@ -49,6 +51,7 @@ project, with links to implementation details and whatnot:
 * [Orchestrating Nodes](#orchestrating-nodes)
 * [Access Control](#access-control)
 * [Exposing an API](#exposing-an-api)
+* [Testing](#testing)
 
 TODO: a "package map"
 
@@ -117,6 +120,35 @@ This allows the [orchestrator to bootstrap itself](https://github.com/RTradeLtd/
 after a restart, and is used by [`NodeClient::Watch()`](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L430)
 to log and act upon node events (for example, if a node crashes).
 
+This interface neatly abstracts away the gnarly work for upper layers like
+the orchestrator:
+
+```go
+	if err := o.client.CreateNode(ctx, newNode, opts); err != nil {
+    // ...
+	}
+```
+
+This makes it very easy to generate a mock for testing, which I will talk about
+[later in this article](#testing). This particular example is from
+[`TestOrchestrator_NetworkUp`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/orchestrator/orchestrator_test.go#L77),
+edited for brevity:
+
+```go
+client := &mock.FakeNodeClient{}
+o := &Orchestrator{
+  Registry: registry.New(l, tt.fields.regPorts),
+  client:   client,
+  address:  "127.0.0.1",
+}
+if tt.createErr {
+  client.CreateNodeReturns(errors.New("oh no"))
+}
+if _, err := o.NetworkUp(context.Background(), tt.args.network); (err != nil) != tt.wantErr {
+  t.Errorf("Orchestrator.NetworkUp() error = %v, wantErr %v", err, tt.wantErr)
+}
+```
+
 ## Orchestrating Nodes
 
 The core part of Nexus is the predictably named
@@ -172,7 +204,180 @@ The interface exposed by `delegator.Engine` is not particularly self-explanatory
 since most of its functions are designed to work as [go-chi/chi](https://github.com/go-chi/chi)
 middleware.
 
-TODO: how this works
+The subdomain routing scheme starts with a [chi `hostrouter`](https://github.com/go-chi/hostrouter),
+which [I had to fork to implement wildcard matching](https://github.com/go-chi/hostrouter/pull/6)
+(sadly, it seems no one is keeping an eye on the repository, and the PR has gone
+unnoticed). Here's a snippet from
+[`delegator.Engine::Run()`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/delegator/engine.go#L111):
+
+```go
+    // ...
+		hr := hostrouter.New()
+		hr.Map("*.api."+e.domain, chi.NewRouter().Route("/", func(r chi.Router) {
+			r.Use(e.NetworkAndFeatureSubdomainContext)
+			r.HandleFunc("/*", e.Redirect)
+		}))
+		hr.Map("*.gateway."+e.domain, chi.NewRouter().Route("/", func(r chi.Router) {
+			r.Use(e.NetworkAndFeatureSubdomainContext)
+			r.HandleFunc("/*", e.Redirect)
+    }))
+    // ...
+```
+
+What this does is listen for all requests to `*.api.nexus.temporal.cloud`, for
+example, and route them through an unpleasantly named context injector
+([`delegator.Engine::e.NetworkAndFeatureSubdomainContext`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/delegator/engine.go#L216:18))
+and feed requests to the redirector ([`delegator.Engine::Redirect`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/delegator/engine.go#L247)). The former more or less does as its name describes: it parses
+the network (a name) and feature (`api`, `gateway`, etc.), retrieves metadata
+about the network from the previously mentioned node registry, and injects it
+into the request's `context.Context`. This is a inexpensive operation, since the
+node registry is implemented as an in-memory cache. Subsequent handlers can then
+use the injected metadata by retrieving it from the context to do whatever they
+need to do.
+
+```go
+func (e *Engine) NetworkAndFeatureSubdomainContext(next http.Handler) http.Handler {
+	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
+    // ...
+		next.ServeHTTP(w, r.WithContext(
+			context.WithValue(
+				context.WithValue(r.Context(),
+					keyFeature, // context key
+					feature), // value
+				keyNetwork, // context key
+        &node), // value
+  }
+}
+```
+
+For most request, the subsequent handler is the redirect handler:
+
+```go
+// Redirect manages request redirects
+func (e *Engine) Redirect(w http.ResponseWriter, r *http.Request) {
+	// retrieve network
+	n, ok := r.Context().Value(keyNetwork).(*ipfs.NodeInfo)
+	if !ok || n == nil {
+		res.R(w, r, res.Err(http.StatusText(422), 422))
+		return
+	}
+
+	// retrieve requested feature
+	feature, ok := r.Context().Value(keyFeature).(string)
+	if feature == "" {
+		res.R(w, r, res.ErrBadRequest("no feature provided"))
+		return
+  }
+
+  // do things
+```
+
+I'll just take a quick moment to plug my library, [`res`](github.com/bobheadxi/res),
+which provides the nice (I think) shorthands for the RESTful responses you see
+in the snippet above.
+
+The rest of the code handles each feature case by case, with some notable cases
+highlighted in this snippet:
+
+* `api` requests are restricted with authentication using the same JWT we use
+  for other RTrade services
+* `gateway` access can be disabled via configuration
+
+```go
+	switch feature {
+	// ...
+	case "api":
+		// IPFS network API access requires an authorized user
+		user, err := getUserFromJWT(r, e.keyLookup, e.timeFunc)
+		if err != nil {
+			res.R(w, r, res.ErrUnauthorized(err.Error()))
+			return
+		}
+		entry, err := e.networks.GetNetworkByName(n.NetworkID)
+		if err != nil {
+			http.Error(w, "failed to find network", http.StatusNotFound)
+			return
+		}
+		var found = false
+		for _, authorized := range entry.Users {
+			if user == authorized {
+				found = true
+			}
+    }
+    // ...
+    port = n.Ports.API
+  case "gateway":
+		// Gateway is only open if configured as such
+		if entry, err := e.networks.GetNetworkByName(n.NetworkID); err != nil {
+			res.R(w, r, res.ErrNotFound("failed to find network"))
+			return
+		} else if !entry.GatewayPublic {
+			res.R(w, r, res.ErrNotFound("failed to find network gateway"))
+			return
+		}
+    port = n.Ports.Gateway
+  }
+```
+
+At the end of each handling, an appropriate target `port` is set, which is then
+used to generate a reverse proxy for this request, edited for brevity:
+
+```go
+  // set up target
+  var (
+		address  = fmt.Sprintf("%s:%s", network.Private, port)
+    target   = fmt.Sprintf("%s%s%s", protocol, address, r.RequestURI)
+    protocol = "http://"
+	)
+	if r.URL.Scheme != "" {
+		protocol = r.URL.Scheme + "://"
+	}
+  url, err := url.Parse(target)
+  // ...
+
+	// set up forwarder, retrieving from cache if available, otherwise set up new
+	var proxy *httputil.ReverseProxy
+	if proxy = e.cache.Get(fmt.Sprintf("%s-%s", n.NetworkID, feature)); proxy == nil {
+		proxy = newProxy(feature, url, e.l, e.direct)
+		e.cache.Cache(fmt.Sprintf("%s-%s", n.NetworkID, feature), proxy)
+	}
+
+	// serve proxy request
+	proxy.ServeHTTP(w, r)
+```
+
+In classic Go-batteries-included fashion, most of the work is done by a nice
+utility straight from the standard library: [httputil.ReverseProxy](https://golang.org/pkg/net/http/httputil/#ReverseProxy) -
+all [I really had to do was implement a `Director`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/delegator/proxy.go#L12)
+to set the parameters such as every request will be delivered to the correct
+node's correct doorstep:
+
+```go
+func newProxy(feature string, target *url.URL, l *zap.SugaredLogger, direct bool) *httputil.ReverseProxy {
+	return &httputil.ReverseProxy{
+		Director: func(req *http.Request) {
+			// if set up as an indirect proxy, we need to remove delgator-specific
+			// leading elements, e.g. /networks/test_network/api, from the path and
+			// accomodate for specific cases
+			if !direct {
+				switch feature {
+				case "api":
+					req.URL.Path = "/api" + stripLeadingSegments(req.URL.Path)
+				default:
+					req.URL.Path = stripLeadingSegments(req.URL.Path)
+				}
+			}
+			// set other URL properties
+			req.URL.Scheme = target.Scheme
+			req.URL.Host = target.Host
+		},
+	}
+}
+```
+
+These reverse proxies are cached so that the delegator doesn't have to construct
+them all the time, with evictions based on expiry so that outdated proxies don't
+persist for too long.
 
 ## Exposing an API
 
@@ -189,3 +394,7 @@ $> nexus -dev ctl StartNetwork Network=test-network
 $> nexus -dev ctl NetworkStats Network=test-network
 $> nexus -dev ctl StopNetwork Network=test-network
 ```
+
+## Testing
+
+TODO
