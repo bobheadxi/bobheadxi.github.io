@@ -8,9 +8,9 @@ tag:
 - python
 - solr
 - scrapy
-- rant
 - sleuth
 - launch-pad
+- tech-writeup
 category: blog
 author: robert
 description: scraping data for a bad search engine

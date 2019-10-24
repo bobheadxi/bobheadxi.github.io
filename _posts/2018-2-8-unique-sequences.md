@@ -8,6 +8,7 @@ tag:
 - python
 - bioinformatics
 - tools
+- tech-writeup
 category: blog
 author: robert
 description: and an introduction to epigenetics

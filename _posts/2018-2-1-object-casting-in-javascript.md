@@ -7,6 +7,7 @@ headerImage: true
 tag:
 - javascript
 - nodejs
+- tech-writeup
 category: blog
 author: robert
 description: object casting with polymorphic classes in Javascript
