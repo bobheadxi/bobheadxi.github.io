@@ -86,22 +86,22 @@ expose node configuration that can be used by upper layers:
 
 ```go
 type NodeInfo struct {
-    NetworkID string `json:"network_id"`
-    JobID     string `json:"job_id"`
+  NetworkID string `json:"network_id"`
+  JobID     string `json:"job_id"`
 
-    Ports     NodePorts     `json:"ports"`
-    Resources NodeResources `json:"resources"`
+  Ports     NodePorts     `json:"ports"`
+  Resources NodeResources `json:"resources"`
 
-    // Metadata set by node client:
-    // DockerID is the ID of the node's Docker container
-    DockerID string `json:"docker_id"`
-    // ContainerName is the name of the node's Docker container
-    ContainerName string `json:"container_id"`
-    // DataDir is the path to the directory holding all data relevant to this
-    // IPFS node
-    DataDir string `json:"data_dir"`
-    // BootstrapPeers lists the peers this node was bootstrapped onto upon init
-    BootstrapPeers []string `json:"bootstrap_peers"`
+  // Metadata set by node client:
+  // DockerID is the ID of the node's Docker container
+  DockerID string `json:"docker_id"`
+  // ContainerName is the name of the node's Docker container
+  ContainerName string `json:"container_id"`
+  // DataDir is the path to the directory holding all data relevant to this
+  // IPFS node
+  DataDir string `json:"data_dir"`
+  // BootstrapPeers lists the peers this node was bootstrapped onto upon init
+  BootstrapPeers []string `json:"bootstrap_peers"`
 }
 ```
 
@@ -125,7 +125,7 @@ the orchestrator:
 
 ```go
 	if err := o.client.CreateNode(ctx, newNode, opts); err != nil {
-    // ...
+		// ...
 	}
 ```
 
@@ -211,17 +211,17 @@ unnoticed). Here's a snippet from
 [`delegator.Engine::Run()`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/delegator/engine.go#L111):
 
 ```go
-    // ...
-		hr := hostrouter.New()
-		hr.Map("*.api."+e.domain, chi.NewRouter().Route("/", func(r chi.Router) {
-			r.Use(e.NetworkAndFeatureSubdomainContext)
-			r.HandleFunc("/*", e.Redirect)
-		}))
-		hr.Map("*.gateway."+e.domain, chi.NewRouter().Route("/", func(r chi.Router) {
-			r.Use(e.NetworkAndFeatureSubdomainContext)
-			r.HandleFunc("/*", e.Redirect)
-    }))
-    // ...
+// ...
+hr := hostrouter.New()
+hr.Map("*.api."+e.domain, chi.NewRouter().Route("/", func(r chi.Router) {
+  r.Use(e.NetworkAndFeatureSubdomainContext)
+  r.HandleFunc("/*", e.Redirect)
+}))
+hr.Map("*.gateway."+e.domain, chi.NewRouter().Route("/", func(r chi.Router) {
+  r.Use(e.NetworkAndFeatureSubdomainContext)
+  r.HandleFunc("/*", e.Redirect)
+}))
+// ...
 ```
 
 What this does is listen for all requests to `*.api.nexus.temporal.cloud`, for
@@ -284,66 +284,66 @@ highlighted in this snippet:
 * `gateway` access can be disabled via configuration
 
 ```go
-	switch feature {
-	// ...
-	case "api":
-		// IPFS network API access requires an authorized user
-		user, err := getUserFromJWT(r, e.keyLookup, e.timeFunc)
-		if err != nil {
-			res.R(w, r, res.ErrUnauthorized(err.Error()))
-			return
-		}
-		entry, err := e.networks.GetNetworkByName(n.NetworkID)
-		if err != nil {
-			http.Error(w, "failed to find network", http.StatusNotFound)
-			return
-		}
-		var found = false
-		for _, authorized := range entry.Users {
-			if user == authorized {
-				found = true
-			}
-    }
-    // ...
-    port = n.Ports.API
-  case "gateway":
-		// Gateway is only open if configured as such
-		if entry, err := e.networks.GetNetworkByName(n.NetworkID); err != nil {
-			res.R(w, r, res.ErrNotFound("failed to find network"))
-			return
-		} else if !entry.GatewayPublic {
-			res.R(w, r, res.ErrNotFound("failed to find network gateway"))
-			return
-		}
-    port = n.Ports.Gateway
+switch feature {
+// ...
+case "api":
+  // IPFS network API access requires an authorized user
+  user, err := getUserFromJWT(r, e.keyLookup, e.timeFunc)
+  if err != nil {
+    res.R(w, r, res.ErrUnauthorized(err.Error()))
+    return
   }
+  entry, err := e.networks.GetNetworkByName(n.NetworkID)
+  if err != nil {
+    http.Error(w, "failed to find network", http.StatusNotFound)
+    return
+  }
+  var found = false
+  for _, authorized := range entry.Users {
+    if user == authorized {
+      found = true
+    }
+  }
+  // ...
+  port = n.Ports.API
+case "gateway":
+  // Gateway is only open if configured as such
+  if entry, err := e.networks.GetNetworkByName(n.NetworkID); err != nil {
+    res.R(w, r, res.ErrNotFound("failed to find network"))
+    return
+  } else if !entry.GatewayPublic {
+    res.R(w, r, res.ErrNotFound("failed to find network gateway"))
+    return
+  }
+  port = n.Ports.Gateway
+}
 ```
 
 At the end of each handling, an appropriate target `port` is set, which is then
 used to generate a reverse proxy for this request, edited for brevity:
 
 ```go
-  // set up target
-  var (
-		address  = fmt.Sprintf("%s:%s", network.Private, port)
-    target   = fmt.Sprintf("%s%s%s", protocol, address, r.RequestURI)
-    protocol = "http://"
-	)
-	if r.URL.Scheme != "" {
-		protocol = r.URL.Scheme + "://"
-	}
-  url, err := url.Parse(target)
-  // ...
+// set up target
+var (
+  address  = fmt.Sprintf("%s:%s", network.Private, port)
+  target   = fmt.Sprintf("%s%s%s", protocol, address, r.RequestURI)
+  protocol = "http://"
+)
+if r.URL.Scheme != "" {
+  protocol = r.URL.Scheme + "://"
+}
+url, err := url.Parse(target)
+// ...
 
-	// set up forwarder, retrieving from cache if available, otherwise set up new
-	var proxy *httputil.ReverseProxy
-	if proxy = e.cache.Get(fmt.Sprintf("%s-%s", n.NetworkID, feature)); proxy == nil {
-		proxy = newProxy(feature, url, e.l, e.direct)
-		e.cache.Cache(fmt.Sprintf("%s-%s", n.NetworkID, feature), proxy)
-	}
+// set up forwarder, retrieving from cache if available, otherwise set up new
+var proxy *httputil.ReverseProxy
+if proxy = e.cache.Get(fmt.Sprintf("%s-%s", n.NetworkID, feature)); proxy == nil {
+  proxy = newProxy(feature, url, e.l, e.direct)
+  e.cache.Cache(fmt.Sprintf("%s-%s", n.NetworkID, feature), proxy)
+}
 
-	// serve proxy request
-	proxy.ServeHTTP(w, r)
+// serve proxy request
+proxy.ServeHTTP(w, r)
 ```
 
 In classic Go-batteries-included fashion, most of the work is done by a nice
