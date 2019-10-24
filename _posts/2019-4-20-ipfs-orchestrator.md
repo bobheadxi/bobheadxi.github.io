@@ -230,15 +230,16 @@ need to do.
 ```go
 func (e *Engine) NetworkAndFeatureSubdomainContext(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
-    // ...
+		// ...
 		next.ServeHTTP(w, r.WithContext(
 			context.WithValue(
 				context.WithValue(r.Context(),
 					keyFeature, // context key
-					feature), // value
+					feature),   // value
 				keyNetwork, // context key
-        &node), // value
-  }
+				&n),        // value
+		))
+	})
 }
 ```
 
