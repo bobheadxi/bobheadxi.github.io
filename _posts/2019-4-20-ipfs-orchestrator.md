@@ -342,7 +342,7 @@ proxy.ServeHTTP(w, r)
 In classic Go-batteries-included fashion, most of the work is done by a nice
 utility straight from the standard library: [httputil.ReverseProxy](https://golang.org/pkg/net/http/httputil/#ReverseProxy) -
 all [I really had to do was implement a `Director`](https://sourcegraph.com/github.com/RTradeLtd/Nexus@master/-/blob/delegator/proxy.go#L12)
-to set the parameters such as every request will be delivered to the correct
+to set the parameters such that every request will be delivered to the correct
 node's correct doorstep:
 
 ```go
