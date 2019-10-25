@@ -374,12 +374,62 @@ persist for too long.
 
 ## Exposing an API
 
-TODO
+Most of RTrade's services expose functionality via [gRPC](https://grpc.io/)
+(a remote procedure call framework), with service definitions and generated Go
+stubs housed in a standalone repository, [`RTradeLtd/grpc`](https://github.com/RTradeLtd/grpc) -
+so it made sense that Nexus would have its features available via gRPC as well.
+Check out the generated stubs [here](https://godoc.org/github.com/RTradeLtd/grpc/nexus),
+but the interface is pretty simple ([full spec](https://github.com/RTradeLtd/grpc/blob/master/nexus/service.proto)):
 
-https://godoc.org/github.com/RTradeLtd/grpc/nexus
-https://godoc.org/github.com/RTradeLtd/Nexus/daemon
-https://godoc.org/github.com/RTradeLtd/Nexus/client
-https://github.com/bobheadxi/ctl
+```proto
+package nexus;
+
+service Service {
+  rpc Ping(Empty)                         returns (Empty) {};
+  rpc StartNetwork(NetworkRequest)        returns (StartNetworkResponse) {};
+  rpc UpdateNetwork(NetworkRequest)       returns (Empty) {};
+  rpc StopNetwork(NetworkRequest)         returns (Empty) {};
+  rpc RemoveNetwork(NetworkRequest)       returns (Empty) {};
+  rpc NetworkStats(NetworkRequest)        returns (NetworkStatusReponse) {};
+  rpc NetworkDiagnostics(NetworkRequest)  returns (NetworkDiagnosticsResponse) {};
+}
+```
+
+This is implemented by a small service, the Nexus
+[`daemon.Daemon`](https://godoc.org/github.com/RTradeLtd/Nexus/daemon), and its
+primary functionality is to get the gRPC server up and running with the appropriate
+configuration, middleware, and monitoring hooks and translating the gRPC requests
+to [commands for the orchestrator](#orchestrating-nodes). Two simple commands
+can deploy a daemon locally with most configuration set to reasonable defaults:
+
+```sh
+$> nexus init
+$> nexus daemon
+```
+
+To facilitate testing, I wrote a small library, [`bobheadxi/ctl`](https://github.com/bobheadxi/ctl),
+that uses [reflection](https://golang.org/pkg/reflect/) on the
+[Nexus gRPC client](https://godoc.org/github.com/RTradeLtd/Nexus/client)
+(or any arbitrary client) to translate string inputs into gRPC calls, with the
+goal of being embedded in a CLI:
+
+```go
+import "github.com/bobheadxi/ctl"
+
+func main() {
+  // instantiate your gRPC client
+  c, _ := client.New( /* ... */ )
+
+  // create a controller
+  controller, _ := ctl.New(c)
+
+  // execute command
+  out, _ := controller.Exec(os.Args[0:], os.Stdout)
+}
+```
+
+In the Nexus CLI, this library is embedded under the `nexus ctl` command. Using
+it on a local Nexus instance looks like:
 
 ```sh
 $> nexus ctl help
@@ -387,6 +437,42 @@ $> nexus -dev ctl StartNetwork Network=test-network
 $> nexus -dev ctl NetworkStats Network=test-network
 $> nexus -dev ctl StopNetwork Network=test-network
 ```
+
+I introduced this feature very early on, and it came in useful as Nexus's
+capabilities grew, making it easy to demonstrate new features:
+
+<p align="center">
+  <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo1.png" width="100%" />
+</p>
+
+<p align="center">
+  <i style="font-size:90%;">Introducing the <code>nexus ctl</code> command to
+  demonstrate MVP functionality - from
+  <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</i>
+</p>
+
+<br />
+
+I eventually added a couple of the `nexus ctl` commands to our Makefile as well
+for convenience:
+
+```make
+.PHONY: start-network
+start-network: build
+	./nexus $(TESTFLAGS) ctl --pretty StartNetwork Network=$(NETWORK)
+```
+
+<br />
+
+<p align="center">
+  <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
+</p>
+
+<p align="center">
+  <i style="font-size:90%;">Using <code>nexus ctl</code> commands
+  (from <code>make</code>) to demonstrate a new feature - from
+  <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</i>
+</p>
 
 ## Testing
 
