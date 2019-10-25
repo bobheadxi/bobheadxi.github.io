@@ -19,7 +19,7 @@ description: handling deployment, resource management, metadata persistence, and
 <p align="center">
     <i>This post is a work in progress - will finish soon! For now, please feel
     free to check out the 
-    <a href="https://github.com/RTradeLtd/Nexus" _target="blank">RTradeLTd/Nexus repository</a>.</i>
+    <a href="https://github.com/RTradeLtd/Nexus" _target="blank">RTradeLtd/Nexus repository</a>.</i>
 </p>
 
 <br />
@@ -41,11 +41,11 @@ seemed like it had its use cases - for example, a business could leverage a
 private network that used RTrade-hosted nodes as backup nodes of sorts.
 
 So I began work (from scratch) on [Nexus](https://github.com/RTradeLtd/Nexus),
-a service that handles on-demand deployment, resource management, metadata
-persistence, and fine-grained access control for arbitrary private IPFS networks
-running within Docker containers on RTrade infrastructure. This post is a *very*
-brief run over some of the high-level components and work that went into the
-project, with links to implementation details and whatnot:
+an open-source service that handles on-demand deployment, resource management,
+metadata persistence, and fine-grained access control for arbitrary private IPFS
+networks running within Docker containers on RTrade infrastructure. This post is
+a *very* brief run over some of the high-level components and work that went into
+the project, with links to implementation details and whatnot:
 
 * [Deploying Nodes](#deploying-nodes)
 * [Orchestrating Nodes](#orchestrating-nodes)
