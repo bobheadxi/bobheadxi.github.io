@@ -13,6 +13,7 @@ tag:
 - tech-writeup
 category: blog
 author: robert
+tech_writeup: true
 description: handling deployment, resource management, metadata persistence, and access control for arbitrary IPFS private networks running within Docker containers
 ---
 

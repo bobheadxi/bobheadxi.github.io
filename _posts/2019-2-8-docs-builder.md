@@ -13,6 +13,7 @@ tag:
 - launch-pad
 category: blog
 author: robert
+tech_writeup: true
 description:
 ---
 

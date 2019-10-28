@@ -11,6 +11,7 @@ tag:
 - tech-writeup
 category: blog
 author: robert
+tech_writeup: true
 description: and an introduction to epigenetics
 ---
 

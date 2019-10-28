@@ -12,6 +12,7 @@ tag:
 - launch-pad
 - tech-writeup
 category: blog
+tech_writeup: true
 author: robert
 description: scraping data for a bad search engine
 ---
