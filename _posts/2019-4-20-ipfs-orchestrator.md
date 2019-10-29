@@ -20,7 +20,7 @@ description: handling deployment, resource management, metadata persistence, and
 <p align="center">
   <b>
     :mega: A multi-part version of this post is also
-    <a href="" target="_blank">available on Medium</a>!
+    <a href="https://medium.com/@bobheadxi/single-host-instance-orchestration-part-1-deploying-and-managing-instances-9311832d1488" target="_blank">available on Medium</a>!
   </b>
 </p>
 
