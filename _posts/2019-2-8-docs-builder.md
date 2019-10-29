@@ -20,7 +20,7 @@ description:
 <p align="center">
   <b>
     :mega: This post is also
-    <a href="https://medium.com/@bobheadxi/determining-the-uniqueness-of-oligonucleotide-sequences-f8ae77bca60f" target="_blank">available on Medium</a>!
+    <a href="https://medium.com/@bobheadxi/turning-slate-into-a-proper-documentation-builder-d0cf31abf459" target="_blank">available on Medium</a>!
   </b>
 </p>
 
