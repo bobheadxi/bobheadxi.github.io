@@ -18,9 +18,10 @@ description: handling deployment, resource management, metadata persistence, and
 ---
 
 <p align="center">
-    <i>This post is a work in progress - will finish soon! For now, please feel
-    free to check out the 
-    <a href="https://github.com/RTradeLtd/Nexus" _target="blank">RTradeLtd/Nexus repository</a>.</i>
+  <b>
+    :mega: A multi-part version of this post is also
+    <a href="" target="_blank">available on Medium</a>!
+  </b>
 </p>
 
 <br />
@@ -113,6 +114,7 @@ The node creation process goes roughly as follows:
    * writing the given "swarm key" (used for identifying a private network) to disk for the node
    * generating an [entrypoint script](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/internal/ipfs_start.sh) that caps resources as required
 2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarly imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
+
 ```go
 resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
 if err != nil { /* ... */ }
@@ -163,13 +165,18 @@ if _, err := o.NetworkUp(context.Background(), tt.args.network); (err != nil) !=
 }
 ```
 
+---
+
 ## Orchestrating Nodes
 
 The core part of Nexus is the predictably named
 [`orchestrator.Orchestrator`](https://godoc.org/github.com/RTradeLtd/Nexus/orchestrator#Orchestrator),
 which exposes an interface very similar to that of `ipfs.NodeClient`, except
-for more high-level "networks". Managed in memory are two registries that cache
-the state of the IPFS networks deployed on the server:
+for more high-level "networks". A bit more work goes on the the orchestrator -
+for example, since `ipfs.NodeClient` does very straight-forward node creation
+given a set of parameters, port allocation and database management are left
+to the orchestrator. Managed in memory are two registries that cache
+the state of the IPFS networks deployed on the server to help it do this:
 
 * [`registry.Registry`](https://godoc.org/github.com/RTradeLtd/Nexus/registry),
   which basically provides cached information about active containers for faster
@@ -182,12 +189,17 @@ the state of the IPFS networks deployed on the server:
   several times during node creation - each node requires a few ports available
   to expose APIs and do things.
 
-The orchestrator also has access to the RTrade database, which does all the
-normal making sure a customer has sufficient currency to deploy new nodes
-and so on, and syncs the state of deployed networks back to the database. It
-also does things like bootstrap networks on startup that should be online that
-aren't. Overall it is fairly straight-forward - most of the work is encapsulated
-within other components, particularly [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs#NodeClient).
+The orchestrator also has access to the RTrade databasse, which do all the
+normal making-sure-a-customer-has-sufficient-currency work and so on, and syncs
+the state of deployed networks back to the database. It also does things like
+bootstrap networks on startup that should be online that aren't. Overall it is
+fairly straight-forward - most of the work is encapsulated within other components,
+particularly [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs#NodeClient).
+
+The functionality of the orchestrator is exposed by a gRPC API, which I talk
+about a bit more in [Exposing an API](#exposing-an-api).
+
+---
 
 ## Access Control
 
@@ -394,6 +406,8 @@ These reverse proxies are cached so that the delegator doesn't have to construct
 them all the time, with evictions based on expiry so that outdated proxies don't
 persist for too long.
 
+---
+
 ## Exposing an API
 
 Most of RTrade's services expose functionality via [gRPC](https://grpc.io/)
@@ -417,7 +431,11 @@ service Service {
 }
 ```
 
-This is implemented by a small service, the Nexus
+Generated stubs save a lot of time in implementation - interfaces in front of the
+generated implementation allow quick and easy mocking (see [Testing](#testing)),
+and takes away the tedium of writing API calls from scratch. In particular, the
+generated server implementation makes it very easy to implement the gRPC spec.
+In this case, the spec is implemented by a small service, the Nexus
 [`daemon.Daemon`](https://godoc.org/github.com/RTradeLtd/Nexus/daemon), and its
 primary functionality is to get the gRPC server up and running with the appropriate
 configuration, middleware, and monitoring hooks and translating the gRPC requests
@@ -496,4 +514,236 @@ start-network: build
   <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</i>
 </p>
 
+---
+
 ## Testing
+
+Testing, while sometimes tedious, is a great way to have confidence in the
+functionality of a codebase, give you a tighter  iterate -> verify -> iterate
+loop, and gives you the ability to make significant refactors as project
+requirements change while verifying core features still workked as expected. A
+halfway-decent measure of this is code coverage!
+
+<p align="center">
+  <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">
+    <img src="https://codecov.io/gh/RTradeLtd/Nexus/branch/master/graph/badge.svg" />
+  </a>
+</p>
+
+<p align="center">
+  <img src="/assets/images/posts/ipfs-orchestrator/sunburst.svg" width="40%" />
+</p>
+
+<p align="center">
+  <i style="font-size:90%;">A "coverage sunburst", indicating test coverage
+  in various subdirectories of the codebase - from 
+  <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</i>
+</p>
+
+Tests mostly fall in one of two categories (in my mind at least): unit tests that
+run without any setup and involve no non-library dependencies, and integration
+tests that involve external dependencies.
+
+Integration tests spanning my external dependencies are usually the first tests
+I write in a project - they typically take very little code to set up (since
+integration environment is something I set up early on anyway so I can run my
+applications locally), and I only test a few high-level functions, so I don't have
+to constantly update my tests for changes in API or function names (which I find
+myself doing often when I write unit tests too early). They also serve to
+familiarize me with the services or tooling I will be depending on.
+
+For the integration environment, the only real dependencies are Docker and a
+Postgres database. The former I just assume is already running, and the latter
+I set up using [RTrade's centralized test environment repository](https://github.com/RTradeLtd/testenv/tree/master)
+(which I made) - this repository is typically included as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
+in RTrade projects.
+
+```make
+COMPOSECOMMAND=env docker-compose -f testenv/docker-compose.yml
+.PHONY: testenv
+testenv:
+	$(COMPOSECOMMAND) up -d postgres
+```
+
+Writing an integration test then involves just making sure I do the appropriate
+setup and teardown throughout a test run. Using [`ipfs.NodeClient` tests](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_test.go#L24)
+as an example (I do recommend giving the source a quick skim, since there's a
+lot going on) I ended up just testing most of my CRUD operations in one go
+(since that's basically already setup and teardown), edited for brevity:
+
+```go
+// grab temp space for assets, set up a test logger, initialize client
+c, err := newTestClient()
+if err != nil { /* ... */ }
+
+// test watcher, and make sure the correct number of events happened
+var eventCount, shouldGetEvents int
+watchCtx, cancelWatch := context.WithCancel(context.Background())
+go func() {
+  events, errs := c.Watch(watchCtx)
+  for {
+    select {
+    case err := <-errs:
+      if err != nil { /* ... */ }
+    case event := <-events:
+      eventCount++
+    }
+  }
+}()
+
+// table of test cases
+type args struct {
+  n    *NodeInfo
+  opts NodeOpts
+}
+tests := []struct {
+  name    string
+  args    args
+  wantErr bool
+}{
+  {"invalid config", args{ /* ... */ }, true},
+  {"new node", args{ /* ... */ }, false},
+  {"with bootstrap", args{ /* ... */ }, false},
+}
+for _, tt := range tests {
+  t.Run(tt.name, func(t *testing.T) {
+    ctx := context.Background()
+
+    // create node
+    if err := c.CreateNode(ctx, tt.args.n, tt.args.opts); (err != nil) != tt.wantErr {
+      t.Errorf("client.CreateNode() error = %v, wantErr %v", err, tt.wantErr)
+      return
+    }
+
+    // handle want-error cases differently
+    if tt.wantErr { /* ... */	}
+
+    // clean up afterwards
+    defer func() {
+      c.StopNode(ctx, tt.args.n)
+      c.RemoveNode(ctx, tt.args.n.NetworkID)
+    }()
+
+    // check that container is up, watcher should receive an event. do a crude
+    // wait to give the node time to start up
+    shouldGetEvents++
+    time.Sleep(1 * time.Second)
+    n, err := c.Nodes(ctx)
+    if err != nil {
+      t.Error(err.Error())
+      return
+    }
+    for _, node := range n {
+      if node.DockerID == tt.args.n.DockerID {
+        goto FOUND
+      }
+    }
+    t.Errorf("could not find container %s", tt.args.n.DockerID)
+    return
+
+  FOUND:
+    // should receive a cleanup event - use this to verify
+    shouldGetEvents++
+
+    // get node stats
+    _, err := c.NodeStats(ctx, tt.args.n)
+    if err != nil {
+      t.Error(err.Error())
+      return
+    }
+
+    // stop node
+    c.StopNode(ctx, tt.args.n)
+  })
+}
+
+cancelWatch()
+// verify events occured
+if shouldGetEvents != eventCount {
+  t.Errorf("expected %d events, got %d", shouldGetEvents, eventCount)
+}
+```
+
+For unit tests, the abstraction around the [highly involved work](#deploying-nodes)
+done in `ipfs.NodeClient` can easily be mocked out using my generator of choice,
+[`maxbrunsfeld/counterfeiter`](https://github.com/maxbrunsfeld/counterfeiter).
+In Go, mocking tyically takes the form of taking an interface, and generating
+and implementation for the interface that behaves as configured. This works
+because of how [interfaces are implemented implicitly](https://tour.golang.org/methods/10).
+
+To generate an implementation, we just point `counterfeiter` at the appropriate
+interface:
+
+```sh
+counterfeiter -o ./ipfs/mock/ipfs.mock.go ./ipfs/ipfs.go NodeClient
+```
+
+This gives us a struct with a [huge variety of useful functions](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs/mock#FakeNodeClient)
+that help define behaviours per test run. For example,
+[to test `orchestrator.Orchestrator`](https://github.com/RTradeLtd/Nexus/blob/master/orchestrator/orchestrator_test.go),
+we want to stub out `ipfs.NodeClient` to make sure we only test the orchestrator's
+functionality:
+
+```go
+type fields struct {
+  regPorts config.Ports
+}
+type args struct {
+  network string
+}
+tests := []struct {
+  name      string
+  fields    fields
+  args      args
+  createErr bool
+  wantErr   bool
+}{
+  {"invalid network name", fields{config.Ports{}}, args{""}, false, true},
+  {"nonexistent network", fields{config.Ports{}}, args{"asdf"}, false, true},
+  {"unable to register network", fields{config.Ports{}}, args{"test-network-1"}, false, true},
+  {"instantiate node with error", fields{config.New().Ports}, args{"test-network-1"}, true, true},
+  {"success", fields{config.New().Ports}, args{"test-network-1"}, false, false},
+}
+for _, tt := range tests {
+  t.Run(tt.name, func(t *testing.T) {
+    l, _ := log.NewTestLogger()
+    client := &mock.FakeNodeClient{} // the mock we generated!
+    o := &Orchestrator{
+      Registry: registry.New(l, tt.fields.regPorts),
+      l:        l,
+      nm:       nm,
+      client:   client,
+      address:  "127.0.0.1",
+    }
+
+    // set up how the fake client works under specific conditions
+    if tt.createErr {
+      client.CreateNodeReturns(errors.New("oh no"))
+    }
+
+    if _, err := o.NetworkUp(context.Background(), tt.args.network); (err != nil) != tt.wantErr {
+      t.Errorf("Orchestrator.NetworkUp() error = %v, wantErr %v", err, tt.wantErr)
+    }
+  })
+}
+```
+
+Through a combination of generated mocks, and effective abstraction around
+external dependencies, you can get pretty testing and good code coverage from
+both integration and unit tests that can cover pretty much *any* edge case you
+want even in a statically typed language like Go. It's pretty straight-forward
+to set up, is safely typed, and does not need to involve the "magic" of dependency
+injection frameworks ([which I've previously used in Java](/dependency-injection)).
+I like to compare good tests to having a good foundation to work and pivot on -
+try to pivot while running on sand, and you fall on your face as your features
+blow up around you. :sweat_smile:
+
+<br />
+
+---
+
+<br />
+
+That's all I had to share in this post (which got a bit lengthier than I expected) -
+hopefully somebody finds this useful! Feel free to check out my other posts, or
+reach out to me at `robert@bobheadxi.dev` if you want to chat.
