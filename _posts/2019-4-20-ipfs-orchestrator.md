@@ -112,7 +112,28 @@ The node creation process goes roughly as follows:
   on the filesystem - most notably this includes:
    * writing the given "swarm key" (used for identifying a private network) to disk for the node
    * generating an [entrypoint script](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/internal/ipfs_start.sh) that caps resources as required
-2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208)
+2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarly imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
+```go
+resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
+if err != nil { /* ... */ }
+l.Infow("container created", "build.duration", time.Since(start), "container.id", resp.ID)
+
+if err := c.d.ContainerStart(ctx, n.DockerID, types.ContainerStartOptions{}); err != nil {
+  go c.d.ContainerRemove(ctx, n.ContainerName, types.ContainerRemoveOptions{Force: true})
+  return fmt.Errorf("failed to start ipfs node: %s", err.Error())
+}
+
+// waitForNode scans container output for readiness indicator, and errors on
+// context expiry. See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22:18
+if err := c.waitForNode(ctx, n.DockerID); err != nil { /* ... */ }
+
+// run post-startup commands in the container (in this case, bootstrap peers)
+// containerExec is a wrapper around ContainerExecCreate and ContainerExecStart
+// See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L141:18
+c.containerExec(ctx, dockerID, []string{"ipfs", "bootstrap", "rm", "--all"})
+c.containerExec(ctx, dockerID, append([]string{"ipfs", "bootstrap", "add"}, peers...))
+```
+
 3. [Once the node daemon is ready](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22), [bootstrap the node against existing peers](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L83:18) if any peers are configured
 
 Some node configuration is [embedded into the container metadata](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/node.go#L61),
@@ -476,5 +497,3 @@ start-network: build
 </p>
 
 ## Testing
-
-TODO
