@@ -10,7 +10,6 @@ tag:
 - scrapy
 - sleuth
 - launch-pad
-- tech-writeup
 category: blog
 tech_writeup: true
 author: robert

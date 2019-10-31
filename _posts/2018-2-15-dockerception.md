@@ -10,7 +10,6 @@ tag:
 - inertia
 - testing
 - launch-pad
-- tech-writeup
 star: false
 category: blog
 author: robert

@@ -10,11 +10,10 @@ tag:
 - ipfs
 - grpc
 - testing
-- tech-writeup
 category: blog
 author: robert
 tech_writeup: true
-description: handling deployment, resource management, metadata persistence, and access control for arbitrary IPFS private networks running within Docker containers
+description: building Nexus, an orchestrator for operating arbitrary numbers of IPFS private networks
 ---
 
 <p align="center">

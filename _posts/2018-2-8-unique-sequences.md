@@ -8,7 +8,6 @@ tag:
 - python
 - bioinformatics
 - tools
-- tech-writeup
 category: blog
 author: robert
 tech_writeup: true

@@ -9,7 +9,6 @@ tag:
 - automation
 - bash
 - inertia
-- tech-writeup
 - launch-pad
 category: blog
 author: robert

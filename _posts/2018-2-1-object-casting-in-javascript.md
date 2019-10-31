@@ -7,7 +7,6 @@ headerImage: true
 tag:
 - javascript
 - nodejs
-- tech-writeup
 category: blog
 author: robert
 tech_writeup: true
