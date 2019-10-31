@@ -7,8 +7,7 @@ headerImage: true
 tag:
 - java
 - android
-- theory
-- design
+- tech-writeup
 star: false
 category: blog
 author: robert
