@@ -21,7 +21,7 @@ title: Home
 </section> -->
 
 <section class="list">
-  <h1 style="font-weight:500;margin-top:-0.5rem;text-align:center;">work experience</h1>
+  <h1 style="font-weight:500;text-align:center;">work experience</h1>
 
   {% for post in site.posts %} {% if post.experience %}
   <div class="item" align="center">
@@ -45,7 +45,7 @@ title: Home
 <br />
 
 <section class="list">
-  <h1 style="font-weight:500;margin-top:-0.5rem;text-align:center;">open source highlights</h1>
+  <h1 style="font-weight:500;text-align:center;">open source highlights</h1>
 
   <p style="text-align:center;">
     <a href="/open-source/">
@@ -83,7 +83,7 @@ title: Home
 <br />
 
 <section class="list">
-  <h1 style="font-weight:500;margin-top:-0.5rem;text-align:center;">technical writeups</h1>
+  <h1 style="font-weight:500;text-align:center;">technical writeups</h1>
 
   <p style="text-align:center;">
     <a href="/blog/">
@@ -91,22 +91,20 @@ title: Home
     </a>
   </p>
 
-  <!--
   {% for post in site.posts %} {% if post.tech_writeup %}
   <div class="item" align="center">
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-      <img class="image" src="{{ post.image }}" width="5%" style="margin-bottom: 8px"/>
+      <!-- <img class="image" src="{{ post.image }}" width="5%" style="margin-bottom: 8px"/> -->
       <h3 class="title">{{ post.title }}</h3>
       <div class="post-tags">
         {% for tag in post.tags %}
         <a class="item">{{ tag }}</a>
         {% endfor %}
       </div>
-      <p> {{ post.description }} </p>
+      <!-- <p> {{ post.description }} </p> -->
     </a>
   </div>
   <br />
   {% endif %} {% endfor %}
-  -->
 
 </section>
