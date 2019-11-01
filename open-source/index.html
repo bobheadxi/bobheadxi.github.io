@@ -14,6 +14,64 @@ title: Open Source
     working on right now!
 </p>
 
+<!-- https://observablehq.com/@bumbeishvili/trying-out-rough -->
+<div id="canvas-container" height="150px">
+    <canvas id="canvas"></canvas>
+    <p align="center">
+        <i style="font-size:90%;">Chart of my recent
+        <a href="https://github.com/bobheadxi" target="_blank">GitHub activity</a>!</i>
+    </p>
+</div>
+
+<script>
+window.onload = fetch('https://github-contributions-api.now.sh/v1/bobheadxi')
+    .then((resp) => resp.json())
+    .then((data) => {
+        const maxWidth = document.getElementById('canvas-container').clientWidth;
+        const maxHeight = 150;
+        const canvas = document.getElementById('canvas');
+        
+        canvas.width = `${maxWidth}`;
+        canvas.height = `${maxHeight}`;
+
+        const barWidth = 8;
+        const barGap = barWidth / 4;
+        const days = Math.floor(maxWidth / (barWidth + barGap));
+
+        let firstNonZero = 0;
+        for (let i = 0; i < data.contributions.length; i++) {
+            if (data.contributions[i].count > 0) {
+                firstNonZero = i;
+                break;
+            }
+        }
+        const counts = data.contributions
+            .slice(firstNonZero, firstNonZero+days)
+            .map(c => c.count);
+
+        const max = d3.max(counts);
+        const heightFlex = maxHeight / (max + 4);
+        console.log('chart parameters generated',
+            { days, max, heightFlex, data: counts });
+
+        const rc = rough.canvas(canvas);
+        counts.forEach((d, i) => {
+            const barHeight = heightFlex * d;
+            if (barHeight > 100) console.log({ barHeight, i });
+            const dim = {
+                x: i * (barWidth + barGap) + 1,
+                y: maxHeight - barHeight - 1,
+                w: barWidth,
+                h: barHeight,
+            };
+            rc.rectangle(dim.x, dim.y, dim.w, dim.h, { fill: 'green' });
+        });
+        console.log('charts drawn!');
+    })
+    .catch((err) => console.error(`/open-source chart error`, { err }));
+</script>
+
+
 <section class="list">
     {% for post in site.posts %}
         {% if post.open_source %}
