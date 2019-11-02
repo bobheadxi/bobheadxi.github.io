@@ -47,7 +47,8 @@ window.onload = fetch('https://github-contributions-api.now.sh/v1/bobheadxi')
         }
         const counts = data.contributions
             .slice(firstNonZero, firstNonZero+days)
-            .map(c => c.count);
+            .map(c => c.count)
+            .reverse();
 
         const max = d3.max(counts);
         const heightFlex = maxHeight / (max + 4);
