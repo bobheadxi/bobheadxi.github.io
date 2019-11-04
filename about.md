@@ -9,6 +9,8 @@ title: About
 
 Hey! I am a mathematics student studying at the University of British Columbia
 with [a passion for tech and building cool things](https://bobheadxi.dev/open-source/).
+The online handle `bobheadxi` (The `xi` part stands for `11`) is one I've had
+for too long to abandon, so I use it for most things nowadays.
 
 My professional experience includes internships at [Riot Games](/riot-games) and
 the [Michael Smith Genome Sciences Center](/bcgsc) as well as part-time, remote
