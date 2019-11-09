@@ -13,6 +13,15 @@ author: robert
 description: Create a simple GitHub activity chart for your personal website!
 ---
 
+<p align="center">
+  <b>
+    :mega: This post is also
+    <a href="https://dev.to/bobheadxi/github-activity-chart-with-rough-js-1c3d" target="_blank">available on <code>dev.to</code></a>!
+  </b>
+</p>
+
+<br />
+
 So the other day I had a sudden, irresistible urge to make *something* using the
 [Rough.js](https://roughjs.com/) library, which lets you make gorgeously sketchy
 graphics. The urge probably originated from the fact that I had exams I was meant
