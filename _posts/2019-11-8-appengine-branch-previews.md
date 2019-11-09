@@ -39,11 +39,12 @@ outside of using their source control, so I decided to do this myself.
 
 As I progressed on the automation of the App Engine deployment,
 I realized branch previews were not that much more of a hassle to set up, so I
-got those up and running as well. This blog post will cover some of the work I
-did on this front, and hopefully give a good idea about how you can go about
-creating a similar setup for your own projects if you want. Our project consists
-of a React frontend serviced by a Node.js backend, so my post will lean a bit
-towards that particular setup, but should apply to a variety of different stacks.
+got those up and running as well - [Heroku has a nice article about why staging environments are nice to have](https://dev.to/heroku/staging-environments-are-overlooked-here-s-why-they-matter-3ghd).
+This blog post will cover some of the work I did on this front, and hopefully
+give a good idea about how you can go about creating a similar setup for your
+own projects if you want. Our project consists of a React frontend serviced by a
+Node.js backend, so my post will lean a bit towards that particular setup, but
+should apply to a variety of different stacks.
 
 Here's a sneak peak of the end result:
 
