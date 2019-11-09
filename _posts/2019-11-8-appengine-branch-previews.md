@@ -219,7 +219,7 @@ There's a couple of things going on here:
   to allow other steps to access the extracted branch
 * `${GITHUB_REF#refs/heads/}` trims off the leading `refs/heads/` bit of a reference
 * `echo ${...} | tr / -` pipes the branch name to `tr` which then replaces all
-  slashes with dashes (App Engine does not allow slashes in branch names, and
+  slashes with dashes (App Engine does not allow slashes in version names, and
   I have a habit of using them)
 
 Then, in other steps you can access the branch name like so:
