@@ -9,7 +9,6 @@ tag:
 - android
 - testing
 star: false
-tech_writeup: true
 category: blog
 author: robert
 description: with Java and the Dagger library
