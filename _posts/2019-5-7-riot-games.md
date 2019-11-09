@@ -8,6 +8,7 @@ tag:
 - deployment
 - metrics
 - monitoring
+- react
 - data-viz
 - riot-games
 image: /assets/images/experience/riot-games.png
