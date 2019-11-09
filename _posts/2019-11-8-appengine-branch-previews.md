@@ -348,7 +348,7 @@ And that was it! As a bonus, notifications for these deployments show up in
 [Slack via the GitHub integration](https://slack.github.com/):
 
 <p align="center">
-  <img src="/assets/images/posts/appengine/slack-deploy.png.png">
+  <img src="/assets/images/posts/appengine/slack-deploy.png">
 </p>
 
 ## Wrapup
