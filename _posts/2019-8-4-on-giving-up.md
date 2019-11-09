@@ -6,8 +6,6 @@ image: https://66.media.tumblr.com/35afc70f21b49c84b0f609e4b488b6a6/tumblr_pjjco
 headerImage: true
 tag:
 - misc
-- rant
-- journal
 category: blog
 author: robert
 hidden: true

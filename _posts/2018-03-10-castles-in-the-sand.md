@@ -5,7 +5,7 @@ date: 2018-03-10 00:20
 image: ''
 headerImage: false
 tag:
-- rant
+- misc
 star: false
 category: blog
 author: robert
