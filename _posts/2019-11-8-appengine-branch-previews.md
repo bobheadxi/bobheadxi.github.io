@@ -15,6 +15,15 @@ tech_writeup: true
 description: Leveraging GitHub Actions for easy-to-use, automated branch preview deployments
 ---
 
+<p align="center">
+  <b>
+    :mega: This post is also
+    <a href="https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco" target="_blank">available on <code>dev.to</code></a>!
+  </b>
+</p>
+
+<br />
+
 Shortly after I returned to school, early in October 2019 I started
 [working part-time remotely for Sumus](/sumus), a property management company
 based out of Lethbridge, Alberta. My role was primarily as a software developer
