@@ -1,7 +1,7 @@
 ---
 title: "Evaluable Expressions in Configuration"
 layout: post
-date:
+date: 2019-7-25
 headerImage: false
 tag:
 - design
