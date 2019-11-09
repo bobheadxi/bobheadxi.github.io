@@ -10,6 +10,7 @@ tag:
 - ipfs
 - grpc
 - testing
+- rtrade
 category: blog
 author: robert
 tech_writeup: true

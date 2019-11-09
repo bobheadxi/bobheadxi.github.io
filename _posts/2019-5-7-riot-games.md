@@ -9,9 +9,11 @@ tag:
 - metrics
 - monitoring
 - data-viz
+- riot-games
 image: /assets/images/experience/riot-games.png
 headerImage: true
 experience: true
+company: riot-games
 hidden: true # don't count this post in blog pagination
 organization: "Riot Games, Inc"
 orgLink: https://www.riotgames.com/en/who-we-are

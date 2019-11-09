@@ -9,9 +9,11 @@ tag:
 - grpc
 - docker
 - postgres
+- rtrade
 image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5d4df8c0849f34000121bc68/1565499334434
 headerImage: true
 experience: true
+company: rtrade
 hidden: true # don't count this post in blog pagination
 organization: RTrade Technologies Ltd.
 orgLink: https://www.rtradetechnologies.com/

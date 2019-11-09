@@ -7,6 +7,7 @@ headerImage: true
 tag:
 - javascript
 - nodejs
+- bcgsc
 category: blog
 author: robert
 tech_writeup: true

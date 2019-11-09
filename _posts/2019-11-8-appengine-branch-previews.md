@@ -9,6 +9,7 @@ tag:
 - gcp
 - automation
 - devops
+- sumus
 category: blog
 author: robert
 tech_writeup: true
