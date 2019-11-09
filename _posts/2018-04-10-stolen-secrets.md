@@ -10,6 +10,7 @@ tag:
 star: false
 category: blog
 author: robert
+hidden: true
 description: a summary of a very cool talk I attended
 ---
 

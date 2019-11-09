@@ -67,11 +67,11 @@ twitter: bobheadxi
 # lanyrd: mylanyrd
 
 authors:
-    robert:
-        name: Robert Lin
-        bio: Enthusiastic eater of lunches
-        external-image: false
-        picture: assets/images/profile.jpg
+  robert:
+    name: Robert Lin
+    bio: Enthusiastic eater of lunches. Please feel free to reach out to me at robert@bobheadxi.dev!
+    external-image: false
+    picture: assets/images/profile.jpg
 
 # do you want a larger site? change the option below
 # options: [normal, large] | default: normal

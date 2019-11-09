@@ -8,8 +8,10 @@ tag:
 - python
 - bioinformatics
 - tools
+- bcgsc
 category: blog
 author: robert
+tech_writeup: true
 description: and an introduction to epigenetics
 ---
 

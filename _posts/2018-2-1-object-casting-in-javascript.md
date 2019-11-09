@@ -1,5 +1,5 @@
 ---
-title: "this.thing = that.thing"
+title: Object Casting with Polymorphic Classes in JavaScript
 layout: post
 date: 2018-02-01 18:17
 image: https://seeklogo.com/images/J/javascript-logo-E967E87D74-seeklogo.com.png
@@ -7,9 +7,11 @@ headerImage: true
 tag:
 - javascript
 - nodejs
+- bcgsc
 category: blog
 author: robert
-description: object casting with polymorphic classes in Javascript
+tech_writeup: true
+description: saying goodbye to "this.thing = that.thing"
 ---
 
 Despite my last blog post from way back in 2017, I have not learned any lessons regarding ground beef and continue to eat it on a daily basis. Though I suppose I have changed slightly - I eat more ground pork now, for no real reason other than to make this beauty every day:
@@ -60,7 +62,7 @@ router.post('/do_thing', (req, res) => {
 
 Let's ignore that wild SQL string there for today and look at that big bad list of parameters, most (actually, all) of which boil down to `this.thing = that.thing`. There are several endpoints that take the same parameters as well, where this whole list is copy and pasted.
 
-The fact that these parameter objects are passed into the various queries to do their thing meant that before I started on separating the SQL and database component of the server, I had to work out an effective and standardised way to pass this stuff around - some form of **object casting in Javascript** (which a reader pointed out should probably have been the title of this post to being with).
+The fact that these parameter objects are passed into the various queries to do their thing meant that before I started on separating the SQL and database component of the server, I had to work out an effective and standardised way to pass this stuff around - some form of **object casting in JavaScript** (which a reader pointed out should probably have been the title of this post to being with).
 
 # Solution
 

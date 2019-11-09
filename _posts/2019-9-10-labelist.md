@@ -17,9 +17,7 @@ description:
 This didn't really feel like enough of a project to warrant a project post, and
 I want to embark on more small-scale "hack" projects in my spare time (now that
 I've retired from [Launch Pad](https://bobheadxi.dev/tags/#launch-pad) for the
-time being, taking a mild course load, and am unemployed (though not really by
-choice)). Other things I want to work on are bouldering/climbing, skateboading,
-and reading more.
+time being.
 
 Anyway, I read about the [Bullet Journal (or BoJo for short)](https://bulletjournal.com/)
 recently. It's more or less an analogue life journalling/task-management flow.

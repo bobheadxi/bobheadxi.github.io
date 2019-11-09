@@ -7,7 +7,7 @@ tag:
 - design
 - golang
 - configuration
-- ast
+- riot-games
 category: blog
 author: robert
 description: Metaconfiguration with Go!

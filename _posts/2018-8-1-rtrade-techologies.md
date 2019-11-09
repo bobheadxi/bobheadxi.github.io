@@ -9,9 +9,11 @@ tag:
 - grpc
 - docker
 - postgres
-image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5c999caf86222e0001c7b6c4/1554999397417
+- rtrade
+image: https://static1.squarespace.com/static/5c905abba9ab952f9d5f10cc/t/5d4df8c0849f34000121bc68/1565499334434
 headerImage: true
 experience: true
+company: rtrade
 hidden: true # don't count this post in blog pagination
 organization: RTrade Technologies Ltd.
 orgLink: https://www.rtradetechnologies.com/
@@ -32,7 +34,7 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
 * **designing, building, and deploying a new [IPFS node orchestration and registry agent](https://github.com/RTradeLtd/Nexus)**
   that serves as the backbone for Temporal's private network service. The service
   handles automated and on-demand deployment, resource management, metadata persistence,
-  and fine-grained access control for IPFS nodes running within Docker containers.
+  and fine-grained access control for IPFS nodes running within Docker containers. ([blog post](/ipfs-orchestrator))
 * revamping [RTrade's **search engine service**](https://github.com/RTradeLtd/Lens)
   for improved results, more structured data management, improved performance,
   a new gRPC-based API, and new features like OCR capabilities
