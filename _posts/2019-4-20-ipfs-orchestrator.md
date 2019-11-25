@@ -55,7 +55,13 @@ the project, with links to implementation details and whatnot:
 * [Exposing an API](#exposing-an-api)
 * [Testing](#testing)
 
-TODO: a "package map"
+<p align="center">
+  <img src="/assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
+</p>
+
+<p align="center">
+  <i style="font-size:90%;">A super early sketch from one of our first meetings about a potential "ipfs-agent", which would become Nexus.</i>
+</p>
 
 ## Deploying Nodes
 
