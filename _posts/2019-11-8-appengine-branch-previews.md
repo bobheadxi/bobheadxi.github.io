@@ -98,7 +98,7 @@ source control, so that:
 
 I didn't actually start off with leveraging GitHub Actions for automating this
 process - my first iteration used [CircleCI](https://circleci.com/), where we
-run out tests and style checkks and whatnot, which had the advantage of allowing
+run our tests, style checks, and and so on. This had the advantage of allowing
 me to stage deployments based on whether or not previous checks pass:
 
 <p align="center">
