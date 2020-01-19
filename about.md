@@ -15,7 +15,7 @@ software development positions at startups like [Sumus Property Group](/sumus)
 (where I work at the moment) and [RTrade Technologies](/rtrade-techologies/).
 
 Outside of work and class, I participated actively for almost 2 years as
-a [tech lead in UBC Launch Pad](https://bobheadxi.dev/tags/#launch-pad), leading and mentoring teams
+a [tech lead in UBC Launch Pad](https://bobheadxi.dev/what-is-launch-pad), leading and mentoring teams
 of students on collaborative projects and driving programs and workshops aimed at building a
 community of aspiring software engineers at my university. I also volunteered as a
 [web developer for nwPlus](https://bobheadxi.dev/nwhacks2019/) building the website and application
