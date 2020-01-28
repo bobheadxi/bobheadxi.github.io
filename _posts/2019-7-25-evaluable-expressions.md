@@ -13,8 +13,9 @@ author: robert
 description: Metaconfiguration with Go!
 ---
 
-One of my projects at [Riot Games](https://bobheadxi.dev/riot-games/) involved
-designing an extension to an internal application specification we have to
+One of my projects at [Riot Games](/riot-games/) (as I introduced in a blog post
+on the official Riot Games technology blog, ["Technology Interns at Riot Games"](https://technology.riotgames.com/news/technology-interns-riot-games))
+involved designing an extension to an internal application specification we have to
 describe services to allow engineers to declaratively define alerts on their
 application. The goal of the specification is to be human-readable for operators
 in different regions while giving programs sufficient information to automate
@@ -24,6 +25,17 @@ is covered in
 and our application specification is mentioned in
 [this AWS Skill Point Episode ("Riot Games and League of Legends")](https://www.twitch.tv/videos/458272506?t=49m43s)
 if you want to learn more!
+
+<p align="center">
+    <img  width="70%" src="https://technology.riotgames.com/sites/default/files/intern10-robert1.png" />
+</p>
+
+<p align="center">
+    <i style="font-size:90%;">
+    Rough diagram I made of what this stuff is supposed to do, as outlined in
+    <a href="https://technology.riotgames.com/news/technology-interns-riot-games">this blog post on the official Riot Games Technology blog</a>.
+    </i>
+</p>
 
 So an idea I had as part of my extension design proposal was to allow users to
 specify "selections" from other parts of the spec and perform arithmetic on them
@@ -67,11 +79,8 @@ be created and tracked to get this same feature without selection.
 
 ## Implementation
 
-I'm not actually sure how much detail I can go into as far as the implementation
-of this goes, so for this post I'll just give a high-level overview, and maybe
-one day reimplement this as an open-source library.
-
-The core of the feature is in a Go string type I called `EvaluableExpression`
+For this post I'll just give a high-level overview of the implementation details. 
+he core of the feature is in a Go string type I called `EvaluableExpression`
 that exposed the ability to evaluate the string on a collapsed application:
 
 ```go
@@ -190,3 +199,8 @@ worked. Woo!
 There were still complications about when in the deploy pipeline this evaluation
 should occur, and how specifications should be stored (evaluated? unevaluated?),
 and so on, but yeah, this post covers the gist of the idea.
+
+As a follow-up, since I wrote this post during my internship but held off on publishing until
+[the official post](https://technology.riotgames.com/news/technology-interns-riot-games) was
+released - since then I've discovered [`antonmedv/expr`](https://github.com/antonmedv/expr),
+which seems to cover a similar problem space.

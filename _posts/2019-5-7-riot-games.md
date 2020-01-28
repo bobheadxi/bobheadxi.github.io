@@ -5,7 +5,6 @@ date: 2019-05-07 9:00
 tag:
 - internship
 - golang
-- deployment
 - metrics
 - monitoring
 - react
@@ -25,11 +24,42 @@ externalLink: false
 ---
 
 <p align="center">
-    <i>Will update this soon! For now, please refer to
-    <a href="https://resume.bobheadxi.dev/" _target="blank">my resume</a>.</i>
+    <img src="https://technology.riotgames.com/sites/default/files/intern11-robert2.png" />
 </p>
 
+<p align="center">
+    <i style="font-size:90%;">
+    The alert visualization interface I made, as seen in
+    <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
+    a blog post I contributed to on the official Riot Games Technology blog
+    </a>.
+    </i>
+</p>
+
+From May to August 2019, I worked as a software engineering intern on the Operability team under
+a group called Riot Developer Experience, which aspires to simplify the foundation for developing
+and operating services, empowering teams to focus on their own problem spaces.
+Operability specifically owns a variety of systems within Riot Games, though our work at the time mostly
+pertained to operational monitoring - providing engineers at Riot visibility into how their
+services are performing and behaving across the globe.
+
+During my time there I worked on two projects in this space:
+
+## Deployable Artifact Specification Extension
+
+The first was designing and building an extension to Riot’s deployable artifact specification to allow declarative specification of alerts on services. The specification allows operators in various Riot regions a way to discover how to deploy and monitor a service. This extension would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
+
+See [this blog post](/evalauble-expressions) for a writeup about a small chunk of work I did for this project!
+
+## Alert Visualization
+
+The second project was a tool for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centers, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible visualization tool.
+
+See the image at the top of this page for a peek at what the final product looked like!
+
 <br />
+
+<hr />
 
 ### About Riot Games
 
