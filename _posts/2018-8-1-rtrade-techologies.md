@@ -49,6 +49,8 @@ for RTrade on [GitHub](https://github.com/search?o=asc&q=author%3Abobheadxi+is%3
 
 <br />
 
+<hr />
+
 ### About RTrade Technologies
 
 [RTrade Technologies](https://www.rtradetechnologies.com/) designs and builds
