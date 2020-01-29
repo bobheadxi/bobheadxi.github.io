@@ -49,7 +49,7 @@ During my time there I worked on two projects in this space:
 
 The first was designing and building an extension to Riot’s deployable artifact specification to allow declarative specification of alerts on services. The specification allows operators in various Riot regions a way to discover how to deploy and monitor a service. This extension would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
 
-See [this blog post](/evalauble-expressions) for a writeup about a small chunk of work I did for this project!
+See [this blog post](/evaluable-expressions) for a writeup about a small chunk of work I did for this project!
 
 ## Alert Visualization
 
