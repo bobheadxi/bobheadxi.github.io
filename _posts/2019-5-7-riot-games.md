@@ -24,7 +24,7 @@ externalLink: false
 ---
 
 <p align="center">
-    <img src="https://technology.riotgames.com/sites/default/files/intern11-robert2.png" />
+    <img src="/assets/images/posts/riot-alerts-explorer-wide.png" />
 </p>
 
 <p align="center">
