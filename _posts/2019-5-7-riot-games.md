@@ -29,12 +29,13 @@ externalLink: false
 
 <p align="center">
     <i style="font-size:90%;">
-    The alert visualization interface I made, as seen in
+    The alert visualization tool I made, as seen in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
-    a blog post I contributed to on the official Riot Games Technology blog
-    </a>.
+    a blog post I contributed to on the official Riot Games Technology blog</a>.
     </i>
 </p>
+
+<br />
 
 From May to August 2019, I worked as a software engineering intern on the Operability team under
 a group called Riot Developer Experience, which aspires to simplify the foundation for developing
