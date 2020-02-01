@@ -8,6 +8,7 @@ tag:
 - golang
 - configuration
 - riot-games
+tech_writeup: true
 category: blog
 author: robert
 description: Metaconfiguration with Go!
