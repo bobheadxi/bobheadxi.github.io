@@ -21,7 +21,9 @@ title: Home
 </section> -->
 
 <section class="list">
-  <h1 style="font-weight:500;text-align:center;">work experience</h1>
+  <h1 style="font-weight:500;text-align:center" id="work-experience">
+    <a style="color:black" href="#work-experience">work experience</a>
+  </h1>
 
   {% for post in site.posts %} {% if post.experience %}
   <div class="item" align="center">
@@ -45,13 +47,9 @@ title: Home
 <br />
 
 <section class="list">
-  <h1 style="font-weight:500;text-align:center;">open source highlights</h1>
-
-  <p style="text-align:center;">
-    <a href="/open-source/">
-      see all projects
-    </a>
-  </p>
+  <h1 style="font-weight:500;text-align:center" id="open-source-highlights">
+    <a style="color:black" href="#open-source-highlights">open source highlights</a>
+  </h1>
 
   {% for post in site.posts %} {% if post.open_source %} {% if post.star %}
   <div class="item" align="center">
@@ -77,19 +75,20 @@ title: Home
   <br />
   {% endif %} {% endif %} {% endfor %}
 
-  
+  <p style="text-align:center;">
+    <a href="/open-source/">
+      see all projects
+    </a>
+  </p>
+
 </section>
 
 <br />
 
 <section class="list">
-  <h1 style="font-weight:500;text-align:center;">featured blog posts</h1>
-
-  <p style="text-align:center;">
-    <a href="/blog/">
-      see all blog posts
-    </a>
-  </p>
+  <h1 style="font-weight:500;text-align:center" id="featured-posts">
+    <a style="color:black" href="#featured-posts">featured posts</a>
+  </h1>
 
   {% for post in site.posts %} {% if post.tech_writeup %}
   <div class="item" align="center">
@@ -104,7 +103,14 @@ title: Home
       <!-- <p> {{ post.description }} </p> -->
     </a>
   </div>
+
   <br />
   {% endif %} {% endfor %}
+
+  <p style="text-align:center;">
+    <a href="/blog/">
+      see all blog posts
+    </a>
+  </p>
 
 </section>

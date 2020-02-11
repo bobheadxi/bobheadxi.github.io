@@ -37,7 +37,8 @@ layout: page
     </div>
 {% endif %}
 
-{{content}}
+<!-- https://github.com/allejo/jekyll-anchor-headings -->
+{% include anchor_headings.html html=content anchorBody='#' beforeHeading=true %}
 
 {% if site.post-advance-links contains page.category %}
     <div class="blog-navigation">
