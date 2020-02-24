@@ -19,8 +19,12 @@ layout: compress
     <link rel="canonical" href="{{ site.url }}{{ page.url | replace:'index.html','' }}">
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ site.url }}{{ "/feed.xml" }}" />
 
+    <!-- charting stuff -->
     <script src="https://cdn.jsdelivr.net/npm/roughjs@3.1.0/dist/rough.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.12.0/d3.min.js" integrity="sha256-+9Mf3cAVmxxudDsr1XwXUeRZFtvdWVYdq5/vcgiYyNU=" crossorigin="anonymous"></script>
+
+    <!-- diagraming stuff -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js"></script>
 
     <style>
     {% capture scss_sheet %}{% include style.scss %}{% endcapture %}
@@ -50,4 +54,21 @@ layout: compress
     {% include analytics-google.html %}
 
 </body>
+
+<script>
+    /* https://github.com/mermaidjs/mermaid-gitbook/blob/master/content/mermaidAPI.md */
+    mermaid.initialize({
+        startOnLoad: true,
+        theme: 'forest',
+        flowchart: {
+            useMaxWidth: true,
+            htmlLabels: true
+        },
+        sequence: {
+            useMaxWidth: true,
+        },
+    });
+    window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+</script>
+
 </html>
