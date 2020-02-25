@@ -4,8 +4,7 @@ layout: post
 date: 2020-01-07 9:00
 tag:
 - internship
-- remote
-- golang
+- '???'
 - sourcegraph
 image: /assets/images/experience/sourcegraph.png
 headerImage: true
