@@ -27,6 +27,18 @@ and our application specification is mentioned in
 [this AWS Skill Point Episode ("Riot Games and League of Legends")](https://www.twitch.tv/videos/458272506?t=49m43s)
 if you want to learn more!
 
+---
+
+**✅ Update(2/25/2020)**: a [new post ("Products, Not Services")](https://technology.riotgames.com/news/running-online-services-riot-part-vi)
+was recently published that elaborates on the specification I worked on, and briefly mentions my
+intern project! (emphasis mine)
+
+> The specification also includes all the metadata required to run and operate an entire environment.
+> A growing set including configuration, secrets, metrics, **alerts**, documentation, deployment and
+> rollout strategies, inbound network restrictions, as well as storage, database, and caching requirements.
+
+---
+
 <p align="center">
     <img  width="70%" src="https://technology.riotgames.com/sites/default/files/intern10-robert1.png" />
 </p>
