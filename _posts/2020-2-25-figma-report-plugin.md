@@ -12,7 +12,7 @@ tag:
 - sumus
 category: blog
 author: robert
-tech_writeup: false # TODO: set to true when done
+tech_writeup: true
 description: Building a Figma Plugin for generating reports in Figma from various data sources
 ---
 
@@ -24,7 +24,7 @@ is a neat web-based tool for collaborative design, featuring a very robust set o
 choosing it for automating the property pitch report process a pretty obvious one.
 
 In this post I'll write about approaching the Figma plugin API and leveraging it to automate aggregating
-data from various sources to generate a baseline report that can easily be customized further!
+data from various sources to generate a baseline report that can easily be customized further! :electric_plug:
 
 - [Requirements](#requirements)
 - [Implementation](#implementation)
