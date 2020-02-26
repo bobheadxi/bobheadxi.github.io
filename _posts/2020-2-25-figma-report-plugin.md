@@ -60,17 +60,17 @@ differently here:
 
 ```mermaid
 sequenceDiagram
-    participant FigmaSandbox
-    note left of FigmaSandbox: for interactions \nwith Figma API \n(reading layers, \nmanipulating nodes, \netc.)
+  participant FigmaSandbox
+  note left of FigmaSandbox: for interactions \nwith Figma API \n(reading layers, \nmanipulating nodes, \netc.)
 
-    participant iframe
-    note right of iframe: for interactions \nwith browser APIs \n(user input, \nnetwork access, \netc.)
+  participant iframe
+  note right of iframe: for interactions \nwith browser APIs \n(user input, \nnetwork access, \netc.)
 
-    FigmaSandbox->>iframe: { type: someMessageType, ...props }
-    note over FigmaSandbox,iframe: sent by window.parent.postMessage, \nreceived by figma.ui.onmessage
+  FigmaSandbox->>iframe: { type: someMessageType, ...props }
+  note over FigmaSandbox,iframe: sent by window.parent.postMessage, \nreceived by figma.ui.onmessage
 
-    iframe->>FigmaSandbox: { pluginMessage: { type: someMessageType, ...props } }
-    note over iframe,FigmaSandbox: sent by figma.ui.postMessage, \nreceived by window.onmessage
+  iframe->>FigmaSandbox: { pluginMessage: { type: someMessageType, ...props } }
+  note over iframe,FigmaSandbox: sent by figma.ui.postMessage, \nreceived by window.onmessage
 ```
 
 Sometimes the `FigmaSandbox` is referred to as the "main thread", and the `iframe` is also called a "worker".
@@ -98,30 +98,35 @@ as outlined below:
 
 ```mermaid
 sequenceDiagram
-    participant External
-    note over External: your sources of data
+  participant External
+  note over External: your sources of data
 
-    participant iframe
-    participant FigmaSandbox
-    iframe->>FigmaSandbox: generate_report
-    note over iframe,FigmaSandbox: communicate over Figma messages
+  participant iframe
+  activate iframe
 
-    activate FigmaSandbox
-    loop for each template in pages
-      alt if template.assets?
-        FigmaSandbox->>iframe: fetch_assets
-        activate iframe
-        iframe->>External: request
-        note over iframe,External: via browser fetch API
-        External-->>iframe: data
-        iframe-->>FigmaSandbox: loaded_assets
-        deactivate iframe
-        FigmaSandbox->>FigmaSandbox: template(FrameNode, assets)
-      else
-        FigmaSandbox->>FigmaSandbox: template(FrameNode)
-      end
+  participant FigmaSandbox
+  iframe->>FigmaSandbox: generate_report
+  deactivate iframe
+  activate FigmaSandbox
+  note over iframe,FigmaSandbox: communicate over Figma messages
+
+  loop for each template in pages
+    FigmaSandbox->>FigmaSandbox: init_page_frame
+
+    alt if template.assets?
+      FigmaSandbox->>iframe: fetch_assets
+      activate iframe
+      iframe->>External: request
+      note over iframe,External: via browser fetch API
+      External-->>iframe: data
+      iframe-->>FigmaSandbox: loaded_assets
+      deactivate iframe
+      FigmaSandbox->>FigmaSandbox: template(FrameNode, assets)
+    else
+      FigmaSandbox->>FigmaSandbox: template(FrameNode)
     end
-    deactivate FigmaSandbox
+  end
+  deactivate FigmaSandbox
 ```
 
 ### Collecting Input and using React as our iframe
