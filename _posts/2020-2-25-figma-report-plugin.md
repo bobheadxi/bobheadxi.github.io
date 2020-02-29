@@ -216,7 +216,7 @@ figma.ui.onmessage = async (msg) => {
 };
 ```
 
-Since we have no UI component in the `FigmaSandbox`, just use 
+Since we have no UI component in the `FigmaSandbox`, this code can just be plain Typescript. 
 
 Unlike the `iframe`, the actual Figma API is accessible to the plugin here via the `figma` object.
 For example, to set up an A4-sized frame for each page and set your view onto them:
