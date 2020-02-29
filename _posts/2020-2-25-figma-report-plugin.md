@@ -16,6 +16,13 @@ tech_writeup: true
 description: Building a Figma Plugin for generating reports in Figma from various data sources
 ---
 
+<p align="center">
+  <b>
+    :mega: This post is also
+    <a href="https://dev.to/bobheadxi/generating-reports-in-figma-with-a-custom-figma-plugin-2615" target="_blank">available on <code>dev.to</code></a>!
+  </b>
+</p>
+
 My second chunk of work for my [part-time remote position at Sumus](/sumus) (read about
 [the first chunk here](/appengine-branch-previews)) involved building a Figma plugin to generate
 a property pitch report from data about a property collected by employees, mostly aggregated on a
