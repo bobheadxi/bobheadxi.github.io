@@ -58,16 +58,16 @@ differently here:
 ```mermaid
 sequenceDiagram
   participant FigmaSandbox
-  note left of FigmaSandbox: for interactions \nwith Figma API \n(reading layers, \nmanipulating nodes, \netc.)
+  note left of FigmaSandbox: for interactions <br />with Figma API <br />(reading layers, <br />manipulating nodes, <br />etc.)
 
   participant iframe
-  note right of iframe: for interactions \nwith browser APIs \n(user input, \nnetwork access, \netc.)
+  note right of iframe: for interactions <br />with browser APIs <br />(user input, <br />network access, <br />etc.)
 
   FigmaSandbox->>iframe: { type: someMessageType, ...props }
-  note over FigmaSandbox,iframe: sent by parent.postMessage, \nreceived by figma.ui.onmessage
+  note over FigmaSandbox,iframe: sent by parent.postMessage, <br />received by figma.ui.onmessage
 
   iframe->>FigmaSandbox: { pluginMessage: { type: someMessageType, ...props } }
-  note over iframe,FigmaSandbox: sent by figma.ui.postMessage, \nreceived by window.onmessage
+  note over iframe,FigmaSandbox: sent by figma.ui.postMessage, <br />received by window.onmessage
 ```
 
 Sometimes the `FigmaSandbox` is referred to as the "main thread", and the `iframe` is also called a "worker".
