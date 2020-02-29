@@ -8,7 +8,6 @@ tag:
 - python
 - solr
 - scrapy
-- sleuth
 - launch-pad
 category: blog
 tech_writeup: true
