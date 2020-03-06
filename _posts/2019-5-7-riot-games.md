@@ -50,17 +50,29 @@ During my time there I worked on two projects in this space:
 
 The first was designing and building an extension to Riot’s deployable artifact specification to allow declarative specification of alerts on services. The specification allows operators in various Riot regions a way to discover how to deploy and monitor a service. This extension would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
 
-This project required pretty involved Golang for configuration manipulation, usage of both 3rd-party and internal APIs to manipulate data, and integrating with our Golang-based deployment orchestrator.
+This project required pretty involved Golang for configuration manipulation, usage of both 3rd-party and internal APIs to manipulate data, and integrating with our Golang-based deployment orchestrator. It required updating a variety of Golang-based libraries and tools used at the company as well. Designing the specification required an extensive writeups, experimentation, and going through our internal RFC (Request For Comment) process.
 
 See [this blog post](/evaluable-expressions) for a writeup about a small chunk of work I did for this project!
 
 ## Alert Visualization
 
-The second project was a tool for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centers, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible visualization tool.
+The second project was a tool/service for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centers, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible visualization tool.
 
-This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) for maintaining active alert relationships.
+This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) internally for maintaining active alert relationships. It runs as a service and web application that continuously monitors alerts and maintains a sliding window of alert relations that can be queried and visualized in the web application through a query builder I implemented. Additional "layers" can be easily implemented through the service's plugin system to provide more context on potential relationships between alerts.
 
 See the image at the top of this page for a peek at what the final product looked like!
+
+<p align="center">
+    <img src="https://technology.riotgames.com/sites/default/files/intern12-robert3.png" width="70%" />
+</p>
+
+<p align="center">
+    <i style="font-size:90%;">
+    An example diagram of the sorts of relationships I was interested in visualizing between alerts, as seen in
+    <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
+    a blog post I contributed to on the official Riot Games Technology blog</a>.
+    </i>
+</p>
 
 <br />
 
