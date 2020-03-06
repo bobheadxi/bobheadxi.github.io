@@ -56,11 +56,7 @@ See [this blog post](/evaluable-expressions) for a writeup about a small chunk o
 
 ## Alert Visualization
 
-The second project was a tool/service for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centers, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible visualization tool.
-
-This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) internally for maintaining active alert relationships. It runs as a service and web application that continuously monitors alerts and maintains a sliding window of alert relations that can be queried and visualized in the web application through a query builder I implemented. Additional "layers" can be easily implemented through the service's plugin system to provide more context on potential relationships between alerts.
-
-See the image at the top of this page for a peek at what the final product looked like!
+The second project was a service for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centers, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible, interactive, and extensible visualization tool.
 
 <p align="center">
     <img src="https://technology.riotgames.com/sites/default/files/intern12-robert3.png" width="70%" />
@@ -71,6 +67,19 @@ See the image at the top of this page for a peek at what the final product looke
     An example diagram of the sorts of relationships I was interested in visualizing between alerts, as seen in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
     a blog post I contributed to on the official Riot Games Technology blog</a>.
+    </i>
+</p>
+
+This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) internally for maintaining active alert relationships. It runs as a service and web application that continuously monitors alerts and maintains a sliding window of alert relations that can be queried and visualized in the web application through a query builder I implemented. Additional "layers" can be easily implemented through the service's plugin system to provide more context on potential relationships between alerts.
+
+<p align="center">
+    <img src="https://technology.riotgames.com/sites/default/files/intern11-robert2.png" />
+</p>
+
+<p align="center">
+    <i style="font-size:90%;">
+    Another view of the alert visualizer, demonstrating the query builder and a simple interactive visualization.
+    Labels can be toggled for the nodes and edges in the right panel.
     </i>
 </p>
 
