@@ -50,7 +50,15 @@ During my time there I worked on two projects in this space:
 
 The first was designing and building an extension to Riot’s deployable artifact specification to allow declarative specification of alerts on services. The specification allows operators in various Riot regions a way to discover how to deploy and monitor a service. This extension would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
 
-This project required pretty involved Golang for configuration manipulation, usage of both 3rd-party and internal APIs to manipulate data, and integrating with our Golang-based deployment orchestrator. It required updating a variety of Golang-based libraries and tools used at the company as well. Designing the specification required an extensive writeups, experimentation, and going through our internal RFC (Request For Comment) process.
+```yml
+alerts:
+  metric: queue.size
+  threshold:
+  - type: max
+    value: SELECT(configuration[name='my_queue.max_queue_size'].value) * 0.75
+```
+
+This project used Golang for integrating with our Golang-based deployment orchestrator, configuration manipulation, and usage of both 3rd-party and internal APIs to manipulate data. It required updating a variety of Golang-based libraries and tools used at the company as well. Along the way, I made a variety of contributions to fix bugs I encountered. Designing the specification required an extensive writeups, experimentation, and going through our internal RFC (Request For Comment) process.
 
 See [this blog post](/evaluable-expressions) for a writeup about a small chunk of work I did for this project!
 
