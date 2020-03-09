@@ -20,8 +20,7 @@ externalLink: false
 ---
 
 <p align="center">
-    <i>Will update this soon! For now, please refer to
-    <a href="https://resume.bobheadxi.dev/" _target="blank">my resume</a>.</i>
+    <i>Coming soon!</i>
 </p>
 
 <br />
