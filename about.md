@@ -8,11 +8,10 @@ title: About
 # About Me
 
 Hey! My name is Robert and I am a mathematics student studying at the University of British Columbia
-with [a passion for tech and building stuff](https://bobheadxi.dev/open-source/).
+with a [passion for tech and building stuff](https://bobheadxi.dev/open-source/).
 My professional experience includes software engineering internships at [Riot Games](/riot-games)
 and the [Michael Smith Genome Sciences Center](/bcgsc) as well as part-time, remote
-software development positions at startups like [Sumus Property Group](/sumus)
-(where I work at the moment) and [RTrade Technologies](/rtrade-techologies/).
+software development positions at startups like [Sumus Property Group](/sumus) and [RTrade Technologies](/rtrade-techologies/).
 
 Outside of work and class, I participated actively for almost 2 years as
 a [tech lead in UBC Launch Pad](https://bobheadxi.dev/what-is-launch-pad), leading and mentoring teams
