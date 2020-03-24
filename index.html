@@ -2,28 +2,10 @@
 layout: page
 title: Home
 ---
-<!-- <section class="list">
-  <h1 class="title" style="color:#aaa;margin-top:-0.5rem;margin-bottom:-0.3rem;text-align:center;">featured posts</h1>
-  
-  {% for post in site.posts %} {% if post.projects != true %} {% if post.star %}
-  <div class="item" align="center" style="margin-bottom:0.8rem">
-    <a class="url" href="{{ site.url }}{{ post.url }}">
-      <h3 class="title">{{ post.title }}</h3>
-      <div class="post-tags">
-        {% for tag in post.tags %}
-        <a class="item">{{ tag }}</a>
-        {% endfor %}
-      </div>
-    </a>
-  </div>
-
-  {% endif %} {% endif %} {% endfor %}
-</section> -->
-
 <section class="list">
-  <h1 style="font-weight:500;text-align:center" id="work-experience">
-    <a style="color:black" href="#work-experience">work experience</a>
-  </h1>
+  <h2 style="font-weight:500;text-align:center" id="work-experience">
+    <a style="color:#666;text-decoration: none;" href="#work-experience">work experience</a>
+  </h2>
 
   {% for post in site.posts %} {% if post.experience %}
   <div class="item" align="center">
@@ -47,9 +29,9 @@ title: Home
 <br />
 
 <section class="list">
-  <h1 style="font-weight:500;text-align:center" id="open-source-highlights">
-    <a style="color:black" href="#open-source-highlights">open source highlights</a>
-  </h1>
+  <h2 style="font-weight:500;text-align:center" id="open-source-highlights">
+    <a style="color:#666;text-decoration: none;" href="#open-source-highlights">open source highlights</a>
+  </h2>
 
   {% for post in site.posts %} {% if post.open_source %} {% if post.star %}
   <div class="item" align="center">
@@ -86,9 +68,9 @@ title: Home
 <br />
 
 <section class="list">
-  <h1 style="font-weight:500;text-align:center" id="featured-posts">
-    <a style="color:black" href="#featured-posts">featured posts</a>
-  </h1>
+  <h2 style="font-weight:500;text-align:center" id="featured-posts">
+    <a style="color:#666;text-decoration: none;" href="#featured-posts">featured posts</a>
+  </h2>
 
   {% for post in site.posts %} {% if post.tech_writeup %}
   <div class="item" align="center">

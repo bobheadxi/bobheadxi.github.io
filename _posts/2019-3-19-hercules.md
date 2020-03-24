@@ -5,8 +5,9 @@ date: 2019-03-19 12:19
 tag:
 - golang
 - python
-- git
 - analytics
+- library
+- cli
 image: https://github.com/src-d/hercules/blob/master/doc/dag.png?raw=true
 headerImage: false
 open_source: true

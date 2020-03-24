@@ -65,7 +65,7 @@ function drawChart() {
                     w: barWidth,
                     h: barHeight,
                 };
-                rc.rectangle(dim.x, dim.y, dim.w, dim.h, { fill: 'green' });
+                rc.rectangle(dim.x, dim.y, dim.w, dim.h, { fill: '#5A85F3' });
             });
             console.log('charts drawn!');
         })
@@ -80,9 +80,14 @@ window.onresize = drawChart;
 <section class="list">
     {% for post in site.posts %}
         {% if post.open_source %}
-            <div class="item {% if post.star %}star{% endif %}">
+            <div class="item">
+                {% if post.star %}<br />{% endif %}
                 <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
                     <h3 class="title">{{ post.title }}</h3>
+                    {% if post.star %}
+                        <br />
+                        <img class="image" src="{{ post.image }}" width="100%" style="margin-top:16px"/>
+                    {% endif %}
                     <div class="post-tags">
                         {% for tag in post.tags %}
                             <a class="item">{{ tag }}</a>
@@ -90,6 +95,7 @@ window.onresize = drawChart;
                     </div>
                     <p> {{ post.description }} </p>
                 </a>
+                {% if post.star %}<br />{% endif %}
             </div>
         {% endif %}
     {% endfor %}
