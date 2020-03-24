@@ -5,7 +5,7 @@ title: About
 
 <br />
 
-# About Me
+# about me!
 
 Hey! My name is Robert and I am a mathematics student studying at the University of British Columbia
 with a [passion for tech and building stuff](https://bobheadxi.dev/open-source/).
@@ -63,7 +63,7 @@ A condensed (though sometimes outdated) summary of my experience is also availab
 
 <br />
 
-# Contact
+# contact
 
 My favourite mode of communication is [email](mailto:robert@bobheadxi.dev) -
 please feel free to reach out! You can also catch me on [GitHub](https://github.com/bobheadxi)
@@ -71,7 +71,7 @@ and [LinkedIn](https://www.linkedin.com/in/robert-lin/).
 
 <br />
 
-# Why "bobheadxi"?
+# why "bobheadxi"?
 
 The online handle `bobheadxi` is one I've had for too long to abandon, so I use it for most things
 nowadays. The `xi` part stands for `11`, and nothing else :)
