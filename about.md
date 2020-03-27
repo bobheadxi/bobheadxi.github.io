@@ -3,9 +3,10 @@ layout: page
 title: About
 ---
 
-<br />
+<hr />
 
-# about me!
+<h1>👋</h1>
+<h1 style="font-weight:500;margin-top:-0.5rem;text-align:center;">about me!</h1>
 
 Hey! My name is Robert and I am a mathematics student studying at the University of British Columbia
 with a [passion for tech and building stuff](https://bobheadxi.dev/open-source/).
