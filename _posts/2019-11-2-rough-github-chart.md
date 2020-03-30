@@ -2,7 +2,7 @@
 title: "GitHub Activity Chart with Rough.js"
 layout: post
 date: 2019-11-02 11:00
-image: https://camo.githubusercontent.com/f849a9d8f2050f57ea24b9aa7850d4007b6a22ae/68747470733a2f2f726f7567686a732e636f6d2f696d616765732f6578616d706c65732f636f6e74726962757465642f646f6e75742e706e67
+image: /assets/images/posts/rough-github.png
 headerImage: true
 tag:
 - javascript
@@ -28,11 +28,11 @@ graphics. The urge probably originated from the fact that I had exams I was mean
 to study for.
 
 <p align="center">
-  <img src="https://roughjs.com/images/main/m4.png">
+  <img src="https://roughjs.com/images/m14.png">
 </p>
 
 <p align="center">
-  <i style="font-size:90%;">Example squares from the
+  <i style="font-size:90%;">Example shapes from the
   <a href="https://roughjs.com/" target="_blank">Rough.js website</a>!</i>
 </p>
 
