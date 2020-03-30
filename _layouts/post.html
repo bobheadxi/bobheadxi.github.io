@@ -23,10 +23,15 @@ layout: page
 
     <!-- let visitors know about hypothes.is -->
     <script>
-    new Noty({
+    var hypothesisNotification = new Noty({
         type: 'info',
         text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
         timeout: 5000,
+        buttons: [
+            Noty.button('See Annotations', 'btn-box',
+                function() { hypothesisNotification.close(); },
+                { 'data-hypothesis-trigger': true }),
+        ],
     }).show();
     </script>
 {% endif %}
