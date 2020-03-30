@@ -3,4 +3,5 @@
 Scripts used in [`bobheadxi.dev`](https://bobheadxi.dev).
 
 
-* `autotrack.js`: https://github.com/googleanalytics/autotrack
+* `atr.js`: https://github.com/googleanalytics/autotrack
+* `noty`: https://sourcegraph.com/github.com/needim/noty@v3.1.4/-/tree/lib

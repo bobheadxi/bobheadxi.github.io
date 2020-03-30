@@ -2,16 +2,27 @@
 layout: page
 ---
 
-<script>
-window.hypothesisConfig = function() {
-    return {
-        branding: {
-            accentColor: '#5A85F3',
-        },
+{% if page.experience!=true %}
+    <!-- https://hypothes.is/ only for blog posts -->
+    <script>
+    window.hypothesisConfig = function() {
+        return {
+            branding: {
+                accentColor: '#5A85F3',
+            },
+        };
     };
-};
-</script>
-<script src="https://hypothes.is/embed.js" async></script>
+    </script>
+    <script src="https://hypothes.is/embed.js" async></script>
+
+    <!-- let visitors know about hypothes.is -->
+    <script>
+    new Noty({
+        type: 'info',
+        text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
+    }).show();
+    </script>
+{% endif %}
 
 {% if page.image and page.headerImage %}
     <img class="title-image" src="{{ page.image }}" alt="{{ page.title }}">

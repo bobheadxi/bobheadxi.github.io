@@ -2,6 +2,25 @@
 layout: page
 title: Home
 ---
+
+<script>
+  new Noty({
+      type: 'info',
+      text: '👋 Hello there! Looking for something specific?',
+      buttons: [
+        Noty.button('Projects', 'btn-box', function() {
+          location.replace('#open-source-highlights');
+        }),
+        Noty.button('Blog Posts', 'btn-box', function() {
+          location.replace('#featured-posts');
+        }),
+        Noty.button('About Me', 'btn-box', function() {
+          location.replace('/about');
+        }),
+      ]
+  }).show();
+</script>
+
 <section class="list">
   <h2 style="font-weight:500;text-align:center" id="work-experience">
     <a style="color:#666;text-decoration: none;" href="#work-experience">work experience</a>
