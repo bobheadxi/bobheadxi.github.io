@@ -4,21 +4,23 @@ title: Home
 ---
 
 <script>
-  new Noty({
+  setTimeout(function(){
+    new Noty({
       type: 'info',
       text: '👋 Hello there! Looking for something specific?',
       buttons: [
         Noty.button('Projects', 'btn-box', function() {
           location.replace('#open-source-highlights');
         }),
-        Noty.button('Blog Posts', 'btn-box', function() {
+        Noty.button('Writing', 'btn-box', function() {
           location.replace('#featured-posts');
         }),
         Noty.button('About Me', 'btn-box', function() {
           location.replace('/about');
         }),
       ]
-  }).show();
+    }).show();
+  }, 3000);
 </script>
 
 <section class="list">
