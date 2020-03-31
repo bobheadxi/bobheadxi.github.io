@@ -20,6 +20,7 @@ star: true
 externalLink: false
 badges:
 - <img src="https://img.shields.io/badge/github-action-yellow.svg" alt="GitHub Action" />
+- <img src="https://img.shields.io/github/stars/boheadxi/gobenchdata.svg?" />
 - <img src="https://img.shields.io/website/https/gobenchdata.bobheadxi.dev.svg?down_color=grey&down_message=offline&label=demo&up_message=live" alt="demo status">
 - <img src="https://img.shields.io/github/languages/top/bobheadxi/gobenchdata.svg?colorB=1e90ff" />
 ---
@@ -39,6 +40,9 @@ badges:
 <p align="center">
   <a href="https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=7&branchName=master">
     <img src="https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.gobenchdata?branchName=master" alt="CI Status" />
+  </a>
+  <a href="https://github.com/bobheadxi/gobenchdata">
+    <img src="https://img.shields.io/github/stars/boheadxi/gobenchdata.svg?" />
   </a>
   <a href="https://bobheadxi.dev/r/gobenchdata">
     <img src="https://img.shields.io/badge/view-github%20action-yellow.svg" alt="GitHub Action" />
