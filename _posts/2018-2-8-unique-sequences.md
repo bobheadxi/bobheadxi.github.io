@@ -15,7 +15,7 @@ tech_writeup: true
 description: and an introduction to epigenetics
 alt_location:
   type: Medium
-  url: https://medium.com/@bobheadxi/determining-the-uniqueness-of-oligonucleotide-sequences-f8ae77bca60
+  url: https://medium.com/@bobheadxi/determining-the-uniqueness-of-oligonucleotide-sequences-f8ae77bca60f
 ---
 
 It's been raining a lot. When it stops raining and the sun comes out, it can be pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and wonder how you ended up there.
