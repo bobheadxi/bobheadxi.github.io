@@ -21,8 +21,7 @@ layout: page
         type: 'info',
         text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
         buttons: [
-            Noty.button('See Annotations',
-                'btn-box ga-noty-post-hypothesis',
+            Noty.button('See Annotations', 'btn-box',
                 function() { hypothesisNotification.close(); },
                 { 'data-hypothesis-trigger': true }),
         ],
@@ -42,8 +41,7 @@ layout: page
                 text: `📣 This post is also available on ${altPlatform}!`,
                 timeout: 5000,
                 buttons: [
-                    Noty.button(`Read on ${altPlatform}`,
-                        'btn-box ga-noty-post-alt',
+                    Noty.button(`Read on ${altPlatform}`, 'btn-box',
                         function() { window.open(altURL) }),
                 ],
             }).show();
