@@ -15,19 +15,17 @@ layout: page
     </script>
     <script src="https://hypothes.is/embed.js" async></script>
 
-    <!-- let visitors know about hypothes.is if they're still on the page after a few seconds -->
+    <!-- let visitors know about hypothes.is -->
     <script>
-    setTimeout(function(){
-        var hypothesisNotification = new Noty({
-            type: 'info',
-            text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
-            buttons: [
-                Noty.button('See Annotations', 'btn-box',
-                    function() { hypothesisNotification.close(); },
-                    { 'data-hypothesis-trigger': true }),
-            ],
-        }).show();
-    }, 7500);
+    var hypothesisNotification = new Noty({
+        type: 'info',
+        text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
+        buttons: [
+            Noty.button('See Annotations', 'btn-box',
+                function() { hypothesisNotification.close(); },
+                { 'data-hypothesis-trigger': true }),
+        ],
+    }).show();
     </script>
 {% endif %}
 
@@ -41,7 +39,7 @@ layout: page
             new Noty({
                 type: 'success',
                 text: `📣 This post is also available on ${altPlatform}!`,
-                timeout: 3500,
+                timeout: 5000,
                 buttons: [
                     Noty.button(`Read on ${altPlatform}`, 'btn-box',
                         function() { window.open(altURL) }),
