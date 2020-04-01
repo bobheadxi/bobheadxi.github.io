@@ -27,6 +27,16 @@ myriad of other things that I never wrote about.
 So I figured I might as well write a little about the changes to my website from this end-of-semester
 season, sort of like a little "changelog".
 
+First off, some background on this site: it's a [Jekyll site](https://jekyllrb.com/) hosted on
+[GitHub pages](https://pages.github.com/) that started off as a copy of the
+[sergiokopplin/indigo](https://github.com/sergiokopplin/indigo) Jekyll theme but has, over the years,
+grown into a convoluted monstrosity of my hacks and extensions (for example, adding
+[work experiences](https://bobheadxi.dev/#work-experience), [projects](https://bobheadxi.dev/#open-source-highlights),
+[dynamic charts](/rough-github-chart), extended analytics, custom styles, and more that I'll talk
+about in this post). I keep thinking that I'll one day rework it from scratch into something cleaner
+and leaner, but it's holding together for the time being. You can check out the
+[source code here](https://github.com/bobheadxi/bobheadxi.github.io).
+
 - TOC
 {:toc}
 
@@ -77,9 +87,10 @@ set up, so after adding an alert for Hypothes.is I set up an additional welcome 
 ![noty on a post](/assets/images/posts/march-2020-site-updates/noty-post.gif)
 
 {% raw %}
-The template language used by Jekyll, [Liquid](https://shopify.github.io/liquid/) (which I'm surprised
-to learn is made by [Shopify](https://www.shopify.com/)!), offers many ways to add conditional
-elements to your pages (such as [the `{% if page.experience!=true %}` condition used previously](#hypothesis-integration)),
+The template language used by [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
+(which I'm surprised to learn is made by [Shopify](https://www.shopify.com/)!), offers many ways to
+add conditional elements to your pages (such as
+[the `{% if page.experience!=true %}` condition used previously](#hypothesis-integration)),
 so I figured I could leverage it just a little more to add some more conditional alerts, such as
 one to advertise other places my posts are published in. I was pleasantly surprised at how this one
 *just worked*. 🍎
