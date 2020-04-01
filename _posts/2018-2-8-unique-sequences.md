@@ -11,7 +11,6 @@ tag:
 - bcgsc
 category: blog
 author: robert
-tech_writeup: true
 description: and an introduction to epigenetics
 alt_location:
   type: Medium

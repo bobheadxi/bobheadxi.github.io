@@ -10,7 +10,6 @@ tag:
 - bcgsc
 category: blog
 author: robert
-tech_writeup: true
 description: saying goodbye to "this.thing = that.thing"
 ---
 
