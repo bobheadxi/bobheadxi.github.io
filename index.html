@@ -11,13 +11,19 @@ title: Home
       text: '👋 Hello there! Looking for something specific?',
       buttons: [
         Noty.button('Projects', 'btn-box', function() {
+          ga('send', 'event', 'Notification', 'click', 'home');
           location.replace('#open-source-highlights');
         }),
         Noty.button('Writing', 'btn-box', function() {
+          ga('send', 'event', 'Notification', 'click', 'home');
           location.replace('#featured-posts');
         }),
         Noty.button('About Me', 'btn-box', function() {
-          location.replace('/about');
+          ga('send', 'event', 'Notification', 'click', 'home', {
+            hitCallback: function() {
+              window.open('https://bobheadxi.dev/about');
+            }
+          });
         }),
       ]
     }).show();
