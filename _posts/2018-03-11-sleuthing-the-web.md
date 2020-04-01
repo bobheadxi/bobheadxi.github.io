@@ -13,16 +13,10 @@ category: blog
 tech_writeup: true
 author: robert
 description: scraping data for a bad search engine
+alt_location:
+  type: Medium
+  url: https://medium.com/ubc-launch-pad-software-engineering-blog/crawling-the-web-for-a-search-engine-a7988ee2e6e9
 ---
-
-<p align="center">
-    <b>
-        :mega: A shorter version of this post is
-        <a href="https://medium.com/ubc-launch-pad-software-engineering-blog/crawling-the-web-for-a-search-engine-a7988ee2e6e9" target="_blank">available on Medium</a>!
-    </b>
-</p>
-
-<br />
 
 - TOC
 {:toc}

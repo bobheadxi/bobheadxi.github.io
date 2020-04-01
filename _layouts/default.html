@@ -27,6 +27,11 @@ layout: compress
     <link href="/assets/scripts/noty/noty.css" rel="stylesheet">
     <script src="/assets/scripts/noty/noty.min.js" type="text/javascript"></script>
 
+    <!-- set a flag for mobile devices, see https://stackoverflow.com/questions/3514784/what-is-the-best-way-to-detect-a-mobile-device -->
+    <script>
+        var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
+    </script>
+
     <style>
     {% capture scss_sheet %}{% include style.scss %}{% endcapture %}
     {{ scss_sheet | scssify }}
@@ -34,9 +39,9 @@ layout: compress
 
     <!-- set up defaults for various plugins -->
     <script>
-        /* https://ned.im/noty/#/options */
+        /* refer to https://ned.im/noty/#/options */
         Noty.overrideDefaults({
-            theme: 'nest',
+            theme: 'sunset',
             layout: 'bottomRight',
             closeWith: ['click', 'button'],
             sounds: { volume: 0 },

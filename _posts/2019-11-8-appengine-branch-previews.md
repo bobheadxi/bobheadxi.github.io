@@ -14,16 +14,10 @@ category: blog
 author: robert
 tech_writeup: true
 description: Leveraging GitHub Actions for easy-to-use, automated branch preview deployments
+alt_location:
+  type: DEV
+  url: https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco
 ---
-
-<p align="center">
-  <b>
-    :mega: This post is also
-    <a href="https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco" target="_blank">available on <code>dev.to</code></a>!
-  </b>
-</p>
-
-<br />
 
 Shortly after I returned to school, early in October 2019 I started
 [working part-time remotely for Sumus](/sumus), a property management company
@@ -52,14 +46,14 @@ Here's a sneak peak of the end result:
   <img src="/assets/images/posts/appengine/environments-deployed.png">
 </p>
 
-* [The Problem](#the-problem)
-* [Solution](#solution)
-  * [Staging and Release](#staging-and-release)
-  * [Versioning Frontends and Backends](#versioning-frontends-and-backends)
-  * [Automation](#automation)
-    * [GitHub Actions + App Engine](#github-actions--app-engine)
-    * [GitHub Deployments](#github-deployments)
-* [Wrapup](#wrapup)
+- [The Problem](#the-problem)
+- [Solution](#solution)
+  - [Staging and Release](#staging-and-release)
+  - [Versioning Frontends and Backends](#versioning-frontends-and-backends)
+  - [Automation](#automation)
+    - [GitHub Actions + App Engine](#github-actions--app-engine)
+    - [GitHub Deployments](#github-deployments)
+- [Wrapup](#wrapup)
 
 <br />
 

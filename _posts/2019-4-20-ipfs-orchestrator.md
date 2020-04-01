@@ -15,16 +15,10 @@ category: blog
 author: robert
 tech_writeup: true
 description: building Nexus, an orchestrator for operating arbitrary numbers of IPFS private networks
+alt_location:
+  type: Medium
+  url: https://medium.com/@bobheadxi/single-host-instance-orchestration-part-1-deploying-and-managing-instances-9311832d1488
 ---
-
-<p align="center">
-  <b>
-    :mega: A multi-part version of this post is also
-    <a href="https://medium.com/@bobheadxi/single-host-instance-orchestration-part-1-deploying-and-managing-instances-9311832d1488" target="_blank">available on Medium</a>!
-  </b>
-</p>
-
-<br />
 
 The [Interplanetary Filesystem (IPFS)](https://ipfs.io/) is a piece of tech I've
 been working with extensively during my time as a remote software engineer at
@@ -49,11 +43,11 @@ networks running within Docker containers on RTrade infrastructure. This post is
 a *very* brief run over some of the high-level components and work that went into
 the project, with links to implementation details and whatnot:
 
-* [Deploying Nodes](#deploying-nodes)
-* [Orchestrating Nodes](#orchestrating-nodes)
-* [Access Control](#access-control)
-* [Exposing an API](#exposing-an-api)
-* [Testing](#testing)
+- [Deploying Nodes](#deploying-nodes)
+- [Orchestrating Nodes](#orchestrating-nodes)
+- [Access Control](#access-control)
+- [Exposing an API](#exposing-an-api)
+- [Testing](#testing)
 
 <p align="center">
   <img src="/assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />

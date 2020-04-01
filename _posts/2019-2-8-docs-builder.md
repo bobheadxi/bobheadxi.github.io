@@ -13,17 +13,11 @@ tag:
 category: blog
 author: robert
 tech_writeup: true
-description:
+description: 'Turning a template into an automated documentation builder'
+alt_location:
+  type: Medium
+  url: https://medium.com/@bobheadxi/turning-slate-into-a-proper-documentation-builder-d0cf31abf459
 ---
-
-<p align="center">
-  <b>
-    :mega: This post is also
-    <a href="https://medium.com/@bobheadxi/turning-slate-into-a-proper-documentation-builder-d0cf31abf459" target="_blank">available on Medium</a>!
-  </b>
-</p>
-
-<br />
 
 I’m currently working with [RTrade Technologies, Ltd.](undefined) and [a documentation website](https://gateway.temporal.cloud/ipfs/Qma4DNFSRR9eGqwm93zMUtqywLFpTRQji4Nnu37MTmNntM/account.html#account-api) was recently set up for one of our APIs. I thought it looked great, and slick, and super nice.
 
