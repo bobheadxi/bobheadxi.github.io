@@ -2,8 +2,8 @@
 layout: page
 ---
 
+<!-- https://hypothes.is/ only for blog posts -->
 {% if page.experience!=true %}
-    <!-- https://hypothes.is/ only for blog posts -->
     <script>
     window.hypothesisConfig = function() {
         return {
@@ -28,6 +28,11 @@ layout: page
         ],
     }).show();
     </script>
+{% endif %}
+
+<!-- diagraming stuff -->
+{% if page.diagrams %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js"></script>
 {% endif %}
 
 {% if page.image and page.headerImage %}
@@ -67,6 +72,25 @@ layout: page
 
 <!-- https://github.com/allejo/jekyll-anchor-headings -->
 {% include anchor_headings.html html=content anchorBody='#' beforeHeading=true %}
+
+<!-- mermaid need to be initialized after content -->
+{% if page.diagrams %}
+    <script>
+        /* https://github.com/mermaidjs/mermaid-gitbook/blob/master/content/mermaidAPI.md */
+        mermaid.initialize({
+            startOnLoad: true,
+            theme: 'forest',
+            flowchart: {
+                useMaxWidth: true,
+                htmlLabels: true
+            },
+            sequence: {
+                useMaxWidth: true,
+            },
+        });
+        window.mermaid.init(undefined, document.querySelectorAll('.language-mermaid'));
+    </script>
+{% endif %}
 
 {% if site.post-advance-links contains page.category %}
     <div class="blog-navigation">

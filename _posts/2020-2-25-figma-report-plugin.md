@@ -4,6 +4,7 @@ layout: post
 date: 2020-2-25 9:00
 image: https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg
 headerImage: true
+diagrams: true
 tag:
 - automation
 - typescript
