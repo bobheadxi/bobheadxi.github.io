@@ -16,19 +16,31 @@ layout: page
     <script src="https://hypothes.is/embed.js" async></script>
 
     <!-- let visitors know about hypothes.is -->
+    <!-- on desktop, notify straight away with button to open annotation -->
+    <!-- on mobile, show simple notification after delay -->
     <script>
-    var hypothesisNotification = new Noty({
-        type: 'info',
-        text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
-        buttons: [
-            Noty.button('See Annotations', 'btn-box',
-                function() {
-                    ga('send', 'event', 'Notification', 'click', 'hypothesis');
-                    hypothesisNotification.close();
-                },
-                { 'data-hypothesis-trigger': true }),
-        ],
-    }).show();
+    if (!isMobile) {
+        var hypothesisNotification = new Noty({
+            type: 'info',
+            text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
+            buttons: [
+                Noty.button('See Annotations', 'btn-box',
+                    function() {
+                        ga('send', 'event', 'Notification', 'click', 'hypothesis');
+                        hypothesisNotification.close();
+                    },
+                    { 'data-hypothesis-trigger': true }),
+            ],
+        }).show();
+    } else {
+        setTimeout(function() {
+            new Noty({
+                type: 'info',
+                text: 'Questions? Thoughts? Highlight some text and leave a comment! 💬',
+                timeout: 3500,
+            }).show();
+        }, 5000);
+    }
     </script>
 {% endif %}
 
