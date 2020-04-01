@@ -12,7 +12,6 @@ tag:
 - launch-pad
 category: blog
 author: robert
-tech_writeup: true
 description: 'Turning a template into an automated documentation builder'
 alt_location:
   type: Medium
