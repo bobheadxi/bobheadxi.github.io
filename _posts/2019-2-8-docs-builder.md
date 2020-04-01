@@ -53,9 +53,9 @@ if [ ! -d slate ]; then
 fi
 ```
 
-To start off, I want my script to grab the repo (I’ll need it one way or another) and chuck it into a temporary directory. I called it docs_build and chucked it into my .gitignore where it belongs.
+To start off, I want my script to grab the repo (I’ll need it one way or another) and chuck it into a temporary directory. I called it `docs_build` and chucked it into my `.gitignore` where it belongs.
 
-Next, I’ll go ahead and symlink everything that I’m *supposed *to change in my “fork” from where I want my **actual **documentation to be — I decided to call it docs_src — into the cloned Slate repo.
+Next, I’ll go ahead and symlink everything that I’m *supposed* to change in my “fork” from where I want my **actual** documentation to be — I decided to call it `docs_src` — into the cloned Slate repo.
 
 ```sh
 # in /docs_build
@@ -73,7 +73,7 @@ ln -fs "$(dirname "$(pwd)")"/.static/inertia.png \
   slate/source/images/logo.png
 ```
 
-Note that when creating a symlink with ln -s , you should use the full directory path as your source, or the link could point to something nonexistent. In this case, I opted to use pwd and join it to the file I’m trying to link from.
+Note that when creating a symlink with `ln -s`, you should use the full directory path as your source, or the link could point to something nonexistent. In this case, I opted to use pwd and join it to the file I’m trying to link from.
 
 Next, I’ll need to install Slate’s dependencies:
 
@@ -105,7 +105,7 @@ If you’re following along, you’ll probably notice that this step tragically 
 
 This probably happens because a symlink doesn’t usually play well with file watchers, and poking around the Middleman repository issues reveals a few (such as [this one](https://github.com/middleman/middleman/issues/1690)) that reveals this is likely the problem. Some more digging surfaces a [files.watch feature](https://github.com/middleman/middleman/issues/2054#issuecomment-280082417) that seems to do what I want: add my symlink source directories as a trigger for rebuilds.
 
-The problem is, I need to add this to config.rb , which is in the Slate repository, and I want to maintain my Slate-as-a-doc-builder feature, which means any configuration changes I make must be scripted and perfectly reproducible.
+The problem is, I need to add this to `config.rb`, which is in the Slate repository, and I want to maintain my Slate-as-a-doc-builder feature, which means any configuration changes I make must be scripted and perfectly reproducible.
 
 ```sh
 TEMPLATE_FILES_WATCH= \
