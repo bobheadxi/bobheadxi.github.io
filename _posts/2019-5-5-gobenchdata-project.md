@@ -6,7 +6,7 @@ tag:
 - golang
 - javascript
 - benchmarking
-- data-viz
+- visualization
 - cli
 - automation
 image: https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true

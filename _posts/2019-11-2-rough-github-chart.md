@@ -6,7 +6,7 @@ image: /assets/images/posts/rough-github.png
 headerImage: true
 tag:
 - javascript
-- data-viz
+- visualization
 - hack
 category: blog
 author: robert
