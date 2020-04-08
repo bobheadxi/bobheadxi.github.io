@@ -8,7 +8,7 @@ tag:
 - graph-databases
 - monitoring
 - react
-- data-viz
+- visualization
 - riot-games
 image: /assets/images/experience/riot-games.png
 headerImage: true
@@ -90,6 +90,11 @@ This project was built on Golang, usage of 3rd-party APIs, internal APIs, and Mo
     Labels can be toggled for the nodes and edges in the right panel.
     </i>
 </p>
+
+The project featured an interactive display of relationships, allowing users to reposition and drag
+around the nodes easily, as well as a query interface where users can either write raw queries
+themselves using [a graph query language](https://github.com/cayleygraph/cayley/blob/master/docs/gizmoapi.md)
+or construct queries using a parameter-based builder I created, as seen in the screenshot above.
 
 <br />
 
