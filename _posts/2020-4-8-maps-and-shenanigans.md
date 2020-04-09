@@ -17,30 +17,34 @@ author: robert
 description: messing around with Uber's deck.gl in a 2-day quarantine hack
 ---
 
-You can probably skip the first section of this post if you just want to see a brief writeup of the
-work I did for the screenshot below. Featured: some [Python + Notebooks](https://jupyter.org/),
-[BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), and Uber's
-[`deck.gl`](https://github.com/uber/deck.gl) visualization framework. I started
-[this web app in earnest on April 5th](https://github.com/bobheadxi/society-and-air-quality/commit/f58e1a227051e2d51f3d546105d3393d2351a716#diff-c3e888ce42796ce1d5780a4ea8197f0a),
-and stopped when I handed in my project on April 7th, so I kind of want to treat it as a bit of
-a hackathon-like writeup too :man_shrugging: As always, please feel free to
-[leave comments and questions](/march-2020-site-updates/#hypothesis-integration-for-annotations)
-on this post by highlighting some text!
+So started this little visualization project in earnest on April 5th as a personal stretch
+goal for a course project I was working on, and stopped when I handed in the stuff that was actually due for the assignment on April 7th.
+It was a lively period of trying to get everything to work: wrangling data, fiddling with libraries, all the good stuff.
+Featured in this post: some [Python + Notebooks](https://jupyter.org/),
+[BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), [Uber's `deck.gl`](https://github.com/uber/deck.gl)
+visualization framework, and [GitHub Pages](https://pages.github.com/).
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/bobheadxi/society-and-air-quality/master/docs/_screenshots/epa-data-explore.png" />
 </p>
+
+You can probably skip the first section of this post if you just want to see a brief writeup of the
+work behind this screenshot. As always, please feel free to
+[leave comments and questions](/march-2020-site-updates/#hypothesis-integration-for-annotations)
+on this post by highlighting some text!
 
 <br />
 
 - TOC
 {:toc}
 
+<br />
+
 ## A Stroll Through Memory Lane
 
-I've always wanted to make pretty things, but the tedium of front-end has always been a bit
-uninspiring. My time with [nwPlus](/nwhacks2019) did get the ball rolling though - implementing
-a nice design was quite satisfying, to say the least.
+I've always wanted to make pretty things, but the tedium of front-end always proved rather
+intimidating. My time with [nwPlus](/nwhacks2019) did get the ball rolling though - implementing
+a nice design and seeing it come to life was quite satisfying.
 
 <p align="center">
   <img src="/assets/images/projects/nwhacks-navbar.gif" width="75%" />
@@ -54,7 +58,7 @@ a nice design was quite satisfying, to say the least.
 I tried to learn more on making nice user interfaces briefly with my cancelled project,
 [Timelines](/timelines-recap), and when I went to [Riot Games](/riot-games) last year, I tried yet
 again with a project that has been in limbo for a while: [Seer](https://github.com/bobheadxi/seer)
-(I didn't even do a writeup for this one yet rip)
+(I didn't even do a writeup for this one yet :sweat_smile:)
 
 <p align="center">
   <img src="/assets/images/projects/seer-wip.png" width="75%" />
@@ -112,28 +116,14 @@ Some MongoDB? How webscale????
 
 I honestly think for the vast majority of folks the answer is just *no*, when what they have in
 mind is a simple portfolio or a showcase or a product website or a signup page. I've found that
-something as available as GitHub alone provides everything most people need for simple use cases,
-and there are affordable services that can fill in the gaps for slightly more complicated needs:
-
-1. Your frontend website can be an SPA (React, Vue, Angular, whatever), or just a plain static website
-   based on Jekyll or similar on [GitHub pages](https://pages.github.com/).
-2. Need data for your frontend? Does it need to be secure (ie passwords, very personal details)? I mean,
-   just use [GitHub pages](https://pages.github.com/) for that as well (more on that soon). Or if you
-   are feeling particularly ambitious, use [GitHub issues as your database](https://github.com/bobheadxi-bot/seerdb/issues/6).
-   Yeah, I'm serious. A more recent example is many projects' use of the [John Hopkins COVID-19 dataset](https://github.com/CSSEGISandData/COVID-19)
-   available on GitHub.
-3. Think you need a backend for complex logic? You probably really don't, unless you are building
-   a full-on service with accounts and everything - and to be honest, you can often go pretty far without
-   accounts. If you realize you don't need a proper backend, just go back to point 1 and 2.
-4. If you really do need more complex state, you can always opt to go for [lightweight serverless functions](https://serverless.com/)
-   or something like [Google Firebase](https://firebase.google.com/), amongst others, that allow you
-   to offload backend work to somebody else and get away with pretty much writing only frontend things.
-   We did this for the [nwHacks 2019 website](https://github.com/nwplus/nwhacks2019).
+something as available as (and as **free** as) [GitHub Pages](https://pages.github.com/) alone
+provides everything most people need for simple use cases, and there are affordable services that
+can fill in the gaps for slightly more complicated needs.
 
 In a similar vein, when it came more recently to me procrastinating my final project by spending a
 bunch of time attempting to build a rather extravagent and overkill website when all I needed to
 submit was a slideshow, of course I had to live by my own words and do this all entirely as a
-React SPA hosted on GitHub Pages.
+React single-page application hosted on GitHub Pages (including using Pages to host my data!)
 
 ### Aggregating Data
 
