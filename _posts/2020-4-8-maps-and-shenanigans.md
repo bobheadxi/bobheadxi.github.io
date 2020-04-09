@@ -373,7 +373,7 @@ you don't have to do it yourself.
 This is probably my favourite slide - [see the source code here](https://sourcegraph.com/github.com/bobheadxi/society-and-air-quality/-/blob/vis/src/slides/methodology/DataACS.js).
 This particular slide only took 83 lines of code on its own!
 
-#### A Big Mistake.. Mis-state?
+#### A Big Mistake... Mis-state?
 
 While cool, unfortunately it turns out that this setup is probably a **big mistake**. Here's how I
 wrote the callback:
