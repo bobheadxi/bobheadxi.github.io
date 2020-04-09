@@ -15,7 +15,7 @@ tag:
 category: blog
 author: robert
 tech_writeup: true
-description: building Nexus, an orchestrator for operating arbitrary numbers of IPFS private networks
+description: building <i>Nexus</i>, an orchestrator for operating IPFS private networks
 alt_location:
   type: Medium
   url: https://medium.com/@bobheadxi/single-host-instance-orchestration-part-1-deploying-and-managing-instances-9311832d1488
