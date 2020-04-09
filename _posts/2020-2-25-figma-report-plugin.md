@@ -15,7 +15,7 @@ tag:
 category: blog
 author: robert
 tech_writeup: true
-description: building a Figma Plugin for generating reports in Figma from various data sources
+description: building a Figma Plugin for making data immediately presentable
 alt_location:
   type: DEV
   url: https://dev.to/bobheadxi/generating-reports-in-figma-with-a-custom-figma-plugin-2615
