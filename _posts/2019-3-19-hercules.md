@@ -1,5 +1,5 @@
 ---
-title: ":muscle: Git Repository Analysis Engine"
+title: ":muscle: Git Repository Analysis Tool"
 layout: post
 date: 2019-03-19 12:19
 tag:
@@ -15,7 +15,7 @@ hidden: true # don't count this post in blog pagination
 description: "<i>Hercules</i> - fast, insightful, and highly customizable Git history analysis"
 category: open-source
 author: robert
-star: true
+star: false
 externalLink: false
 badges:
 - <img src="https://img.shields.io/github/stars/src-d/hercules.svg?" />
@@ -40,8 +40,8 @@ badges:
     <img src="https://img.shields.io/github/stars/src-d/hercules.svg?" />
 </p>
 
-*Hercules* is a fast and highly customizable Git repository analysis engine
-written in Go, built and open-sourced by [source{d}](https://sourced.tech/). It
+*Hercules* is a fast and highly customizable Git repository analysis tool
+written in Go and Python, built and open-sourced by [source{d}](https://sourced.tech/). It
 runs a highly customizable pipeline of analysis tasks on a Git repository to
 generate all sorts of cool data and insights. I
 [used Hercules extensively for a project I worked on](https://bobheadxi.dev/timelines-recap)
