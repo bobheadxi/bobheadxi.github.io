@@ -2,6 +2,7 @@
 title: "Sleuthing the Web"
 layout: post
 date: 2018-03-11 12:00
+hero_image: /assets/images/projects/sleuth-1.png
 image: /assets/images/posts/squirrel.png
 headerImage: true
 tag:

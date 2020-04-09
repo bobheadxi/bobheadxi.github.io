@@ -2,7 +2,7 @@
 title: "Pretty Things, Maps, and React Shenanigans"
 layout: post
 date: 2020-4-8 18:00
-image: /assets/images/posts/maps-and-shenanigans/questions.png
+hero_image: https://raw.githubusercontent.com/bobheadxi/society-and-air-quality/master/docs/_screenshots/epa-data-explore.png
 headerImage: false
 diagrams: true
 tag:

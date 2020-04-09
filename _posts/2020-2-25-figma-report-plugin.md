@@ -2,6 +2,7 @@
 title: "Generating Reports in Figma with a Custom Figma Plugin"
 layout: post
 date: 2020-2-25 9:00
+hero_image: /assets/images/experience/sumus/pitcher-demo.png
 image: https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg
 headerImage: true
 diagrams: true
@@ -14,7 +15,7 @@ tag:
 category: blog
 author: robert
 tech_writeup: true
-description: Building a Figma Plugin for generating reports in Figma from various data sources
+description: building a Figma Plugin for generating reports in Figma from various data sources
 alt_location:
   type: DEV
   url: https://dev.to/bobheadxi/generating-reports-in-figma-with-a-custom-figma-plugin-2615

@@ -2,6 +2,7 @@
 title: "Branch Previews with Google App Engine and GitHub Actions"
 layout: post
 date: 2019-11-08 11:00
+hero_image: /assets/images/posts/appengine/branch-staged.png
 image: https://miro.medium.com/max/996/1*VHYGqjhONSJ20pRlIUbg7w.png
 headerImage: true
 tag:
@@ -13,7 +14,7 @@ tag:
 category: blog
 author: robert
 tech_writeup: true
-description: Leveraging GitHub Actions for easy-to-use, automated branch preview deployments
+description: leveraging GitHub Actions for easy-to-use, automated branch preview deployments
 alt_location:
   type: DEV
   url: https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco

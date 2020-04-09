@@ -2,7 +2,8 @@
 title: "Evaluable Expressions in Configuration"
 layout: post
 date: 2019-7-25
-headerImage: false
+image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png
+headerImage: true
 tag:
 - design
 - golang
@@ -11,7 +12,7 @@ tag:
 tech_writeup: true
 category: blog
 author: robert
-description: Metaconfiguration with Go!
+description: metaconfiguration with Go!
 ---
 
 One of my projects at [Riot Games](/riot-games/) (as I introduced in a blog post
