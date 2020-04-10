@@ -426,6 +426,21 @@ I'll have to revisit this at some point - I'm sure there's a "right" way to do t
 just holding React all wrong, but I've already spent a lot of time getting everything to this point
 so for now I'm just stuck with a rather uninteractive map.
 
+---
+
+**✅ Update(4/10/2020)**: I spent some time fiddling with this and managed to get some basic
+interactions working by moving context subscription to the topmost level (I suppose rendering it
+pointless, but oh well) and removing all `mapState` depenedencies from `updateMapState`. Slides then
+check for loading/error state, and if they are selected, call `updateMapState` through `useEffect`.
+Check out the commmit [here](https://github.com/bobheadxi/society-and-air-quality/commit/23ef2fac30edd373958526e5397b8bbb7cc3950c)! It's not very clean, and I still can't get map transitions
+working so I suspect I'm still doing something wrong, but it's something.
+
+<p align="center">
+<img src="/assets/images/posts/maps-and-shenanigans/interact_demo.gif" />
+</p>
+
+---
+
 
 ### GitHub Pages
 
