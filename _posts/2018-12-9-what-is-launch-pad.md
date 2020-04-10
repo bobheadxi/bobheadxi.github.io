@@ -9,7 +9,7 @@ tag:
 - launch-pad
 category: blog
 author: robert
-description: So I keep mentioning this "Launch Pad" thing - what is it?
+description: so I keep mentioning this "Launch Pad" thing - what is it?
 ---
 
 [UBC Launch Pad](https://www.ubclaunchpad.com/) is a student-run software engineering club whose

@@ -8,9 +8,10 @@ tag:
 - javascript
 - visualization
 - hack
+- my-website
 category: blog
 author: robert
-description: Create a simple GitHub activity chart for your personal website!
+description: create a simple GitHub activity chart for your personal website!
 alt_location:
   type: DEV
   url: https://dev.to/bobheadxi/github-activity-chart-with-rough-js-1c3d

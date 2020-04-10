@@ -9,9 +9,10 @@ tag:
 - hack
 - jekyll
 - analytics
+- my-website
 category: blog
 author: robert
-description: Exam season procrastination!
+description: exam season procrastination!
 ---
 
 Every semester, quarantine or not, there comes a time where I tell myself - look, you've got to stop

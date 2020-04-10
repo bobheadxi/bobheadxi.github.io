@@ -12,7 +12,7 @@ tag:
 - launch-pad
 category: blog
 author: robert
-description: 'Turning a template into an automated documentation builder'
+description: 'scripting a template into an automated documentation builder'
 alt_location:
   type: Medium
   url: https://medium.com/@bobheadxi/turning-slate-into-a-proper-documentation-builder-d0cf31abf459

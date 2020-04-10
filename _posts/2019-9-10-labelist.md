@@ -1,9 +1,10 @@
 ---
 title: "Labelist: Serverless Function for Premium-Free Todoist Labels"
 layout: post
+description: a quick experiment with serverless functions and the Todoist API
 date: 2019-09-10 11:00
 image: 
-headerImage: true
+headerImage: false
 tag:
 - hack
 - api
