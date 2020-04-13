@@ -18,7 +18,7 @@ description: messing around with Uber's deck.gl in a 2-day quarantine hack
 ---
 
 So started this little visualization project in earnest on April 5th as a personal stretch
-goal for a course project I was working on, and stopped when I handed in the stuff that was actually due for the assignment on April 7th.
+goal for a course project I was working on, and stopped when I handed in the things that were actually due for the assignment on April 7th.
 It was a lively period of trying to get everything to work: wrangling data, fiddling with libraries, all the good stuff.
 Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 [BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), [Uber's `deck.gl`](https://github.com/uber/deck.gl)
