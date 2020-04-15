@@ -34,6 +34,8 @@ title: Home
   }, 2500);
 </script>
 
+<!-- EXPERIENCE -->
+
 <section class="list">
   <h2 style="font-weight:500;text-align:center" id="work-experience">
     <a style="color:#666;text-decoration: none;" href="#work-experience">work experience</a>
@@ -60,36 +62,7 @@ title: Home
 
 <br />
 
-<section class="list">
-  <h2 style="font-weight:500;text-align:center" id="open-source-highlights">
-    <a style="color:#666;text-decoration: none;" href="#open-source-highlights">open source highlights</a>
-  </h2>
-
-  {% for post in site.posts %} {% if post.open_source %} {% if post.star %}
-  <div class="item" align="center">
-    <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-      <img class="image" src="{{ post.image }}" width="50%" style="margin-bottom: 8px"/>
-      <h3 class="title">{{ post.title }}</h3>
-      <p> {{ post.description }} </p>
-      <div align="center">
-        {% for badge in post.badges %}
-          {{badge}}
-        {% endfor %}
-      </div>
-    </a>
-  </div>
-  <br />
-  {% endif %} {% endif %} {% endfor %}
-
-  <p style="text-align:center;">
-    <a href="/open-source/">
-      see all projects
-    </a>
-  </p>
-
-</section>
-
-<br />
+<!-- BLOG -->
 
 <section class="list">
   <h2 style="font-weight:500;text-align:center" id="featured-posts">
@@ -124,3 +97,37 @@ title: Home
   </p>
 
 </section>
+
+<br />
+
+<!-- OPEN SOURCE -->
+
+<section class="list">
+  <h2 style="font-weight:500;text-align:center" id="open-source-highlights">
+    <a style="color:#666;text-decoration: none;" href="#open-source-highlights">open source highlights</a>
+  </h2>
+
+  {% for post in site.posts %} {% if post.open_source %} {% if post.star %}
+  <div class="item" align="center">
+    <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
+      <img class="image" src="{{ post.image }}" width="50%" style="margin-bottom: 8px"/>
+      <h3 class="title">{{ post.title }}</h3>
+      <p> {{ post.description }} </p>
+      <div align="center">
+        {% for badge in post.badges %}
+          {{badge}}
+        {% endfor %}
+      </div>
+    </a>
+  </div>
+  <br />
+  {% endif %} {% endif %} {% endfor %}
+
+  <p style="text-align:center;">
+    <a href="/open-source/">
+      see all projects
+    </a>
+  </p>
+
+</section>
+
