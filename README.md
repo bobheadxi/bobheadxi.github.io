@@ -11,7 +11,7 @@ and is hosted using [GitHub Pages](https://pages.github.com/). All opinions in b
 ##### [`_posts`](/_posts)
 
 It says "posts" but it's been repurposed to be the source of all my [blog posts](https://bobheadxi.dev/blog),
-[experience pages](https://bobheadxi.dev), and [project pages](https://bobheadxi.dev/open-source).
+[work experience recaps](https://bobheadxi.dev/#work-experience), and [project pages](https://bobheadxi.dev/open-source).
 
 ##### [`open-source`](/open-source)
 
