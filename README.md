@@ -6,7 +6,7 @@ and is hosted using [GitHub Pages](https://pages.github.com/). All opinions in b
 
 <br />
 
-## Structure
+### Structure
 
 ##### [`_posts`](/_posts)
 
@@ -35,11 +35,18 @@ Source for the site's styling.
 
 <br />
 
-## Development
+### Development
 
 You'll need [Ruby](https://www.ruby-lang.org/en/documentation/installation/) and [Bundler](https://bundler.io/) installed.
 
-```
+```sh
 make install
 make serve
+```
+
+For styling, I use [`client9/misspell`](https://github.com/client9/misspell) (requires Go) and [`igorshubovych/markdownlint-cli`](https://github.com/igorshubovych/markdownlint-cli) (requires Node). To install and run them:
+
+```sh
+make install-checks
+make checks
 ```

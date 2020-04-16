@@ -6,7 +6,7 @@ install: install-checks
 	bundle install
 
 install-checks:
-	gem install mdl
+	npm i -g markdownlint-cli
 	go get -u github.com/client9/misspell/cmd/misspell
 
 serve:
@@ -19,4 +19,4 @@ spellcheck:
 		README.md index.html about.md blog open-source _posts
 
 mdlint:
-	mdl .
+	markdownlint -c .markdownlint.json --ignore _site .
