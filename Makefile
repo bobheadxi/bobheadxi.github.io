@@ -6,7 +6,7 @@ install: install-checks
 	bundle install
 
 install-checks:
-	npm i -g markdownlint-cli
+	${PRECOMMAND} npm i -g markdownlint-cli
 	go get -u github.com/client9/misspell/cmd/misspell
 
 serve:
