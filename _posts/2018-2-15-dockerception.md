@@ -28,18 +28,18 @@ Last Sunday I finally had a morning at home to relax, and at long last I got to 
 
 I'll need to eat more jam soon because I'm running a bit short on jars.
 
-- TOC
+* TOC
 {:toc}
 
-# Prelude
+## Prelude
 
 Outside of work, my main focus has been UBC Launch Pad's [Inertia](https://github.com/ubclaunchpad/inertia) project, of which I am now the project lead. The idea is to provide a [Heroku](https://www.heroku.com)-like application without being restricted to Heroku's servers - in other words, we wanted a simple, plug-and-play continuous deployment solution for any virtual private server (VPS). Since UBC Launch Pad frequently changes hosting providers based on available funding and sponsorship, quick redeployment was always a hastle. We wanted to develop an in-house continuous deployment system to make deploying applications simple and painless, regardless of the hosting provider.
 
 The primary design goals of Inertia are to:
 
-- minimise setup time for new projects
-- maximimise compatibility across different client and VPS platforms
-- offer a convenient interface for managing the deployed application
+* minimise setup time for new projects
+* maximimise compatibility across different client and VPS platforms
+* offer a convenient interface for managing the deployed application
 
 To achieve this, we decided early on to focus on supporting Docker projects - specifically [docker-compose](https://docs.docker.com/compose/) ones. Docker is a containerization platform that has blown up in popularity over the last few years, mostly thanks to its incredible ease of use. Docker-compose is a layer on top of the typical `Dockerfile`s you see - it is used to easily build and start up multiple containers at once using the command `docker-compose up`. This meant that we could let Docker handle the nitty gritty of building projects.
 
@@ -57,13 +57,13 @@ The deployment daemon runs persistently in the background on the server, receivi
     <i>A slide from a presentation I gave about Inertia.</i>
 </p>
 
-# Docker in Docker
+## Docker in Docker
 
 There were a few options for how the Inertia daemon could be run on a VPS:
 
-- compile and upload binaries beforehand, and have Inertia pull the correct binary for a given VPS
-- install Go, clone the Inertia repository and start up the daemon from source
-- build and maintain a Docker image on [Docker Hub](https://hub.docker.com), and have Inertia pull the image
+* compile and upload binaries beforehand, and have Inertia pull the correct binary for a given VPS
+* install Go, clone the Inertia repository and start up the daemon from source
+* build and maintain a Docker image on [Docker Hub](https://hub.docker.com), and have Inertia pull the image
 
 The first option was not ideal - not very platform-agnostic, and would require having a special place to host binaries that was not too easily user-accessible, since we don't want the end user to accidentally use it (which ruled out using GitHub releases as a host). The second and third options were closer to what we wanted, and allowed us to lean on Go and Docker's (likely) robust installation scripts to remove platform-specific difficulties from the equation.
 
@@ -73,8 +73,8 @@ This particular solution [carries a number of unpleasant risks](https://jpetazzo
 
 Fortunately, team member [Chad](https://github.com/chadlagore) came across an interesting [alternative](https://jpetazzo.github.io/2015/09/03/do-not-use-docker-in-docker-for-ci/) (also mentioned by the other post) that involved just a few extra steps when running our Inertia image to accomplish this:
 
-- mount the host machine Docker socket onto the container - this granted access to the container, and through this socket, the container will be able to execute Docker commands on the host machine rather than just within itself.
-- mount relevant host directories into the container - this includes things like SSH keys.
+* mount the host machine Docker socket onto the container - this granted access to the container, and through this socket, the container will be able to execute Docker commands on the host machine rather than just within itself.
+* mount relevant host directories into the container - this includes things like SSH keys.
 
 This practice, for the most part, seems [discouraged](https://www.lvh.io/posts/dont-expose-the-docker-socket-not-even-to-a-container.html), since it granted the Docker container considerable access to the host machine through the Docker socket, in contradiction to Docker's design principles. And I can definitely understand why - the video in the link above demonstrates just how much power you have over the host machine if you can access the Docker-in-Docker container (effectively that of a root user, allowing you access to everything, even adding SSH users!). However, for our purposes, if someone does manage to SSH into a VPS to access the daemon container... then the VPS has already been compromised, and I guess that's not really our problem.
 
@@ -98,7 +98,7 @@ Nifty note: comments in multiline bash commands didn't work the way I expected -
 
 Anyway, by starting the daemon with these parameters, we can `docker exec -it inertia-daemon sh` into the container, install Docker and start up new containers on the host *alongside* our daemon rather than inside it. Awesome! This is already pretty close to what we wanted.
 
-# docker-compose in Docker
+## docker-compose in Docker
 
 With the daemon running with access to the Docker socket, we didn't want to keep relying on bash commands. While it was inevitable that we would have to run SSH commands on the server from the client to set up the daemon, we wanted to avoid doing that to start project containers.
 
@@ -173,7 +173,7 @@ No docker-compose install necessary. While this initial approach seemed to work 
 
 The work I have mentioned in this post so far (which laid the foundation for Inertia's daemon functionality) can be seen in [this massive pull request](https://github.com/ubclaunchpad/inertia/pull/30).
 
-# SSH Services in Docker
+## SSH Services in Docker
 
 Asking Docker to start a container to start a container to start more containers is nice and everything but... I wanted to go deeper.
 
@@ -277,7 +277,7 @@ make testenv-ubuntu
 # note the location of the key that is printed
 cd /path/to/my/dockercompose/project
 inertia init
-inertia remote add local 
+inertia remote add local
 # PEM file: inertia test key, User: 'root', Address: 0.0.0.0 (standard SSH port)
 inertia local init
 inertia remote status local
@@ -324,7 +324,7 @@ env:
 before_script:
   # ... some stuff ...
   # This will spin up a VPS for us. Travis does not allow use
-  # of Port 22, so map VPS container's SSH port to 69 instead. 
+  # of Port 22, so map VPS container's SSH port to 69 instead.
   - make testenv-"$VPS_OS" VERSION="$VERSION" SSH_PORT=69
 
 script:

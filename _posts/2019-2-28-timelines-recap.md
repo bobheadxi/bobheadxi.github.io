@@ -28,7 +28,7 @@ badges: []
 </p>
 
 <p align="center">
-    <a href="https://github.com/bobheadxi/timelines">    
+    <a href="https://github.com/bobheadxi/timelines">
         <img src="https://img.shields.io/badge/github-timelines-orange.svg?style=for-the-badge" alt="GitHub Repository"/>
     </a>
 </p>

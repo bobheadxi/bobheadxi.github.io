@@ -27,10 +27,10 @@ description: look yea to Ozymandias... and be at peace
 
 >*We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:*
 >
-> - *did you do it well?*
-> - *did you learn something from the experience?*
-> - *did you give something back to the community, leave some breadcrumb, which will help the next guy, help advance civilization however little up to the next ladder rung?*
-> - *was it beautiful? To you, to anyone?*
+> * *did you do it well?*
+> * *did you learn something from the experience?*
+> * *did you give something back to the community, leave some breadcrumb, which will help the next guy, help advance civilization however little up to the next ladder rung?*
+> * *was it beautiful? To you, to anyone?*
 >
 > *If any of all of those are true, look yea to Ozymandias... and be at peace.*
 

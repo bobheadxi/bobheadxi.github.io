@@ -56,7 +56,7 @@ The next slide offered the answer that Patrick Field (correctly) wrote down at t
     <img src="/assets/images/posts/translate-2.png" width="80%">
 </p>
 
-A simple message, it turns out: "I'm going back to Japan on the 9th". Well. 
+A simple message, it turns out: "I'm going back to Japan on the 9th". Well.
 
 "For all of us", Dr. Kornicki admits, "it really is a bit humiliating."
 
@@ -66,10 +66,10 @@ Hiroshi's dispatches revealed a man who, partly due to his talent in German, dev
 
 Even though Hiroshi was fiercely (though wrongly) optimistic about Germany's eventual victory in his dispatches right up until the very end - a sentiment he would come to deeply regret as he came to believe he had mislead his country - his dispatches provided invaluable intelligence to the Allies, such as:
 
-- [Operation Barbarossa](https://en.wikipedia.org/wiki/Operation_Barbarossa) - this was passed to the USSR, albeit in the guise of a mole's intelligence, but Stalin did not believe it at the time
-- Hitler's expectations of how [the invasion of Normandy](https://en.wikipedia.org/wiki/Operation_Overlord) would play out - this confirmed to the Allies that the deception around where Overlord would take place had been successful
-- though the specific location of the German counteroffensive was not revealed, the [Ardennes Counteroffensive](https://en.wikipedia.org/wiki/Battle_of_the_Bulge) was hinted at in Hiroshi's correspondence
-- detailed reports about the state of Germany
+* [Operation Barbarossa](https://en.wikipedia.org/wiki/Operation_Barbarossa) - this was passed to the USSR, albeit in the guise of a mole's intelligence, but Stalin did not believe it at the time
+* Hitler's expectations of how [the invasion of Normandy](https://en.wikipedia.org/wiki/Operation_Overlord) would play out - this confirmed to the Allies that the deception around where Overlord would take place had been successful
+* though the specific location of the German counteroffensive was not revealed, the [Ardennes Counteroffensive](https://en.wikipedia.org/wiki/Battle_of_the_Bulge) was hinted at in Hiroshi's correspondence
+* detailed reports about the state of Germany
 
 General George Marshall went so far as to eventually identify Hiroshi as "our main basis of information regarding Hitler's intentions in Europe", though Hiroshi never lived to learn the true extent of his role in World War Two - he passed away in 1975, before knowledge of the intercepted dispatches became public.
 

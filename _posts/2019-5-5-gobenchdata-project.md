@@ -26,13 +26,13 @@ badges:
 ---
 
 <p align="center">
-  <a href="https://gobenchdata.bobheadxi.dev"> 
+  <a href="https://gobenchdata.bobheadxi.dev">
     <img src="https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true" alt="demo">
   </a>
 </p>
 
 <p align="center">
-  <a href="https://github.com/bobheadxi/gobenchdata">    
+  <a href="https://github.com/bobheadxi/gobenchdata">
     <img src="https://img.shields.io/badge/github-gobenchdata-red.svg?style=for-the-badge" alt="GitHub Repository"/>
   </a>
 </p>

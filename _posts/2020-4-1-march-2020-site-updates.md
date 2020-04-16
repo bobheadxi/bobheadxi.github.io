@@ -38,7 +38,7 @@ about in this post). I keep thinking that I'll one day rework it from scratch in
 and leaner, but it's holding together for the time being. You can check out the
 [source code here](https://github.com/bobheadxi/bobheadxi.github.io).
 
-- TOC
+* TOC
 {:toc}
 
 ## Hypothes.is Integration for Annotations
@@ -51,6 +51,7 @@ platform, and since they have a very ergonomic integration I figured, why not ta
 posts as well?
 
 {% raw %}
+
 ```html
 <!-- only add hypothesis for blog posts -->
 {% if page.experience!=true %}
@@ -66,6 +67,7 @@ posts as well?
     <script src="https://hypothes.is/embed.js" async></script>
 {% endif %}
 ```
+
 {% endraw %}
 
 This barely counts as any real work but I spent an awful lot of time fiddling with Hypothes.is and
@@ -110,6 +112,7 @@ description: Create a simple GitHub activity chart for your personal website!
 ```
 
 {% raw %}
+
 ```html
 <!-- alert guest to alternative places to view this post on desktop -->
 {% if page.alt_location %}
@@ -131,6 +134,7 @@ description: Create a simple GitHub activity chart for your personal website!
     </script>
 {% endif %}
 ```
+
 {% endraw %}
 
 ### Popup Interaction Analytics
@@ -186,6 +190,7 @@ description: Building a Figma Plugin for generating reports in Figma from variou
 ```
 
 {% raw %}
+
 ```html
 <!-- diagraming stuff -->
 {% if page.diagrams %}
@@ -202,6 +207,7 @@ description: Building a Figma Plugin for generating reports in Figma from variou
     </script>
 {% endif %}
 ```
+
 {% endraw %}
 
 ## Content Updates

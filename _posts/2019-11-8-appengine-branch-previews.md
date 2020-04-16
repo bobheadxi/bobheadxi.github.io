@@ -47,14 +47,8 @@ Here's a sneak peak of the end result:
   <img src="/assets/images/posts/appengine/environments-deployed.png">
 </p>
 
-- [The Problem](#the-problem)
-- [Solution](#solution)
-  - [Staging and Release](#staging-and-release)
-  - [Versioning Frontends and Backends](#versioning-frontends-and-backends)
-  - [Automation](#automation)
-    - [GitHub Actions + App Engine](#github-actions--app-engine)
-    - [GitHub Deployments](#github-deployments)
-- [Wrapup](#wrapup)
+* TOC
+{:toc}
 
 <br />
 
@@ -231,14 +225,17 @@ There's a couple of things going on here:
 Then, in other steps you can access the branch name like so:
 
 {% raw %}
+
 ```yml
 stage-${{ steps.get_branch.outputs.branch }}
 ```
+
 {% endraw %}
 
 All that's really left to do is run the deployment.
 
 {% raw %}
+
 ```yml
 - uses: actions-hub/gcloud@268.0.0
   env:
@@ -246,6 +243,7 @@ All that's really left to do is run the deployment.
   with:
     args: app deploy client/app.yaml server/app.yaml --no-promote --quiet --version stage-${{ steps.get_branch.outputs.branch }}
 ```
+
 {% endraw %}
 
 The *release* workflow is very similar, except it runs on releases and generates
@@ -273,6 +271,7 @@ it should be on branch deletion, but there doesn't seem to be a simple trigger
 for that at the moment):
 
 {% raw %}
+
 ```yml
 # .github/workflows/appengine-prune.yml
 name: appengine-prune
@@ -290,6 +289,7 @@ jobs:
       with:
         args: app versions delete stage-${{ steps.get_branch.outputs.branch }} --quiet
 ```
+
 {% endraw %}
 
 #### GitHub Deployments
@@ -320,6 +320,7 @@ for doing exactly what I wanted. Then all I had to do was add a step before and
 after each of my workflows:
 
 {% raw %}
+
 ```yml
 jobs:
   deploy:
@@ -344,12 +345,14 @@ jobs:
         env_url: https://release-${{ steps.get_tag.outputs.tag }}-dot-project.appspot.com
         deployment_id: ${{ steps.deployment.outputs.deployment_id }}
 ```
+
 {% endraw %}
 
 For pruning, I needed to be able to go and deactivate all deployments associated
 with the preview environment. Since I owned the action I just added the feature.
 
 {% raw %}
+
 ```yml
 - uses: bobheadxi/deployments@master
   with:
@@ -358,6 +361,7 @@ with the preview environment. Since I owned the action I just added the feature.
     env: stage-${{ steps.get_branch.outputs.branch }}
     desc: Deployment was pruned
 ```
+
 {% endraw %}
 
 And that was it! As a bonus, notifications for these deployments show up in

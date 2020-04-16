@@ -93,7 +93,7 @@ be created and tracked to get this same feature without selection.
 
 ## Implementation
 
-For this post I'll just give a high-level overview of the implementation details. 
+For this post I'll just give a high-level overview of the implementation details.
 he core of the feature is in a Go string type I called `EvaluableExpression`
 that exposed the ability to evaluate the string on a collapsed application:
 
@@ -136,7 +136,7 @@ The first approach used three passes:
   values as [parameters to the expression](https://github.com/Knetic/govaluate#how-do-i-use-it)
 
 As sexy as this method was didn't actually end up using this approach - I ran
-into serious issues when it came to selecting things out of arrays of objects. 
+into serious issues when it came to selecting things out of arrays of objects.
 Because applications are collapsed in various ways, there is no guarantee of
 the stability of array properties, so allowing selection by index using standard
 Go syntax (ie `myfield[10].value`) was a no-go. Wrapping that in some custom
@@ -190,7 +190,7 @@ approach:
   as a single selector and evaluate it:
 
 ```go
-expression, _ := govaluate.NewEvaluableExpressionWithFunctions(evaluable, 
+expression, _ := govaluate.NewEvaluableExpressionWithFunctions(evaluable,
   map[string]govaluate.ExpressionFunction{
     "SELECT": func(args ...interface{}) (interface{}, error) {
       /* interpret args as single selector string (the 'key') */

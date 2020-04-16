@@ -31,21 +31,21 @@ It's been raining a lot. When it stops raining and the sun comes out, it can be 
 
 Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent (I think) questions I found myself asking recently:
 
-- why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
-- why is tumblr's gif file size limit so damn small? 
-- where did I leave my bag of rice?
-- why is there a wooden giraffe here?
-- why does water come out of both of these shower faucets simultaneously?
-- what do you do with long hairs that you lose in the shower?
+* why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
+* why is tumblr's gif file size limit so damn small?
+* where did I leave my bag of rice?
+* why is there a wooden giraffe here?
+* why does water come out of both of these shower faucets simultaneously?
+* what do you do with long hairs that you lose in the shower?
 
 The last question there has, I've learned, an ingenious solution: stick it on the shower wall for the next person to admire. The wooden giraffe turned out to be a failed endeavour in setting up a wooden giraffe smuggling business - seems like demand for wooden giraffes was not quite as high as expected.
 
 The rest of the questions were a bit more mysterious and, like most questions, went largely unanswered.
 
-- TOC
+* TOC
 {:toc}
 
-# Epigenetics and DNA Methylation
+## Epigenetics and DNA Methylation
 
 First off, a disclaimer: all of the following is extremely simplified and is mostly based off what I've learned at work and read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
 
@@ -113,7 +113,7 @@ These spike-ins do get affected by the bisulfite conversion, and in the event a 
 
 To address these concerns, I was tasked with checking if our plasmid spike-ins are still sufficiently unique following bisulfite conversion, so that the team could decide if we can continue to use the spike-ins as identifiers in bisulfite converted libraries.
 
-# Assessing Oligonucleotide Uniqueness
+## Assessing Oligonucleotide Uniqueness
 
 To assess the spike-ins, the reverse complement of each sequence had to be generated, as well as the bisulfite modified versions and their reverse complements. The reverse complement is important to take into consideration due to the way the [Illumina's](https://www.illumina.com) (the company that builds our sequencers) paired-end sequencing works - strands are sequenced from adapters on both ends.
 
@@ -191,12 +191,12 @@ SeqIO.write(records_converted, 'bisulphite_converted_spikeins.fa', 'fasta')
 
 Perfect. With all the sequences prepared in neat FASTA files, I move on to the real problem. In order to check if these spike-ins are usable when bisulfite modified, I have to match them against:
 
-- the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
-- bisulfite modified human genome
-- the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
-- bisulfite-converted NT database
-- unconverted spike-ins
-- other bisulfite-modified spike-ins
+* the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
+* bisulfite modified human genome
+* the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
+* bisulfite-converted NT database
+* unconverted spike-ins
+* other bisulfite-modified spike-ins
 
 One weapon of choice within my team for such tasks is [blastall](https://www.ncbi.nlm.nih.gov/Class/BLAST/blastallopts.txt), an old (and outdated, I think - it has long been supersceded by the [blast+ programs](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), but this is what we have, so oh well) program specifically designed for finding regions of similarity within sequences. The name "BLAST" stands for "Basic Local Alignment Search Tool", which seems reasonably self-explanatory and rolls off the tongue quite nicely.
 
@@ -408,4 +408,4 @@ Amazing stuff.
 
 <p style="font-size:90%">
     <a name="r9">[9]</a> O’Geen, Henriette, Lorigail Echipare, and Peggy J. Farnham. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4151291/">“Using ChIP-Seq Technology to Generate High-Resolution Profiles of Histone Modifications.</a>” Methods in molecular biology (Clifton, N.J.) 791 (2011): 265–286. PMC. Web. 8 Feb. 2018.
-</p> 
+</p>

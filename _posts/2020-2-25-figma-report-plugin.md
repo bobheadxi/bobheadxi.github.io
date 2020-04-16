@@ -31,14 +31,8 @@ choosing it for automating the property pitch report process a pretty obvious on
 In this post I'll write about approaching the Figma plugin API and leveraging it to automate aggregating
 data from various sources to generate a baseline report that can easily be customised further! :electric_plug:
 
-- [Requirements](#requirements)
-- [Implementation](#implementation)
-  - [Figma Plugins Rundown](#figma-plugins-rundown)
-    - [Structuring Our Plugin](#structuring-our-plugin)
-  - [Collecting Input and using React as our iframe](#collecting-input-and-using-react-as-our-iframe)
-  - [Manipulating Figma Nodes and Working With the FigmaSandbox](#manipulating-figma-nodes-and-working-with-the-figmasandbox)
-    - [Example: Declaring, Downloading, and Using an Image Asset](#example-declaring-downloading-and-using-an-image-asset)
-- [Final Thoughts](#final-thoughts)
+* TOC
+{:toc}
 
 ## Requirements
 
@@ -221,7 +215,7 @@ figma.ui.onmessage = async (msg) => {
 };
 ```
 
-Since we have no UI component in the `FigmaSandbox`, this code can just be plain Typescript. 
+Since we have no UI component in the `FigmaSandbox`, this code can just be plain Typescript.
 
 Unlike the `iframe`, the actual Figma API is accessible to the plugin here via the `figma` object.
 For example, to set up an A4-sized frame for each page and set your view onto them:

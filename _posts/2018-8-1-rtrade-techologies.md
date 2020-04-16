@@ -39,7 +39,7 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
   for improved results, more structured data management, improved performance,
   a new gRPC-based API, and new features like OCR capabilities
 * building and integrating a new [object encryption/decryption tool](https://github.com/RTradeLtd/crypto)
-  for assets stored by customers on the service 
+  for assets stored by customers on the service
 * [establishing a framework](https://github.com/RTradeLtd/testenv) for quickly
   deploying production-like test environments for **effective integration testing**
 * refactoring the core codebase into [extensible and reusable packages](https://github.com/search?q=topic%3Atemporal+org%3ARTradeLtd+fork%3Atrue)

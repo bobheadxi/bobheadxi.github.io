@@ -19,10 +19,10 @@ alt_location:
   url: https://medium.com/ubc-launch-pad-software-engineering-blog/crawling-the-web-for-a-search-engine-a7988ee2e6e9
 ---
 
-- TOC
+* TOC
 {:toc}
 
-# Prelude
+## Prelude
 
 My first project at UBC Launch Pad was [Sleuth](/sleuth). The goal of Sleuth changed quite a bit over the course of the semester but at its core we wanted it to be a search engine, geared towards UBC-related content.
 
@@ -36,23 +36,23 @@ I think it was pretty neat. Built mostly by team member [Bruno](https://github.c
 
 We set up Sleuth as a three-component project:
 
-- Web: Sleuth's API endpoints, database connections, and crawler
-- Solr: our Apache Solr instance
-- Frontend: Sleuth's snazzy face
+* Web: Sleuth's API endpoints, database connections, and crawler
+* Solr: our Apache Solr instance
+* Frontend: Sleuth's snazzy face
 
 This post will mostly be about the Web component's crawling systems and how an amateur (me) approached data farming for a search engine service, with a bit about Solr. [Apache Solr](https://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
 
 Stay tuned for another post about Solr, Sleuth's search API, the systems we built to facilitate it!
 
-# Crawling and Scraping the Web
+## Crawling and Scraping the Web
 
 Content curation is handled by the `sleuth_crawler` ([source](https://github.com/ubclaunchpad/sleuth/tree/master/sleuth_crawler)). The crawler is based on [scrapy](https://scrapy.org), a popular and flexible web scraping library for Python.
 
 In theory, the scraper needed to:
 
-- visit a page and visit each of its links
-- retrieve relevant information
-- store in our database
+* visit a page and visit each of its links
+* retrieve relevant information
+* store in our database
 
 Turns out all this is far easier said than done. Since this wasn't just my first web scraping experience, but also my first Python experience, and everything was strange and confusing. I went through a huge number of strange and convoluted renditions of the scraper before I finally settled on a design.
 
@@ -66,7 +66,7 @@ We didn't have the search presence of Google leverage when asking people to conf
     <img src="/assets/images/projects/sleuth-pipeline.png" />
 </p>
 
-## Parsers
+### Parsers
 
 I placed different parsers for different page types in a folder together in `/scraper/spiders/parsers` ([source](https://github.com/ubclaunchpad/sleuth/tree/master/sleuth_crawler/scraper/scraper/spiders/parsers)). I relied heavily on [xpath](https://en.wikipedia.org/wiki/XPath) to query for elements I wanted.
 
@@ -195,7 +195,7 @@ post_content = utils.extract_element(
 )
 ```
 
-The inspector didn't help too much. I ended up manually counting how many nested divs there were for each element I wanted, and saved an entire page to run tests on. Perhaps the Reddit API might have been easier, but I wanted to form "links" between Reddit pages and normal websites when displaying results on the Sleuth frontend - I felt that parsing Reddit as standard web pages would be the most organic way to achieve this. 
+The inspector didn't help too much. I ended up manually counting how many nested divs there were for each element I wanted, and saved an entire page to run tests on. Perhaps the Reddit API might have been easier, but I wanted to form "links" between Reddit pages and normal websites when displaying results on the Sleuth frontend - I felt that parsing Reddit as standard web pages would be the most organic way to achieve this.
 
 To test my parsers and avoid trial and erroring my way through, I saved sample pages as text documents (instead of HTML, since that was throwing off our GitHub language statistics) and built a small helper function to deliver a mock response to a parser:
 
@@ -259,7 +259,7 @@ class TestGenericPageParser(TestCase):
 
 This was a huge help for me, and probably saved me a crazy amount of time, since I could rapidly iterate on my parser design by running them against various sample texts. The tests can be found [here](https://github.com/ubclaunchpad/sleuth/tree/master/sleuth_crawler/tests).
 
-## Crawlers
+### Crawlers
 
 I made this distinction between a `broad_crawler` and a `custom_crawler` because UBC course data had to be crawled in a very specific manner from the UBC course site, and we wanted to be able to retrieve very specific information (such as rows of tables on the page for course section data). The idea was that `custom_crawler` would be an easily extendable module that could be used to target specific sites. Because of this, the `course_crawler` itself was pretty simple:
 
@@ -365,7 +365,7 @@ COOKIES_ENABLED = False
 
 As far as crawling manners go (yes, there seems to be crawling manners! Scrapy includes a "crawl responsibly" message on its default settings), this is pretty rude. But oh well! Sorry site admins.
 
-## Pipeline
+### Pipeline
 
 Scrapy makes it easy to scaffold a pipeline for handling all the data that comes through its scrapers. However, since data assembly was already being managed by the parsers, all Sleuth's pipeline had to do was send data coming through off to the database.
 
@@ -496,7 +496,7 @@ The Solr models simply define the fields of each data type - essentially the sch
 ```py
 class SolrDocument(object):
     '''
-    An base class for documents that are inserted into Solr, an retured as 
+    An base class for documents that are inserted into Solr, an retured as
     search results from the Sleuth API.
     '''
 

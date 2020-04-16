@@ -56,9 +56,9 @@ And, as with all things, an eye-catching logo goes a long way.
 </p>
 
 I learned quite a few things when I first saw [IGListKit's README](https://github.com/Instagram/IGListKit/blob/master/README.md):
-- you can use HTML to some degree in README's, which are typically pure Markdown and doesn't support overly fancy shenanigans
-- with HTML you can center things
-- badges can convey a lot more than continuous integration status - IGListKit lists their supported platforms in their badges
+* you can use HTML to some degree in README's, which are typically pure Markdown and doesn't support overly fancy shenanigans
+* with HTML you can center things
+* badges can convey a lot more than continuous integration status - IGListKit lists their supported platforms in their badges
 
 ## The Inertia README and Logo
 

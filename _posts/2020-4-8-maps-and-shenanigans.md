@@ -35,7 +35,7 @@ on this post by highlighting some text!
 
 <br />
 
-- TOC
+* TOC
 {:toc}
 
 <br />
@@ -143,57 +143,57 @@ to do this anyway for the project). I did the majority of this work in Jupyter N
    for details. I also converted these into GeoJSON and later simplified the geometries as well
    (from ~3GB total to ~2MB total - see [this script](https://github.com/bobheadxi/society-and-air-quality/blob/master/tools/acs_geojson_filter.py))
    so I could use them in the visualisation app without blowing up your browser.
-```py
-for y in years:
-    save_to = out_template % y
-    if y == '2007': # 2007 has a special naming scheme...
-        target = 'fe_%s_us_cbsa' % y
-        url = 'https://www2.census.gov/geo/tiger/TIGER%sFE/%s.zip' % (y, target)
-        download_url(url, save_to)
-    else:
-        target = 'tl_%s_us_cbsa' % y
-        if y == '2008' or y == '2009': # some random years have special naming schemes too...
-            url = 'https://www2.census.gov/geo/tiger/TIGER%s/%s.zip' % (y, target)
-        elif y == '2010': # this single year has a slightly different path...
-            url = 'https://www2.census.gov/geo/tiger/TIGER2010/CBSA/2010/tl_2010_us_cbsa10.zip'
-        else:
-            url = 'https://www2.census.gov/geo/tiger/TIGER%s/CBSA/%s.zip' % (y, target)
-        try:
+    ```py
+    for y in years:
+        save_to = out_template % y
+        if y == '2007': # 2007 has a special naming scheme...
+            target = 'fe_%s_us_cbsa' % y
+            url = 'https://www2.census.gov/geo/tiger/TIGER%sFE/%s.zip' % (y, target)
             download_url(url, save_to)
-        except:
-            print('failed to fetch "%s"' % url)
-```
+        else:
+            target = 'tl_%s_us_cbsa' % y
+            if y == '2008' or y == '2009': # some random years have special naming schemes too...
+                url = 'https://www2.census.gov/geo/tiger/TIGER%s/%s.zip' % (y, target)
+            elif y == '2010': # this single year has a slightly different path...
+                url = 'https://www2.census.gov/geo/tiger/TIGER2010/CBSA/2010/tl_2010_us_cbsa10.zip'
+            else:
+                url = 'https://www2.census.gov/geo/tiger/TIGER%s/CBSA/%s.zip' % (y, target)
+            try:
+                download_url(url, save_to)
+            except:
+                print('failed to fetch "%s"' % url)
+    ```
 2. The EPA data is provided as measurements collected by stations, where the coordinates of each
    station is provided. Converting the geometries (shapefiles in this case) into GeoJSON allowed
    me to just dump it all into BigQuery and use some [geospatial functions](https://cloud.google.com/bigquery/docs/gis-intro)
    to do the magic of finding out which stations should belong to which ACS CBSA regions. See
    [this notebook](https://github.com/bobheadxi/society-and-air-quality/blob/master/exploration/2_aligning_acs_and_epa.ipynb)
    for details. BigQuery is honestly quite nice.
-```py
-def get_relations_for_year(year) -> pd.DataFrame:
-    resp = bq.query('''
-        SELECT DISTINCT
-            acs.year,
-            acs.geoid AS acs_geoid,
-            acs.name AS acs_cbsa_name,
-            CONCAT(epa.state_code, ".", epa.county_code, ".", epa.site_num) AS epa_site,
-            epa.longitude,
-            epa.latitude
-        FROM
-            `eosc410-project.data.epa_air_quality_annual` as epa,
-            `eosc410-project.data.acs_cbsa_boundaries_%s` as acs
-        WHERE
-            epa.year = %s
-            AND acs.year = %s
-            AND ST_WITHIN(ST_GEOGPOINT(epa.longitude, epa.latitude), ST_GEOGFROMGEOJSON(acs.geometry))
-            AND (epa.datum='NAD83' OR epa.datum='WGS84') # guard against irrelevant coordinates
-    ''' % (year, year, year))
-    return resp.to_dataframe()
-```
+    ```py
+    def get_relations_for_year(year) -> pd.DataFrame:
+        resp = bq.query('''
+            SELECT DISTINCT
+                acs.year,
+                acs.geoid AS acs_geoid,
+                acs.name AS acs_cbsa_name,
+                CONCAT(epa.state_code, ".", epa.county_code, ".", epa.site_num) AS epa_site,
+                epa.longitude,
+                epa.latitude
+            FROM
+                `eosc410-project.data.epa_air_quality_annual` as epa,
+                `eosc410-project.data.acs_cbsa_boundaries_%s` as acs
+            WHERE
+                epa.year = %s
+                AND acs.year = %s
+                AND ST_WITHIN(ST_GEOGPOINT(epa.longitude, epa.latitude), ST_GEOGFROMGEOJSON(acs.geometry))
+                AND (epa.datum='NAD83' OR epa.datum='WGS84') # guard against irrelevant coordinates
+        ''' % (year, year, year))
+        return resp.to_dataframe()
+    ```
 3. Then I aggregated everything into what I dubbed "flat" formats, where columns names have the region
    and parameter information encoded into them, and exported them as CSV files for use in the visualisation.
    I also exported the station coordinates as GeoJSON as well for use in with `deck.gl`.
-   
+
 This isn't very exciting so let's move on.
 
 ### React and DeckGL
@@ -235,6 +235,7 @@ A wrapper `SingleLoader` abstracts away the work of downloading data and providi
 [see the code for more details](https://sourcegraph.com/github.com/bobheadxi/society-and-air-quality/-/blob/vis/src/contexts/SingleLoader.js).
 
 {% raw %}
+
 ```jsx
 return (
   <Layout style={{ height:"100vh"}}>
@@ -252,6 +253,7 @@ return (
   </Layout.Content>
 )
 ```
+
 {% endraw %}
 
 Each slide can subscribe to the ACS or EPA data (or both!) as needed by initialising as a consumer
@@ -270,6 +272,7 @@ return (
 I then set up `deck.gl` alongside the carousel:
 
 {% raw %}
+
 ```jsx
 return (
   <Layout style={{ height:"100vh"}}>
@@ -290,6 +293,7 @@ return (
   </Layout.Content>
 )
 ```
+
 {% endraw %}
 
 Each slide is provided with a callback that can be used to update the map state by providing a new
@@ -397,7 +401,6 @@ const carouselNodes = slides.map((Slide, id) => (
 ))
 ```
 
-
 As noted in my hasty TODO, a huge problem arises in my state in between map updates and keeping track
 of what slide is currently active, the following happens on each render:
 
@@ -441,7 +444,6 @@ working so I suspect I'm still doing something wrong, but it's something.
 
 ---
 
-
 ### GitHub Pages
 
 <p align="center">
@@ -479,7 +481,6 @@ when using GitHub pages + the `/docs` folder:
 ```
 
 * add `PUBLIC_URL=/` to override the `homepage` setting when you are running the app locally
-
 
 ```diff
 +++ package.json

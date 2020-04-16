@@ -43,8 +43,8 @@ managed by Docker for simple and fast deployment. Completely built by a team of
 4 within the 24 hours of [nwHacks 2018](https://nwhacks2018.devpost.com),
 the Borrow Me! platform features:
 
-- **user logins and accounts** to manage items you have on loan and items you have put up for loan, check when items are due, as well as keep track of your Karma, the currency of Borrow Me!
-- **item submission** to add your items, allowing you to set its value, a picture, due date and more
-- **item feed** to easily browse available items in your area and relevant details about them
+* **user logins and accounts** to manage items you have on loan and items you have put up for loan, check when items are due, as well as keep track of your Karma, the currency of Borrow Me!
+* **item submission** to add your items, allowing you to set its value, a picture, due date and more
+* **item feed** to easily browse available items in your area and relevant details about them
 
 Visit the Borrow Me! repository for more details!
