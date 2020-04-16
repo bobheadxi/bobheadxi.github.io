@@ -1,4 +1,4 @@
-# bobheadxi.dev [![website status](https://img.shields.io/website/https/bobheadxi.dev.svg?down_color=lightgrey&down_message=offline&label=website&up_message=online)](https://bobheadxi.dev) <img align="left" width=128 src="/assets/images/profile.jpg"/>
+# bobheadxi.dev ![Checks status](https://github.com/bobheadxi/bobheadxi.github.io/workflows/Checks/badge.svg) [![website status](https://img.shields.io/website/https/bobheadxi.dev.svg?down_color=lightgrey&down_message=offline&label=website&up_message=online)](https://bobheadxi.dev) <img align="left" width=128 src="/assets/images/profile.jpg"/>
 
 This is the [Jekyll](https://jekyllrb.com/) source for my website and blog, [**`bobheadxi.dev`**](https://bobheadxi.dev).
 It is a *heavily* modified version of the [indigo theme](https://github.com/sergiokopplin/indigo),
