@@ -65,12 +65,12 @@ The fact that these parameter objects are passed into the various queries to do 
 
 # Solution
 
-I could simply use `req.body` which, in theory, should contain everything the server needed, assuming the user has followed the documentation appropriately... until I realized there was no documentation whatsoever. Not to mention that doing this would be making an awful lot of assumptions, and as the saying goes, don't ass*u*me or you will make an *ass* of *u* and *me*! Hehe.
+I could simply use `req.body` which, in theory, should contain everything the server needed, assuming the user has followed the documentation appropriately... until I realised there was no documentation whatsoever. Not to mention that doing this would be making an awful lot of assumptions, and as the saying goes, don't ass*u*me or you will make an *ass* of *u* and *me*! Hehe.
 
 So why not kill two birds with one stone? If each of these sets of parameters was a predefined class, then those classes could effectively act as documentation for our endpoints' input and return types. What I needed was a class that could, given a "definition", cleanly and in one line take an object (such as `req.body` or the return object from a database query) and populate the class's fields. For example:
 
 ```js
-// My definiton, let's say for the class Lunch:
+// My definition, let's say for the class Lunch:
 // {
 //    deepfried: something
 //    steamed: someotherthing
@@ -88,7 +88,7 @@ Here is the scaffolded class I came up with:
 class DataType {
    /**
     * Cast all fields in given object that exists in data onto
-    * the given definiton. The given definition must have all fields
+    * the given definition. The given definition must have all fields
     * instantiated to `null`.
     * @param {Object} input Object containing desired data.
     * @param {String} type String representing name of datatype.
@@ -141,7 +141,7 @@ Now I needed an implementation of the helper function `iterateObjectAndPopulate(
 
 ```js
 {
-    appetizer: 'edamame',
+    appetiser: 'edamame',
     main: {
         deepfried: 'fish',
         steamed: 'dumplings',
@@ -153,13 +153,13 @@ I want to be able to give my class a "flat" object:
 
 ```js
 {
-    appetizer: 'salad',
+    appetiser: 'salad',
     deepfried: 'chocolate',
     steamed: 'wontons'
 }
 ```
 
-And have it correctly populate the fields of my definiton. Seemed a bit difficult at first, but it ultimately boils down to a few steps:
+And have it correctly populate the fields of my definition. Seemed a bit difficult at first, but it ultimately boils down to a few steps:
 - for each key in definition, is:
     - value an object? => recurse on value
     - value `null`? => `this.key = that.key`
@@ -264,7 +264,7 @@ const format = (data) => {
 super( /*...params...*/, format);
 ```
 
-And the given function would then be called by the parent class whenever needed! The reason I do this instead of having the child class handle it themselves in the constructor is because I began to realize our datatypes needed to use different keys when used as return types. For example, `fk_ingredients__name` is not something you want to send to your user - a better key would be `ingredient_name`. The same goes for asking inputs from users - you don't necessarily want your user to send you data with the key `fk_ingredients__name`. Plus, there is probably some security concerns about exposing the inner workings of your database setup, but I'm not very sure if that's actually a concern. Either way, I needed a way to rename keys.
+And the given function would then be called by the parent class whenever needed! The reason I do this instead of having the child class handle it themselves in the constructor is because I began to realise our datatypes needed to use different keys when used as return types. For example, `fk_ingredients__name` is not something you want to send to your user - a better key would be `ingredient_name`. The same goes for asking inputs from users - you don't necessarily want your user to send you data with the key `fk_ingredients__name`. Plus, there is probably some security concerns about exposing the inner workings of your database setup, but I'm not very sure if that's actually a concern. Either way, I needed a way to rename keys.
 
 So I gave Mr. `DataType` some new functions:
 

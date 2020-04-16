@@ -33,7 +33,7 @@ deployment process. App Engine does not seem to have a great way of doing this
 outside of using their source control, so I decided to do this myself.
 
 As I progressed on the automation of the App Engine deployment,
-I realized branch previews were not that much more of a hassle to set up, so I
+I realised branch previews were not that much more of a hassle to set up, so I
 got those up and running as well - [Heroku has a nice article about why staging environments are nice to have](https://dev.to/heroku/staging-environments-are-overlooked-here-s-why-they-matter-3ghd).
 This blog post will cover some of the work I did on this front, and hopefully
 give a good idea about how you can go about creating a similar setup for your
@@ -116,7 +116,7 @@ where I used a tool I worked on, [`ubclaunchpad/inertia`](https://github.com/ubc
 to quickly stage previews for the nwPlus design team to provide feedback on.
 
 Now that I'm back to working on websites, I figured branch previews would come
-in useful here again (and they have so far!). To accomodate this, I introduced
+in useful here again (and they have so far!). To accommodate this, I introduced
 some extra steps to our deployment flow:
 
 * *Staging* deployments are primarily for previewing branches. By default,
@@ -165,7 +165,7 @@ to either:
 * generate a `.env` file to be consumed at build time and upload it with your build
 * build in CI with the appropriate variables
 
-The latter is probably best practice anyway, since you want to optimize your
+The latter is probably best practice anyway, since you want to optimise your
 App Engine setup for fast instance start times, but in case you are running
 your builds in App Engine (our deployments were previously) this is a minor hurdle
 to be aware of.

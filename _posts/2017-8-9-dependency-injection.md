@@ -116,7 +116,7 @@ It seemed perfect! In one fell swoop I can now provide all the dependencies I ne
 ### Attempt 2: Providing dependencies via constructor, using Dagger
 In his review of my pull request, [d4rken](https://github.com/d4rken)  pointed out that AppParserSuite was rather useless - why not just inject the dependencies using [Dagger](https://google.github.io/dagger/), which was already set up in the app, and eliminate the need for an additional wrapper class?
 
-A very good question. Oops. To be honest, I had avoided it because I didn’t understand how it worked. A bit of research remedied that - turns out, Dagger is a very nifty library that (in its simplest form) uses [components](https://google.github.io/dagger/api/2.10/dagger/Component.html), [modules](https://google.github.io/dagger/api/2.10/dagger/Module.html) and various method annotations to provide dependencies without any `new BodyParser(new ParserSuite(new EncodingFixer))` nonsense. This allows service creation to be centralized in an organized manner.
+A very good question. Oops. To be honest, I had avoided it because I didn’t understand how it worked. A bit of research remedied that - turns out, Dagger is a very nifty library that (in its simplest form) uses [components](https://google.github.io/dagger/api/2.10/dagger/Component.html), [modules](https://google.github.io/dagger/api/2.10/dagger/Module.html) and various method annotations to provide dependencies without any `new BodyParser(new ParserSuite(new EncodingFixer))` nonsense. This allows service creation to be centralised in an organised manner.
 
 For this particular problem, I opted to add the `@Inject` [annotation](https://docs.oracle.com/javaee/7/api/javax/inject/package-summary.html) to the `BodyParser` constructor, like so:
 ```java

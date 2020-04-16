@@ -110,11 +110,11 @@ type NodeInfo struct {
 
 The node creation process goes roughly as follows:
 
-1. [Initialize node assets](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L47:18)
+1. [Initialise node assets](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L47:18)
   on the filesystem - most notably this includes:
    * writing the given "swarm key" (used for identifying a private network) to disk for the node
    * generating an [entrypoint script](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/internal/ipfs_start.sh) that caps resources as required
-2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarly imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
+2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarily imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
 
 ```go
 resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
@@ -386,7 +386,7 @@ func newProxy(feature string, target *url.URL, l *zap.SugaredLogger, direct bool
 		Director: func(req *http.Request) {
 			// if set up as an indirect proxy, we need to remove delgator-specific
 			// leading elements, e.g. /networks/test_network/api, from the path and
-			// accomodate for specific cases
+			// accommodate for specific cases
 			if !direct {
 				switch feature {
 				case "api":
@@ -551,11 +551,11 @@ integration environment is something I set up early on anyway so I can run my
 applications locally), and I only test a few high-level functions, so I don't have
 to constantly update my tests for changes in API or function names (which I find
 myself doing often when I write unit tests too early). They also serve to
-familiarize me with the services or tooling I will be depending on.
+familiarise me with the services or tooling I will be depending on.
 
 For the integration environment, the only real dependencies are Docker and a
 Postgres database. The former I just assume is already running, and the latter
-I set up using [RTrade's centralized test environment repository](https://github.com/RTradeLtd/testenv/tree/master)
+I set up using [RTrade's centralised test environment repository](https://github.com/RTradeLtd/testenv/tree/master)
 (which I made) - this repository is typically included as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 in RTrade projects.
 
@@ -573,7 +573,7 @@ lot going on) I ended up just testing most of my CRUD operations in one go
 (since that's basically already setup and teardown), edited for brevity:
 
 ```go
-// grab temp space for assets, set up a test logger, initialize client
+// grab temp space for assets, set up a test logger, initialise client
 c, err := newTestClient()
 if err != nil { /* ... */ }
 
@@ -659,7 +659,7 @@ for _, tt := range tests {
 }
 
 cancelWatch()
-// verify events occured
+// verify events occurred
 if shouldGetEvents != eventCount {
   t.Errorf("expected %d events, got %d", shouldGetEvents, eventCount)
 }

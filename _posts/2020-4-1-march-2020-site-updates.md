@@ -17,7 +17,7 @@ description: exam season procrastination!
 
 Every semester, quarantine or not, there comes a time where I tell myself - look, you've got to stop
 procrastinating! Assignments need to get done, material needs to be studied, grades need to be
-salvaged! So I sit down in a cozy spot, whip out my laptop, open up all my course notes and...
+salvaged! So I sit down in a cosy spot, whip out my laptop, open up all my course notes and...
 
 ...proceed to tackle dozens of hours of small pursuits, whether it be planning projects, fiddling with
 libraries, or playing with fancy new tools. Often this takes the form of improvements to this website,

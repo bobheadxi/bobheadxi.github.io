@@ -85,7 +85,7 @@ A stronger understanding of how DNA methylation causes cancer has many potential
 	<i>Still from <a href="https://www.youtube.com/watch?v=UUM7HiFkDd4">YouTube video</a> by the Garvan Institute of Medical Research</i>
 </p>
 
-There are several methods available to study and analyze DNA methylation. [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process), for example, focuses on examining histone modification.<sup>[[9]](#r9)</sup>
+There are several methods available to study and analyse DNA methylation. [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process), for example, focuses on examining histone modification.<sup>[[9]](#r9)</sup>
 
 Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/Bisulfite_sequencing), used primarily for studying cytosine methylation. Simply put, it converts *unmethylated* cytosines to uracils,<sup>[[1]](#r1)</sup> leaving behind the methylated cytosines. Then, during PCR amplification, the uracil in the bisulfite converted DNA is replaced with thymine.<sup>[[7]](#r7)</sup> This means that when sequenced, the modification appears as a cytosine to thymine conversion. Given a successful application of bisulfite modification, you can then assume that any remaining cytosines were originally methylated cytosines.<sup>[[1]](#r1)</sup>
 
@@ -99,7 +99,7 @@ Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/
 
 My team often receives such bisulfite converted sequences, albeit with an additional inertesting step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rate is used to assess the effectiveness of the bisulfite conversion, which we provide as feedback to the lab or our collaborators.
 
-The process of bisulfite conversion has an important consequence: to identify normal samples, we typically use the application of plasmid spike-ins. These are random, known sequences of around 180 base pairs that are grown in a lab, then added to samples during preparation for sequencing. The name "plasmid spike-in" comes from the way the oligonucleotide is incorporated into the pCR-TOPO4 plasmid vector and [cloned in E. coli](https://en.wikipedia.org/wiki/Molecular_cloning). During quality control, we check for the presence of these spike-ins in our pre-alignment pipelines. If the expected spike-in is only found in very small quantities, then that is usually a red flag that a sample swap might have occured.
+The process of bisulfite conversion has an important consequence: to identify normal samples, we typically use the application of plasmid spike-ins. These are random, known sequences of around 180 base pairs that are grown in a lab, then added to samples during preparation for sequencing. The name "plasmid spike-in" comes from the way the oligonucleotide is incorporated into the pCR-TOPO4 plasmid vector and [cloned in E. coli](https://en.wikipedia.org/wiki/Molecular_cloning). During quality control, we check for the presence of these spike-ins in our pre-alignment pipelines. If the expected spike-in is only found in very small quantities, then that is usually a red flag that a sample swap might have occurred.
 
 <p align="center">
     <img src="https://www.sciencelearn.org.nz/system/images/images/000/000/558/embed/cloning_dna_oversize20151125-1118-dwkzce.jpg?1448424636" />
@@ -320,7 +320,7 @@ def detect_hits(result, verbose=False):
 
 def process_report(report, fmt='blast-tab', verbose=False):
     '''
-    Helper function for analyzing blast reports. Returns hits that
+    Helper function for analysing blast reports. Returns hits that
     meet our criteria and prints the number of hits.
     fmt 'blast-tab' and 'blast-xml' recommended.
 
@@ -383,7 +383,7 @@ Amazing stuff.
 </p>
 
 <p style="font-size:90%;">
-    <a name="r3">[3]</a> Li, En, and Yi Zhang. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3996472/">DNA Methylation in Mammals.</a>” Cold Spring Harbor Perspectives in Biology 6.5 (2014): a019133. PMC. Web. 5 Feb. 2018.
+    <a name="r3">[3]</a> Li, En, and Yi Zhang. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3996472/">DNA Methylation in Mammals.</a>” Cold Spring Harbour Perspectives in Biology 6.5 (2014): a019133. PMC. Web. 5 Feb. 2018.
 </p>
 
 <p style="font-size:90%">

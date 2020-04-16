@@ -1,10 +1,10 @@
 ---
-title: ":books: Project Lifetime Visualization"
+title: ":books: Project Lifetime Visualisation"
 layout: post
 date: 2019-02-28 12:19
 tag:
 - golang
-- visualization
+- visualisation
 - react
 - typescript
 - redis
@@ -47,7 +47,7 @@ myself and teams at my club [UBC Launch Pad](https://www.ubclaunchpad.com/), it
 can be easy to lose sight of how far we've come in a project. So I decided to
 try and turn this concept into a service that tied all sorts of metadata about
 your project - Git history analysis, milestones, releases, issues, pull requests,
-and more together into a single visualization of the life of your project.
+and more together into a single visualisation of the life of your project.
 
 Over a period of about 4 months, I created:
 

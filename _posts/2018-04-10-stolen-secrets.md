@@ -30,7 +30,7 @@ Titled ["Stolen Secrets: Intercepting Dispatches between Wartime Berlin and Japa
 
 Moving on - for some background, the Japanese diplomatic encryption machine, ["Purple"](https://en.wikipedia.org/wiki/Type_B_Cipher_Machine), had been broken by American cryptoanalyists in 1940, and by the Russians in late 1941. That same year, the Japanese were alerted by a diplomat at the German Embassy that Purple had very likely been broken, but even then the Japanese continued using the cipher throughout the war.
 
-This meant that even before the complete deterioration of Japanese-American relations in December 1941, American and British cryptoanalysists had been decrypting and translating Japanese diplomatic transmitions, although the Pearl Harbor attack itself was never mentioned in transmissions before the morning of December 7th - a point emphasised by Dr. Kornicki when asked about it by an audience member.
+This meant that even before the complete deterioration of Japanese-American relations in December 1941, American and British cryptoanalysists had been decrypting and translating Japanese diplomatic transmitions, although the Pearl Harbour attack itself was never mentioned in transmissions before the morning of December 7th - a point emphasised by Dr. Kornicki when asked about it by an audience member.
 
 Comparatively speaking, once Purple had been cracked the primary difficulty was actually in translating the decrypted messages. There was an acute shortage of Japanese linguistic talent in Britain especially - unfortunately I couldn't write down the figure Dr. Kornicki mentioned, but I did manage to scribble this down:
 
@@ -40,7 +40,7 @@ Some had raised warnings prior to the outbreak of war that this shortage would c
 
 So began an ambitious British program, of which the character mentioned in the first paragraph of this post was a part of, to teach students - most of which had no prior Japanese experience - to translate decrypted Japanese messages. There was two parts of this - one to decrypt written messages, and "eavesdroppers" to interpret radio messages and conduct interrogations closer to the front line in places like Mombasa, Sri Lanka, and Delhi.
 
-To accomodate the former, a special 6-month course was devised at the SOAS University of London in less than a month. This course focused translating long strings of decrypted romaji, ommitting aspects like spoken Japanese. On the side of the course designers was the limited range of words used in the diplomatic transmissions, relatively (compared to the military transmissions) umambiguous volcabulary, talented and devoted students, and a healthy dose of patriotism.
+To accommodate the former, a special 6-month course was devised at the SOAS University of London in less than a month. This course focused translating long strings of decrypted romaji, omitting aspects like spoken Japanese. On the side of the course designers was the limited range of words used in the diplomatic transmissions, relatively (compared to the military transmissions) umambiguous volcabulary, talented and devoted students, and a healthy dose of patriotism.
 
 An example of one of their translation tasks, presented to student Patrick Field at the end of his 6 months of studying:
 

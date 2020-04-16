@@ -11,7 +11,7 @@ headerImage: true
 experience: true
 company: sourcegraph
 hidden: true # don't count this post in blog pagination
-organization: "Sourcegraph, Inc."
+organisation: "Sourcegraph, Inc."
 orgLink: https://about.sourcegraph.com/about
 description: "Starting May 2020 | Remote"
 category: experience

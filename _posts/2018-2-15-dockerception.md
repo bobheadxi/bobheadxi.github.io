@@ -37,7 +37,7 @@ Outside of work, my main focus has been UBC Launch Pad's [Inertia](https://githu
 
 The primary design goals of Inertia are to:
 
-- minimize setup time for new projects
+- minimise setup time for new projects
 - maximimise compatibility across different client and VPS platforms
 - offer a convenient interface for managing the deployed application
 

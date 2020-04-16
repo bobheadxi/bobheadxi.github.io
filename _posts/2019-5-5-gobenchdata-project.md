@@ -6,14 +6,14 @@ tag:
 - golang
 - javascript
 - benchmarking
-- visualization
+- visualisation
 - cli
 - automation
 image: https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true
 headerImage: false
 open_source: true
 hidden: true # don't count this post in blog pagination
-description: "<i>gobenchdata</i> - CLI for inspecting Go benchmarking outputs, GitHub Action for continuous benchmarking, and web app for performance visualization"
+description: "<i>gobenchdata</i> - CLI for inspecting Go benchmarking outputs, GitHub Action for continuous benchmarking, and web app for performance visualisation"
 category: open-source
 author: robert
 star: true
@@ -57,14 +57,14 @@ badges:
 
 `gobenchdata` is a tool for inspecting `go test -bench` data, a
 [GitHub Action](https://github.com/features/actions) for continuous benchmarking,
-and a web app for performance visualization.
+and a web app for performance visualisation.
 
 It features:
 
 * a CLI for converting Go benchmark data in JSON as well as saving, merging, and
   managing datasets of benchmark runs
 * a GitHub Action that allows simple setup of continuous benchmarking
-* a CLI for generating a web app that instantly provides a visualization of your
+* a CLI for generating a web app that instantly provides a visualisation of your
   benchmark performance over time
 
 Setup for the Action is very simple:

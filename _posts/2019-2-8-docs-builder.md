@@ -120,7 +120,7 @@ Nice! This script checks for if my custom files.watch directive is already in Sl
 
 I’m not quite done though — I also want my site to have a favicon. I figured this might be a configuration option in index.html.md , but [it’s not](https://github.com/lord/slate/wiki/Adding-a-favicon):
 
-![Hey, I just realized the author’s name is Robert as well!](https://cdn-images-1.medium.com/max/3264/1*FZ74gSKGsxTeZHzZUvVREg.png)
+![Hey, I just realised the author’s name is Robert as well!](https://cdn-images-1.medium.com/max/3264/1*FZ74gSKGsxTeZHzZUvVREg.png)
 
 Well that’s just great. Time to whip out some `sed`:
 

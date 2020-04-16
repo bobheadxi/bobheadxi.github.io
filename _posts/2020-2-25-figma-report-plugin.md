@@ -29,7 +29,7 @@ is a neat web-based tool for collaborative design, featuring a very robust set o
 choosing it for automating the property pitch report process a pretty obvious one.
 
 In this post I'll write about approaching the Figma plugin API and leveraging it to automate aggregating
-data from various sources to generate a baseline report that can easily be customized further! :electric_plug:
+data from various sources to generate a baseline report that can easily be customised further! :electric_plug:
 
 - [Requirements](#requirements)
 - [Implementation](#implementation)
@@ -46,7 +46,7 @@ This plugin would have to be able to:
 
 * retrieve basic data collected by employees from our Wordpress instance
 * download images, generate maps, and retrieve miscellaneous assets from various sources to augment the report
-* splat all this data onto a Figma document in an attractive, organized manner
+* splat all this data onto a Figma document in an attractive, organised manner
 
 As far as implementation goes, this posed a few problems when using Figma Plugins - read on for more
 details!
@@ -97,7 +97,7 @@ This means that to build this thing, we'd either have to:
 
 #### Structuring Our Plugin
 
-We ended up going with the second option, which lended itself to a more compartmentalized approach,
+We ended up going with the second option, which lended itself to a more compartmentalised approach,
 as outlined below:
 
 ```mermaid
@@ -216,7 +216,7 @@ figma.ui.onmessage = async (msg) => {
     }
   } catch (err) {
     console.error(err);
-    figma.closePlugin(`Error occured: ${err}`);
+    figma.closePlugin(`Error occurred: ${err}`);
   }
 };
 ```
@@ -277,7 +277,7 @@ Recall from the [earlier diagram](#structuring-our-plugin) that for our template
 dependencies, a bit of ping-ponging needed to happen between our `iframe` and `FigmaSandbox` components
 to make the appropriate network requests.
 
-Here is an example of a simple template function (which is our way of organizing page generation -
+Here is an example of a simple template function (which is our way of organising page generation -
 feel free to use whatever system suits you best!) that allows the declaration of some dependencies.
 The interface is described as follows:
 
