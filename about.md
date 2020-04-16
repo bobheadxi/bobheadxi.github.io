@@ -41,7 +41,7 @@ effectively. Software has become an integral part of every facet of life, and I 
 tools, automation, and a culture of transparency (I have the open-source world to thank for pretty
 much everything I know) will become a key driver of innovations to come.
 I've tried exploring these areas myself with projects like [a self-hosted build and deployment platform](/inertia),
-[automated benchmark visualization](/gobenchdata-project/),
+[automated benchmark visualisation](/gobenchdata-project/),
 [tooling to set up branch deployments on a budget](https://bobheadxi.dev/appengine-branch-previews/),
 [a foray into building a service to analyse project growth](https://bobheadxi.dev/timelines-recap/),
 [some libraries](https://bobheadxi.dev/tags/#library), and more - and I hope to continue learning

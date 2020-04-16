@@ -25,19 +25,19 @@ Despite my last blog post from way back in 2017, I have not learned any lessons 
 
 This particular picture isn't mine but you get the idea.
 
-- TOC
+* TOC
 {:toc}
 
-# Prelude
+## Prelude
 At work, part of my job has been slowly revamping my team's various scattered web platforms - a collection of about 3 servers serving 6 different websites - into a more consolidated and (hopefully) neater codebase.
 
-# The Problem
+## The Problem
 The previous intern had gotten a bit of a head start on the rewrite by scaffolding a simple server using [Express](https://expressjs.com), a Node.js framework. When I had a look I think I nearly had a heart attack - every endpoint looked something like this:
 
 ```js
 router.post('/do_thing', (req, res) => {
 	var today = new Date();
-	
+
 	var method = req.body.method;
 	var id = req.body.id;
 	var lib = req.body.lib;
@@ -52,7 +52,7 @@ router.post('/do_thing', (req, res) => {
 	var user = req.body.user;
 	var date = utils.formatDate(today);
 	var cancelled = req.body.cancelled;
-	
+
 	var query = "SET search_path TO " + currDB +"; INSERT INTO adb (thingBefore, somethingbefore, thingAfter, somethingafter, somethingBefore, somethingAfter, username, date, method, fk_lib__id) VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)";
 	var vars = [thingBefore,otherThingBefore,thingAfter,otherThingBefore,somethingBefore,somethingAfter,user, date, method, id];
 
@@ -63,14 +63,14 @@ Let's ignore that wild SQL string there for today and look at that big bad list 
 
 The fact that these parameter objects are passed into the various queries to do their thing meant that before I started on separating the SQL and database component of the server, I had to work out an effective and standardised way to pass this stuff around - some form of **object casting in JavaScript** (which a reader pointed out should probably have been the title of this post to being with).
 
-# Solution
+## Solution
 
-I could simply use `req.body` which, in theory, should contain everything the server needed, assuming the user has followed the documentation appropriately... until I realized there was no documentation whatsoever. Not to mention that doing this would be making an awful lot of assumptions, and as the saying goes, don't ass*u*me or you will make an *ass* of *u* and *me*! Hehe.
+I could simply use `req.body` which, in theory, should contain everything the server needed, assuming the user has followed the documentation appropriately... until I realised there was no documentation whatsoever. Not to mention that doing this would be making an awful lot of assumptions, and as the saying goes, don't ass*u*me or you will make an *ass* of *u* and *me*! Hehe.
 
 So why not kill two birds with one stone? If each of these sets of parameters was a predefined class, then those classes could effectively act as documentation for our endpoints' input and return types. What I needed was a class that could, given a "definition", cleanly and in one line take an object (such as `req.body` or the return object from a database query) and populate the class's fields. For example:
 
 ```js
-// My definiton, let's say for the class Lunch:
+// My definition, let's say for the class Lunch:
 // {
 //    deepfried: something
 //    steamed: someotherthing
@@ -81,14 +81,14 @@ console.log(lunch) // { data: { deepfried: "chicken", steamed: "rice" } }
 
 Wow! Wouldn't that be swell. If I could easily have this work for all my classes, that would be great. So I started setting up my extendible class, which would implement the basic shared functions which other classes can then use.
 
-## Part 1: Basic Field Population
+### Part 1: Basic Field Population
 Here is the scaffolded class I came up with:
 
 ```js
 class DataType {
    /**
     * Cast all fields in given object that exists in data onto
-    * the given definiton. The given definition must have all fields
+    * the given definition. The given definition must have all fields
     * instantiated to `null`.
     * @param {Object} input Object containing desired data.
     * @param {String} type String representing name of datatype.
@@ -106,13 +106,13 @@ class DataType {
         */
        this.data = definition;
 
-       /** 
+       /**
         * The string name of this datatype.
         * @readonly
         * @member {string} DataType.type
         */
        this.type = type;
-      
+
        if (Object.keys(input).length != 0) {
            iterateObjectAndPopulate(input, this.data);
        }
@@ -141,7 +141,7 @@ Now I needed an implementation of the helper function `iterateObjectAndPopulate(
 
 ```js
 {
-    appetizer: 'edamame',
+    appetiser: 'edamame',
     main: {
         deepfried: 'fish',
         steamed: 'dumplings',
@@ -153,17 +153,17 @@ I want to be able to give my class a "flat" object:
 
 ```js
 {
-    appetizer: 'salad',
+    appetiser: 'salad',
     deepfried: 'chocolate',
     steamed: 'wontons'
 }
 ```
 
-And have it correctly populate the fields of my definiton. Seemed a bit difficult at first, but it ultimately boils down to a few steps:
-- for each key in definition, is:
-    - value an object? => recurse on value
-    - value `null`? => `this.key = that.key`
-- **profit!**
+And have it correctly populate the fields of my definition. Seemed a bit difficult at first, but it ultimately boils down to a few steps:
+* for each key in definition, is:
+  * value an object? => recurse on value
+  * value `null`? => `this.key = that.key`
+* **profit!**
 
 So I came up with this implementation:
 
@@ -212,7 +212,7 @@ describe('#constructor()', function () {
             farm: {
                 nested: 'chicken',
             },
-            genome: 'sequencing'             
+            genome: 'sequencing'
         });
     });
 });
@@ -227,7 +227,7 @@ connection.any(myQuery, args)
     })
 ```
 
-## Part 2: Additional Features
+### Part 2: Additional Features
 
 Another advantage of this approach is that it allowed me to easily add more features that are inherited by children classes - for example, in code block 1, there is a line which isn't handled by this `DataType` implementation:
 
@@ -264,7 +264,7 @@ const format = (data) => {
 super( /*...params...*/, format);
 ```
 
-And the given function would then be called by the parent class whenever needed! The reason I do this instead of having the child class handle it themselves in the constructor is because I began to realize our datatypes needed to use different keys when used as return types. For example, `fk_ingredients__name` is not something you want to send to your user - a better key would be `ingredient_name`. The same goes for asking inputs from users - you don't necessarily want your user to send you data with the key `fk_ingredients__name`. Plus, there is probably some security concerns about exposing the inner workings of your database setup, but I'm not very sure if that's actually a concern. Either way, I needed a way to rename keys.
+And the given function would then be called by the parent class whenever needed! The reason I do this instead of having the child class handle it themselves in the constructor is because I began to realise our datatypes needed to use different keys when used as return types. For example, `fk_ingredients__name` is not something you want to send to your user - a better key would be `ingredient_name`. The same goes for asking inputs from users - you don't necessarily want your user to send you data with the key `fk_ingredients__name`. Plus, there is probably some security concerns about exposing the inner workings of your database setup, but I'm not very sure if that's actually a concern. Either way, I needed a way to rename keys.
 
 So I gave Mr. `DataType` some new functions:
 
@@ -295,19 +295,18 @@ fromJSON(input) {
 ```
 
 Some quick explanations:
-- `this.jsonFormat` is set from yet another parameter in `super()`, and it is a dictionary of "translations":
-```js
-const jsonFormat = {
-    myOriginalKeyName: 'myNewKeyName'
-}
-```
-- `toJSON()` just needs convert the keys, nothing fancy to be done
-- for `fromJSON()` to take an object using the `jsonFormat` keys, the function needs to first reverse the `jsonFormat`, rename the keys of the input using the reversed format (essentially translating it back to its original form), then populate and format the class' data
-- I return `this` in `fromJSON()` to allow the function to be chained during construction:
-
-```js
-const data = new MyType({}).fromJSON(req.body);
-```
+* `this.jsonFormat` is set from yet another parameter in `super()`, and it is a dictionary of "translations":
+    ```js
+    const jsonFormat = {
+        myOriginalKeyName: 'myNewKeyName'
+    }
+    ```
+* `toJSON()` just needs convert the keys, nothing fancy to be done
+* for `fromJSON()` to take an object using the `jsonFormat` keys, the function needs to first reverse the `jsonFormat`, rename the keys of the input using the reversed format (essentially translating it back to its original form), then populate and format the class' data
+* I return `this` in `fromJSON()` to allow the function to be chained during construction:
+    ```js
+    const data = new MyType({}).fromJSON(req.body);
+    ```
 
 So how to go about renaming and swapping keys? Since the implementations are fairly straight forward and is conceptually similar to `iterateAndPopulateObject()`, I'll just include them here:
 
@@ -348,11 +347,16 @@ function swapKeyValues(object) {
 };
 ```
 
+---
+
 **Update**: A reader asked about a line in these helpers that I think is pretty cool:
+
 ```js
 return { [newKey]: target[key] };
 ```
+
 This allows you to use a string variable, `newKey`, as the name of a key when instantiating a dictionary:
+
 ```js
 const key = 'chicken';
 const object = { [key]: 'wing' };
@@ -360,7 +364,10 @@ expect(object).to.deep.equal({
     chicken: 'wing'
 })
 ```
+
 Nifty!
+
+---
 
 Of course, I also wrote unit tests to make sure `toJSON()` and `fromJSON()` worked as intended.
 
@@ -422,7 +429,7 @@ exports.Library = class extends DataType {
 
     /**
      * Attach process information to this library.
-     * @param {Object[]} processes 
+     * @param {Object[]} processes
      */
     addProcesses(processes) {
         this.data.process = { };

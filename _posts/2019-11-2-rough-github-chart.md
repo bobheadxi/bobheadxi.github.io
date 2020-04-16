@@ -6,7 +6,7 @@ image: /assets/images/posts/rough-github.png
 headerImage: true
 tag:
 - javascript
-- visualization
+- visualisation
 - hack
 - my-website
 category: blog

@@ -13,7 +13,7 @@ description: so I keep mentioning this "Launch Pad" thing - what is it?
 ---
 
 [UBC Launch Pad](https://www.ubclaunchpad.com/) is a student-run software engineering club whose
-primary objective is to be the best space at the [ University of British Columbia](https://www.ubc.ca/)
+primary objective is to be the best space at the [University of British Columbia](https://www.ubc.ca/)
 for students to meet other tech enthusiasts, build projects in a team setting, gain experience with
 professional development tools and principles, and share their knowledge with others! 🚀
 

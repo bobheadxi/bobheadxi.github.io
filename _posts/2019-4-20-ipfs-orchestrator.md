@@ -44,11 +44,8 @@ networks running within Docker containers on RTrade infrastructure. This post is
 a *very* brief run over some of the high-level components and work that went into
 the project, with links to implementation details and whatnot:
 
-- [Deploying Nodes](#deploying-nodes)
-- [Orchestrating Nodes](#orchestrating-nodes)
-- [Access Control](#access-control)
-- [Exposing an API](#exposing-an-api)
-- [Testing](#testing)
+* TOC
+{:toc}
 
 <p align="center">
   <img src="/assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
@@ -110,33 +107,31 @@ type NodeInfo struct {
 
 The node creation process goes roughly as follows:
 
-1. [Initialize node assets](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L47:18)
+1. [Initialise node assets](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L47:18)
   on the filesystem - most notably this includes:
    * writing the given "swarm key" (used for identifying a private network) to disk for the node
    * generating an [entrypoint script](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/internal/ipfs_start.sh) that caps resources as required
-2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarly imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
+2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarily imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
+    ```go
+    resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
+    if err != nil { /* ... */ }
+    l.Infow("container created", "build.duration", time.Since(start), "container.id", resp.ID)
 
-```go
-resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
-if err != nil { /* ... */ }
-l.Infow("container created", "build.duration", time.Since(start), "container.id", resp.ID)
+    if err := c.d.ContainerStart(ctx, n.DockerID, types.ContainerStartOptions{}); err != nil {
+      go c.d.ContainerRemove(ctx, n.ContainerName, types.ContainerRemoveOptions{Force: true})
+      return fmt.Errorf("failed to start ipfs node: %s", err.Error())
+    }
 
-if err := c.d.ContainerStart(ctx, n.DockerID, types.ContainerStartOptions{}); err != nil {
-  go c.d.ContainerRemove(ctx, n.ContainerName, types.ContainerRemoveOptions{Force: true})
-  return fmt.Errorf("failed to start ipfs node: %s", err.Error())
-}
+    // waitForNode scans container output for readiness indicator, and errors on
+    // context expiry. See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22:18
+    if err := c.waitForNode(ctx, n.DockerID); err != nil { /* ... */ }
 
-// waitForNode scans container output for readiness indicator, and errors on
-// context expiry. See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22:18
-if err := c.waitForNode(ctx, n.DockerID); err != nil { /* ... */ }
-
-// run post-startup commands in the container (in this case, bootstrap peers)
-// containerExec is a wrapper around ContainerExecCreate and ContainerExecStart
-// See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L141:18
-c.containerExec(ctx, dockerID, []string{"ipfs", "bootstrap", "rm", "--all"})
-c.containerExec(ctx, dockerID, append([]string{"ipfs", "bootstrap", "add"}, peers...))
-```
-
+    // run post-startup commands in the container (in this case, bootstrap peers)
+    // containerExec is a wrapper around ContainerExecCreate and ContainerExecStart
+    // See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L141:18
+    c.containerExec(ctx, dockerID, []string{"ipfs", "bootstrap", "rm", "--all"})
+    c.containerExec(ctx, dockerID, append([]string{"ipfs", "bootstrap", "add"}, peers...))
+    ```
 3. [Once the node daemon is ready](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22), [bootstrap the node against existing peers](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L83:18) if any peers are configured
 
 Some node configuration is [embedded into the container metadata](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/node.go#L61),
@@ -386,7 +381,7 @@ func newProxy(feature string, target *url.URL, l *zap.SugaredLogger, direct bool
 		Director: func(req *http.Request) {
 			// if set up as an indirect proxy, we need to remove delgator-specific
 			// leading elements, e.g. /networks/test_network/api, from the path and
-			// accomodate for specific cases
+			// accommodate for specific cases
 			if !direct {
 				switch feature {
 				case "api":
@@ -537,7 +532,7 @@ halfway-decent measure of this is code coverage!
 
 <p align="center">
   <i style="font-size:90%;">A "coverage sunburst", indicating test coverage
-  in various subdirectories of the codebase - from 
+  in various subdirectories of the codebase - from
   <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</i>
 </p>
 
@@ -551,11 +546,11 @@ integration environment is something I set up early on anyway so I can run my
 applications locally), and I only test a few high-level functions, so I don't have
 to constantly update my tests for changes in API or function names (which I find
 myself doing often when I write unit tests too early). They also serve to
-familiarize me with the services or tooling I will be depending on.
+familiarise me with the services or tooling I will be depending on.
 
 For the integration environment, the only real dependencies are Docker and a
 Postgres database. The former I just assume is already running, and the latter
-I set up using [RTrade's centralized test environment repository](https://github.com/RTradeLtd/testenv/tree/master)
+I set up using [RTrade's centralised test environment repository](https://github.com/RTradeLtd/testenv/tree/master)
 (which I made) - this repository is typically included as a [git submodule](https://git-scm.com/book/en/v2/Git-Tools-Submodules)
 in RTrade projects.
 
@@ -573,7 +568,7 @@ lot going on) I ended up just testing most of my CRUD operations in one go
 (since that's basically already setup and teardown), edited for brevity:
 
 ```go
-// grab temp space for assets, set up a test logger, initialize client
+// grab temp space for assets, set up a test logger, initialise client
 c, err := newTestClient()
 if err != nil { /* ... */ }
 
@@ -659,7 +654,7 @@ for _, tt := range tests {
 }
 
 cancelWatch()
-// verify events occured
+// verify events occurred
 if shouldGetEvents != eventCount {
   t.Errorf("expected %d events, got %d", shouldGetEvents, eventCount)
 }

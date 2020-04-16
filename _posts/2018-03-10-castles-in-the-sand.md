@@ -27,10 +27,10 @@ description: look yea to Ozymandias... and be at peace
 
 >*We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:*
 >
-> - *did you do it well?*
-> - *did you learn something from the experience?*
-> - *did you give something back to the community, leave some breadcrumb, which will help the next guy, help advance civilization however little up to the next ladder rung?*
-> - *was it beautiful? To you, to anyone?*
+> * *did you do it well?*
+> * *did you learn something from the experience?*
+> * *did you give something back to the community, leave some breadcrumb, which will help the next guy, help advance civilization however little up to the next ladder rung?*
+> * *was it beautiful? To you, to anyone?*
 >
 > *If any of all of those are true, look yea to Ozymandias... and be at peace.*
 
@@ -38,7 +38,7 @@ That quote there came from a Redditor in response to [a post about code at start
 
 ["What is Code?"](https://www.bloomberg.com/graphics/2015-paul-ford-what-is-code/) by Paul Ford over at Bloomberg  is a great article that offers a really neat and informative (for me, at least) insight into the great (and not-so-great) aspects of software as a tool, science, and industry. It's is a very lengthy read, but well worth it. I particularly like how he emphasises the sheer amount of work that goes into everything:
 
-> Apple and Microsoft, Amazon and Google: factory factories. Their APIs are the products of many thousands of hours of labor from many programmers. Think of the work involved. Someone needs to manage the SDK. Hundreds of programmers need to write the code for it. People need to write the documentation and organize the demos. Someone needs to fight for a feature to get funded and finished. Someone needs to make sure the translation into German is completed and that there aren’t any embarrassing mistakes that go viral on Twitter. Someone needs to actually write the software that goes into making the IDE work.
+> Apple and Microsoft, Amazon and Google: factory factories. Their APIs are the products of many thousands of hours of labour from many programmers. Think of the work involved. Someone needs to manage the SDK. Hundreds of programmers need to write the code for it. People need to write the documentation and organise the demos. Someone needs to fight for a feature to get funded and finished. Someone needs to make sure the translation into German is completed and that there aren’t any embarrassing mistakes that go viral on Twitter. Someone needs to actually write the software that goes into making the IDE work.
 
 Think about it! This doesn't just apply to software, but most things - there always seems to be far more work and effort than first meets the eye.
 

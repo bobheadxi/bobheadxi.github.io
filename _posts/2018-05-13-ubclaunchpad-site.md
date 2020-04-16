@@ -26,7 +26,7 @@ badges:
 </p>
 
 <p align="center">
-    <a href="https://github.com/ubclaunchpad/ubclaunchpad.github.io">    
+    <a href="https://github.com/ubclaunchpad/ubclaunchpad.github.io">
         <img src="https://img.shields.io/badge/github-ubclaunchpad.github.io-blue.svg?style=for-the-badge" alt="GitHub Repository"/>
     </a>
 </p>
@@ -56,7 +56,7 @@ including:
 </p>
 
 Check out my pull requests in more detail
-[here](https://github.com/ubclaunchpad/ubclaunchpad.github.io/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed), 
-and see the website [live](https://ubclaunchpad.github.io)! 
+[here](https://github.com/ubclaunchpad/ubclaunchpad.github.io/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed),
+and see the website [live](https://ubclaunchpad.github.io)!
 
 <br />

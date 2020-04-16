@@ -31,21 +31,21 @@ It's been raining a lot. When it stops raining and the sun comes out, it can be 
 
 Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent (I think) questions I found myself asking recently:
 
-- why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
-- why is tumblr's gif file size limit so damn small? 
-- where did I leave my bag of rice?
-- why is there a wooden giraffe here?
-- why does water come out of both of these shower faucets simultaneously?
-- what do you do with long hairs that you lose in the shower?
+* why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
+* why is tumblr's gif file size limit so damn small?
+* where did I leave my bag of rice?
+* why is there a wooden giraffe here?
+* why does water come out of both of these shower faucets simultaneously?
+* what do you do with long hairs that you lose in the shower?
 
 The last question there has, I've learned, an ingenious solution: stick it on the shower wall for the next person to admire. The wooden giraffe turned out to be a failed endeavour in setting up a wooden giraffe smuggling business - seems like demand for wooden giraffes was not quite as high as expected.
 
 The rest of the questions were a bit more mysterious and, like most questions, went largely unanswered.
 
-- TOC
+* TOC
 {:toc}
 
-# Epigenetics and DNA Methylation
+## Epigenetics and DNA Methylation
 
 First off, a disclaimer: all of the following is extremely simplified and is mostly based off what I've learned at work and read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
 
@@ -85,7 +85,7 @@ A stronger understanding of how DNA methylation causes cancer has many potential
 	<i>Still from <a href="https://www.youtube.com/watch?v=UUM7HiFkDd4">YouTube video</a> by the Garvan Institute of Medical Research</i>
 </p>
 
-There are several methods available to study and analyze DNA methylation. [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process), for example, focuses on examining histone modification.<sup>[[9]](#r9)</sup>
+There are several methods available to study and analyse DNA methylation. [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process), for example, focuses on examining histone modification.<sup>[[9]](#r9)</sup>
 
 Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/Bisulfite_sequencing), used primarily for studying cytosine methylation. Simply put, it converts *unmethylated* cytosines to uracils,<sup>[[1]](#r1)</sup> leaving behind the methylated cytosines. Then, during PCR amplification, the uracil in the bisulfite converted DNA is replaced with thymine.<sup>[[7]](#r7)</sup> This means that when sequenced, the modification appears as a cytosine to thymine conversion. Given a successful application of bisulfite modification, you can then assume that any remaining cytosines were originally methylated cytosines.<sup>[[1]](#r1)</sup>
 
@@ -99,7 +99,7 @@ Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/
 
 My team often receives such bisulfite converted sequences, albeit with an additional inertesting step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rate is used to assess the effectiveness of the bisulfite conversion, which we provide as feedback to the lab or our collaborators.
 
-The process of bisulfite conversion has an important consequence: to identify normal samples, we typically use the application of plasmid spike-ins. These are random, known sequences of around 180 base pairs that are grown in a lab, then added to samples during preparation for sequencing. The name "plasmid spike-in" comes from the way the oligonucleotide is incorporated into the pCR-TOPO4 plasmid vector and [cloned in E. coli](https://en.wikipedia.org/wiki/Molecular_cloning). During quality control, we check for the presence of these spike-ins in our pre-alignment pipelines. If the expected spike-in is only found in very small quantities, then that is usually a red flag that a sample swap might have occured.
+The process of bisulfite conversion has an important consequence: to identify normal samples, we typically use the application of plasmid spike-ins. These are random, known sequences of around 180 base pairs that are grown in a lab, then added to samples during preparation for sequencing. The name "plasmid spike-in" comes from the way the oligonucleotide is incorporated into the pCR-TOPO4 plasmid vector and [cloned in E. coli](https://en.wikipedia.org/wiki/Molecular_cloning). During quality control, we check for the presence of these spike-ins in our pre-alignment pipelines. If the expected spike-in is only found in very small quantities, then that is usually a red flag that a sample swap might have occurred.
 
 <p align="center">
     <img src="https://www.sciencelearn.org.nz/system/images/images/000/000/558/embed/cloning_dna_oversize20151125-1118-dwkzce.jpg?1448424636" />
@@ -113,7 +113,7 @@ These spike-ins do get affected by the bisulfite conversion, and in the event a 
 
 To address these concerns, I was tasked with checking if our plasmid spike-ins are still sufficiently unique following bisulfite conversion, so that the team could decide if we can continue to use the spike-ins as identifiers in bisulfite converted libraries.
 
-# Assessing Oligonucleotide Uniqueness
+## Assessing Oligonucleotide Uniqueness
 
 To assess the spike-ins, the reverse complement of each sequence had to be generated, as well as the bisulfite modified versions and their reverse complements. The reverse complement is important to take into consideration due to the way the [Illumina's](https://www.illumina.com) (the company that builds our sequencers) paired-end sequencing works - strands are sequenced from adapters on both ends.
 
@@ -191,12 +191,12 @@ SeqIO.write(records_converted, 'bisulphite_converted_spikeins.fa', 'fasta')
 
 Perfect. With all the sequences prepared in neat FASTA files, I move on to the real problem. In order to check if these spike-ins are usable when bisulfite modified, I have to match them against:
 
-- the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
-- bisulfite modified human genome
-- the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
-- bisulfite-converted NT database
-- unconverted spike-ins
-- other bisulfite-modified spike-ins
+* the human genome (don't want parts of unconverted sequences to be misidentified as spike-ins)
+* bisulfite modified human genome
+* the [NT database](https://www.ncbi.nlm.nih.gov/nucleotide?cmd=search), a database of all sorts of micro-organisms
+* bisulfite-converted NT database
+* unconverted spike-ins
+* other bisulfite-modified spike-ins
 
 One weapon of choice within my team for such tasks is [blastall](https://www.ncbi.nlm.nih.gov/Class/BLAST/blastallopts.txt), an old (and outdated, I think - it has long been supersceded by the [blast+ programs](https://blast.ncbi.nlm.nih.gov/Blast.cgi?PAGE_TYPE=BlastDocs&DOC_TYPE=Download), but this is what we have, so oh well) program specifically designed for finding regions of similarity within sequences. The name "BLAST" stands for "Basic Local Alignment Search Tool", which seems reasonably self-explanatory and rolls off the tongue quite nicely.
 
@@ -320,7 +320,7 @@ def detect_hits(result, verbose=False):
 
 def process_report(report, fmt='blast-tab', verbose=False):
     '''
-    Helper function for analyzing blast reports. Returns hits that
+    Helper function for analysing blast reports. Returns hits that
     meet our criteria and prints the number of hits.
     fmt 'blast-tab' and 'blast-xml' recommended.
 
@@ -383,7 +383,7 @@ Amazing stuff.
 </p>
 
 <p style="font-size:90%;">
-    <a name="r3">[3]</a> Li, En, and Yi Zhang. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3996472/">DNA Methylation in Mammals.</a>” Cold Spring Harbor Perspectives in Biology 6.5 (2014): a019133. PMC. Web. 5 Feb. 2018.
+    <a name="r3">[3]</a> Li, En, and Yi Zhang. “<a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC3996472/">DNA Methylation in Mammals.</a>” Cold Spring Harbour Perspectives in Biology 6.5 (2014): a019133. PMC. Web. 5 Feb. 2018.
 </p>
 
 <p style="font-size:90%">
@@ -408,4 +408,4 @@ Amazing stuff.
 
 <p style="font-size:90%">
     <a name="r9">[9]</a> O’Geen, Henriette, Lorigail Echipare, and Peggy J. Farnham. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4151291/">“Using ChIP-Seq Technology to Generate High-Resolution Profiles of Histone Modifications.</a>” Methods in molecular biology (Clifton, N.J.) 791 (2011): 265–286. PMC. Web. 8 Feb. 2018.
-</p> 
+</p>

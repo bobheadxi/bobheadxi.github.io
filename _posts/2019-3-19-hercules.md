@@ -28,7 +28,7 @@ badges:
 </p>
 
 <p align="center">
-    <a href="https://github.com/src-d/hercules">    
+    <a href="https://github.com/src-d/hercules">
         <img src="https://img.shields.io/badge/github-src--d%2Fhercules-green.svg?style=for-the-badge" alt="GitHub Repository"/>
     </a>
 </p>
@@ -52,7 +52,7 @@ for a while, so I contributed a few fixes and features upstream!
 </p>
 
 <p align="center">
-    <i style="font-size:90%;">A git diff burndown generated using Hercules of 
+    <i style="font-size:90%;">A git diff burndown generated using Hercules of
     <a href="https://github.com/ubclaunchpad/inertia">Inertia</a> over its
     lifetime. Each coloured band represents code added in each time interval -
     the graph demonstrates that lots of code ends up getting replaced, a sign
@@ -62,9 +62,9 @@ for a while, so I contributed a few fixes and features upstream!
 
 My contributions include:
 
-- **new features** such as [reworked interval options](https://github.com/src-d/hercules/pull/245)
+* **new features** such as [reworked interval options](https://github.com/src-d/hercules/pull/245)
   and a [pluggable logger](https://github.com/src-d/hercules/pull/262)
-- **fixes** for a [race condition](https://github.com/src-d/hercules/pull/232) I
+* **fixes** for a [race condition](https://github.com/src-d/hercules/pull/232) I
   I discovered, and a small fix to [improve `go mod` support](https://github.com/src-d/hercules/pull/230)
 
 Check out my pull requests in more detail [here](https://github.com/src-d/hercules/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed)!

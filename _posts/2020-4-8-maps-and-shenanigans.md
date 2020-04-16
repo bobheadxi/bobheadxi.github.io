@@ -7,7 +7,7 @@ headerImage: false
 diagrams: true
 tag:
 - javascript
-- visualization
+- visualisation
 - react
 - python
 - bigquery
@@ -17,12 +17,12 @@ author: robert
 description: messing around with Uber's deck.gl in a 2-day quarantine hack
 ---
 
-So started this little visualization project in earnest on April 5th as a personal stretch
+So started this little visualisation project in earnest on April 5th as a personal stretch
 goal for a course project I was working on, and stopped when I handed in the things that were actually due for the assignment on April 7th.
 It was a lively period of trying to get everything to work: wrangling data, fiddling with libraries, all the good stuff.
 Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 [BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), [Uber's `deck.gl`](https://github.com/uber/deck.gl)
-visualization framework, and [GitHub Pages](https://pages.github.com/).
+visualisation framework, and [GitHub Pages](https://pages.github.com/).
 
 <p align="center">
 <img src="https://raw.githubusercontent.com/bobheadxi/society-and-air-quality/master/docs/_screenshots/epa-data-explore.png" />
@@ -35,7 +35,7 @@ on this post by highlighting some text!
 
 <br />
 
-- TOC
+* TOC
 {:toc}
 
 <br />
@@ -74,7 +74,7 @@ again with a project that has been in limbo for a while: [Seer](https://github.c
 
 As you can see neither of these projects made it very far, since I got caught up making my backends
 all well-architected and stuff. I did get some traction with [`gobenchdata`](https://bobheadxi.dev/gobenchdata-project/),
-which was a simple visualization generator for benchmark results over time, but that wasn't a super
+which was a simple visualisation generator for benchmark results over time, but that wasn't a super
 sexy project or anything.
 
 <p align="center">
@@ -83,7 +83,7 @@ sexy project or anything.
 
 Fortunately, I finished my first intern project at Riot Games with some time to spare so I decided
 to dive into the making of pretty things more - this time using a design library that was used by my team,
-[Ant Design](https://ant.design/), and focusing more on data visualization. My team was very supportive
+[Ant Design](https://ant.design/), and focusing more on data visualisation. My team was very supportive
 of the project and I got the go-ahead to hack on it for about 2 weeks of my internship which was
 awesome. :rocket:
 
@@ -93,15 +93,15 @@ awesome. :rocket:
 
 <p align="center">
     <i style="font-size:90%;">
-    The alert visualization tool I made, as seen in
+    The alert visualisation tool I made, as seen in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
     a blog post I contributed to on the official Riot Games Technology blog</a>.
     See my <a href="/nwhacks2019" target="_blank">Riot Games recap</a> for more!
     </i>
 </p>
 
-Since this was a lot of fun, I asked around about data visualization, downloaded some books, failed
-to sign up quickly enough for my university's visualization course, and proceeded to not do much on
+Since this was a lot of fun, I asked around about data visualisation, downloaded some books, failed
+to sign up quickly enough for my university's visualisation course, and proceeded to not do much on
 this front for almost a year.
 
 So this semester, to accompany the final project for one of my courses - a small analysis of societal
@@ -109,7 +109,7 @@ changes and air quality trends - I decided to give it a go again.
 
 <br />
 
-## The Visualization
+## The Visualisation
 
 I often get asked: so what's the best way to *make a website*? Do I need some GCP? Some AWS?
 Some MongoDB? How webscale????
@@ -121,7 +121,7 @@ provides everything most people need for simple use cases, and there are afforda
 can fill in the gaps for slightly more complicated needs.
 
 In a similar vein, when it came more recently to me procrastinating my final project by spending a
-bunch of time attempting to build a rather extravagent and overkill website when all I needed to
+bunch of time attempting to build a rather extravagant and overkill website when all I needed to
 submit was a slideshow, of course I had to live by my own words and do this all entirely as a
 React single-page application hosted on GitHub Pages (including using Pages to host my data!)
 
@@ -142,58 +142,58 @@ to do this anyway for the project). I did the majority of this work in Jupyter N
    See [this notebook](https://github.com/bobheadxi/society-and-air-quality/blob/master/exploration/1_acs_boundaries.ipynb)
    for details. I also converted these into GeoJSON and later simplified the geometries as well
    (from ~3GB total to ~2MB total - see [this script](https://github.com/bobheadxi/society-and-air-quality/blob/master/tools/acs_geojson_filter.py))
-   so I could use them in the visualization app without blowing up your browser.
-```py
-for y in years:
-    save_to = out_template % y
-    if y == '2007': # 2007 has a special naming scheme...
-        target = 'fe_%s_us_cbsa' % y
-        url = 'https://www2.census.gov/geo/tiger/TIGER%sFE/%s.zip' % (y, target)
-        download_url(url, save_to)
-    else:
-        target = 'tl_%s_us_cbsa' % y
-        if y == '2008' or y == '2009': # some random years have special naming schemes too...
-            url = 'https://www2.census.gov/geo/tiger/TIGER%s/%s.zip' % (y, target)
-        elif y == '2010': # this single year has a slightly different path...
-            url = 'https://www2.census.gov/geo/tiger/TIGER2010/CBSA/2010/tl_2010_us_cbsa10.zip'
-        else:
-            url = 'https://www2.census.gov/geo/tiger/TIGER%s/CBSA/%s.zip' % (y, target)
-        try:
+   so I could use them in the visualisation app without blowing up your browser.
+    ```py
+    for y in years:
+        save_to = out_template % y
+        if y == '2007': # 2007 has a special naming scheme...
+            target = 'fe_%s_us_cbsa' % y
+            url = 'https://www2.census.gov/geo/tiger/TIGER%sFE/%s.zip' % (y, target)
             download_url(url, save_to)
-        except:
-            print('failed to fetch "%s"' % url)
-```
+        else:
+            target = 'tl_%s_us_cbsa' % y
+            if y == '2008' or y == '2009': # some random years have special naming schemes too...
+                url = 'https://www2.census.gov/geo/tiger/TIGER%s/%s.zip' % (y, target)
+            elif y == '2010': # this single year has a slightly different path...
+                url = 'https://www2.census.gov/geo/tiger/TIGER2010/CBSA/2010/tl_2010_us_cbsa10.zip'
+            else:
+                url = 'https://www2.census.gov/geo/tiger/TIGER%s/CBSA/%s.zip' % (y, target)
+            try:
+                download_url(url, save_to)
+            except:
+                print('failed to fetch "%s"' % url)
+    ```
 2. The EPA data is provided as measurements collected by stations, where the coordinates of each
    station is provided. Converting the geometries (shapefiles in this case) into GeoJSON allowed
    me to just dump it all into BigQuery and use some [geospatial functions](https://cloud.google.com/bigquery/docs/gis-intro)
    to do the magic of finding out which stations should belong to which ACS CBSA regions. See
    [this notebook](https://github.com/bobheadxi/society-and-air-quality/blob/master/exploration/2_aligning_acs_and_epa.ipynb)
    for details. BigQuery is honestly quite nice.
-```py
-def get_relations_for_year(year) -> pd.DataFrame:
-    resp = bq.query('''
-        SELECT DISTINCT
-            acs.year,
-            acs.geoid AS acs_geoid,
-            acs.name AS acs_cbsa_name,
-            CONCAT(epa.state_code, ".", epa.county_code, ".", epa.site_num) AS epa_site,
-            epa.longitude,
-            epa.latitude
-        FROM
-            `eosc410-project.data.epa_air_quality_annual` as epa,
-            `eosc410-project.data.acs_cbsa_boundaries_%s` as acs
-        WHERE
-            epa.year = %s
-            AND acs.year = %s
-            AND ST_WITHIN(ST_GEOGPOINT(epa.longitude, epa.latitude), ST_GEOGFROMGEOJSON(acs.geometry))
-            AND (epa.datum='NAD83' OR epa.datum='WGS84') # guard against irrelevant coordinates
-    ''' % (year, year, year))
-    return resp.to_dataframe()
-```
+    ```py
+    def get_relations_for_year(year) -> pd.DataFrame:
+        resp = bq.query('''
+            SELECT DISTINCT
+                acs.year,
+                acs.geoid AS acs_geoid,
+                acs.name AS acs_cbsa_name,
+                CONCAT(epa.state_code, ".", epa.county_code, ".", epa.site_num) AS epa_site,
+                epa.longitude,
+                epa.latitude
+            FROM
+                `eosc410-project.data.epa_air_quality_annual` as epa,
+                `eosc410-project.data.acs_cbsa_boundaries_%s` as acs
+            WHERE
+                epa.year = %s
+                AND acs.year = %s
+                AND ST_WITHIN(ST_GEOGPOINT(epa.longitude, epa.latitude), ST_GEOGFROMGEOJSON(acs.geometry))
+                AND (epa.datum='NAD83' OR epa.datum='WGS84') # guard against irrelevant coordinates
+        ''' % (year, year, year))
+        return resp.to_dataframe()
+    ```
 3. Then I aggregated everything into what I dubbed "flat" formats, where columns names have the region
-   and parameter information encoded into them, and exported them as CSV files for use in the visualization.
+   and parameter information encoded into them, and exported them as CSV files for use in the visualisation.
    I also exported the station coordinates as GeoJSON as well for use in with `deck.gl`.
-   
+
 This isn't very exciting so let's move on.
 
 ### React and DeckGL
@@ -235,6 +235,7 @@ A wrapper `SingleLoader` abstracts away the work of downloading data and providi
 [see the code for more details](https://sourcegraph.com/github.com/bobheadxi/society-and-air-quality/-/blob/vis/src/contexts/SingleLoader.js).
 
 {% raw %}
+
 ```jsx
 return (
   <Layout style={{ height:"100vh"}}>
@@ -252,9 +253,10 @@ return (
   </Layout.Content>
 )
 ```
+
 {% endraw %}
 
-Each slide can subscribe to the ACS or EPA data (or both!) as needed by initializing as a consumer
+Each slide can subscribe to the ACS or EPA data (or both!) as needed by initialising as a consumer
 of the context:
 
 ```jsx
@@ -270,6 +272,7 @@ return (
 I then set up `deck.gl` alongside the carousel:
 
 {% raw %}
+
 ```jsx
 return (
   <Layout style={{ height:"100vh"}}>
@@ -290,11 +293,12 @@ return (
   </Layout.Content>
 )
 ```
+
 {% endraw %}
 
 Each slide is provided with a callback that can be used to update the map state by providing a new
 `viewState` or new `layers` to render. A `viewState` defines where and how the camera is looking at
-the visualization - for example, the introduction slide sets the following `viewState` and `layers`:
+the visualisation - for example, the introduction slide sets the following `viewState` and `layers`:
 
 ```jsx
 updateMapState({
@@ -397,7 +401,6 @@ const carouselNodes = slides.map((Slide, id) => (
 ))
 ```
 
-
 As noted in my hasty TODO, a huge problem arises in my state in between map updates and keeping track
 of what slide is currently active, the following happens on each render:
 
@@ -441,7 +444,6 @@ working so I suspect I'm still doing something wrong, but it's something.
 
 ---
 
-
 ### GitHub Pages
 
 <p align="center">
@@ -480,7 +482,6 @@ when using GitHub pages + the `/docs` folder:
 
 * add `PUBLIC_URL=/` to override the `homepage` setting when you are running the app locally
 
-
 ```diff
 +++ package.json
   "scripts": {
@@ -506,7 +507,7 @@ when using GitHub pages + the `/docs` folder:
 ```
 
 Note that `react-app-rewired` is equivalent to `react-scripts` from `create-react-app`, and was set
-up so that I could customize the `antd` theme.
+up so that I could customise the `antd` theme.
 
 And that's all you have to do! Deploy your pages with a `npm run build` and push it to `master`, and
 it'll be available on the world wide web - all for a grand cost of $0.
@@ -517,7 +518,7 @@ If the screenshots so far weren't satisfactory, the entire unfinished website is
 [`bobheadxi.dev/society-and-air-quality`](https://bobheadxi.dev/society-and-air-quality/). Not
 everything works entirely as I want it to at the moment, but enjoy!
 
-Writing this up has also made me realize this all looks kinda easy. Did this really take me almost
+Writing this up has also made me realise this all looks kinda easy. Did this really take me almost
 two straight days of work? I suppose it's a lesson that in between reading documentation and getting
 through small issues or bugs or misunderstandings and all sorts of miscellany, time can fly by rather
 fast, and it's easy to underestimate work.

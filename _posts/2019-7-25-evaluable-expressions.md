@@ -93,7 +93,7 @@ be created and tracked to get this same feature without selection.
 
 ## Implementation
 
-For this post I'll just give a high-level overview of the implementation details. 
+For this post I'll just give a high-level overview of the implementation details.
 he core of the feature is in a Go string type I called `EvaluableExpression`
 that exposed the ability to evaluate the string on a collapsed application:
 
@@ -130,23 +130,23 @@ The first approach used three passes:
   to identify "selectors", such as `my.value` (this approach did not have the
   `SELECT` syntax described early - an example of the initial proposal's syntax
   was simply `container.count - 1`. In this case, `container.count` is a valid Go selector
-  that would be recognized by the AST parser)
+  that would be recognised by the AST parser)
 2. evalaute the selectors using the `gojsonq` library
 3. perform expression arithmetic using the `govaluate` library with the selected
   values as [parameters to the expression](https://github.com/Knetic/govaluate#how-do-i-use-it)
 
 As sexy as this method was didn't actually end up using this approach - I ran
-into serious issues when it came to selecting things out of arrays of objects. 
+into serious issues when it came to selecting things out of arrays of objects.
 Because applications are collapsed in various ways, there is no guarantee of
 the stability of array properties, so allowing selection by index using standard
 Go syntax (ie `myfield[10].value`) was a no-go. Wrapping that in some custom
 syntax magic (like the `myfield[key=value].value` semantic in the final design)
-was also problematic, since for the Go parser to recognize this the index value
+was also problematic, since for the Go parser to recognise this the index value
 would have to be wrapped as a string (`["key=value"]`), and feedback for this
 workaround was that it seemed confusing. It could have "escaped" it as a string,
 but it would have meant adding yet another pass over the expression that made the
 whole thing kind of convoluted. Configurations fields with dashes in them
-(`my-field`) was also problematic since the Go parser would recognize it as
+(`my-field`) was also problematic since the Go parser would recognise it as
 arithmetic.
 
 So since I didn't end up using the parser, I put it up as a
@@ -190,7 +190,7 @@ approach:
   as a single selector and evaluate it:
 
 ```go
-expression, _ := govaluate.NewEvaluableExpressionWithFunctions(evaluable, 
+expression, _ := govaluate.NewEvaluableExpressionWithFunctions(evaluable,
   map[string]govaluate.ExpressionFunction{
     "SELECT": func(args ...interface{}) (interface{}, error) {
       /* interpret args as single selector string (the 'key') */

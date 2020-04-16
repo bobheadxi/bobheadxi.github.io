@@ -8,14 +8,14 @@ tag:
 - graph-databases
 - monitoring
 - react
-- visualization
+- visualisation
 - riot-games
 image: /assets/images/experience/riot-games.png
 headerImage: true
 experience: true
 company: riot-games
 hidden: true # don't count this post in blog pagination
-organization: "Riot Games, Inc"
+organisation: "Riot Games, Inc"
 orgLink: https://www.riotgames.com/en/who-we-are
 description: "May 2019 - August 2019 | Los Angeles, CA"
 category: experience
@@ -29,7 +29,7 @@ externalLink: false
 
 <p align="center">
     <i style="font-size:90%;">
-    The alert visualization tool I made, as seen in
+    The alert visualisation tool I made, as seen in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
     a blog post I contributed to on the official Riot Games Technology blog</a>.
     </i>
@@ -46,9 +46,9 @@ services are performing and behaving across the globe.
 
 During my time there I worked on two projects in this space:
 
-## Deployable Artifact Specification Extension
+## Deployable Artefact Specification Extension
 
-The first was designing and building an extension to Riot’s deployable artifact specification to allow declarative specification of alerts on services. The specification allows operators in various Riot regions a way to discover how to deploy and monitor a service. This extension would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
+The first was designing and building an extension to Riot’s deployable artefact specification to allow declarative specification of alerts on services. The specification allows operators in various Riot regions a way to discover how to deploy and monitor a service. This extension would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
 
 ```yml
 alerts:
@@ -62,9 +62,9 @@ This project used Golang for integrating with our Golang-based deployment orches
 
 See [this blog post](/evaluable-expressions) for a writeup about a small chunk of work I did for this project!
 
-## Alert Visualization
+## Alert Visualisation
 
-The second project was a service for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centers, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible, interactive, and extensible visualization tool.
+The second project was a service for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centres, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible, interactive, and extensible visualisation tool.
 
 <p align="center">
     <img src="https://technology.riotgames.com/sites/default/files/intern12-robert3.png" width="70%" />
@@ -72,13 +72,13 @@ The second project was a service for holistically looking at all alerts firing a
 
 <p align="center">
     <i style="font-size:90%;">
-    An example diagram of the sorts of relationships I was interested in visualizing between alerts, as seen in
+    An example diagram of the sorts of relationships I was interested in visualising between alerts, as seen in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
     a blog post I contributed to on the official Riot Games Technology blog</a>.
     </i>
 </p>
 
-This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) internally for maintaining active alert relationships. It runs as a service and web application that continuously monitors alerts and maintains a sliding window of alert relations that can be queried and visualized in the web application through a query builder I implemented. Additional "layers" can be easily implemented through the service's plugin system to provide more context on potential relationships between alerts.
+This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) internally for maintaining active alert relationships. It runs as a service and web application that continuously monitors alerts and maintains a sliding window of alert relations that can be queried and visualised in the web application through a query builder I implemented. Additional "layers" can be easily implemented through the service's plugin system to provide more context on potential relationships between alerts.
 
 <p align="center">
     <img src="https://technology.riotgames.com/sites/default/files/intern11-robert2.png" />
@@ -86,7 +86,7 @@ This project was built on Golang, usage of 3rd-party APIs, internal APIs, and Mo
 
 <p align="center">
     <i style="font-size:90%;">
-    Another view of the alert visualizer, demonstrating the query builder and a simple interactive visualization.
+    Another view of the alert visualizer, demonstrating the query builder and a simple interactive visualisation.
     Labels can be toggled for the nodes and edges in the right panel.
     </i>
 </p>
@@ -105,6 +105,6 @@ or construct queries using a parameter-based builder I created, as seen in the s
 [Riot Games](https://www.riotgames.com/en/who-we-are) is the company behind
 *[League of Legends](https://na.leagueoflegends.com/en/)*, one of the most-played
 PC video games in the world with an estimated playerbase of about
-[8 million peak concurrent players every day - higher than the top 10 games on Steam combined](https://na.leagueoflegends.com/en/news/game-updates/special-event/join-us-oct-15th-celebrate-10-years-league). 
+[8 million peak concurrent players every day - higher than the top 10 games on Steam combined](https://na.leagueoflegends.com/en/news/game-updates/special-event/join-us-oct-15th-celebrate-10-years-league).
 They are currently headquartered in Los Angeles, California, and have 2,500+
 employees in 20+ offices worldwide.

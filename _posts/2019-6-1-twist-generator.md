@@ -19,7 +19,7 @@ badges: []
 ---
 
 <p align="center">
-  <a href="https://github.com/bobheadxi/twist">    
+  <a href="https://github.com/bobheadxi/twist">
     <img src="https://img.shields.io/badge/github-twist-blye.svg?style=for-the-badge" alt="GitHub Repository"/>
   </a>
 </p>

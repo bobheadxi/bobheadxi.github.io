@@ -26,11 +26,11 @@ I was told the documentation was generated using a project called [Slate](https:
 
 First step: read some docs. “[Getting Started with Slate](https://github.com/lord/slate#getting-started-with-slate)” seemed like a good place to get started.
 
-![](https://cdn-images-1.medium.com/max/3988/1*Kbh0N4Y-zei5FugpvJBIlA.png)
+![prerequisites](https://cdn-images-1.medium.com/max/3988/1*Kbh0N4Y-zei5FugpvJBIlA.png)
 
 Mhm, looking good so far. I’ve got all those things.
 
-![](https://cdn-images-1.medium.com/max/3216/1*ADt1iYcAHB3PKLu2iRf9PA.png)
+![setup](https://cdn-images-1.medium.com/max/3216/1*ADt1iYcAHB3PKLu2iRf9PA.png)
 
 Hold up. What? Is this telling me that I can’t just “use” this thing to build documentation as a tool? I need to fork it and change it?
 
@@ -120,7 +120,7 @@ Nice! This script checks for if my custom files.watch directive is already in Sl
 
 I’m not quite done though — I also want my site to have a favicon. I figured this might be a configuration option in index.html.md , but [it’s not](https://github.com/lord/slate/wiki/Adding-a-favicon):
 
-![Hey, I just realized the author’s name is Robert as well!](https://cdn-images-1.medium.com/max/3264/1*FZ74gSKGsxTeZHzZUvVREg.png)
+![Hey, I just realised the author’s name is Robert as well!](https://cdn-images-1.medium.com/max/3264/1*FZ74gSKGsxTeZHzZUvVREg.png)
 
 Well that’s just great. Time to whip out some `sed`:
 

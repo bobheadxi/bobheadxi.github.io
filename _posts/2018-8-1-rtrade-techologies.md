@@ -15,7 +15,7 @@ headerImage: true
 experience: true
 company: rtrade
 hidden: true # don't count this post in blog pagination
-organization: RTrade Technologies Ltd.
+organisation: RTrade Technologies Ltd.
 orgLink: https://www.rtradetechnologies.com/
 description: "Sept 2018 - April 2019 | Remote"
 category: experience
@@ -25,7 +25,7 @@ externalLink: false
 
 From September 2018 to April 2019, I worked remotely part-time while taking classes
 at UBC on RTrade's primary product [Temporal](https://temporal.cloud/) (an API
-interface into distributed and decentralized storage technologies) and its related services.
+interface into distributed and decentralised storage technologies) and its related services.
 My work involved leveraging technologies like [Golang](https://golang.org/),
 [Docker](https://www.docker.com/), [gRPC](https://grpc.io/),
 [PostgreSQL](https://www.postgresql.org/), and [Interplanetary Filesystem (IPFS)](https://ipfs.io/)
@@ -39,7 +39,7 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
   for improved results, more structured data management, improved performance,
   a new gRPC-based API, and new features like OCR capabilities
 * building and integrating a new [object encryption/decryption tool](https://github.com/RTradeLtd/crypto)
-  for assets stored by customers on the service 
+  for assets stored by customers on the service
 * [establishing a framework](https://github.com/RTradeLtd/testenv) for quickly
   deploying production-like test environments for **effective integration testing**
 * refactoring the core codebase into [extensible and reusable packages](https://github.com/search?q=topic%3Atemporal+org%3ARTradeLtd+fork%3Atrue)
