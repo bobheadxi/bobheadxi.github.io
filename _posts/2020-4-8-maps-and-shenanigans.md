@@ -29,7 +29,7 @@ visualisation framework, and [GitHub Pages](https://pages.github.com/).
 </p>
 
 You can probably skip the first section of this post if you just want to see a brief writeup of the
-work behind this screenshot. As always, please feel free to
+work behind this screenshot (or just go [straight to the final website](https://bobheadxi.dev/society-and-air-quality/)). As always, please feel free to
 [leave comments and questions](/march-2020-site-updates/#hypothesis-integration-for-annotations)
 on this post by highlighting some text!
 
