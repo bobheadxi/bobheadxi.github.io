@@ -78,7 +78,7 @@ which was a simple visualisation generator for benchmark results over time, but 
 sexy project or anything.
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/bobheadxi/gobenchdata/master/.static/demo-chart.png" width="75%" />
+  <img src="/assets/images/posts/maps-and-shenanigans/epa-data-explore.png" width="75%" />
 </p>
 
 Fortunately, I finished my first intern project at Riot Games with some time to spare so I decided
