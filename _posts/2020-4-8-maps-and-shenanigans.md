@@ -2,7 +2,7 @@
 title: "Pretty Things, Maps, and React Shenanigans"
 layout: post
 date: 2020-4-8 18:00
-hero_image: https://raw.githubusercontent.com/bobheadxi/society-and-air-quality/master/docs/_screenshots/epa-data-explore.png
+hero_image: /assets/images/posts/maps-and-shenanigans/epa-data-explore.png
 headerImage: false
 diagrams: true
 tag:
@@ -25,7 +25,7 @@ Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 visualisation framework, and [GitHub Pages](https://pages.github.com/).
 
 <p align="center">
-<img src="https://raw.githubusercontent.com/bobheadxi/society-and-air-quality/master/docs/_screenshots/epa-data-explore.png" />
+<img src="/assets/images/posts/maps-and-shenanigans/epa-data-explore.png" />
 </p>
 
 You can probably skip the first section of this post if you just want to see a brief writeup of the
