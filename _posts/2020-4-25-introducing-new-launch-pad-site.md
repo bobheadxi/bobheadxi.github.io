@@ -1,7 +1,7 @@
 ---
 title: "Introducing the New Launch Pad Website"
 layout: post
-date: 2020-4-21 18:00 # TODO update date
+date: 2020-4-25 18:00
 headerImage: false
 tag:
 - vue
