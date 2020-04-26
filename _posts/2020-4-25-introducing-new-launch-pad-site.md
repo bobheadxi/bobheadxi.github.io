@@ -2,10 +2,12 @@
 title: "Introducing the New Launch Pad Website"
 layout: post
 date: 2020-4-25 18:00
-headerImage: false
+image: https://raw.githubusercontent.com/ubclaunchpad/new/master/.static/banner.png
+headerImage: true
 tag:
 - vue
 - typescript
+- launch-pad
 category: blog
 author: robert
 description: we rebuilt our website from the ground up with a fresh coat of paint!
