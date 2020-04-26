@@ -13,9 +13,7 @@ author: robert
 description: we rebuilt our website from the ground up with a fresh coat of paint!
 ---
 
-[Created almost 4 years ago](dc1efd5d645f01c3b890a988fffc17b99473cf38), the current website of UBC Launch Pad - a student-run software engineering club at the Unviersity of British Columbia - is definitely starting to show its age. The website has not kept up with our refreshed branding, is mostly defined in a single massive HTML file, and takes a good amount of manual work to update for each recruitment season several times a year.
-
-We've had a design sitting around for a while now, but this year we've finally decided to get to work and churn out a brand new, from-the-ground-up refresh of our website to showcase our new branding and this semester's projects!
+We've had a design sitting around for a while now, but this year we've finally decided to get to work and churn out a brand new, from-the-ground-up refresh of our 4-year-old website to showcase our new branding and this semester's projects!
 
 * toc
 {:toc}
