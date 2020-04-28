@@ -7,6 +7,7 @@ headerImage: true
 tag:
 - vue
 - typescript
+- scss
 - launch-pad
 category: blog
 author: robert
