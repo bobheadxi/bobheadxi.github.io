@@ -20,7 +20,7 @@ badges:
 - <img src="https://img.shields.io/github/languages/top/ubclaunchpad/ubclaunchpad.github.io.svg?color=purple" />
 ---
 
-*This project has been superseded by [a new website that I built](/ubclaunchpad-dot-com)!*
+*⚠️ This project has been superseded by [a new website that I built](/ubclaunchpad-dot-com)!*
 
 <br />
 
@@ -42,8 +42,8 @@ I worked briefly on adding some new features to the UBC Launch Pad website,
 including:
 
 * a **completely redesigned project showcase** section, featuring automatic
-  scrolling, a responsive layout, and more! ([#50](https://github.com/ubclaunchpad/ubclaunchpad.github.io/pull/50))
-* minor improvements such as [emoji support](https://github.com/ubclaunchpad/ubclaunchpad.github.io/pull/58)
+  scrolling, a responsive layout, and more! ([#50](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pull/50))
+* minor improvements such as [emoji support](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pull/58)
   and other updates
 
 <p align="center">
@@ -56,7 +56,8 @@ including:
 </p>
 
 Check out my pull requests in more detail
-[here](https://github.com/ubclaunchpad/ubclaunchpad.github.io/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed),
-and see the website [live](https://ubclaunchpad.github.io)!
+[here](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed).
+
+Also see [the new website that I built](/ubclaunchpad-dot-com) to replace this one!
 
 <br />
