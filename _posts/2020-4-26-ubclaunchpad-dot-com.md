@@ -46,7 +46,7 @@ badges:
   </a>
 </p>
 
-[UBC Launch Pad is a student-run software engineering club](/what-is-launch-pad) at the University of British Columbia. I previously worked on [the club's old website](/ubclaunchpad-site), but by mid-2019 the website was showing its age and had not been kept up to date with our refreshed branding. In April 2020, using designs provided by UBC Launch Pad's design team, I built a prototype of a new website in 2 days, and worked with a few contributors to bring the prototype to completion and launch in a total of just 8 days!
+[UBC Launch Pad is a student-run software engineering club](/what-is-launch-pad) at the University of British Columbia. I previously worked on [the club's old website](/ubclaunchpad-site), but by mid-2019 the website was showing its age and had not been kept up to date with our refreshed branding. In April 2020, using designs provided by UBC Launch Pad's design team, I built a prototype of a new website in 2 days, and worked with a few contributors to bring the prototype to completion and launch in a [total of just 8 days](https://medium.com/ubc-launch-pad-software-engineering-blog/introducing-the-new-launch-pad-website-42175181d644)!
 
 The new website was built from the ground up to solve two main pain points of its predecessor: the lack of a modern web framework (which made the previous site difficult to build on top of), and the fact that almost all content was hardcoded (which made it difficult for new members to update the website). To remedy these problems, the new website:
 
@@ -78,8 +78,6 @@ In addition to the features listed above, I also worked on:
 <p align="center">
   <i style="font-size:90%;">Effortless dive into a project for more details with the new website's modal-based projects showcase</i>
 </p>
-
-I also wrote a blog post when the new website launched, [*Introducing the New UBC Launch Pad Website*](https://medium.com/ubc-launch-pad-software-engineering-blog/introducing-the-new-launch-pad-website-42175181d644), that goes over our initial implementation in more detail.
 
 Check out my pull requests in more detail [on GitHub](https://github.com/ubclaunchpad/ubclaunchpad.com/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed),
 and see the website [live at `ubclaunchpad.com`](https://ubclaunchpad.com)!
