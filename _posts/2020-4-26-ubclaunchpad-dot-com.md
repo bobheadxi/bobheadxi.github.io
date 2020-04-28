@@ -1,5 +1,5 @@
 ---
-title: "✨ The Official UBC Launch Pad Website"
+title: "✨ UBC Launch Pad Official Website"
 layout: post
 date: 2020-04-26 12:19
 tag:

@@ -1,5 +1,5 @@
 ---
-title: ":newspaper: (old) UBC Launch Pad Website"
+title: ":newspaper: (old) UBC Launch Pad Official Website"
 layout: post
 date: 2018-06-30 12:19
 tag:
