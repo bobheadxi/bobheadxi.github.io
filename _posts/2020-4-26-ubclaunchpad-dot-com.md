@@ -11,7 +11,7 @@ image: https://raw.githubusercontent.com/ubclaunchpad/ubclaunchpad.com/master/.s
 headerImage: true
 open_source: true
 hidden: true # don't count this post in blog pagination
-description: "ubclaunchpad.com - the new official website for Launch Pad, UBC's student-lead software engineering club"
+description: "<i>ubclaunchpad.com</i> - the new official website for Launch Pad, UBC's student-lead software engineering club"
 category: open-source
 author: robert
 star: true
