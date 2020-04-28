@@ -16,9 +16,6 @@ category: blog
 author: robert
 tech_writeup: true
 description: building <i>Nexus</i>, an orchestrator for operating IPFS private networks
-alt_location:
-  type: Medium
-  url: https://medium.com/@bobheadxi/single-host-instance-orchestration-part-1-deploying-and-managing-instances-9311832d1488
 ---
 
 The [Interplanetary Filesystem (IPFS)](https://ipfs.io/) is a piece of tech I've
