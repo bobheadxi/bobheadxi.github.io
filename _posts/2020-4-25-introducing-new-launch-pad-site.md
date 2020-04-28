@@ -11,7 +11,7 @@ tag:
 - launch-pad
 category: blog
 author: robert
-description: we rebuilt our website from the ground up with a fresh coat of paint!
+description: we rebuilt our website from the ground up with a fresh coat of paint (in 8 days!)
 alt_location:
   type: Medium
   url: https://medium.com/ubc-launch-pad-software-engineering-blog/introducing-the-new-launch-pad-website-42175181d644
