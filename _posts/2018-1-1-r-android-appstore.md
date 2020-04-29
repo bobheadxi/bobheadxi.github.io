@@ -14,7 +14,7 @@ hidden: true # don't count this post in blog pagination
 description: "widely used portal for luxuriously browsing a popular community-curated collection of Android applications"
 category: open-source
 author: robert
-star: true
+star: false
 externalLink: false
 badges:
 - <img src="https://img.shields.io/github/downloads/d4rken/reddit-android-appstore/total.svg" alt="Total Downloads" />
