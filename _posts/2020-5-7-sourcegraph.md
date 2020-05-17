@@ -4,7 +4,10 @@ layout: post
 date: 2020-01-07 9:00
 tag:
 - internship
-- '???'
+- golang
+- typescript
+- graphql
+- kubernetes
 - sourcegraph
 image: /assets/images/experience/sourcegraph.png
 headerImage: true
@@ -13,14 +16,14 @@ company: sourcegraph
 hidden: true # don't count this post in blog pagination
 organisation: "Sourcegraph, Inc."
 orgLink: https://about.sourcegraph.com/about
-description: "Starting May 2020 | Remote"
+description: "May 2020 - Present | Remote"
 category: experience
 author: robert
 externalLink: false
 ---
 
 <p align="center">
-    <i>Coming soon!</i>
+    <i>Work in progress :)</i>
 </p>
 
 <br />
