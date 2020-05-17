@@ -4,16 +4,17 @@ layout: post
 date: 2019-04-23 12:19
 tag:
 - golang
-- javascript
 - benchmarking
 - visualisation
 - cli
 - automation
+- vue
+- typescript
 image: https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true
 headerImage: false
 open_source: true
 hidden: true # don't count this post in blog pagination
-description: "<i>gobenchdata</i> - CLI for inspecting Go benchmarking outputs, GitHub Action for continuous benchmarking, and web app for performance visualisation"
+description: "<i>gobenchdata</i> - Run Go benchmarks, publish results to an interactive web app, and check for performance regressions in your pull requests"
 category: open-source
 author: robert
 star: true
@@ -38,8 +39,8 @@ badges:
 </p>
 
 <p align="center">
-  <a href="https://dev.azure.com/bobheadxi/bobheadxi/_build/latest?definitionId=7&branchName=master">
-    <img src="https://dev.azure.com/bobheadxi/bobheadxi/_apis/build/status/bobheadxi.gobenchdata?branchName=master" alt="CI Status" />
+  <a href="https://github.com/bobheadxi/gobenchdata/actions?workflow=pipeline">
+    <img src="https://github.com/bobheadxi/gobenchdata/workflows/pipeline/badge.svg" alt="CI Status" />
   </a>
   <a href="https://github.com/bobheadxi/gobenchdata">
     <img src="https://img.shields.io/github/stars/bobheadxi/gobenchdata.svg?" />
@@ -47,53 +48,62 @@ badges:
   <a href="https://bobheadxi.dev/r/gobenchdata">
     <img src="https://img.shields.io/badge/view-github%20action-yellow.svg" alt="GitHub Action" />
   </a>
-  <a href="https://godoc.org/github.com/bobheadxi/gobenchdata">
-    <img src="https://godoc.org/github.com/bobheadxi/gobenchdata?status.svg" alt="GoDoc" />
-  </a>
   <a href="https://gobenchdata.bobheadxi.dev/">
     <img src="https://img.shields.io/website/https/gobenchdata.bobheadxi.dev.svg?down_color=grey&down_message=offline&label=demo&up_message=live" alt="demo status">
   </a>
 </p>
 
-`gobenchdata` is a tool for inspecting `go test -bench` data, a
-[GitHub Action](https://github.com/features/actions) for continuous benchmarking,
-and a web app for performance visualisation.
+`gobenchdata` is a tool for parsing and inspecting `go test -bench` data, and a [GitHub Action](https://github.com/features/actions) for continuous benchmarking. It was inspired by the [`deno.land` continuous benchmarks](https://deno.land/benchmarks.html), which aims to display performance improvements and regressions on a continuous basis.
 
-It features:
+### Command Line App
 
-* a CLI for converting Go benchmark data in JSON as well as saving, merging, and
-  managing datasets of benchmark runs
-* a GitHub Action that allows simple setup of continuous benchmarking
-* a CLI for generating a web app that instantly provides a visualisation of your
-  benchmark performance over time
-
-Setup for the Action is very simple:
+* converts Go benchmark data to JSON and handles as saving, merging, and managing datasets of benchmark runs
+* generates a web app that instantly provides a visualisation of your benchmark performance over time
+* comparing benchmark runs on different branches and enforcing performance requirements with a highly configurable set of options:
 
 ```yml
-name: Benchmark
-on:
-  push:
-    branches: [ master ]
+checks:
+- name: My Check
+  description: |-
+    Define a check here - in this example, we caculate % difference for NsPerOp in the diff function.
+    diff is a function where you receive two parameters, current and base, and in general this function
+    should return a negative value for an improvement and a positive value for a regression.
+  package: .
+  benchmarks: [ BenchmarkA, BenchmarkB ]
+  diff: (current.NsPerOp - base.NsPerOp) / base.NsPerOp * 100
+  thresholds:
+    max: 10
+```
 
+### GitHub Action
+
+The CLI can also be leveraged in [GitHub Actions](https://github.com/features/actions). Setup for the Action is very simple:
+
+{% raw %}
+
+```yml
+name: gobenchdata publish
+on: push
 jobs:
-  benchmark:
+  publish:
     runs-on: ubuntu-latest
     steps:
     - name: checkout
-      uses: actions/checkout@v1
-      with:
-        fetch-depth: 1
-    - name: gobenchdata to gh-pages
-      uses: bobheadxi/gobenchdata@v0.3.0
+      uses: actions/checkout@v2
+    - name: gobenchdata publish
+      uses: bobheadxi/gobenchdata@v1
       with:
         PRUNE_COUNT: 30
         GO_TEST_FLAGS: -cpu 1,2
+        PUBLISH: true
+        PUBLISH_BRANCH: gh-pages
       env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        GITHUB_TOKEN: ${{ secrets.ACCESS_TOKEN }}
 ```
 
-Then, a user can simply run `gobenchdata-web` to generate a web app that they
-can commit to their `gh-pages` branch, as demonstrated [here](https://gobenchdata.bobheadxi.dev).
+{% endraw %}
+
+The Action can also be used to perform regression checks on benchmark results.
 
 Drop by the [repository](https://github.com/bobheadxi/gobenchdata) to learn more!
 
