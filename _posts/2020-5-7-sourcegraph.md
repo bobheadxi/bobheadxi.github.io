@@ -23,7 +23,7 @@ externalLink: false
 ---
 
 <p align="center">
-    <i>Work in progress :)</i>
+    <i><a href="https://github.com/search?p=1&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged&type=Issues">Work in progress :)</a></i>
 </p>
 
 <br />

@@ -8,20 +8,11 @@ title: About
 <h1>👋</h1>
 <h1 style="font-weight:500;margin-top:-0.5rem;text-align:center;">about me!</h1>
 
-Hey! My name is Robert and I am a mathematics student studying at the University of British Columbia
-with a passion for tech and building stuff.
-My professional experience includes software engineering internships at [Riot Games](/riot-games)
-and the [Michael Smith Genome Sciences Center](/bcgsc), as well as part-time, remote
-software development positions at startups like [Sumus Property Group](/sumus) and [RTrade Technologies](/rtrade-techologies/)
-while I am taking classes. See a summary of my experience [here](https://bobheadxi.dev/#work-experience)!
+Hey! My name is Robert and I am a mathematics student studying at the University of British Columbia with a passion for tech and building stuff.
 
-Outside of work and class, I participated actively for almost 2 years as
-a [tech lead in UBC Launch Pad](https://bobheadxi.dev/what-is-launch-pad), leading and mentoring teams
-of students on collaborative projects and driving programs and workshops aimed at building a
-community of aspiring software engineers at my university. I also volunteered as a
-[web developer for nwPlus](https://bobheadxi.dev/nwhacks2019/) building the website and application
-system behind one of the largest hackathons in western Canada, nwHacks. I also frequently experiment
-with different technologies and ideas through [my projects](/open-source) and [writing](/blog).
+My professional experience includes software engineering internships at [Sourcegraph](/sourcegraph) (where I currently work), [Riot Games](/riot-games), and the [Michael Smith Genome Sciences Center](/bcgsc), as well as part-time remote software development positions at startups like [Sumus Property Group](/sumus) and [RTrade Technologies](/rtrade-techologies/) while I taking classes. See a summary of my experience [here](/#work-experience)!
+
+Outside of work and class, I participated actively for several years as a [tech lead and co-president in UBC Launch Pad](/what-is-launch-pad), leading and mentoring teams of students on collaborative projects and driving programs and workshops aimed at building a community of aspiring software engineers at my university. I volunteered for some time as a [web developer for nwPlus](/nwhacks2019/) building the website and application system behind one of the largest hackathons in western Canada, nwHacks. I love experimenting with different technologies and ideas through [my projects](/open-source) and [writing](/blog).
 
 <p align="center">
     <img src="/assets/images/projects/inertia-talk.png" width="50%" />
@@ -48,9 +39,7 @@ I've tried exploring these areas myself with projects like [a self-hosted build 
 more and one day making more significant contributions!
 -->
 
-When not fiddling with tech, I have a soft spot for
-[mountains, trees, making gifs that loop](https://pics.bobheadxi.dev/), enjoying the great outdoors,
-and eating.
+When not fiddling with tech, I have a soft spot for [the great outdoor, making gifs that loop](https://pics.bobheadxi.dev/), eating, and writing.
 
 <img src="https://68.media.tumblr.com/f951837326bdcfd98d3c2cead3a1f04b/tumblr_p6rtkzXYNX1rg86u5o1_1280.gif" width="70%">
 

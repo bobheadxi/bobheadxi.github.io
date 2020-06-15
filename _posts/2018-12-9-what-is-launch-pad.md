@@ -17,8 +17,7 @@ primary objective is to be the best space at the [University of British Columbia
 for students to meet other tech enthusiasts, build projects in a team setting, gain experience with
 professional development tools and principles, and share their knowledge with others! 🚀
 
-I've volunteered in the club for almost a year at this point and worked with a few members in the
-club to write an article to try and give people a better idea of what it is we do:
+Check out this article I wrote to learn more:
 
 <p align="center">
   <a href="https://medium.com/ubc-launch-pad-software-engineering-blog/what-is-ubc-launch-pad-d3bbfe6322dc">
@@ -32,7 +31,7 @@ club to write an article to try and give people a better idea of what it is we d
 
 <p align="center">
     <i style="font-size:90%;">
-    A photo from the article: ech lead Russell and his team present their plans for
+    A photo from the article: tech lead Russell and his team present their plans for
     <a href="https://github.com/ubclaunchpad/rocket2">Rocket2</a>,
     an upcoming rewrite of Launch Pad’s management Slack bot. The project is being deployed by <a href="/inertia">Inertia</a>, another Launch Pad project
     </i>
