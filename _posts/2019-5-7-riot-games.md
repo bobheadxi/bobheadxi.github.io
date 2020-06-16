@@ -43,7 +43,7 @@ During my time there I worked on two projects in this space:
 
 ## Deployable Artefact Specification Extension
 
-The first was designing and building an extension to Riot’s deployable artefact specification to allow declarative specification of alerts on services. The specification allows engineers to describe how to deploy (similar to a Kubernetes manifest) and monitor a service for operators in various Riot regions. The extension I worked on for this specification would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts for service metrics through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
+The first was designing and building an extension to Riot’s deployable artefact specification to allow declarative specification of alerts on services. The specification allows engineers to describe how to deploy (similar to a Kubernetes manifest) and maintain a service for operators in various Riot regions. The extension I worked on for this specification would give these operators additional context on what metrics emitted by a service are important to track, while giving engineers in Riot regions an automated way to deploy alerts for service metrics through our deployment service. This work was split into several parts: designing and implementing the extension specification, and implementing the complete deployment flow for alerts as part of our internal deployment frameworks.
 
 ```yml
 alerts:
