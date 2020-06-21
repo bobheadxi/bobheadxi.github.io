@@ -299,7 +299,7 @@ func main() {
 
 And that's it for a rudimentary sidecar service that allows you to continue treating a service container as a completely isolated unit!
 
-The source code is available in the main `sourcegraph/sourcegraph` repository in [`/docker-images/grafana`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@distribution/grafana-smtp/-/tree/docker-images/grafana).
+The source code is available in the main `sourcegraph/sourcegraph` repository in [`docker-images/grafana`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@master/-/tree/docker-images/grafana).
 
 Some relevant pull requests implementing these features:
 
