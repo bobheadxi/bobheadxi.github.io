@@ -31,7 +31,7 @@ While I'll generally refer to Grafana in this writeup, you can apply it to prett
 * TOC
 {:toc}
 
-## Sidecar as a wrapper
+## Wrapping the sidecar and the service
 
 In a nutshell, the primary change made to the Grafana image is an adjustment to the entrypoint script:
 
@@ -55,7 +55,7 @@ COPY --from=builder /go/bin/grafana-wrapper /bin/grafana-wrapper
 ENTRYPOINT ["/entry.sh"]
 ```
 
-The goal here is to start a program that will do all the sidecar things you want it to do, while also taking on the task of starting up the actual service within the image you are trying to extend (`grafana/grafana` in this case).
+The goal here is to start a wrapper program that will start up your sidecar and the actual service within the image you are trying to extend (`grafana/grafana` in this case).
 
 ## Implementing the wrapper
 
