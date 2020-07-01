@@ -304,6 +304,10 @@ Some relevant pull requests implementing these features:
 * [#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environemnts and adding it back in [#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
 * [#11554](https://github.com/sourcegraph/sourcegraph/pull/11554) adds the ability for the sidecar to start and restart the main service.
 
-The source code *was* available in the main `sourcegraph/sourcegraph` repository in [`docker-images/grafana`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@master/-/tree/docker-images/grafana), but we have since pivoted on the plan (context: [#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and the wrapper no longer lives in our Grafana distribution.
+---
+
+**⚠️ Update**: The source code *was* available in the main `sourcegraph/sourcegraph` repository in [`docker-images/grafana`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@master/-/tree/docker-images/grafana), but we have since pivoted on the plan (context: [#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and the wrapper no longer lives in our Grafana distribution, but is instead a part of our Prometheus deployment - see [#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation.
+
+---
 
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
