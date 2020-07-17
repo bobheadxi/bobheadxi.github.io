@@ -10,7 +10,7 @@ title: About
 
 Hey! My name is Robert and I am a mathematics student studying at the University of British Columbia with a passion for tech and building stuff.
 
-My professional experience includes software engineering internships at [Sourcegraph](/sourcegraph) (where I currently work), [Riot Games](/riot-games), and the [Michael Smith Genome Sciences Center](/bcgsc), as well as part-time remote software development positions at startups like [Sumus Property Group](/sumus) and [RTrade Technologies](/rtrade-techologies/) while I taking classes. See a summary of my experience [here](/#work-experience)!
+My professional experience includes software engineering internships at [Sourcegraph](/sourcegraph) (where I currently work), [Riot Games](/riot-games), and the [Michael Smith Genome Sciences Center](/bcgsc), as well as part-time remote software development positions at startups like [Sumus Property Group](/sumus) and [RTrade Technologies](/rtrade-techologies/) while taking classes. See a summary of my experience [here](/#work-experience)!
 
 Outside of work and class, I participated actively for several years as a [tech lead and co-president in UBC Launch Pad](/what-is-launch-pad), leading and mentoring teams of students on collaborative projects and driving programs and workshops aimed at building a community of aspiring software engineers at my university. I volunteered for some time as a [web developer for nwPlus](/nwhacks2019/) building the website and application system behind one of the largest hackathons in western Canada, nwHacks. I love experimenting with different technologies and ideas through [my projects](/open-source) and [writing](/blog).
 
