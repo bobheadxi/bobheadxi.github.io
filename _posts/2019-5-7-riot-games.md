@@ -37,7 +37,7 @@ externalLink: false
 
 <br />
 
-From May to August 2019, I worked as a software engineering intern at Riot Games in the Operability team under a group called Riot Developer Experience, which aspires to simplify the foundation for developing and operating services, empowering teams to focus on their own problem spaces. Operability specifically owns a variety of systems within Riot Games, though our work at the time mostly pertained to operational monitoring - providing engineers at Riot visibility into how their services are performing and behaving across the globe.
+From May to August 2019, I worked as a software engineering intern at [Riot Games](#about-riot-games) in the Operability team under a group called Riot Developer Experience, which aspires to simplify the foundation for developing and operating services, empowering teams to focus on their own problem spaces. Operability specifically owns a variety of systems within Riot Games, though our work at the time mostly pertained to operational monitoring - providing engineers at Riot visibility into how their services are performing and behaving across the globe.
 
 During my time at Riot Games, I primarily worked on two projects in this space:
 

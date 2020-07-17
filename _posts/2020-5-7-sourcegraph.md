@@ -27,7 +27,7 @@ externalLink: false
     <i><a href="">Work in progress :)</a></i>
 </p>
 
-Since May 2020, I have worked as a software engineering intern at Sourcegraph in the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution). The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug, solving challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that we face when we deploy and scale [sourcegraph.com](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
+Since May 2020, I have worked as a software engineering intern at [Sourcegraph](#about-sourcegraph) in the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution). The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug, solving challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that we face when we deploy and scale [sourcegraph.com](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
 
 During my time at Sourcegraph, my focus has been on expanding the capabilities of Sourcegraph's built-in monitoring stack and improving the experience for administrators of Sourcegraph deployments.
 

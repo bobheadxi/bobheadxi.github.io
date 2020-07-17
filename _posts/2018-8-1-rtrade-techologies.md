@@ -24,7 +24,7 @@ externalLink: false
 ---
 
 From September 2018 to April 2019, I worked remotely part-time while taking classes
-at UBC on RTrade's primary product [Temporal](https://temporal.cloud/) (an API
+at UBC on [RTrade Technologies'](#about-rtrade-technologies) primary product [Temporal](https://temporal.cloud/) (an API
 interface into distributed and decentralised storage technologies) and its related services.
 My work involved leveraging technologies like [Golang](https://golang.org/),
 [Docker](https://www.docker.com/), [gRPC](https://grpc.io/),
