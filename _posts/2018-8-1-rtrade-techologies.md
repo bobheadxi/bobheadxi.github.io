@@ -44,8 +44,7 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
   deploying production-like test environments for **effective integration testing**
 * refactoring the core codebase into [extensible and reusable packages](https://github.com/search?q=topic%3Atemporal+org%3ARTradeLtd+fork%3Atrue)
 
-Most of the company's work is open-source, so you can see all my pull requests
-for RTrade on [GitHub](https://github.com/search?o=asc&q=author%3Abobheadxi+is%3Amerged+org%3ARTradeLtd&s=created&type=Issues)!
+Most of the company's work is open-source, so you can [see my pull requests for RTrade on GitHub](https://github.com/search?o=desc&q=author%3Abobheadxi+is%3Amerged+org%3ARTradeLtd&s=comments&type=Issues)!
 
 <br />
 
