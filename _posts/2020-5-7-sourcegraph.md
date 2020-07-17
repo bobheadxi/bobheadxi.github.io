@@ -16,7 +16,7 @@ experience: true
 company: sourcegraph
 hidden: true # don't count this post in blog pagination
 organisation: "Sourcegraph, Inc."
-orgLink: https://about.sourcegraph.com/about
+orgLink: https://about.sourcegraph.com
 description: "May 2020 - Present | Remote"
 category: experience
 author: robert
@@ -24,8 +24,28 @@ externalLink: false
 ---
 
 <p align="center">
-    <i><a href="https://github.com/search?p=1&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged&type=Issues">Work in progress :)</a></i>
+    <i><a href="">Work in progress :)</a></i>
 </p>
+
+Since May 2020, I have worked as a software engineering intern at [Sourcegraph](#about-sourcegraph) in the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution). The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug, solving challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that we face when we deploy and scale [sourcegraph.com](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
+
+During my time at Sourcegraph, my focus has been on expanding the capabilities of Sourcegraph's built-in monitoring stack and improving the experience for administrators of Sourcegraph deployments.
+
+<p align="center">
+    <img src="https://storage.googleapis.com/sourcegraph-assets/monitoring-architecture.png" />
+</p>
+
+<p align="center">
+    <i style="font-size:90%;">
+    A diagram of the monitoring stack that we ship to customers as part of each Sourcegraph deployment. Learn more about it in
+    <a href="https://about.sourcegraph.com/handbook/engineering/distribution/observability/monitoring_architecture">our handbook entry</a> that I
+    <a href="https://github.com/sourcegraph/about/pull/1221">helped write</a>!
+    </i>
+</p>
+
+<br />
+
+Most of the company's work is open-source, so you can [see my pull requests for Sourcegraph on GitHub](https://github.com/search?o=desc&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged&s=comments&type=Issues)!
 
 <br />
 

@@ -24,7 +24,7 @@ externalLink: false
 ---
 
 From September 2018 to April 2019, I worked remotely part-time while taking classes
-at UBC on RTrade's primary product [Temporal](https://temporal.cloud/) (an API
+at UBC on [RTrade Technologies'](#about-rtrade-technologies) primary product [Temporal](https://temporal.cloud/) (an API
 interface into distributed and decentralised storage technologies) and its related services.
 My work involved leveraging technologies like [Golang](https://golang.org/),
 [Docker](https://www.docker.com/), [gRPC](https://grpc.io/),
@@ -44,8 +44,7 @@ My work involved leveraging technologies like [Golang](https://golang.org/),
   deploying production-like test environments for **effective integration testing**
 * refactoring the core codebase into [extensible and reusable packages](https://github.com/search?q=topic%3Atemporal+org%3ARTradeLtd+fork%3Atrue)
 
-Most of the company's work is open-source, so you can see all my pull requests
-for RTrade on [GitHub](https://github.com/search?o=asc&q=author%3Abobheadxi+is%3Amerged+org%3ARTradeLtd&s=created&type=Issues)!
+Most of the company's work is open-source, so you can [see my pull requests for RTrade on GitHub](https://github.com/search?o=desc&q=author%3Abobheadxi+is%3Amerged+org%3ARTradeLtd&s=comments&type=Issues)!
 
 <br />
 
