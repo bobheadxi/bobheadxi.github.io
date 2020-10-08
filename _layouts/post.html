@@ -26,7 +26,7 @@ layout: page
             buttons: [
                 Noty.button('See Annotations', 'btn-box',
                     function() {
-                        ga('send', 'event', 'Notification', 'click', 'hypothesis');
+                        gtag('event', 'notification_interaction', { page: '', button: 'hypothesis' });
                         hypothesisNotification.close();
                     },
                     { 'data-hypothesis-trigger': true }),
@@ -58,8 +58,9 @@ layout: page
                 buttons: [
                     Noty.button(`Read on ${altPlatform}`, 'btn-box',
                         function() {
-                            ga('send', 'event', 'Notification', 'click', 'alt_location', {
-                                hitCallback: function() {
+                            gtag('event', 'notification_interaction', {
+                                page: '', button: 'alt_location',
+                                event_callback: function() {
                                     window.open(altURL);
                                 }
                             });

@@ -4,6 +4,10 @@ title: Home
 ---
 
 <script>
+  function reportNotyClick(page, button, otherParams = {}) {
+    gtag('event', 'notification_interaction', { page, button, ...otherParams });
+  }
+
   /* welcome message - "shorter" behaviour for mobile devices */
   setTimeout(function(){
     var welcomeNotification = new Noty({
@@ -12,22 +16,22 @@ title: Home
       timeout: isMobile ? 5000 : undefined,
       buttons: [
         Noty.button('Projects', 'btn-box', function() {
-          ga('send', 'event', 'Notification', 'click', 'home');
+          reportNotyClick('home', 'projects')
           location.replace('#open-source-highlights');
           if (isMobile) welcomeNotification.close();
         }),
         Noty.button('Writing', 'btn-box', function() {
-          ga('send', 'event', 'Notification', 'click', 'home');
+          reportNotyClick('home', 'writing')
           location.replace('#featured-posts');
           if (isMobile) welcomeNotification.close();
         }),
         Noty.button('About Me', 'btn-box', function() {
-          ga('send', 'event', 'Notification', 'click', 'home', {
-            hitCallback: function() {
+          reportNotyClick('home', 'about', {
+            event_callback: function() {
               window.open('https://bobheadxi.dev/about');
               if (isMobile) welcomeNotification.close();
             }
-          });
+          })
         }),
       ]
     }).show();

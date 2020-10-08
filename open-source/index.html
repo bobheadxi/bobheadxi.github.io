@@ -27,6 +27,7 @@ title: Open Source
 
 <script>
 function drawChart() {
+    const startTime = Date.now();
     return fetch('https://cors-anywhere.herokuapp.com/https://github-contributions.now.sh/api/v1/bobheadxi')
         .then((resp) => resp.json())
         .then((data) => {
@@ -68,9 +69,20 @@ function drawChart() {
                 };
                 rc.rectangle(dim.x, dim.y, dim.w, dim.h, { fill: '#5A85F3' });
             });
+
             console.log('charts drawn!');
+            const elapsedTime = new Date() - startTime;
+            gtag("event", "timing_complete", {
+                name: 'open-source-chart',
+                value: (elapsedTime / 1000).toFixed(3), // ms
+            });
         })
-        .catch((err) => console.error(`/open-source chart error`, { err }));
+        .catch((err) => {
+            console.error(`/open-source chart error`, { err });
+            gtag('event', 'exception', {
+                description: `/open-source chart error: ${err}`,
+            });
+        });
 }
 
 window.onload = drawChart;
