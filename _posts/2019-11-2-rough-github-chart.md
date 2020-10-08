@@ -111,9 +111,11 @@ added explaining what is going on:
 
 ```js
 const user = 'bobheadxi';
+const corsAnywhere = 'https://cors-anywhere.herokuapp.com';
 function drawChart() {
-  // start off by requesting contribution data
-  return fetch(`https://github-contributions-api.now.sh/v1/${user}`)
+  // start off by requesting contribution data. as of oct 2020, this API now requires CORS
+  // enabled - we use the cors-anywhere proxy service to make the request instead.
+  return fetch(`${corsAnywhere}/https://github-contributions.now.sh/api/v1/${user}`)
     .then((resp) => resp.json()) // turn that request data into JSON
     .then((data) => {
       // figure out what our current dimensions are - I chose to always let the

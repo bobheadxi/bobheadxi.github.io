@@ -27,7 +27,7 @@ title: Open Source
 
 <script>
 function drawChart() {
-    return fetch('https://github-contributions-api.now.sh/v1/bobheadxi')
+    return fetch('https://cors-anywhere.herokuapp.com/https://github-contributions.now.sh/api/v1/bobheadxi')
         .then((resp) => resp.json())
         .then((data) => {
             const maxWidth = document.getElementById('canvas-container').clientWidth;
