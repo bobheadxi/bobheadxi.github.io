@@ -10,7 +10,7 @@ install-checks:
 	go get -u github.com/client9/misspell/cmd/misspell
 
 serve:
-	bundle exec jekyll serve --config _config.yml,_config-dev.yml
+	bundle exec jekyll serve --incremental --config _config.yml,_config-dev.yml
 
 checks: spellcheck mdlint
 
