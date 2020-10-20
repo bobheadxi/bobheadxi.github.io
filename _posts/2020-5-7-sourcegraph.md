@@ -38,7 +38,7 @@ During my time at Sourcegraph, my focus has been on expanding the capabilities o
 <p align="center">
     <i style="font-size:90%;">
     A diagram of the monitoring stack that we ship to customers as part of each Sourcegraph deployment. Learn more about it in
-    <a href="https://about.sourcegraph.com/handbook/engineering/distribution/observability/monitoring_architecture">our handbook entry</a> that I
+    <a href="https://about.sourcegraph.com/handbook/engineering/observability/monitoring_architecture">our handbook entry</a> that I
     <a href="https://github.com/sourcegraph/about/pull/1221">helped write</a>!
     </i>
 </p>
