@@ -67,7 +67,7 @@ Previously, creating Sourcegraph releases was a lengthy, complex process that in
 My work in this area includes:
 
 * Extensive improvements to the [Sourcegraph release tool](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/dev/release), which handles automation of release tasks such as generating multi-repository changes, creating tags, setting up tracking issues, adding calendar events, making announcements, and more
-* Improving our integration and regression testing suite by introducing the capability to directly leverage candidate images in tests, generalizing test setup tooling, and adding automated upgrade tests to ensure compatibility
+* Improving our integration and regression testing suite by introducing the capability to directly leverage candidate images in tests, generalising test setup tooling, and adding automated upgrade tests to ensure compatibility
 
 The long-term vision of this work is to enable releases to be handled by any engineer at Sourcegraph, as seamlessly and painlessly as possible, improving the pace at which we can ship releases we are confident in to our customers.
 

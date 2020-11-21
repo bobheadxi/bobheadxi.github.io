@@ -164,7 +164,7 @@ func main() {
 
     // if a request doesn't route to the sidecar, route to your main service
     router.PathPrefix("/").Handler(&httputil.ReverseProxy{
-        // the Director of a ReverseProxy handles trasnforming requests and
+        // the Director of a ReverseProxy handles transforming requests and
         // sending them on to the correct location, in this case another port
         // in this container (our service's internal port)
         Director: func(req *http.Request) {
@@ -269,7 +269,7 @@ func (c *grafanaController) RunServer() error {
 }
 ```
 
-Just like errors in libraries, exit codes are often up to the jurisdiction of the developer, and in this case Grafana does not give us a useful indication of whether a process has stopped because of an intentional `SIGINT`, or if a fatal error occured causing it to exit (and indicating that we should exit our controller).
+Just like errors in libraries, exit codes are often up to the jurisdiction of the developer, and in this case Grafana does not give us a useful indication of whether a process has stopped because of an intentional `SIGINT`, or if a fatal error occurred causing it to exit (and indicating that we should exit our controller).
 
 You can add some additional management (i.e. a thread-safe flag or channel to indicate that a shutdown has been triggered intentionally, and only exit on code 1 if this flag is not set), but the complexity of what is meant to be a simple wrapper will quickly ramp up.
 
@@ -301,7 +301,7 @@ And that's it for a rudimentary sidecar service that allows you to continue trea
 
 Some relevant pull requests implementing these features:
 
-* [#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environemnts and adding it back in [#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
+* [#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environments and adding it back in [#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
 * [#11554](https://github.com/sourcegraph/sourcegraph/pull/11554) adds the ability for the sidecar to start and restart the main service.
 
 ---
