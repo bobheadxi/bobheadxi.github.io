@@ -28,6 +28,14 @@ This article goes over the approach I took to achieve the following without sign
 
 While I'll generally refer to Grafana in this writeup, you can apply it to pretty much any service image out there. I also use Go here, but you can draw from the same concepts to leverage your language of choice as well.
 
+---
+
+> **⚠️ Update**: Since the writing of this post, we have pivoted on the plan (context: [sourcegraph#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/docker-images/prometheus).
+>
+> Most of this article still applies though, but with Prometheus + Alertmanager instead.
+
+---
+
 * TOC
 {:toc}
 
@@ -301,13 +309,7 @@ And that's it for a rudimentary sidecar service that allows you to continue trea
 
 Some relevant pull requests implementing these features:
 
-* [#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environments and adding it back in [#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
-* [#11554](https://github.com/sourcegraph/sourcegraph/pull/11554) adds the ability for the sidecar to start and restart the main service.
-
----
-
-**⚠️ Update**: The source code *was* available in the main `sourcegraph/sourcegraph` repository in [`docker-images/grafana`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@master/-/tree/docker-images/grafana), but we have since pivoted on the plan (context: [#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and the wrapper no longer lives in our Grafana distribution, but is instead a part of our Prometheus deployment - see [#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation.
-
----
+* [sourcegraph#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environments and adding it back in [sourcegraph#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
+* [sourcegraph#11554](https://github.com/sourcegraph/sourcegraph/pull/11554) adds the ability for the sidecar to start and restart the main service.
 
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
