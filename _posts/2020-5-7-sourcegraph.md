@@ -10,6 +10,7 @@ tag:
 - docker
 - kubernetes
 - monitoring
+- remote
 - sourcegraph
 image: /assets/images/experience/sourcegraph.png
 headerImage: true
