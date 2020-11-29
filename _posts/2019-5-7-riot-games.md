@@ -5,7 +5,6 @@ date: 2019-05-07 9:00
 tag:
 - internship
 - golang
-- graph-databases
 - monitoring
 - react
 - visualisation
