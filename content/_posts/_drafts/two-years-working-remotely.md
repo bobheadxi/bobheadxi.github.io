@@ -8,7 +8,7 @@ tag:
 - misc
 category: blog
 author: robert
-description: Reflections on my first two years of remote: the work, the lifestyle, and the takeaways.
+description: "Reflections on my first two years of remote: the work, the lifestyle, and the takeaways."
 ---
 
 As I try to finish up the final stretch of my degree and this tumultuous 2020 draws to a close, I realise that I am almost at this arbitrary two-year milestone in working remotely, both before and during the pandemic. This time of year always brings about a contemplative mood, so I figured I could do a bit of retrospective on this milestone, and use it as an excuse to write another blog post nobody really asked for.
