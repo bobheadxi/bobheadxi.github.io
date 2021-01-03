@@ -19,7 +19,7 @@ description: building <i>Nexus</i>, an orchestrator for operating IPFS private n
 
 The [Interplanetary Filesystem (IPFS)](https://ipfs.io/) is a piece of tech I've
 been working with extensively during my time as a remote software engineer at
-[RTrade Technologies](/rtrade-techologies). It's been interesting, but juggling
+[RTrade Technologies](/experience/rtrade-techologies). It's been interesting, but juggling
 part-time remote dev work with my [UBC Launch Pad involvement](https://bobheadxi.dev/tags/#launch-pad)
 and schoolwork certainly takes a bit of a toll - I'll probably write a blog post
 about that at some point.
@@ -55,7 +55,7 @@ the project, with links to implementation details and whatnot:
 
 Deploying nodes within containers was the most obvious choice - the tech is kind
 of designed for situations like this, and I've had some experience working
-directly with the Docker API through my work on [Inertia](/inertia).
+directly with the Docker API through my work on [Inertia](/open-source/inertia).
 
 This functionality is neatly encapsualted in package [`Nexus/ipfs`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs)
 within an interface, [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ipfs#NodeClient),

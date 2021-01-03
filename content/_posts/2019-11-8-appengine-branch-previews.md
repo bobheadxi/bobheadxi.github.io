@@ -20,7 +20,7 @@ alt_location:
 ---
 
 Shortly after I returned to school, early in October 2019 I started
-[working part-time remotely for Sumus](/sumus), a property management company
+[working part-time remotely for Sumus](/experience/sumus), a property management company
 based out of Lethbridge, Alberta. My role was primarily as a software developer
 on a investor portal they wanted to build. I wasn't starting from scratch - there
 was already a sizable codebase going, and a simple deployment set up on
@@ -104,7 +104,7 @@ I ended up moving it to GitHub Actions to split up our workloads.
 I first ran into the concept of branch previews working on the [UBC Launch Pad website](/ubclaunchpad-site),
 where we leveraged [Netlify's](https://www.netlify.com/) great branch preview feature.
 It was a fantastic way to do some live testing and get feedback quickly, so I leveraged
-branch previews again during my time with [nwPlus working on the nwHacks 2019 website](/nwhacks2019),
+branch previews again during my time with [nwPlus working on the nwHacks 2019 website](/open-source/nwhacks2019),
 where I used a tool I worked on, [`ubclaunchpad/inertia`](https://github.com/ubclaunchpad/inertia),
 to quickly stage previews for the nwPlus design team to provide feedback on.
 

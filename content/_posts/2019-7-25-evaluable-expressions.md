@@ -14,7 +14,7 @@ author: robert
 description: metaconfiguration with Go!
 ---
 
-One of my projects at [Riot Games](/riot-games/) (as I introduced in a blog post
+One of my projects at [Riot Games](/experience/riot-games/) (as I introduced in a blog post
 on the official Riot Games technology blog, ["Technology Interns at Riot Games"](https://technology.riotgames.com/news/technology-interns-riot-games))
 involved designing an extension to an internal application specification we have to
 describe services to allow engineers to declaratively define alerts on their

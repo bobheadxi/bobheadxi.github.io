@@ -32,19 +32,19 @@ picture: assets/images/profile.jpg
 
 url: https://bobheadxi.dev
 
-permalink: /:title/
-
 # To enable google analytics, supply your token below
 analytics-google: 'UA-104153824-1'
 
-# To enable piwik tracking, supply your url & site ID below
-# analytics-piwik-url: 'piwik.my-host.com'
-# analytics-piwik-id: 1
-
-# if you don't want comments in your posts, leave categories empty
-disqus:
-  shortname: bobheadxi # enter this from your disqus account
-  categories: [] # only show disqus for posts that have these categories
+# Collections: https://jekyllrb.com/docs/collections/
+collections_dir: content
+permalink: /:title/
+collections:
+  open-source:
+    output: true
+    permalink: /open-source/:title
+  experience:
+    output: true
+    permalink: /experience/:title
 
 # if you don't have any of social below, comment the line
 github: bobheadxi
@@ -54,17 +54,6 @@ email: robert@bobheadxi.dev
 instagram: savethefade
 tumblr: bobheadxi
 # twitter: bobheadxi
-# facebook: myfacebook
-# google: mygoogle
-# pinterest: mypinterest
-# youtube: myyoutube
-# spotify: myspotify
-# lastfm: mylastfm
-# stackoverflow: 7044681/mystackoverflow
-# quora: userquora
-# reddit: username
-# vimeo: myvimeo
-# lanyrd: mylanyrd
 
 authors:
   robert:
@@ -81,13 +70,6 @@ width: normal
 # if you don't need pagination, comment the *paginate* configs below
 # paginate: 5
 # paginate_path: "blog/:num/"
-
-# if you don't need projects, comment the *projects* configs below
-open_source: true
-
-# if you don't need "about" or "blog", comment them out below
-about: true
-blog: true
 
 # do you want to show the "read time" of the posts?
 read-time: true

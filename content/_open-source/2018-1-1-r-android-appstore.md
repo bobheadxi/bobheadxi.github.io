@@ -8,10 +8,7 @@ tag:
 - open-source
 image: https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true
 headerImage: false
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "widely used portal for luxuriously browsing a popular community-curated collection of Android applications"
-category: open-source
 author: robert
 star: false
 externalLink: false

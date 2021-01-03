@@ -3,7 +3,7 @@ layout: page
 ---
 
 <!-- https://hypothes.is/ only for blog posts -->
-{% if page.experience!=true %}
+{% if post.collection != 'experience' %}
     <script>
     window.hypothesisConfig = function() {
         return {
@@ -89,13 +89,13 @@ layout: page
     </h2>
 {% endif %} -->
 
-{% if page.open_source!=true and page.hidedescription!=true %}
+{% if page.collection!='open-source' and page.hidedescription!=true %}
 <p class="date" style="color:#606060;margin-top:-25px;margin-bottom:30px;">
     <i> {{ page.description }} </i>
 </p>
 {% endif %}
 
-{% if page.experience!=true and page.open_source!=true %}
+{% if page.collection!='experience' and page.collection!='open-source' %}
     <span class="date">
         <time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date: "%A. %B %d, %Y" }}</time>
         {% if site.read-time %} - {% include read-time.html %}{% endif %}
@@ -151,8 +151,4 @@ layout: page
 
 {% if site.show-author %}
     {% include author.html %}
-{% endif %}
-
-{% if site.disqus.categories contains page.category %}
-    {% include disqus.html %}
 {% endif %}

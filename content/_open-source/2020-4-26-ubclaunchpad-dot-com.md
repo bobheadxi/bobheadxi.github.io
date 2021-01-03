@@ -8,10 +8,7 @@ tag:
 - launch-pad
 image: https://raw.githubusercontent.com/ubclaunchpad/ubclaunchpad.com/master/.static/banner.png
 headerImage: true
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "<i>ubclaunchpad.com</i> - the new official website for Launch Pad, UBC's student-lead software engineering club"
-category: open-source
 author: robert
 star: true
 externalLink: false
