@@ -1,7 +1,6 @@
 ---
 title: "Branch Previews with Google App Engine and GitHub Actions"
 layout: post
-date: 2019-11-08 11:00
 hero_image: /assets/images/posts/appengine/branch-staged.png
 image: https://miro.medium.com/max/996/1*VHYGqjhONSJ20pRlIUbg7w.png
 headerImage: true

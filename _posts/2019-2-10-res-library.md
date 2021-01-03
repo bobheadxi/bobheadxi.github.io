@@ -1,7 +1,6 @@
 ---
 title: ":mailbox: RESTful Primitives Library"
 layout: post
-date: 2019-01-27 12:19
 tag:
 - golang
 - rest

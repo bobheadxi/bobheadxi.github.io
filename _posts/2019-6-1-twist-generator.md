@@ -1,7 +1,6 @@
 ---
 title: ":satellite: Canonical Imports Generator for Go Packages"
 layout: post
-date: 2019-06-01 12:19
 tag:
 - golang
 - cli

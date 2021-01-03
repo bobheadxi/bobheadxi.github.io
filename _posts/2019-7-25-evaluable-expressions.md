@@ -1,7 +1,6 @@
 ---
 title: "Evaluable Expressions in Configuration"
 layout: post
-date: 2019-7-25
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Go_Logo_Blue.svg/1200px-Go_Logo_Blue.svg.png
 headerImage: true
 tag:

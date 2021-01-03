@@ -1,7 +1,6 @@
 ---
 title: "Pretty Things, Maps, and React Shenanigans"
 layout: post
-date: 2020-4-8 18:00
 hero_image: /assets/images/posts/maps-and-shenanigans/epa-data-explore.png
 headerImage: false
 diagrams: true

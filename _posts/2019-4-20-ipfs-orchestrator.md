@@ -1,7 +1,6 @@
 ---
 title: "IPFS Private Network Node Orchestration"
 layout: post
-date: 2019-04-20 11:00
 hero_image: /assets/images/posts/ipfs-orchestrator/sketch.jpg
 image: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png
 headerImage: true

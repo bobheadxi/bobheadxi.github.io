@@ -1,7 +1,6 @@
 ---
 title: "Determining the Uniqueness of Oligonucleotide Sequences"
 layout: post
-date: 2018-02-08 02:20
 image: https://biopython.org/assets/images/biopython_logo_s.png
 headerImage: true
 tag:

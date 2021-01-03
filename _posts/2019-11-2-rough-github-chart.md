@@ -1,7 +1,6 @@
 ---
 title: "GitHub Activity Chart with Rough.js"
 layout: post
-date: 2019-11-02 11:00
 image: /assets/images/posts/rough-github.png
 headerImage: true
 tag:

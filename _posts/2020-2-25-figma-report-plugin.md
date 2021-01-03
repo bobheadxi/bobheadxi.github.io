@@ -1,7 +1,6 @@
 ---
 title: "Generating Reports in Figma with a Custom Figma Plugin"
 layout: post
-date: 2020-2-25 9:00
 hero_image: /assets/images/experience/sumus/pitcher-demo.png
 image: https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg
 headerImage: true

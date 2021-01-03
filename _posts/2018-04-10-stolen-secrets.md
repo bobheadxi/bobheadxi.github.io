@@ -1,7 +1,6 @@
 ---
 title: "Intercepted Wartime Dispatches Between Berlin and Tokyo"
 layout: post
-date: 2018-04-11 00:20
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Type_97_cypher_machine.jpg/1328px-Type_97_cypher_machine.jpg
 headerImage: true
 tag:

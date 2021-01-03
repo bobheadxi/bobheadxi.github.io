@@ -1,7 +1,6 @@
 ---
 title: ":department_store: Social Lending Platform"
 layout: post
-date: 2018-01-07 12:00
 tag:
 - hackathon
 - python

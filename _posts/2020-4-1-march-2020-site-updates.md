@@ -1,7 +1,6 @@
 ---
 title: "March 2020 Updates for bobheadxi.dev"
 layout: post
-date: 2020-4-1 13:00
 image: /assets/images/profile.jpg
 headerImage: true
 tag:
