@@ -42,6 +42,9 @@ collections:
   open-source:
     output: true
     permalink: /open-source/:title
+  experience:
+    output: true
+    permalink: /experience/:title
 
 # if you don't have any of social below, comment the line
 github: bobheadxi

@@ -3,7 +3,7 @@ layout: page
 ---
 
 <!-- https://hypothes.is/ only for blog posts -->
-{% if page.experience!=true %}
+{% if post.collection != 'experience' %}
     <script>
     window.hypothesisConfig = function() {
         return {

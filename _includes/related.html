@@ -10,7 +10,7 @@
                     <ul>
                     {% endif %}
                     <li class="relatedPost">
-                        {% if post.experience == true %}
+                        {% if post.collection == 'experience' %}
                             <a href="{{ site.url }}{{ post.url }}">Experience: {{ post.title }} at {{ post.organisation }}
                         {% else %}
                             <a href="{{ site.url }}{{ post.url }}">{{ post.title }}

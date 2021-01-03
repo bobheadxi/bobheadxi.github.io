@@ -35,7 +35,7 @@ title: Tags
                         <a class="url" href="{{ site.url }}{{ post.url }}">
                             <aside class="date"><time datetime="{{ post.date | date:"%d-%m-%Y" }}">{{ post.date | date: "%b %d %Y" }}</time></aside>
                             
-                            {% if post.experience == true %}
+                            {% if post.collection == 'experience' %}
                                 <h3 class="title">Experience: {{ post.title }} at {{ post.organisation }}</h3>
                             {% else %}
                                 <h3 class="title">{{ post.title }}</h3>

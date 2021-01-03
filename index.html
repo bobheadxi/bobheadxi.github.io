@@ -41,7 +41,7 @@ title: Home
     <a style="color:#666;text-decoration: none;" href="#work-experience">work experience</a>
   </h2>
 
-  {% for post in site.posts %} {% if post.experience %}
+  {% for post in site.experience %}
   <div class="item" align="center">
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
       <img class="image" src="{{ post.image }}" width="128px" />
@@ -56,7 +56,7 @@ title: Home
       <p> {{ post.description }} </p>
     </a>
   </div>
-  {% endif %} {% endfor %}
+  {% endfor %}
 
 </section>
 

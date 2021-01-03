@@ -13,13 +13,10 @@ tag:
 - sourcegraph
 image: /assets/images/experience/sourcegraph.png
 headerImage: true
-experience: true
 company: sourcegraph
-hidden: true # don't count this post in blog pagination
 organisation: "Sourcegraph, Inc."
 orgLink: https://about.sourcegraph.com
 description: "May 2020 - Present | Remote"
-category: experience
 author: robert
 externalLink: false
 ---

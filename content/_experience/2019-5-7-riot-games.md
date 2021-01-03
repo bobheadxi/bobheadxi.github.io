@@ -10,13 +10,10 @@ tag:
 - riot-games
 image: /assets/images/experience/riot-games.png
 headerImage: true
-experience: true
 company: riot-games
-hidden: true # don't count this post in blog pagination
 organisation: "Riot Games, Inc"
 orgLink: https://www.riotgames.com/en/who-we-are
 description: "May 2019 - August 2019 | Los Angeles, CA"
-category: experience
 author: robert
 externalLink: false
 ---

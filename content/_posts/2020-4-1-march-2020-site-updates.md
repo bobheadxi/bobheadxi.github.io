@@ -52,19 +52,16 @@ posts as well?
 {% raw %}
 
 ```html
-<!-- only add hypothesis for blog posts -->
-{% if page.experience!=true %}
-    <script>
-    window.hypothesisConfig = function() {
-        return {
-            branding: {
-                accentColor: '#5A85F3',
-            },
-        };
+<script>
+window.hypothesisConfig = function() {
+    return {
+        branding: {
+            accentColor: '#5A85F3',
+        },
     };
-    </script>
-    <script src="https://hypothes.is/embed.js" async></script>
-{% endif %}
+};
+</script>
+<script src="https://hypothes.is/embed.js" async></script>
 ```
 
 {% endraw %}
@@ -91,9 +88,7 @@ set up, so after adding an alert for Hypothes.is I set up an additional welcome 
 {% raw %}
 The template language used by [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
 (which I'm surprised to learn is made by [Shopify](https://www.shopify.com/)!), offers many ways to
-add conditional elements to your pages (such as
-[the `{% if page.experience!=true %}` condition used previously](#hypothesis-integration)),
-so I figured I could leverage it just a little more to add some more conditional alerts, such as
+add conditional elements to your pages, so I figured I could leverage it just a little more to add some more conditional alerts, such as
 one to advertise other places my posts are published in. I was pleasantly surprised at how this one
 *just worked*. 🍎
 {% endraw %}
