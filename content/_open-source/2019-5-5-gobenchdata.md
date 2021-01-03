@@ -11,10 +11,7 @@ tag:
 - typescript
 image: https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true
 headerImage: false
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "<i>gobenchdata</i> - Run Go benchmarks, publish results to an interactive web app, and check for performance regressions in your pull requests"
-category: open-source
 author: robert
 star: true
 externalLink: false

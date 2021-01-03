@@ -6,28 +6,22 @@
             </li>
         {% endif %}
 
-        {% if site.blog == true %}
-            {% if page.title != "Blog" %}
-                <li class="item">
-                    <a class="link" href="{{ site.url }}/blog">blog</a>
-                </li>
-            {% endif %}
+        {% if page.title != "Blog" %}
+            <li class="item">
+                <a class="link" href="{{ site.url }}/blog">blog</a>
+            </li>
         {% endif %}
 
-        {% if site.open_source == true %}
-            {% if page.title != "Open Source" %}
-                <li class="item">
-                    <a class="link" href="{{ site.url }}/open-source">open source</a>
-                </li>
-            {% endif %}
+        {% if page.title != "Open Source" %}
+            <li class="item">
+                <a class="link" href="{{ site.url }}/open-source">open source</a>
+            </li>
         {% endif %}
 
-        {% if site.about == true %}
-            {% if page.title != "About" %}
-                <li class="item">
-                    <a class="link" href="{{ site.url }}/about">about</a>
-                </li>
-            {% endif %}
+        {% if page.title != "About" %}
+            <li class="item">
+                <a class="link" href="{{ site.url }}/about">about</a>
+            </li>
         {% endif %}
     </ul>
 </nav>

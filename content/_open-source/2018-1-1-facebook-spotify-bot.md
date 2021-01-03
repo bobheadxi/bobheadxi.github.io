@@ -7,10 +7,7 @@ tag:
 - rest
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "a more controlled and interactive take on shared playlists and simple song searches"
-category: open-source
 author: robert
 externalLink: false
 badges:

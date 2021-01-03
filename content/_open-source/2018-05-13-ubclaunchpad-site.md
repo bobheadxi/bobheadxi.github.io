@@ -8,10 +8,7 @@ tag:
 - launch-pad
 image: ""
 headerImage: false
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "the (old) official website for Launch Pad, UBC's student-lead software engineering club"
-category: open-source
 author: robert
 star: false
 externalLink: false

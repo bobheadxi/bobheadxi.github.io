@@ -107,7 +107,7 @@ title: Home
     <a style="color:#666;text-decoration: none;" href="#open-source-highlights">open source highlights</a>
   </h2>
 
-  {% for post in site.posts %} {% if post.open_source %} {% if post.star %}
+  {% for post in site.open-source %} {% if post.star %}
   <div class="item" align="center">
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
       <img class="image" src="{{ post.image }}" width="50%" style="margin-bottom: 8px"/>
@@ -121,7 +121,7 @@ title: Home
     </a>
   </div>
   <br />
-  {% endif %} {% endif %} {% endfor %}
+  {% endif %} {% endfor %}
 
   <p style="text-align:center;">
     <a href="/open-source/">

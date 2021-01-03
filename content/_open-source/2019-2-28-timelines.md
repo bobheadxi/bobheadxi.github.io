@@ -12,10 +12,7 @@ tag:
 - analytics
 image: ""
 headerImage: false
-open_source: true # hidden for now
-hidden: true # don't count this post in blog pagination
 description: "<i>Timelines</i> - historical analysis of Git repositories and Git host activity as a service"
-category: open-source
 author: robert
 star: false
 externalLink: false
