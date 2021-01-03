@@ -79,7 +79,7 @@ window.onresize = drawChart;
 
 
 <section class="list">
-    {% for post in site.open-source %}
+    {% for post in site.open-source reversed %}
         <div class="item">
             {% if post.star %}<br />{% endif %}
             <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
