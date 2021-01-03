@@ -21,7 +21,7 @@ salvaged! So I sit down in a cosy spot, whip out my laptop, open up all my cours
 ...proceed to tackle dozens of hours of small pursuits, whether it be planning projects, fiddling with
 libraries, or playing with fancy new tools. Often this takes the form of improvements to this website,
 for example when I [made a ridiculous dynamic chart of my GitHub activity](/rough-github-chart).
-My [abandoned project *Timelines*](/timelines-recap) is another example of such a project, amongst a
+My [abandoned project *Timelines*](/open-source/timelines) is another example of such a project, amongst a
 myriad of other things that I never wrote about.
 
 So I figured I might as well write a little about the changes to my website from this end-of-semester

@@ -42,7 +42,7 @@ on this post by highlighting some text!
 ## A Stroll Through Memory Lane
 
 I've always wanted to make pretty things, but the tedium of front-end always proved rather
-intimidating. My time with [nwPlus](/nwhacks2019) did get the ball rolling though - implementing
+intimidating. My time with [nwPlus](/open-source/nwhacks2019) did get the ball rolling though - implementing
 a nice design and seeing it come to life was quite satisfying.
 
 <p align="center">
@@ -55,7 +55,7 @@ a nice design and seeing it come to life was quite satisfying.
 </p>
 
 I tried to learn more on making nice user interfaces briefly with my cancelled project,
-[Timelines](/timelines-recap), and when I went to [Riot Games](/riot-games) last year, I tried yet
+[Timelines](/open-source/timelines), and when I went to [Riot Games](/experience/riot-games) last year, I tried yet
 again with a project that has been in limbo for a while: [Seer](https://github.com/bobheadxi/seer)
 (I didn't even do a writeup for this one yet :sweat_smile:)
 

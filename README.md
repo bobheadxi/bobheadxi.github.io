@@ -8,10 +8,9 @@ and is hosted using [GitHub Pages](https://pages.github.com/). All opinions in b
 
 ### Structure
 
-##### [`_posts`](/_posts)
+##### [`content`](/content)
 
-It says "posts" but it's been repurposed to be the source of all my [blog posts](https://bobheadxi.dev/blog),
-[work experience recaps](https://bobheadxi.dev/#work-experience), and [project pages](https://bobheadxi.dev/open-source).
+Markdown source files for all content on the site ([`_posts`](content/_posts), [`_open-source`](content/_open-source), and [`_experience`](content/_experience)), configured as Jekyll Collections (see [`_config.yml`](./_config.yml)).
 
 ##### [`open-source`](/open-source)
 
@@ -25,13 +24,9 @@ Source for most of the images and stuff used throughout the site.
 
 Source for my redirect links (ie `https://bobheadxi.dev/r/...`).
 
-##### [`_includes`](/_includes), [`_layouts`](/_layouts)
+##### [`_includes`](/_includes), [`_layouts`](/_layouts), [`_sass`](/_sass)
 
-Source for various site components.
-
-##### [`_sass`](/_sass)
-
-Source for the site's styling.
+Source for various site components and styling.
 
 <br />
 

@@ -20,7 +20,7 @@ alt_location:
   url: https://dev.to/bobheadxi/generating-reports-in-figma-with-a-custom-figma-plugin-2615
 ---
 
-My second chunk of work for my [part-time remote position at Sumus](/sumus) (read about
+My second chunk of work for my [part-time remote position at Sumus](/experience/sumus) (read about
 [the first chunk here](/appengine-branch-previews)) involved building a Figma plugin to generate
 a property pitch report from data about a property collected by employees, mostly aggregated on a
 central [Wordpress](https://wordpress.com/) instance. For the unfamiliar, [Figma](https://www.figma.com/)

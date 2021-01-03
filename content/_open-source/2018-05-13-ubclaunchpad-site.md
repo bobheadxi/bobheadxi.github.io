@@ -16,7 +16,7 @@ badges:
 - <img src="https://img.shields.io/github/languages/top/ubclaunchpad/ubclaunchpad.github.io.svg?color=purple" />
 ---
 
-*⚠️ This project has been superseded by [a new website that I built](/ubclaunchpad-dot-com)!*
+*⚠️ This project has been superseded by [a new website that I built](/open-source/ubclaunchpad-dot-com)!*
 
 <br />
 
@@ -54,6 +54,6 @@ including:
 Check out my pull requests in more detail
 [here](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed).
 
-Also see [the new website that I built](/ubclaunchpad-dot-com) to replace this one!
+Also see [the new website that I built](/open-source/ubclaunchpad-dot-com) to replace this one!
 
 <br />
