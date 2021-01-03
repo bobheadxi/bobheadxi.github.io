@@ -1,7 +1,6 @@
 ---
 title: "On Giving Up"
 layout: post
-date: 2019-08-4 11:00
 image: https://66.media.tumblr.com/35afc70f21b49c84b0f609e4b488b6a6/tumblr_pjjcopIuTf1rg86u5o1_1280.gifv
 headerImage: true
 tag:

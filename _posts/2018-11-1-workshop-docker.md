@@ -1,7 +1,6 @@
 ---
 title: "Workshop: A Developer's Guide to Docker"
 layout: post
-date: 2018-11-1 11:00
 image: /assets/images/posts/docker-workshop.png
 headerImage: true
 tag:

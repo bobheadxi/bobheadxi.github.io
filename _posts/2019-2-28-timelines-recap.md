@@ -1,7 +1,6 @@
 ---
 title: ":books: Project Lifetime Visualisation"
 layout: post
-date: 2019-02-28 12:19
 tag:
 - golang
 - visualisation

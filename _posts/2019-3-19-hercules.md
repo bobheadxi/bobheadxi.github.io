@@ -1,7 +1,6 @@
 ---
 title: ":muscle: Git Repository Analysis Tool"
 layout: post
-date: 2019-03-19 12:19
 tag:
 - golang
 - python

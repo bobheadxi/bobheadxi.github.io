@@ -1,7 +1,6 @@
 ---
 title: "The Inertia Logo and README Design"
 layout: post
-date: 2018-02-25 10:00
 tag:
 - misc
 - inertia

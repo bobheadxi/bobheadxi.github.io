@@ -1,7 +1,6 @@
 ---
 title: ":chart_with_downwards_trend: Continuous Benchmarking GitHub Action"
 layout: post
-date: 2019-04-23 12:19
 tag:
 - golang
 - benchmarking

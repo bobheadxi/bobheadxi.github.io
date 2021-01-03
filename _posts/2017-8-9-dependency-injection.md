@@ -1,7 +1,6 @@
 ---
 title: "Dependency Injection for Testable Code"
 layout: post
-date: 2017-08-09 22:12
 image: https://miro.medium.com/max/321/1*ZHDFHf2l1dh__D7gvyIT4w.png
 headerImage: true
 tag:

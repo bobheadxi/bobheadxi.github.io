@@ -1,7 +1,6 @@
 ---
 title: "Introducing the New Launch Pad Website"
 layout: post
-date: 2020-4-25 18:00
 image: https://raw.githubusercontent.com/ubclaunchpad/ubclaunchpad.com/master/.static/banner.png
 headerImage: true
 tag:

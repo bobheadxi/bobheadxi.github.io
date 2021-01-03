@@ -1,7 +1,6 @@
 ---
 title: "Extending Docker Images with Sidecar Services"
 layout: post
-date: 2020-6-21 01:00
 image: https://i.pinimg.com/originals/ac/72/2b/ac722ba2b916d1b1e02f076473a2cdbb.jpg
 headerImage: true
 diagrams: true

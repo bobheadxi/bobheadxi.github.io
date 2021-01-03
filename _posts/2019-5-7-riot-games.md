@@ -1,7 +1,6 @@
 ---
 title: "Software Engineer Intern"
 layout: post
-date: 2019-05-07 9:00
 tag:
 - internship
 - golang

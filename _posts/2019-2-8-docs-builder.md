@@ -1,7 +1,6 @@
 ---
 title: "Automated Documentation Builds with Slate"
 layout: post
-date: 2019-2-8 11:00
 image: https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png
 headerImage: true
 tag:

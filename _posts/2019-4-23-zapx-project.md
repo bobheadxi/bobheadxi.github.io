@@ -1,7 +1,6 @@
 ---
 title: ":zap: Logging Extensions Library"
 layout: post
-date: 2019-04-23 12:19
 tag:
 - golang
 - logging

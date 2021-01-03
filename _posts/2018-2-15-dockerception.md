@@ -1,7 +1,6 @@
 ---
 title: "Docker-in-Docker-in-Docker"
 layout: post
-date: 2018-02-15 20:00
 image: /assets/images/posts/Docker-Gopher-Banner.png
 hero_image: /assets/images/projects/inertia-overview.png
 headerImage: true

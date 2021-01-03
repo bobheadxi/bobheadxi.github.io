@@ -1,7 +1,6 @@
 ---
 title: "Castles in the Sand"
 layout: post
-date: 2018-03-10 00:20
 image: ''
 headerImage: false
 tag:

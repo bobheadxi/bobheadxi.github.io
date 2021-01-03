@@ -1,7 +1,6 @@
 ---
 title: "What is UBC Launch Pad?"
 layout: post
-date: 2018-12-9 18:17
 image: https://miro.medium.com/max/1540/1*BK1-usY9pOJfI6OUeJFDkg.jpeg
 headerImage: true
 tag:
