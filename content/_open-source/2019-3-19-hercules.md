@@ -9,10 +9,7 @@ tag:
 - cli
 image: https://github.com/src-d/hercules/blob/master/doc/dag.png?raw=true
 headerImage: false
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "<i>Hercules</i> - fast, insightful, and highly customizable Git history analysis"
-category: open-source
 author: robert
 star: false
 externalLink: false
