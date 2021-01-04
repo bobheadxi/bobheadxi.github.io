@@ -9,7 +9,7 @@ install-checks:
 	${PRECOMMAND} npm i -g markdownlint-cli
 
 serve:
-	bundle exec jekyll serve --incremental --config _config.yml,_config-dev.yml
+	bundle exec jekyll serve --incremental --config _config.yml,_config-dev.yml --drafts
 
 checks: spellcheck mdlint
 
