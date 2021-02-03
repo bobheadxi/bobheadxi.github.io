@@ -15,10 +15,10 @@ I've also worked part-time remote software development positions at startups lik
 See a summary of my experience [here](/#work-experience)!
 
 I studied Mathematics at the [University of British Columbia](https://ubc.ca/), where I participated actively for several years as a [tech lead and co-president in UBC Launch Pad](/what-is-launch-pad), leading and mentoring teams of students on collaborative projects and driving programs and workshops aimed providing students a collaborative and professional environment for building projects.
-I volunteered for some time as a [web developer for **nwPlus**](/open-source/nwhacks2019/) building the website and application system behind one of the largest hackathons in western Canada, nwHacks.
+I volunteered for some time as a [web developer for nwPlus](/open-source/nwhacks2019/) building the website and application system behind one of the largest hackathons in western Canada, nwHacks.
 
 <figure>
-    <img src="/assets/images/projects/inertia-talk.png" />
+    <img src="/assets/images/projects/inertia-talk.png" width="75%" />
     <figcaption>Inertia team member Chad and I presenting
     <a href="/inertia">UBC Launch Pad's self-hosted build and deployment platform</a>
     at the
