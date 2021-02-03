@@ -1,12 +1,26 @@
 .post
     margin-top: 125px
 
+    // text content width
+    > *, .not-wide
+        max-width: 610px
+        margin-left: auto
+        margin-right: auto
+
+    // wide things
+    > .wide
+        max-width: 85%
+        @media #{$tablet}
+            max-width: 100%
+
     > .title
+        @extend .wide
         text-align: center
         margin-bottom: 3rem
 
     > .date,
     > .post-tags
+        @extend .wide
         color: $gama
         font-weight: 300
         font-size: 1.4rem
@@ -41,6 +55,15 @@
         a
             text-decoration: none
 
+    > blockquote
+        @extend .wide
+
+    > .highlighter-rouge
+        @extend .wide
+
+    > figure
+        @extend .wide
+
     > .title-image
         max-height: 120px
         display: block
@@ -58,3 +81,6 @@
             margin: 1em 0
         .next
             text-align: right
+
+    > .related, .author, footer
+        @extend .not-wide

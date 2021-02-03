@@ -51,59 +51,44 @@ Anyway, a quick introduction to the study of epigenetics:
 
 In a nutshell, epigenetics is the study of the mechanisms that cause expression variances within an organism's cells. One such epigenetic mechanism is [DNA methylation](https://en.wikipedia.org/wiki/DNA_methylation), the process through which methyl groups are added to cytosine or adenine, with cytosine methylation being the most widespread in mammalian DNA.<sup>[[2]](#r2)</sup>
 
-<p align="center">
+<figure>
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/DNA_methylation.png" width="80%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">diagram by user Mariuswalter, distributed under a <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.en">CC BY-SA 4.0</a> license</i>
-</p>
+    <figcaption>CC BY-SA 4.0</a> license</figcaption>
+</figure>
 
 DNA methylation can affect gene expression thanks to how it attracts and repels various DNA-binding proteins due to its position in the DNA helix at what are known as [CpG islands](https://en.wikipedia.org/wiki/CpG_site). These are often near transcription start sites,<sup>[[4]](#r4)</sup> and methylation at these sites can cause gene silencing<sup>[[3]](#r3)</sup> by limiting transcription in the area.
 
-<p align="center">
+<figure>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cpg_islands.svg/1024px-Cpg_islands.svg.png" width="90%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">diagram by Carl Fedrik, distributed under a <a href="https://creativecommons.org/licenses/by-sa/3.0/deed.en">CC BY-SA 3.0</a> license</i>
-</p>
+    <figcaption>CC BY-SA 3.0</a> license</figcaption>
+</figure>
 
 DNA methylation and its gene silencing effects has close associations with the onset of many cancer types<sup>[[8]](#r8)</sup> - there's [this great video on YouTube](https://www.youtube.com/watch?v=UUM7HiFkDd4) by the Garvan Institute of Medical Research that gives a quick rundown of DNA methylation biomarkers and its role in cancers. Epigenetic modifications like hypomethylation (gene activation) and hypermethylation (gene silencing) enable cancer traits such as increased cell growth, immune cell evasion, and the ability to spread to other parts of the other body.
 
 A stronger understanding of how DNA methylation causes cancer has many potential benefits. It can facilitate earlier diagnosis (from easily accessible cancer cells that enter the blood and other bodily fluids) as well as better prediction of how patient might respond to therapy, so as to allow for better treatment recommendations.
 
-<p align="center">
+<figure>
 	<img src="/assets/images/posts/methylation.png" />
-</p>
-
-<p align="center">
-	<i>Still from <a href="https://www.youtube.com/watch?v=UUM7HiFkDd4">YouTube video</a> by the Garvan Institute of Medical Research</i>
-</p>
+	<figcaption>Still from <a href="https://www.youtube.com/watch?v=UUM7HiFkDd4">YouTube video</a> by the Garvan Institute of Medical Research</figcaption>
+</figure>
 
 There are several methods available to study and analyse DNA methylation. [ChIP-seq](https://en.wikipedia.org/wiki/ChIP-sequencing) (the "ChIP" part comes from the role of chromatin immunopercipitation in the process), for example, focuses on examining histone modification.<sup>[[9]](#r9)</sup>
 
 Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/Bisulfite_sequencing), used primarily for studying cytosine methylation. Simply put, it converts *unmethylated* cytosines to uracils,<sup>[[1]](#r1)</sup> leaving behind the methylated cytosines. Then, during PCR amplification, the uracil in the bisulfite converted DNA is replaced with thymine.<sup>[[7]](#r7)</sup> This means that when sequenced, the modification appears as a cytosine to thymine conversion. Given a successful application of bisulfite modification, you can then assume that any remaining cytosines were originally methylated cytosines.<sup>[[1]](#r1)</sup>
 
-<p align="center">
+<figure>
     <img src="https://www.epigentek.com/catalog/images/headers/catdesc/dna-bisulfite-conversion.png" width="90%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">diagram from <a href="https://www.epigentek.com/catalog/dna-bisulfite-conversion-c-75_21_47.html">Epigentek documentation</a></i>
-</p>
+    <figcaption>Epigentek documentation</a></figcaption>
+</figure>
 
 My team often receives such bisulfite converted sequences, albeit with an additional inertesting step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rate is used to assess the effectiveness of the bisulfite conversion, which we provide as feedback to the lab or our collaborators.
 
 The process of bisulfite conversion has an important consequence: to identify normal samples, we typically use the application of plasmid spike-ins. These are random, known sequences of around 180 base pairs that are grown in a lab, then added to samples during preparation for sequencing. The name "plasmid spike-in" comes from the way the oligonucleotide is incorporated into the pCR-TOPO4 plasmid vector and [cloned in E. coli](https://en.wikipedia.org/wiki/Molecular_cloning). During quality control, we check for the presence of these spike-ins in our pre-alignment pipelines. If the expected spike-in is only found in very small quantities, then that is usually a red flag that a sample swap might have occurred.
 
-<p align="center">
+<figure>
     <img src="https://www.sciencelearn.org.nz/system/images/images/000/000/558/embed/cloning_dna_oversize20151125-1118-dwkzce.jpg?1448424636" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">illustration of how sequences are incorporated into a vector for cloning</i>
-</p>
+    <figcaption>illustration of how sequences are incorporated into a vector for cloning</figcaption>
+</figure>
 
 These spike-ins do get affected by the bisulfite conversion, and in the event a perfect or near-perfect conversion, then the reduced complexity of the spike-in sequences (the result of replacing all cytosines with thymines) could potentially cause our pipeline to mistakenly identify spike-ins that aren't actually there in the sample.
 
@@ -113,13 +98,10 @@ To address these concerns, I was tasked with checking if our plasmid spike-ins a
 
 To assess the spike-ins, the reverse complement of each sequence had to be generated, as well as the bisulfite modified versions and their reverse complements. The reverse complement is important to take into consideration due to the way the [Illumina's](https://www.illumina.com) (the company that builds our sequencers) paired-end sequencing works - strands are sequenced from adapters on both ends.
 
-<p align="center">
+<figure>
     <img src="https://www.cureffi.org/wp-content/uploads/2012/12/paired-end1.jpg" width="90%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">diagram from <a href="https://www.cureffi.org/2012/12/19/forward-and-reverse-reads-in-paired-end-sequencing/">helpful post</a> by Eric Minikel</i>
-</p>
+    <figcaption>helpful post</a> by Eric Minikel</figcaption>
+</figure>
 
 The details of the sequencing process is a fascinating topic as well, but I'll leave that for another blog post. Anyway, here's an example of the different versions of each spike-in that has to be generated:
 

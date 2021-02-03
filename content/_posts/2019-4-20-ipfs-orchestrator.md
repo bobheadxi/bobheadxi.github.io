@@ -43,13 +43,10 @@ the project, with links to implementation details and whatnot:
 * TOC
 {:toc}
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">A super early sketch from one of our first meetings about a potential "ipfs-agent", which would become Nexus.</i>
-</p>
+  <figcaption>A super early sketch from one of our first meetings about a potential "ipfs-agent", which would become Nexus.</figcaption>
+</figure>
 
 ## Deploying Nodes
 
@@ -157,8 +154,6 @@ if _, err := o.NetworkUp(context.Background(), tt.args.network); (err != nil) !=
 }
 ```
 
----
-
 ## Orchestrating Nodes
 
 The core part of Nexus is the predictably named
@@ -190,8 +185,6 @@ particularly [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ip
 
 The functionality of the orchestrator is exposed by a gRPC API, which I talk
 about a bit more in [Exposing an API](#exposing-an-api).
-
----
 
 ## Access Control
 
@@ -398,8 +391,6 @@ These reverse proxies are cached so that the delegator doesn't have to construct
 them all the time, with evictions based on expiry so that outdated proxies don't
 persist for too long.
 
----
-
 ## Exposing an API
 
 Most of RTrade's services expose functionality via [gRPC](https://grpc.io/)
@@ -473,15 +464,12 @@ $> nexus -dev ctl StopNetwork Network=test-network
 I introduced this feature very early on, and it came in useful as Nexus's
 capabilities grew, making it easy to demonstrate new features:
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo1.png" width="100%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Introducing the <code>nexus ctl</code> command to
+  <figcaption>Introducing the <code>nexus ctl</code> command to
   demonstrate MVP functionality - from
-  <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</i>
-</p>
+  <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</figcaption>
+</figure>
 
 <br />
 
@@ -496,17 +484,12 @@ start-network: build
 
 <br />
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Using <code>nexus ctl</code> commands
+  <figcaption>Using <code>nexus ctl</code> commands
   (from <code>make</code>) to demonstrate a new feature - from
-  <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</i>
-</p>
-
----
+  <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</figcaption>
+</figure>
 
 ## Testing
 
@@ -522,15 +505,12 @@ halfway-decent measure of this is code coverage!
   </a>
 </p>
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/ipfs-orchestrator/sunburst.svg" width="40%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">A "coverage sunburst", indicating test coverage
+  <figcaption>A "coverage sunburst", indicating test coverage
   in various subdirectories of the codebase - from
-  <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</i>
-</p>
+  <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</figcaption>
+</figure>
 
 Tests mostly fall in one of two categories (in my mind at least): unit tests that
 run without any setup and involve no non-library dependencies, and integration
@@ -732,10 +712,5 @@ blow up around you. :sweat_smile:
 
 <br />
 
----
-
-<br />
-
 That's all I had to share in this post (which got a bit lengthier than I expected) -
-hopefully somebody finds this useful! Feel free to check out my other posts, or
-reach out to me at `robert@bobheadxi.dev` if you want to chat.
+hopefully somebody finds this useful!

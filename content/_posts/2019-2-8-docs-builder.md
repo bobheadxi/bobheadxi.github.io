@@ -160,4 +160,4 @@ Here’s what the documentation site looks like now:
 
 ![wheeeee](https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png)
 
-Feel free to check out the [commit](https://github.com/ubclaunchpad/inertia/commit/40bfc25c78e5110c690b379b96476f258d3d897b) or [pull request](https://github.com/ubclaunchpad/inertia/pull/536) that added all this stuff to [Inertia](https://github.com/ubclaunchpad/inertia), a [UBC Launch Pad](https://www.ubclaunchpad.com/) project!
+Feel free to check out the [commit](https://github.com/ubclaunchpad/inertia/commit/40bfc25c78e5110c690b379b96476f258d3d897b) or [pull request](https://github.com/ubclaunchpad/inertia/pull/536) that added all this stuff to [Inertia](https://github.com/ubclaunchpad/inertia), a [UBC Launch Pad](https://ubclaunchpad.com/) project!

@@ -31,24 +31,22 @@ if you want to learn more!
 
 **✅ Update(2/25/2020)**: a [new post ("Products, Not Services")](https://technology.riotgames.com/news/running-online-services-riot-part-vi)
 was recently published that elaborates on the specification I worked on, and briefly mentions my
-intern project! (emphasis mine)
+intern project!
 
 > The specification also includes all the metadata required to run and operate an entire environment.
 > A growing set including configuration, secrets, metrics, **alerts**, documentation, deployment and
 > rollout strategies, inbound network restrictions, as well as storage, database, and caching requirements.
 
+(emphasis mine)
+
 ---
 
-<p align="center">
-    <img  width="70%" src="https://technology.riotgames.com/sites/default/files/intern10-robert1.png" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">
+<figure>
+    <img width="70%" src="https://technology.riotgames.com/sites/default/files/intern10-robert1.png" />
     Rough diagram I made of what this stuff is supposed to do, as outlined in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">this blog post on the official Riot Games Technology blog</a>.
-    </i>
-</p>
+    </figcaption>
+</figure>
 
 So an idea I had as part of my extension design proposal was to allow users to
 specify "selections" from other parts of the spec and perform arithmetic on them

@@ -19,9 +19,9 @@ badges:
 - <img src="https://img.shields.io/github/languages/top/src-d/hercules.svg?colorB=1e90ff" />
 ---
 
-<p align="center">
-    <img src="https://github.com/src-d/hercules/blob/master/doc/dag.png?raw=true" width="100%" />
-</p>
+<figure>
+    <img src="https://github.com/src-d/hercules/blob/master/doc/dag.png?raw=true" />
+</figure>
 
 <p align="center">
     <a href="https://github.com/src-d/hercules">
@@ -43,18 +43,15 @@ generate all sorts of cool data and insights. I
 [used Hercules extensively for a project I worked on](https://bobheadxi.dev/timelines-recap)
 for a while, so I contributed a few fixes and features upstream!
 
-<p align="center">
-    <img src="/assets/images/projects/hercules-burndown-inertia.png" width="100%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">A git diff burndown generated using Hercules of
+<figure>
+    <img src="/assets/images/projects/hercules-burndown-inertia.png" />
+    <figcaption>A git diff burndown generated using Hercules of
     <a href="https://github.com/ubclaunchpad/inertia">Inertia</a> over its
     lifetime. Each coloured band represents code added in each time interval -
     the graph demonstrates that lots of code ends up getting replaced, a sign
     that we were continuously iterating and improving on existing code as we
-    learned.</i>
-</p>
+    learned.</figcaption>
+</figure>
 
 My contributions include:
 
