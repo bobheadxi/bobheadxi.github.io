@@ -15,15 +15,12 @@ description: a summary of a very cool talk I attended
 
 A few weeks ago I attended an awesome presentation. The speaker, Dr. Peter Kornicki from the University of Cambridge, opened with a story about a second year university student who was mysteriously asked to participate in a very, very secret program... to learn Japanese, alongside 29 other handpicked students.
 
-<p align="center">
+<figure>
     <a href="https://bobheadxi.tumblr.com">
         <img src="https://78.media.tumblr.com/7067b3cd5e2109d4e12d2a7c1f5aac20/tumblr_p6hzcql6pg1rg86u5o1_400.gif" width="75%" />
     </a>
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">Time flies?</i>
-</p>
+    <figcaption>Time flies?</figcaption>
+</figure>
 
 Titled ["Stolen Secrets: Intercepting Dispatches between Wartime Berlin and Japan"](https://asia.ubc.ca/events/event/the-2017-john-howes-lecture-in-japanese-studies/), this talk offered a very interesting perspective into the Second World War that I had never really given much consideration - namely the apparent shortage of fluent Japanese speakers in the west at the time. There is a video of the entire talk in the link - if you have around 50 minutes to spare, just go watch it! Most of this post is based on my notes and memories and is by no means academic or 100% accurate, and this whole thing is more to jog my own memory than anything else.
 

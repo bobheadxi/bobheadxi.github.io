@@ -35,7 +35,7 @@ and clients via [`go-chi/render`](https://github.com/go-chi/render). It is
 designed to be lightweight and easy to extend.
 
 I originally wrote something similar to this in two
-[UBC Launch Pad](https://www.ubclaunchpad.com/) projects that I worked on -
+[UBC Launch Pad](https://ubclaunchpad.com/) projects that I worked on -
 [Inertia](https://github.com/ubclaunchpad/inertia) and
 [Pinpoint](https://github.com/ubclaunchpad/pinpoint) - and felt like it might
 be useful to have it as a standalone package.

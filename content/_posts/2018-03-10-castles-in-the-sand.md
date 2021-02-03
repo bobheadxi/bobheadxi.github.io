@@ -12,26 +12,23 @@ hidden: true
 description: look yea to Ozymandias... and be at peace
 ---
 
-<p align="center">
+<figure>
     <a href="https://www.instagram.com/p/BfcZBYQh81m/?taken-by=savethefade">
         <img src="https://78.media.tumblr.com/219fabe10c6324db5fd05b06e32f8c3f/tumblr_p55eshoJcU1rg86u5o1_1280.jpg" width="60%" />
     </a>
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">I met a traveller from an antique land...</i>
-</p>
+    <figcaption>I met a traveller from an antique land...</figcaption>
+</figure>
 
 <br />
 
->*We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:*
+> We're all basically building castles in the sand. Whether the surf comes in tomorrow, next year or next decade, don't kid yourself of its permanence. We're crafting art for the moment, and tomorrow's programmers will create new art for tomorrow's needs. The questions include:
 >
-> * *did you do it well?*
-> * *did you learn something from the experience?*
-> * *did you give something back to the community, leave some breadcrumb, which will help the next guy, help advance civilization however little up to the next ladder rung?*
-> * *was it beautiful? To you, to anyone?*
+> * did you do it well?
+> * did you learn something from the experience?
+> * did you give something back to the community, leave some breadcrumb, which will help the next guy, help advance civilization however little up to the next ladder rung?
+> * was it beautiful? to you, to anyone?
 >
-> *If any of all of those are true, look yea to Ozymandias... and be at peace.*
+> If any of all of those are true, look yea to Ozymandias... and be at peace.
 
 That quote there came from a Redditor in response to [a post about code at startups that never make it](https://www.reddit.com/r/cscareerquestions/comments/80073a/do_you_find_it_disturbing_that_all_that_code_all/dus0bob/). The poster mentioned how all the hard work that goes into a startup ends up thrown away and forgotten, and I noticed that this is pretty relevant for anyone in software - especially when we first start out - since most of our work will inevitably end up discarded, whether they be personal projects, or homework, or things we write at work.
 

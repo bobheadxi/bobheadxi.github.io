@@ -20,9 +20,9 @@ badges:
 
 <br />
 
-<p align="center">
-    <img src="/assets/images/projects/lp-projects-demo.gif" width="100%" />
-</p>
+<figure>
+    <img src="/assets/images/projects/lp-projects-demo.gif" />
+</figure>
 
 <p align="center">
     <a href="https://github.com/ubclaunchpad/ubclaunchpad.github.io-old">
@@ -42,14 +42,11 @@ including:
 * minor improvements such as [emoji support](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pull/58)
   and other updates
 
-<p align="center">
+<figure>
     <img src="/assets/images/projects/lp-projects-demo-mobile.gif" width="50%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">The redesigned project showcase scales for mobile
-    users.</i>
-</p>
+    <figcaption>The redesigned project showcase scales for mobile
+    users.</figcaption>
+</figure>
 
 Check out my pull requests in more detail
 [here](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed).

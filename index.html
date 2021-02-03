@@ -48,7 +48,7 @@ title: Home
       <h3 class="title">{{ post.title }}</h3>
       <div class="post-tags">
         {% for tag in post.tags %}
-        {% if tag != "internship" and tag != post.company %}
+        {% if tag != "internship" and tag != post.company and tag != "remote" %}
         <a class="item">{{ tag }}</a>
         {% endif %}
         {% endfor %}
