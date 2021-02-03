@@ -3,7 +3,7 @@
 
     // text content width
     > *, .not-wide
-        max-width: 610px
+        max-width: 30rem
         margin-left: auto
         margin-right: auto
 
@@ -23,11 +23,10 @@
         @extend .wide
         color: $gama
         font-weight: 300
-        font-size: 1.4rem
         text-transform: uppercase
         text-align: center
         display: block
-        margin-bottom: 6rem
+        margin-bottom: 3rem
         letter-spacing: 1px
         -webkit-font-smoothing: antialiased
         text-rendering: optimizeLegibility
@@ -38,7 +37,7 @@
     > .post-tags > .item
         padding: 2px 8px
         border-radius: 3px
-        font-size: 1.1rem
+        font-size: 0.75rem
         background: $epsilon
         color: $alpha
         letter-spacing: 1px
@@ -50,7 +49,7 @@
     > h2,
     > h3,
     > h4
-        margin-top: 40px
+        margin-top: 2rem
 
         a
             text-decoration: none
@@ -58,7 +57,7 @@
     > blockquote
         @extend .wide
 
-    > .highlighter-rouge
+    > .highlighter-rouge, pre
         @extend .wide
 
     > figure

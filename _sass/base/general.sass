@@ -1,9 +1,9 @@
 body, html
-	font-size: 62.5%
+	font-size: 1rem
 
 body
 	line-height: 1
-	font: 16px $fontSans
+	font: 1rem $fontSans
 	color: $alpha
 
 h1, h2, h3, h4
@@ -13,19 +13,19 @@ h1, h2, h3, h4
 	text-rendering: optimizeLegibility
 
 h1
-	font-size: 3rem
+	font-size: 2rem
 	letter-spacing: -1px
 	color: $beta
 	font-weight: 700
 
 h2
-	font-size: 2.2rem
+	font-size: 1.75rem
 
 h3
-	font-size: 2rem
+	font-size: 1.4rem
 
 h4
-	font-size: 1.6rem
+	font-size: 1.25rem
 
 a
 	color: $delta
@@ -33,14 +33,10 @@ a
 
 
 p
-	line-height: 1.7
+	line-height: 1.7rem
 	color: $alpha
 	font-weight: 300
 	margin-bottom: 20px
-	letter-spacing: 0.4px
-
-	@media #{$mobile}
-		letter-spacing: 0.2px
 
 strong
 	font-weight: 400
@@ -49,7 +45,7 @@ strong
 ul,
 ol
 	li
-		line-height: 2.4rem
+		line-height: 1.7rem
 		font-weight: 300
 		color: $alpha
 
@@ -65,10 +61,10 @@ pre
 figcaption
 	position: relative
 	top: 0.5rem
-	margin: 1rem auto
+	margin: 0 0.5rem
 	width: 100%
 	text-align: center
-	font-size: 90%
+	font-size: 0.9rem
 	font-style: italic
 	font-weight: 300
 
@@ -80,7 +76,7 @@ blockquote
 	border-left: 6px solid #eee
 	width: fit-content
 	*
-		font-size: 1.75rem
+		font-size: 1.1rem
 		font-style: italic
 
 hr
@@ -98,20 +94,19 @@ code,
 tt
 	padding: 1px 0
 	font-family: $fontMonospace
-	font-size: 12px
-	line-height: 20px
+	font-size: 0.9rem
 	background: #fff
 	border-radius: 2px
 	border-radius: 2px
 
 pre
 	box-sizing: border-box
-	margin: 0 0 1.75em 0
+	margin: 0 0 1.25rem 0
 	width: 100%
 	padding: 5px 10px
 	font-family: $fontMonospace
-	font-size: 1.2rem
-	line-height: 2rem
+	font-size: 0.9rem
+	line-height: 1.25rem
 	overflow: auto
 	background: #fff
 	border: 1px solid $epsilon
@@ -134,3 +129,8 @@ pre
 
 .wrapper-large
 	max-width: 1080px
+
+// center mermaid diagrams
+svg[id*='mermaid-']
+	display: block
+	margin: auto

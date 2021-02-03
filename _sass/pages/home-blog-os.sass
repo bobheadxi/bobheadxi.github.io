@@ -33,11 +33,11 @@
     > .item > .url
         width: 100%
         display: block
-        padding: 30px 0
+        padding-top: 30px
         text-decoration: none
 
     > .item > .url > .title
-        margin: 0
+        margin: 0.25rem 0
         width: 75%
         font-weight: 500
         transition: all ease-in-out .2s
@@ -103,49 +103,22 @@
     .item:hover .url aside
         color: $alpha
 
-.blog > .list > .item
+.list > .item,
     > .post-tags
         color: $gama
         font-weight: 300
-        font-size: 1.4rem
-        text-transform: uppercase
-        text-align: left
-        float: left
-        display: block
-        margin-bottom: 0rem
-        margin-top: -2.4rem
-        letter-spacing: 1px
-        -webkit-font-smoothing: antialiased
-        text-rendering: optimizeLegibility
-    > .post-tags > .item
-        padding: 2px 8px
-        border-radius: 3px
-        font-size: 1rem
-        background: $epsilon
-        color: $alpha
-        letter-spacing: 0.5px
-        margin: 3px 1px
-        text-decoration: none
-        display: inline
-
-.home > .list > .item,
-    > .post-tags
-        color: $gama
-        font-weight: 300
-        font-size: 1.4rem
         text-transform: uppercase
         text-align: center
         float: center
         display: block
         margin-bottom: 0rem
-        margin-top: -0.8rem
         letter-spacing: 1px
         -webkit-font-smoothing: antialiased
         text-rendering: optimizeLegibility
     > .post-tags > .item
         padding: 2px 8px
         border-radius: 3px
-        font-size: 1rem
+        font-size: 0.75rem
         background: $epsilon
         color: $alpha
         letter-spacing: 0.5px
@@ -153,30 +126,9 @@
         text-decoration: none
         display: inline
 
-.open-source > .list > .item,
-    > .post-tags
-        color: $gama
-        font-weight: 300
-        font-size: 1.4rem
-        text-transform: uppercase
-        text-align: left
+.blog, .open-source
+    > .list > .item > .post-tags
         float: left
-        display: block
-        margin-bottom: 0rem
-        margin-top: -0.8rem
-        letter-spacing: 1px
-        -webkit-font-smoothing: antialiased
-        text-rendering: optimizeLegibility
-    > .post-tags > .item
-        padding: 2px 8px
-        border-radius: 3px
-        font-size: 1rem
-        background: $epsilon
-        color: $alpha
-        letter-spacing: 0.5px
-        margin: 3px 1px
-        text-decoration: none
-        display: inline
 
 .blog > .list > .item > .url,
 .photos > .list > .item > .url,
