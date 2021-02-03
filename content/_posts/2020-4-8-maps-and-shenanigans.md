@@ -323,9 +323,9 @@ updateMapState({
 
 Then, when you visit the website and land on the intro slide, the map loads up like this:
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/maps-and-shenanigans/intro.png" />
-</p>
+</figure>
 
 Changing the pitch and bearing also yields cool results, this example using the simplified CBSA region
 geometries I collected earlier, and adds some extrusion for dramatic effect:
@@ -355,18 +355,22 @@ updateMapState({
 });
 ```
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/maps-and-shenanigans/questions.png" />
-</p>
+  <figcaption>
+    Pitch and bearing changes the angle of the viewport, and a logarithmic scale on the
+    <code>acs.total_pop</code> value provides a neat-looking extrusion based on the population of each region.
+  </figcaption>
+</figure>
 
 Also note that thanks to `antd`, positioning nice-looking elements all over the screen is pretty
 easy, and offers a lot of knobs to tweak to adapt your content across different screen sizes. I
 didn't try too hard to make it mobile-friendly, but it's nice to know the capability is there and that
 you don't have to do it yourself.
 
-<p align="center">
+<figure>
   <img src="/assets/images/posts/maps-and-shenanigans/acs-data.png" />
-</p>
+</figure>
 
 This is probably my favourite slide - [see the source code here](https://sourcegraph.com/github.com/bobheadxi/society-and-air-quality/-/blob/vis/src/slides/methodology/DataACS.js).
 This particular slide only took 83 lines of code on its own!
@@ -441,7 +445,7 @@ working so I suspect I'm still doing something wrong, but it's something.
 ### GitHub Pages
 
 <figure>
-  <img src="/assets/images/posts/maps-and-shenanigans/github-pages.png" />
+  <img src="/assets/images/posts/maps-and-shenanigans/github-pages.png" width="75%" />
   <figcaption>You can find this page under repository settings on GitHub.</figcaption>
 </figure>
 

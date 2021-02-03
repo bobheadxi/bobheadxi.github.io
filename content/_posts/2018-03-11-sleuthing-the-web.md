@@ -27,9 +27,9 @@ My first project at UBC Launch Pad was [Sleuth](/open-source/sleuth). The goal o
 
 The team started out as a five-person team, but ended up being just two people, including myself, which complicated plans a bit. The bulk of our effort ended up going into our content and search components, and the front end was a bit of a tacked-on interface to demo our main "feature": linked results.
 
-<p align="center">
-    <img src="/assets/images/projects/sleuth-1.png" />
-</p>
+<figure>
+    <img src="/assets/images/projects/sleuth-1.png" width="75%" />
+</figure>
 
 I think it was pretty neat. Built mostly by team member [Bruno](https://github.com/bfbachmann), the front end is pretty clean, and featured cute, draggable nodes.
 
