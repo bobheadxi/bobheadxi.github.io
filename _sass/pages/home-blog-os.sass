@@ -29,11 +29,11 @@
         display: block
         width: 95%
         margin: 0 auto
+        padding-bottom: 3.5rem
 
     > .item > .url
         width: 100%
         display: block
-        padding-top: 30px
         text-decoration: none
 
     > .item > .url > .title
@@ -58,6 +58,15 @@
 
     .item:hover .url aside
         color: $alpha
+
+    p
+        margin-bottom: 0.5rem
+        margin-top: 0.5rem
+
+.open-source > .list
+    p
+        display: inline-block
+        margin-top: 1rem
 
 .home > .list,
 .photos > .list,
@@ -129,6 +138,7 @@
 .blog, .open-source
     > .list > .item > .post-tags
         float: left
+        text-align: left
 
 .blog > .list > .item > .url,
 .photos > .list > .item > .url,
