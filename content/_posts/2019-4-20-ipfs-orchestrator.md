@@ -473,8 +473,6 @@ capabilities grew, making it easy to demonstrate new features:
   <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</figcaption>
 </figure>
 
-<br />
-
 I eventually added a couple of the `nexus ctl` commands to our Makefile as well
 for convenience:
 
@@ -483,8 +481,6 @@ for convenience:
 start-network: build
 	./nexus $(TESTFLAGS) ctl --pretty StartNetwork Network=$(NETWORK)
 ```
-
-<br />
 
 <figure>
   <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
