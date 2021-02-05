@@ -21,7 +21,8 @@ author: robert
 ---
 
 From May 2020 to January 2021, I worked as a software engineering intern at [Sourcegraph](#about-sourcegraph) on the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution).
-The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug, solving challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that we face when we deploy and scale [Sourcegraph Cloud](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
+The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug.
+The team also solves challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that Sourcegraph faces when we deploy and scale [Sourcegraph Cloud](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
 
 My work as an intern has had several areas of focus:
 
