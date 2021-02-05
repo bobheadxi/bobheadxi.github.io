@@ -141,26 +141,33 @@ layout: page
 {% endif %}
 
 <div class="post-end">
-    {% if site.post-advance-links contains page.category %}
-        <div class="blog-navigation">
-            {% if page.previous.url %}
-                <a class="prev" href="{{ site.url }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
-            {% else %}
-                <a class="prev"></a>
-            {% endif %}
-            {% if page.next.url %}
-                <a class="next" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-            {% endif %}
-        </div>
+    {% if site.post-advance-links contains page.collection %}
+    <div class="blog-navigation">
+        {% if page.previous.url %}
+            <a class="prev" href="{{ site.url }}{{ page.previous.url }}">
+                &laquo; {{ page.previous.title }}{% if page.previous.company %}
+                <br />at {{ page.previous.organisation }}{% endif %}
+            </a>
+        {% else %}
+            <a class="prev"></a>
+        {% endif %}
+        {% if page.next.url %}
+            <a class="next" href="{{ site.url }}{{ page.next.url }}">
+                {{ page.next.title }}{% if page.next.company %} &raquo;
+                <br />at {{ page.next.organisation }}{% endif %}
+            </a>
+        {% endif %}
+    </div>
     {% endif %}
 
-    {% if site.show-author %}
-        {% include author.html %}
-    {% endif %}
+    {% include author.html %}
 
-    {% if site.related %}
-        {% include related.html %}
+    <!-- if experience, only show things exactly related to that experience -->
+    {% assign tags = page.tags %}
+    {% if page.collection == 'experience' %}
+        {% assign tags = page.company | split: " " %}
     {% endif %}
+    {% include related.html tags=tags %}
 </div>
 
 
