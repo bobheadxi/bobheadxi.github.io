@@ -73,6 +73,7 @@ Previously, creating Sourcegraph releases was a lengthy, complex process that in
   * New automated changes and consolidated features as part of work to [reduce the number of steps to create a release](https://github.com/orgs/sourcegraph/projects/90)
   * [Multi-repository changeset tracking](https://github.com/sourcegraph/sourcegraph/pull/15032)
   * Extensive refactors to improve the tool's extensibility and reliability
+  * Overall, helped reduce time to cut a release from several days to just a few hours
 
 <figure>
   <img src="/assets/images/experience/sourcegraph/single-day-releases.png" width="75%">
