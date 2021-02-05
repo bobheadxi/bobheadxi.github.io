@@ -1,85 +1,96 @@
 .post
     margin-top: 125px
 
-    // text content width
-    > *, .not-wide
+    // wide things
+    .wide
+        max-width: 85%
+        @media #{$tablet}, #{$mobile}
+            max-width: 100%
+
+    .not-wide
         max-width: 30rem
         margin-left: auto
         margin-right: auto
 
-    // wide things
-    > .wide
-        max-width: 85%
-        @media #{$tablet}
-            max-width: 100%
+    // center everything
+    > .post-header, .post-content, .post-end
+        > *
+            margin-left: auto
+            margin-right: auto
 
-    > .title
-        @extend .wide
-        text-align: center
-        margin-bottom: 3rem
+    > .post-header
+        > .title
+            @extend .wide
+            text-align: center
+            margin-bottom: 3rem
 
-    > .date,
-    > .post-tags
-        @extend .wide
-        color: $gama
-        font-weight: 300
-        text-transform: uppercase
-        text-align: center
-        display: block
-        margin-bottom: 3rem
-        letter-spacing: 1px
-        -webkit-font-smoothing: antialiased
-        text-rendering: optimizeLegibility
+        > .title-image
+            > img
+                max-height: 120px
+                display: block
+                margin: 0 auto
 
-    > .date
-        margin-bottom: 2rem
-
-    > .post-tags > .item
-        padding: 2px 8px
-        border-radius: 3px
-        font-size: 0.75rem
-        background: $epsilon
-        color: $alpha
-        letter-spacing: 1px
-        margin: 3px 1px
-        text-decoration: none
-        display: inline-block
-
-    // general style
-    > h2,
-    > h3,
-    > h4
-        margin-top: 2rem
-
-        a
-            text-decoration: none
-
-    > blockquote
-        @extend .wide
-
-    > .highlighter-rouge, pre
-        @extend .wide
-
-    > figure
-        @extend .wide
-
-    > .title-image
-        max-height: 120px
-        display: block
-        margin: 0 auto
-
-    > .blog-navigation
-        font-size: 1.4rem
-        display: block
-        width: auto
-        overflow: hidden
-        a
+        > .date, .post-tags
+            @extend .wide
+            color: $gama
+            font-weight: 300
+            text-transform: uppercase
+            text-align: center
             display: block
-            width: 50%
-            float: left
-            margin: 1em 0
-        .next
-            text-align: right
+            margin-bottom: 3rem
+            letter-spacing: 1px
+            -webkit-font-smoothing: antialiased
+            text-rendering: optimizeLegibility
 
-    > .related, .author, footer
-        @extend .not-wide
+        > .date
+            margin-bottom: 2rem
+
+        > .post-tags > .item
+            padding: 2px 8px
+            border-radius: 3px
+            font-size: 0.75rem
+            background: $epsilon
+            color: $alpha
+            letter-spacing: 1px
+            margin: 3px 1px
+            text-decoration: none
+            display: inline-block
+
+    > .post-content
+        > *
+            @extend .not-wide
+
+        > h2, h3, h4
+            margin-top: 2rem
+            a
+                text-decoration: none
+
+        > blockquote
+            @extend .wide
+
+        > pre, .highlighter-rouge
+            @extend .wide
+
+        > figure
+            @extend .wide
+
+        > img, figure img
+            @media #{$tablet}, #{$mobile}
+                width: 100% !important // important to override attribute style
+
+    > .post-end
+        > .blog-navigation
+            font-size: 1.4rem
+            display: block
+            width: auto
+            overflow: hidden
+            a
+                display: block
+                width: 50%
+                float: left
+                margin: 1em 0
+            .next
+                text-align: right
+
+        > .related, .author, footer
+            @extend .wide

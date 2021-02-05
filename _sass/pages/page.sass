@@ -14,3 +14,7 @@
     img
         margin: 0 auto
         display: block
+
+    > img, figure img
+        @media #{$tablet}, #{$mobile}
+            width: 100% !important // important to override attribute style

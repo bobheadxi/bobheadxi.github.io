@@ -75,43 +75,49 @@ layout: page
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js"></script>
 {% endif %}
 
-{% if page.image and page.headerImage %}
-    <img class="title-image" src="{{ page.image }}" alt="{{ page.title }}">
-{% endif %}
+<div class="post-header">
+    {% if page.image and page.headerImage %}
+    <div class="title-image">
+        <img src="{{ page.image }}" alt="{{ page.title }}">
+    </div>
+    {% endif %}
 
-<h1 class="title">{{ page.title }}</h1>
+    <h1 class="title">{{ page.title }}</h1>
 
-<!-- {% if page.organisation %}
+    <!-- {% if page.organisation %}
     <h2 class="title" style="font-weight:350">
         <a href="{{ page.orgLink }}" target="_blank">
             {{ page.organisation }}
         </a>
     </h2>
-{% endif %} -->
+    {% endif %} -->
 
-{% if page.collection!='open-source' and page.hidedescription!=true %}
-<p class="date" style="color:#606060;margin-top:-25px;margin-bottom:30px;">
-    <i> {{ page.description }} </i>
-</p>
-{% endif %}
+    {% if page.collection!='open-source' and page.hidedescription!=true %}
+    <p class="date" style="color:#606060;margin-top:-25px;margin-bottom:30px;">
+        <i> {{ page.description }} </i>
+    </p>
+    {% endif %}
 
-{% if page.collection!='experience' and page.collection!='open-source' %}
+    {% if page.collection!='experience' and page.collection!='open-source' %}
     <span class="date">
         <time datetime="{{ page.date | date:"%d-%m-%Y" }}">{{ page.date | date: "%A. %B %d, %Y" }}</time>
         {% if site.read-time %} - {% include read-time.html %}{% endif %}
     </span>
-{% endif %}
+    {% endif %}
 
-{% if site.show-tags %}
+    {% if site.show-tags %}
     <div class="post-tags">
         {% for tag in page.tags %} {% if tag != page.company %}
         <a class="item" href="{{ site.url }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
         {% endif %} {% endfor %}
     </div>
-{% endif %}
+    {% endif %}
+</div>
 
 <!-- https://github.com/allejo/jekyll-anchor-headings -->
-{% include anchor_headings.html html=content anchorBody='#' beforeHeading=true %}
+<div class="post-content">
+    {% include anchor_headings.html html=content anchorBody='#' beforeHeading=true %}
+</div>
 
 <!-- mermaid need to be initialized after content -->
 {% if page.diagrams %}
@@ -132,23 +138,27 @@ layout: page
     </script>
 {% endif %}
 
-{% if site.post-advance-links contains page.category %}
-    <div class="blog-navigation">
-        {% if page.previous.url %}
-            <a class="prev" href="{{ site.url }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
-        {% else %}
-            <a class="prev"></a>
-        {% endif %}
-        {% if page.next.url %}
-            <a class="next" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
-        {% endif %}
-    </div>
-{% endif %}
+<div class="post-end">
+    {% if site.post-advance-links contains page.category %}
+        <div class="blog-navigation">
+            {% if page.previous.url %}
+                <a class="prev" href="{{ site.url }}{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
+            {% else %}
+                <a class="prev"></a>
+            {% endif %}
+            {% if page.next.url %}
+                <a class="next" href="{{ site.url }}{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
+            {% endif %}
+        </div>
+    {% endif %}
 
-{% if site.show-author %}
-    {% include author.html %}
-{% endif %}
+    {% if site.show-author %}
+        {% include author.html %}
+    {% endif %}
 
-{% if site.related %}
-    {% include related.html %}
-{% endif %}
+    {% if site.related %}
+        {% include related.html %}
+    {% endif %}
+</div>
+
+
