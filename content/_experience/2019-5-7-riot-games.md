@@ -4,6 +4,7 @@ layout: post
 tag:
 - internship
 - golang
+- javascript
 - monitoring
 - react
 - visualisation

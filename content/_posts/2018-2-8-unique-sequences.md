@@ -5,7 +5,6 @@ image: https://biopython.org/assets/images/biopython_logo_s.png
 headerImage: true
 tag:
 - python
-- bioinformatics
 - tools
 - bcgsc
 category: blog

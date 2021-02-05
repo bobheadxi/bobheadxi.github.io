@@ -7,7 +7,7 @@ tag:
 - react
 - typescript
 - redis
-- postgres
+- sql
 - graphql
 - analytics
 image: ""
