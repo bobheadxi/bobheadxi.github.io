@@ -8,16 +8,13 @@ tag:
 - docker
 image: https://koppl.in/indigo/assets/images/jekyll-logo-light-solid.png
 headerImage: false
-open_source: true
-hidden: true # don't count this post in blog pagination
 description: "<i>Borrow Me!</i> - a goodwill-based marketplace for sharing small, everyday items"
-category: open-source
 author: robert
 externalLink: false
 ---
 
 <p align="center">
-    <img src="/assets/images/projects/borrow-me-1.png" />
+    <img src="../../assets/images/projects/borrow-me-1.png" />
 </p>
 
 <p align="center">

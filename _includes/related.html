@@ -1,26 +1,65 @@
+<!-- tags=[] -->
 <div class="related">
+    <!-- related experience - only exact match on company -->
+    {% assign hasSimilar = '' %}
+    {% for post in site.experience reversed %}
+        {% assign postHasSimilar = false %}
+        {% for thisTag in include.tags %}
+            {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and post.company == thisTag %}
+                {% if hasSimilar.size == 0 %}
+                    <h4>Related experience</h4>
+                    <ul>
+                {% endif %}
+                    <li class="relatedPost">
+                        <a href="{{ site.url }}{{ post.url }}">{{ post.title }} at {{ post.organisation }}</a>
+                    </li>
+                {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
+                {% assign postHasSimilar = true %}
+            {% endif %}
+        {% endfor %}
+    {% endfor %}
+    {% if hasSimilar.size > 0 %}
+        </ul>
+    {% endif %}
+
+    <!-- related posts -->
     {% assign hasSimilar = '' %}
     {% for post in site.posts  %}
         {% assign postHasSimilar = false %}
         {% for tag in post.tags %}
-            {% for thisTag in page.tags %}
+            {% for thisTag in include.tags %}
                 {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
                     {% if hasSimilar.size == 0 %}
-                    <h4>Related</h4>
-                    <ul>
+                        <h4>Related posts</h4>
+                        <ul>
                     {% endif %}
-                    <li class="relatedPost">
-                        {% if post.collection == 'experience' %}
-                            <a href="{{ site.url }}{{ post.url }}">Experience: {{ post.title }} at {{ post.organisation }}
-                        {% else %}
-                            <a href="{{ site.url }}{{ post.url }}">{{ post.title }}
-                        {% endif %}
+                        <li class="relatedPost">
+                            <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                        </li>
+                    {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
+                    {% assign postHasSimilar = true %}
+                {% endif %}
+            {% endfor %}
+        {% endfor %}
+    {% endfor %}
+    {% if hasSimilar.size > 0 %}
+        </ul>
+    {% endif %}
 
-                        {% if post.series %}
-                            (Series: {{ post.series }})
-                        {% endif %}
-                        </a>
-                    </li>
+    <!-- related projects -->
+    {% assign hasSimilar = '' %}
+    {% for post in site.open-source reversed %}
+        {% assign postHasSimilar = false %}
+        {% for tag in post.tags %}
+            {% for thisTag in include.tags %}
+                {% if postHasSimilar == false and hasSimilar.size < 5 and post != page and tag == thisTag %}
+                    {% if hasSimilar.size == 0 %}
+                        <h4>Related projects</h4>
+                        <ul>
+                    {% endif %}
+                        <li class="relatedPost">
+                            <a href="{{ site.url }}{{ post.url }}">{{ post.title }}</a>
+                        </li>
                     {% capture hasSimilar %}{{ hasSimilar }}*{% endcapture %}
                     {% assign postHasSimilar = true %}
                 {% endif %}

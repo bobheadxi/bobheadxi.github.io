@@ -18,7 +18,7 @@ badges:
 ---
 
 <p align="center">
-    <img src="/assets/images/posts/introducing-new-launch-pad-site/landing.gif" width="100%" />
+    <img src="../../assets/images/posts/introducing-new-launch-pad-site/landing.gif" width="100%" />
 </p>
 
 <p align="center">
@@ -53,13 +53,10 @@ The new website was built from the ground up to solve two main pain points of it
 
 <br />
 
-<p align="center">
-  <img src="/assets/images/posts/introducing-new-launch-pad-site/responsive.png" width="80%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">The redesigned website is still fully responsive!</i>
-</p>
+<figure>
+  <img src="../../assets/images/posts/introducing-new-launch-pad-site/responsive.png" width="80%" />
+  <figcaption>The redesigned website is still fully responsive!</figcaption>
+</figure>
 
 In addition to the features listed above, I also worked on:
 
@@ -67,13 +64,10 @@ In addition to the features listed above, I also worked on:
 * integrating with our hosting provider [Netlify](https://www.netlify.com/) to **automatically generate [redirect links](https://github.com/ubclaunchpad/ubclaunchpad.com/blob/master/USING.md#redirect-links) from site configuration**
 * designing and building a **new way to browse our projects** through interactive modals, which teams can customise in the site configuration to feature media (images or YouTube videos) and links of their choice. The modals can also generate [links that can be shared to bring visitors directly to the project modal of their choice](https://ubclaunchpad.com?project=inertia#projects)!
 
-<p align="center">
-  <img src="/assets/images/projects/ubclaunchpad-dot-com/project-modal.gif" width="80%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Effortless dive into a project for more details with the new website's modal-based projects showcase</i>
-</p>
+<figure>
+  <img src="../../assets/images/projects/ubclaunchpad-dot-com/project-modal.gif" width="80%" />
+  <figcaption>Effortless dive into a project for more details with the new website's modal-based projects showcase</figcaption>
+</figure>
 
 Check out my pull requests in more detail [on GitHub](https://github.com/ubclaunchpad/ubclaunchpad.com/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed),
 and see the website [live at `ubclaunchpad.com`](https://ubclaunchpad.com)!

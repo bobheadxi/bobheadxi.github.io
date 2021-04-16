@@ -42,7 +42,7 @@ and leaner, but it's holding together for the time being. You can check out the
 
 ## Hypothes.is Integration for Annotations
 
-![hypothesis overlay](/assets/images/posts/march-2020-site-updates/hypothesis.gif)
+![hypothesis overlay](../../assets/images/posts/march-2020-site-updates/hypothesis.gif)
 
 [Hypothes.is](https://web.hypothes.is/) is an open web annotation platform that aims to provide
 a collaborative discussion layer on top of web content. I'm exploring using it as a note-taking
@@ -72,7 +72,7 @@ that. 🙃
 
 ## Annoying Popups
 
-![noty in home](/assets/images/posts/march-2020-site-updates/noty-home.gif)
+![noty in home](../../assets/images/posts/march-2020-site-updates/noty-home.gif)
 
 This mostly stemmed from my [new Hypothes.is integration](#hypothesis-integration) - how do I let
 the little traffic I get know that they can leave comments? Then I remembered, hey, I came across
@@ -83,7 +83,7 @@ set up, so after adding an alert for Hypothes.is I set up an additional welcome 
 
 ### Conditional Popups
 
-![noty on a post](/assets/images/posts/march-2020-site-updates/noty-post.gif)
+![noty on a post](../../assets/images/posts/march-2020-site-updates/noty-post.gif)
 
 {% raw %}
 The template language used by [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)
@@ -133,7 +133,7 @@ description: Create a simple GitHub activity chart for your personal website!
 
 ### Popup Interaction Analytics
 
-![google analytics events](/assets/images/posts/march-2020-site-updates/google-analytics.png)
+![google analytics events](../../assets/images/posts/march-2020-site-updates/google-analytics.png)
 
 I have no idea if anyone will ever interact with these new annoying popups so I figured I should do
 some simple interaction measurements (though realistically, even if nobody clicked them I'll

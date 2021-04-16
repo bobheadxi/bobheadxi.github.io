@@ -7,27 +7,39 @@ title: Open Source
 <h1 style="font-weight:500;margin-top:-0.5rem;margin-bottom:-0.2rem;text-align:center;">open source</h1>
 
 <p align="center">
-    The open source community is amazing, and has been a huge part of my learning
-    - so I do my best to give back where I can through contributions and 
-    making my code available for everyone. Feel free to check out my
-    <a href="https://github.com/bobheadxi">GitHub</a> to see what I'm
-    working on right now!
+    The open source community has been a huge part of my learning, so I do my best to give back where I can through contributions and making my code available for everyone.
+    Check out my <a href="https://github.com/bobheadxi">GitHub</a> to see what I've been working on!
 </p>
 
-<!-- https://observablehq.com/@bumbeishvili/trying-out-rough -->
+<!-- Based on https://observablehq.com/@bumbeishvili/trying-out-rough -->
 <div id="canvas-container" height="150px">
+    <!-- Populated by `drawChart()` -->
     <canvas id="canvas"></canvas>
     <p align="center">
-        <i style="font-size:90%;">Generated chart of my recent
+        <figcaption>Generated chart of my recent
         <a href="https://github.com/bobheadxi" target="_blank">GitHub activity</a>! Check out
         <a href="/rough-github-chart" target="_blank">this blog post</a> to see how it works.
-        </i>
+        </figcaption>
     </p>
 </div>
 
 <script>
+/**
+ * Fetch contributions history and populate `<canvas>`.
+ */
 function drawChart() {
-    return fetch('https://cors-anywhere.herokuapp.com/https://github-contributions.now.sh/api/v1/bobheadxi')
+    /**
+     * The github-contributions API used here is a third party service that is intended to
+     * back https://github.com/sallar/github-contributions-chart, and thus requires a CORS
+     * proxy.
+     * 
+     * In the past, proxies have stopped working/get taken down/etc so make it easier to
+     * track and change here.
+     */
+    const proxyURL = 'https://cors.bridged.cc';
+    const contributionsURL = 'https://github-contributions.now.sh/api/v1/bobheadxi';
+
+    return fetch(`${proxyURL}/${contributionsURL}`)
         .then((resp) => resp.json())
         .then((data) => {
             const maxWidth = document.getElementById('canvas-container').clientWidth;
@@ -73,10 +85,12 @@ function drawChart() {
         .catch((err) => console.error(`/open-source chart error`, { err }));
 }
 
+/**
+ * Trigger a render whenever the page is loaded or resized.
+ */
 window.onload = drawChart;
 window.onresize = drawChart;
 </script>
-
 
 <section class="list">
     {% for post in site.open-source reversed %}

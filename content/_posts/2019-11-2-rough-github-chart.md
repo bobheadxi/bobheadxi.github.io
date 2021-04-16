@@ -21,27 +21,21 @@ So the other day I had a sudden, irresistible urge to make *something* using the
 graphics. The urge probably originated from the fact that I had exams I was meant
 to study for.
 
-<p align="center">
+<figure>
   <img src="https://roughjs.com/images/m14.png">
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Example shapes from the
-  <a href="https://roughjs.com/" target="_blank">Rough.js website</a>!</i>
-</p>
+  <figcaption>Example shapes from the
+  <a href="https://roughjs.com/" target="_blank">Rough.js website</a>!</figcaption>
+</figure>
 
 I figured that since I've got a healthy amount of GitHub activity lying around,
 I might as well use this opportunity to put that activity to good use: by making
 a cute little chart of how much `git commit` I've been doing recently.
 
-<p align="center">
-  <img src="/assets/images/posts/rough-github.png">
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">This is just a screenshot, but you can see the live
-  version on <a href="/open-source" target="_blank">my website</a>.</i>
-</p>
+<figure>
+  <img src="../../assets/images/posts/rough-github.png">
+  <figcaption>This is just a screenshot, but you can see the live
+  version on <a href="/open-source" target="_blank">my website</a>.</figcaption>
+</figure>
 
 To get started, you'll want to include Rough.js and d3 libraries somewhere in
 your header:

@@ -23,7 +23,7 @@ We've had a design sitting around for a while now, but this year we've finally d
 
 ## The New Website
 
-![landing](/assets/images/posts/introducing-new-launch-pad-site/landing.gif)
+![landing](../../assets/images/posts/introducing-new-launch-pad-site/landing.gif)
 
 We’re launching our new website today on [ubclaunchpad.com](https://ubclaunchpad.com)! The revamped website features:
 
@@ -34,7 +34,9 @@ We’re launching our new website today on [ubclaunchpad.com](https://ubclaunchp
 
 <br />
 
-![a fully responsive website](/assets/images/posts/introducing-new-launch-pad-site/responsive.png)
+<figure>
+  <img src="../../assets/images/posts/introducing-new-launch-pad-site/responsive.png" >
+</figure>
 
 <br />
 
@@ -46,9 +48,12 @@ This revamp has been in the works for a long time, but development only started 
 
 Our design team, lead by our wonderful designer [Jenny](https://github.com/cowjuh), first prepared a set of refreshed branding and designs for a new website in early 2019. The design went through several iterations, we showed it off to the club, and... never got around to building it, which is unfortunately because the team did a great job with the designs and it looked *great*.
 
-![many iterations of design](/assets/images/posts/introducing-new-launch-pad-site/old-designs.png)
-
-![final designs](/assets/images/posts/introducing-new-launch-pad-site/final-designs.png)
+<figure>
+  <img src="../../assets/images/posts/introducing-new-launch-pad-site/old-designs.png" >
+</figure>
+<figure>
+  <img src="../../assets/images/posts/introducing-new-launch-pad-site/final-designs.png">
+</figure>
 
 By the time April 2020 rolled around, we were in desperate need of an online platform aligned with the branding we were sending out to sponsors and partners to showcase this year's projects.
 
@@ -66,7 +71,9 @@ In hopes of remedying these issues, I made two major decisions right as I starte
 
 We'd made a few attempts at starting development on the website before, but unfortunately since it was always treated as more of a club "side project" or an off-season project, it was quite difficult to get the ball rolling and development would quickly fizzle out. To get the project off the ground with some momentum, I decided I would build the initial implementation by myself. I [started off on my own on April 17th](https://github.com/ubclaunchpad/ubclaunchpad.com/commit/64e720c4bb1fd74f9aa49fd4096b10a25a5212fe), [finished implementing a first pass of the entire website just *two* days later](https://github.com/ubclaunchpad/ubclaunchpad.com/issues/16), set up what documentation I could, and opened the project up to contributions from the club!
 
-![internal launch](/assets/images/posts/introducing-new-launch-pad-site/internal-launch.png)
+<figure>
+  <img src="../../assets/images/posts/introducing-new-launch-pad-site/internal-launch.png" >
+</figure>
 
 Despite having a website you could scroll through that looked pretty close to the actual design, there was still a significant amount of work to be done:
 

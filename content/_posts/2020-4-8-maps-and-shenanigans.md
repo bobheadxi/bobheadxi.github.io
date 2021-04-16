@@ -23,9 +23,9 @@ Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 [BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), [Uber's `deck.gl`](https://github.com/uber/deck.gl)
 visualisation framework, and [GitHub Pages](https://pages.github.com/).
 
-<p align="center">
-<img src="/assets/images/posts/maps-and-shenanigans/epa-data-explore.png" />
-</p>
+<figure>
+  <img src="../../assets/images/posts/maps-and-shenanigans/epa-data-explore.png" />
+</figure>
 
 You can probably skip the first section of this post if you just want to see a brief writeup of the
 work behind this screenshot (or just go [straight to the final website](https://bobheadxi.dev/society-and-air-quality/)). As always, please feel free to
@@ -45,40 +45,34 @@ I've always wanted to make pretty things, but the tedium of front-end always pro
 intimidating. My time with [nwPlus](/open-source/nwhacks2019) did get the ball rolling though - implementing
 a nice design and seeing it come to life was quite satisfying.
 
-<p align="center">
-  <img src="/assets/images/projects/nwhacks-navbar.gif" width="75%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Wheeee - see my
-  <a href="/nwhacks2019" target="_blank">nwPlus recap</a> for more!</i>
-</p>
+<figure>
+  <img src="../../assets/images/projects/nwhacks-navbar.gif" />
+  <figcaption>Wheeee - see my
+  <a href="/nwhacks2019" target="_blank">nwPlus recap</a> for more!</figcaption>
+</figure>
 
 I tried to learn more on making nice user interfaces briefly with my cancelled project,
 [Timelines](/open-source/timelines), and when I went to [Riot Games](/experience/riot-games) last year, I tried yet
 again with a project that has been in limbo for a while: [Seer](https://github.com/bobheadxi/seer)
 (I didn't even do a writeup for this one yet :sweat_smile:)
 
-<p align="center">
-  <img src="/assets/images/projects/seer-wip.png" width="75%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">
+<figure>
+  <img src="../../assets/images/projects/seer-wip.png" width="75%" />
+  <figcaption>
   The state I got <a href="" targe="_blank">Seer</a> to last summer - surpisingly
   <a href="https://seer.bobheadxi.dev/5ee20284" target="_blank">still accessible</a> at time
   of writing! Guess I never took down my Heroku instance.
-  </i>
-</p>
+  </figcaption>
+</figure>
 
 As you can see neither of these projects made it very far, since I got caught up making my backends
 all well-architected and stuff. I did get some traction with [`gobenchdata`](https://bobheadxi.dev/gobenchdata-project/),
 which was a simple visualisation generator for benchmark results over time, but that wasn't a super
 sexy project or anything.
 
-<p align="center">
-  <img src="https://raw.githubusercontent.com/bobheadxi/gobenchdata/master/.static/demo-chart.png" width="75%" />
-</p>
+<figure>
+  <img src="https://raw.githubusercontent.com/bobheadxi/gobenchdata/master/.static/demo-chart.png" />
+</figure>
 
 Fortunately, I finished my first intern project at Riot Games with some time to spare so I decided
 to dive into the making of pretty things more - this time using a design library that was used by my team,
@@ -86,18 +80,15 @@ to dive into the making of pretty things more - this time using a design library
 of the project and I got the go-ahead to hack on it for about 2 weeks of my internship which was
 awesome. :rocket:
 
-<p align="center">
-    <img src="/assets/images/posts/riot-alerts-explorer-wide.png" width="75%" />
-</p>
-
-<p align="center">
-    <i style="font-size:90%;">
-    The alert visualisation tool I made, as seen in
-    <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
-    a blog post I contributed to on the official Riot Games Technology blog</a>.
-    See my <a href="/nwhacks2019" target="_blank">Riot Games recap</a> for more!
-    </i>
-</p>
+<figure>
+  <img src="../../assets/images/posts/riot-alerts-explorer-wide.png" />
+  <figcaption>
+  The alert visualisation tool I made, as seen in
+  <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
+  a blog post I contributed to on the official Riot Games Technology blog</a>.
+  See my <a href="/nwhacks2019" target="_blank">Riot Games recap</a> for more!
+  </figcaption>
+</figure>
 
 Since this was a lot of fun, I asked around about data visualisation, downloaded some books, failed
 to sign up quickly enough for my university's visualisation course, and proceeded to not do much on
@@ -142,53 +133,57 @@ to do this anyway for the project). I did the majority of this work in Jupyter N
    for details. I also converted these into GeoJSON and later simplified the geometries as well
    (from ~3GB total to ~2MB total - see [this script](https://github.com/bobheadxi/society-and-air-quality/blob/master/tools/acs_geojson_filter.py))
    so I could use them in the visualisation app without blowing up your browser.
-    ```py
-    for y in years:
-        save_to = out_template % y
-        if y == '2007': # 2007 has a special naming scheme...
-            target = 'fe_%s_us_cbsa' % y
-            url = 'https://www2.census.gov/geo/tiger/TIGER%sFE/%s.zip' % (y, target)
-            download_url(url, save_to)
+
+```py
+for y in years:
+    save_to = out_template % y
+    if y == '2007': # 2007 has a special naming scheme...
+        target = 'fe_%s_us_cbsa' % y
+        url = 'https://www2.census.gov/geo/tiger/TIGER%sFE/%s.zip' % (y, target)
+        download_url(url, save_to)
+    else:
+        target = 'tl_%s_us_cbsa' % y
+        if y == '2008' or y == '2009': # some random years have special naming schemes too...
+            url = 'https://www2.census.gov/geo/tiger/TIGER%s/%s.zip' % (y, target)
+        elif y == '2010': # this single year has a slightly different path...
+            url = 'https://www2.census.gov/geo/tiger/TIGER2010/CBSA/2010/tl_2010_us_cbsa10.zip'
         else:
-            target = 'tl_%s_us_cbsa' % y
-            if y == '2008' or y == '2009': # some random years have special naming schemes too...
-                url = 'https://www2.census.gov/geo/tiger/TIGER%s/%s.zip' % (y, target)
-            elif y == '2010': # this single year has a slightly different path...
-                url = 'https://www2.census.gov/geo/tiger/TIGER2010/CBSA/2010/tl_2010_us_cbsa10.zip'
-            else:
-                url = 'https://www2.census.gov/geo/tiger/TIGER%s/CBSA/%s.zip' % (y, target)
-            try:
-                download_url(url, save_to)
-            except:
-                print('failed to fetch "%s"' % url)
-    ```
+            url = 'https://www2.census.gov/geo/tiger/TIGER%s/CBSA/%s.zip' % (y, target)
+        try:
+            download_url(url, save_to)
+        except:
+            print('failed to fetch "%s"' % url)
+```
+
 2. The EPA data is provided as measurements collected by stations, where the coordinates of each
    station is provided. Converting the geometries (shapefiles in this case) into GeoJSON allowed
    me to just dump it all into BigQuery and use some [geospatial functions](https://cloud.google.com/bigquery/docs/gis-intro)
    to do the magic of finding out which stations should belong to which ACS CBSA regions. See
    [this notebook](https://github.com/bobheadxi/society-and-air-quality/blob/master/exploration/2_aligning_acs_and_epa.ipynb)
    for details. BigQuery is honestly quite nice.
-    ```py
-    def get_relations_for_year(year) -> pd.DataFrame:
-        resp = bq.query('''
-            SELECT DISTINCT
-                acs.year,
-                acs.geoid AS acs_geoid,
-                acs.name AS acs_cbsa_name,
-                CONCAT(epa.state_code, ".", epa.county_code, ".", epa.site_num) AS epa_site,
-                epa.longitude,
-                epa.latitude
-            FROM
-                `eosc410-project.data.epa_air_quality_annual` as epa,
-                `eosc410-project.data.acs_cbsa_boundaries_%s` as acs
-            WHERE
-                epa.year = %s
-                AND acs.year = %s
-                AND ST_WITHIN(ST_GEOGPOINT(epa.longitude, epa.latitude), ST_GEOGFROMGEOJSON(acs.geometry))
-                AND (epa.datum='NAD83' OR epa.datum='WGS84') # guard against irrelevant coordinates
-        ''' % (year, year, year))
-        return resp.to_dataframe()
-    ```
+
+```py
+def get_relations_for_year(year) -> pd.DataFrame:
+    resp = bq.query('''
+        SELECT DISTINCT
+            acs.year,
+            acs.geoid AS acs_geoid,
+            acs.name AS acs_cbsa_name,
+            CONCAT(epa.state_code, ".", epa.county_code, ".", epa.site_num) AS epa_site,
+            epa.longitude,
+            epa.latitude
+        FROM
+            `eosc410-project.data.epa_air_quality_annual` as epa,
+            `eosc410-project.data.acs_cbsa_boundaries_%s` as acs
+        WHERE
+            epa.year = %s
+            AND acs.year = %s
+            AND ST_WITHIN(ST_GEOGPOINT(epa.longitude, epa.latitude), ST_GEOGFROMGEOJSON(acs.geometry))
+            AND (epa.datum='NAD83' OR epa.datum='WGS84') # guard against irrelevant coordinates
+    ''' % (year, year, year))
+    return resp.to_dataframe()
+```
+
 3. Then I aggregated everything into what I dubbed "flat" formats, where columns names have the region
    and parameter information encoded into them, and exported them as CSV files for use in the visualisation.
    I also exported the station coordinates as GeoJSON as well for use in with `deck.gl`.
@@ -328,9 +323,9 @@ updateMapState({
 
 Then, when you visit the website and land on the intro slide, the map loads up like this:
 
-<p align="center">
-  <img src="/assets/images/posts/maps-and-shenanigans/intro.png" />
-</p>
+<figure>
+  <img src="../../assets/images/posts/maps-and-shenanigans/intro.png" />
+</figure>
 
 Changing the pitch and bearing also yields cool results, this example using the simplified CBSA region
 geometries I collected earlier, and adds some extrusion for dramatic effect:
@@ -360,18 +355,22 @@ updateMapState({
 });
 ```
 
-<p align="center">
-  <img src="/assets/images/posts/maps-and-shenanigans/questions.png" />
-</p>
+<figure>
+  <img src="../../assets/images/posts/maps-and-shenanigans/questions.png" />
+  <figcaption>
+    Pitch and bearing changes the angle of the viewport, and a logarithmic scale on the
+    <code>acs.total_pop</code> value provides a neat-looking extrusion based on the population of each region.
+  </figcaption>
+</figure>
 
 Also note that thanks to `antd`, positioning nice-looking elements all over the screen is pretty
 easy, and offers a lot of knobs to tweak to adapt your content across different screen sizes. I
 didn't try too hard to make it mobile-friendly, but it's nice to know the capability is there and that
 you don't have to do it yourself.
 
-<p align="center">
-  <img src="/assets/images/posts/maps-and-shenanigans/acs-data.png" />
-</p>
+<figure>
+  <img src="../../assets/images/posts/maps-and-shenanigans/acs-data.png" />
+</figure>
 
 This is probably my favourite slide - [see the source code here](https://sourcegraph.com/github.com/bobheadxi/society-and-air-quality/-/blob/vis/src/slides/methodology/DataACS.js).
 This particular slide only took 83 lines of code on its own!
@@ -420,9 +419,9 @@ one update at a time :cry: This **really kills the vibe** because I had wanted a
 to let you slide through the entire country's data over the years, as well as highlight selected regions,
 and show different data on the map based on the selected parameter.
 
-<p align="center">
+<figure>
 <img src="https://raw.githubusercontent.com/bobheadxi/society-and-air-quality/master/docs/_screenshots/epa-data-explore.png" />
-</p>
+</figure>
 
 I'll have to revisit this at some point - I'm sure there's a "right" way to do this, and that I'm
 just holding React all wrong, but I've already spent a lot of time getting everything to this point
@@ -430,28 +429,25 @@ so for now I'm just stuck with a rather uninteractive map.
 
 ---
 
-**✅ Update(4/10/2020)**: I spent some time fiddling with this and managed to get some basic
+> **✅ Update(4/10/2020)**: I spent some time fiddling with this and managed to get some basic
 interactions working by moving context subscription to the topmost level (I suppose rendering it
 pointless, but oh well) and removing all `mapState` depenedencies from `updateMapState`. Slides then
 check for loading/error state, and if they are selected, call `updateMapState` through `useEffect`.
 Check out the commit [here](https://github.com/bobheadxi/society-and-air-quality/commit/23ef2fac30edd373958526e5397b8bbb7cc3950c)! It's not very clean, and I still can't get map transitions
 working so I suspect I'm still doing something wrong, but it's something.
 
-<p align="center">
-<img src="/assets/images/posts/maps-and-shenanigans/interact_demo.gif" />
-</p>
+<figure>
+<img src="../../assets/images/posts/maps-and-shenanigans/interact_demo.gif" />
+</figure>
 
 ---
 
 ### GitHub Pages
 
-<p align="center">
-<img src="/assets/images/posts/maps-and-shenanigans/github-pages.png" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">You can find this page under repository settings on GitHub.</i>
-</p>
+<figure>
+  <img src="../../assets/images/posts/maps-and-shenanigans/github-pages.png" width="75%" />
+  <figcaption>You can find this page under repository settings on GitHub.</figcaption>
+</figure>
 
 To make all my aggregated data available through GitHub pages I opted for the option of deploying
 the `docs` folder in my `master` branch, though you can do it through any of the other options as

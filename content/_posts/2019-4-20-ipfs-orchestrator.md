@@ -43,13 +43,10 @@ the project, with links to implementation details and whatnot:
 * TOC
 {:toc}
 
-<p align="center">
-  <img src="/assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">A super early sketch from one of our first meetings about a potential "ipfs-agent", which would become Nexus.</i>
-</p>
+<figure>
+  <img src="../../assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
+  <figcaption>A super early sketch from one of our first meetings about a potential "ipfs-agent", which would become Nexus.</figcaption>
+</figure>
 
 ## Deploying Nodes
 
@@ -108,26 +105,28 @@ The node creation process goes roughly as follows:
    * writing the given "swarm key" (used for identifying a private network) to disk for the node
    * generating an [entrypoint script](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/internal/ipfs_start.sh) that caps resources as required
 2. [Setting up configuration](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L123), [creating the container](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L185), and [getting the container running](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client.go#L208) - this part primarily imitates your standard `docker container create`, etc. commands in `*docker/client.Client`, edited for brevity:
-    ```go
-    resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
-    if err != nil { /* ... */ }
-    l.Infow("container created", "build.duration", time.Since(start), "container.id", resp.ID)
 
-    if err := c.d.ContainerStart(ctx, n.DockerID, types.ContainerStartOptions{}); err != nil {
-      go c.d.ContainerRemove(ctx, n.ContainerName, types.ContainerRemoveOptions{Force: true})
-      return fmt.Errorf("failed to start ipfs node: %s", err.Error())
-    }
+```go
+resp, err := c.d.ContainerCreate(ctx, containerConfig, containerHostConfig, nil, n.ContainerName)
+if err != nil { /* ... */ }
+l.Infow("container created", "build.duration", time.Since(start), "container.id", resp.ID)
 
-    // waitForNode scans container output for readiness indicator, and errors on
-    // context expiry. See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22:18
-    if err := c.waitForNode(ctx, n.DockerID); err != nil { /* ... */ }
+if err := c.d.ContainerStart(ctx, n.DockerID, types.ContainerStartOptions{}); err != nil {
+  go c.d.ContainerRemove(ctx, n.ContainerName, types.ContainerRemoveOptions{Force: true})
+  return fmt.Errorf("failed to start ipfs node: %s", err.Error())
+}
 
-    // run post-startup commands in the container (in this case, bootstrap peers)
-    // containerExec is a wrapper around ContainerExecCreate and ContainerExecStart
-    // See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L141:18
-    c.containerExec(ctx, dockerID, []string{"ipfs", "bootstrap", "rm", "--all"})
-    c.containerExec(ctx, dockerID, append([]string{"ipfs", "bootstrap", "add"}, peers...))
-    ```
+// waitForNode scans container output for readiness indicator, and errors on
+// context expiry. See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22:18
+if err := c.waitForNode(ctx, n.DockerID); err != nil { /* ... */ }
+
+// run post-startup commands in the container (in this case, bootstrap peers)
+// containerExec is a wrapper around ContainerExecCreate and ContainerExecStart
+// See https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L141:18
+c.containerExec(ctx, dockerID, []string{"ipfs", "bootstrap", "rm", "--all"})
+c.containerExec(ctx, dockerID, append([]string{"ipfs", "bootstrap", "add"}, peers...))
+```
+
 3. [Once the node daemon is ready](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L22), [bootstrap the node against existing peers](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/client_utils.go#L83:18) if any peers are configured
 
 Some node configuration is [embedded into the container metadata](https://github.com/RTradeLtd/Nexus/blob/master/ipfs/node.go#L61),
@@ -156,8 +155,6 @@ if _, err := o.NetworkUp(context.Background(), tt.args.network); (err != nil) !=
   t.Errorf("Orchestrator.NetworkUp() error = %v, wantErr %v", err, tt.wantErr)
 }
 ```
-
----
 
 ## Orchestrating Nodes
 
@@ -190,8 +187,6 @@ particularly [`ipfs.NodeClient`](https://godoc.org/github.com/RTradeLtd/Nexus/ip
 
 The functionality of the orchestrator is exposed by a gRPC API, which I talk
 about a bit more in [Exposing an API](#exposing-an-api).
-
----
 
 ## Access Control
 
@@ -398,8 +393,6 @@ These reverse proxies are cached so that the delegator doesn't have to construct
 them all the time, with evictions based on expiry so that outdated proxies don't
 persist for too long.
 
----
-
 ## Exposing an API
 
 Most of RTrade's services expose functionality via [gRPC](https://grpc.io/)
@@ -473,17 +466,12 @@ $> nexus -dev ctl StopNetwork Network=test-network
 I introduced this feature very early on, and it came in useful as Nexus's
 capabilities grew, making it easy to demonstrate new features:
 
-<p align="center">
-  <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo1.png" width="100%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Introducing the <code>nexus ctl</code> command to
+<figure>
+  <img src="../../assets/images/posts/ipfs-orchestrator/ctl-demo1.png" width="100%" />
+  <figcaption>Introducing the <code>nexus ctl</code> command to
   demonstrate MVP functionality - from
-  <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</i>
-</p>
-
-<br />
+  <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</figcaption>
+</figure>
 
 I eventually added a couple of the `nexus ctl` commands to our Makefile as well
 for convenience:
@@ -494,19 +482,12 @@ start-network: build
 	./nexus $(TESTFLAGS) ctl --pretty StartNetwork Network=$(NETWORK)
 ```
 
-<br />
-
-<p align="center">
-  <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">Using <code>nexus ctl</code> commands
+<figure>
+  <img src="../../assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
+  <figcaption>Using <code>nexus ctl</code> commands
   (from <code>make</code>) to demonstrate a new feature - from
-  <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</i>
-</p>
-
----
+  <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</figcaption>
+</figure>
 
 ## Testing
 
@@ -522,15 +503,12 @@ halfway-decent measure of this is code coverage!
   </a>
 </p>
 
-<p align="center">
-  <img src="/assets/images/posts/ipfs-orchestrator/sunburst.svg" width="40%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">A "coverage sunburst", indicating test coverage
+<figure>
+  <img src="../../assets/images/posts/ipfs-orchestrator/sunburst.svg" width="40%" />
+  <figcaption>A "coverage sunburst", indicating test coverage
   in various subdirectories of the codebase - from
-  <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</i>
-</p>
+  <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</figcaption>
+</figure>
 
 Tests mostly fall in one of two categories (in my mind at least): unit tests that
 run without any setup and involve no non-library dependencies, and integration
@@ -732,10 +710,5 @@ blow up around you. :sweat_smile:
 
 <br />
 
----
-
-<br />
-
 That's all I had to share in this post (which got a bit lengthier than I expected) -
-hopefully somebody finds this useful! Feel free to check out my other posts, or
-reach out to me at `robert@bobheadxi.dev` if you want to chat.
+hopefully somebody finds this useful!

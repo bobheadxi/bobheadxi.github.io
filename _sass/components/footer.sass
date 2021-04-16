@@ -1,8 +1,8 @@
 .footer-main
     border-top: 1px solid $epsilon
     padding: 40px 0
-    margin: 40px 0 0
-    font-size: 1.3rem
+    margin: auto
+    font-size: 0.75rem
     color: $gama
     font-weight: 300
     text-align: center
@@ -22,8 +22,16 @@
         box-shadow: #FFF 0 0 0 5px
         border-radius: 3px
 
-    > .link
+    .link
         display: inline
+        color: $beta
+        text-decoration: none
+        border-bottom: 1px solid transparent
+        transition: ease-in-out all .3s
+        padding-bottom: 1px
+
+        &:hover
+            border-color: $gama
 
         > .icon
             width: 15px !important
@@ -40,13 +48,3 @@
     > .extra
         color: $gama
         margin-top: 0
-
-        > .link
-            color: $beta
-            text-decoration: none
-            border-bottom: 1px solid transparent
-            transition: ease-in-out all .3s
-            padding-bottom: 1px
-
-            &:hover
-                border-color: $gama

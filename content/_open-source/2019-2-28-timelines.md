@@ -7,7 +7,7 @@ tag:
 - react
 - typescript
 - redis
-- postgres
+- sql
 - graphql
 - analytics
 image: ""
@@ -20,7 +20,7 @@ badges: []
 ---
 
 <p align="center">
-    <img src="/assets/images/projects/timelines-banner.png" width="100%" />
+    <img src="../../assets/images/projects/timelines-banner.png" width="100%" />
 </p>
 
 <p align="center">
@@ -39,7 +39,7 @@ tasks to run on a repository and outputs a ton of data observing trends over the
 history of a project.
 
 I thought this was a pretty neat take on project histories, especially since for
-myself and teams at my club [UBC Launch Pad](https://www.ubclaunchpad.com/), it
+myself and teams at my club [UBC Launch Pad](https://ubclaunchpad.com/), it
 can be easy to lose sight of how far we've come in a project. So I decided to
 try and turn this concept into a service that tied all sorts of metadata about
 your project - Git history analysis, milestones, releases, issues, pull requests,
@@ -66,7 +66,7 @@ During this time, I also started or improved a few other relevant side projects:
 * generator for [static, canonical Go package import paths](https://github.com/bobheadxi/twist)
 
 <p align="center">
-    <img src="/assets/images/projects/timelines-home.png" width="80%" />
+    <img src="../../assets/images/projects/timelines-home.png" width="80%" />
 </p>
 
 Unfortunately I've decided to abandon the project for the time being. However,

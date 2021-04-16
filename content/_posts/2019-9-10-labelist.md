@@ -43,11 +43,9 @@ that they were able to create labels and manage them for me, so it *looked* like
 the paywall was not enforced by the Todoist API. I gave it a shot:
 
 ```sh
-curl "https://api.todoist.com/rest/v1/tasks/1234" \
-  -X POST \
-  --data '{"labels": [2345,5678]}' \
-  -H "Content-Type: application/json" \
-  -H "Authorization: Bearer $TOKKEn"
+curl "https://api.todoist.com/rest/v1/tasks/1234" -X POST -H "Content-Type: application/json" \
+  -H "Authorization: Bearer $TOKEN" \
+  --data '{"labels": [2345,5678]}'
 ```
 
 ...and sure enough, it worked!

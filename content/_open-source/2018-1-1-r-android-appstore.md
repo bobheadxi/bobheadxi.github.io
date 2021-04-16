@@ -18,9 +18,9 @@ badges:
 - <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore?color=b07219" />
 ---
 
-<p align="center">
-    <img src="https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true" />
-</p>
+<figure>
+  <img src="https://github.com/d4rken/reddit-android-appstore/blob/dev/art/preview-v080.png?raw=true" />
+</figure>
 
 <p align="center">
     <a href="https://github.com/d4rken/reddit-android-appstore">
@@ -64,15 +64,12 @@ With over 20 merged pull requests, some of my contributions include:
 
 Check out my pull requests in more detail [here](https://github.com/d4rken/reddit-android-appstore/pulls?utf8=✓&q=is%3Apr%20is%3Aclosed%20author%3Abobheadxi%20is%3Amerged%20base%3Adev)!
 
-<p align="center">
-  <img src="/assets/images/projects/r-reddit-appstore-demo.gif" width="50%" />
-</p>
-
-<p align="center">
-  <i style="font-size:90%;">
+<figure>
+  <img src="../../assets/images/projects/r-reddit-appstore-demo.gif" width="50%" />
+  <figcaption>
   Demo from my
   <a href="https://github.com/d4rken/reddit-android-appstore/pull/131">pull request to add a redsigned app details page</a>.
-  </i>
-</p>
+  </figcaption>
+</figure>
 
 <br />
