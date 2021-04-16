@@ -67,7 +67,7 @@ DNA methylation and its gene silencing effects has close associations with the o
 A stronger understanding of how DNA methylation causes cancer has many potential benefits. It can facilitate earlier diagnosis (from easily accessible cancer cells that enter the blood and other bodily fluids) as well as better prediction of how patient might respond to therapy, so as to allow for better treatment recommendations.
 
 <figure>
-	<img src="/assets/images/posts/methylation.png" />
+	<img src="../../assets/images/posts/methylation.png" />
 	<figcaption>Still from <a href="https://www.youtube.com/watch?v=UUM7HiFkDd4">YouTube video</a> by the Garvan Institute of Medical Research</figcaption>
 </figure>
 

@@ -18,7 +18,7 @@ I studied Mathematics at the [University of British Columbia](https://ubc.ca/), 
 I volunteered for some time as a [web developer for nwPlus](/open-source/nwhacks2019/) building the website and application system behind one of the largest hackathons in western Canada, nwHacks.
 
 <figure>
-    <img src="/assets/images/projects/inertia-talk.png" width="75%" />
+    <img src="../assets/images/projects/inertia-talk.png" width="75%" />
     <figcaption>Inertia team member Chad and I presenting
     <a href="/inertia">UBC Launch Pad's self-hosted build and deployment platform</a>
     at the

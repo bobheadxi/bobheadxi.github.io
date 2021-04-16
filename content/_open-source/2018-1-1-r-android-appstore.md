@@ -65,7 +65,7 @@ With over 20 merged pull requests, some of my contributions include:
 Check out my pull requests in more detail [here](https://github.com/d4rken/reddit-android-appstore/pulls?utf8=✓&q=is%3Apr%20is%3Aclosed%20author%3Abobheadxi%20is%3Amerged%20base%3Adev)!
 
 <figure>
-  <img src="/assets/images/projects/r-reddit-appstore-demo.gif" width="50%" />
+  <img src="../../assets/images/projects/r-reddit-appstore-demo.gif" width="50%" />
   <figcaption>
   Demo from my
   <a href="https://github.com/d4rken/reddit-android-appstore/pull/131">pull request to add a redsigned app details page</a>.

@@ -32,7 +32,7 @@ I might as well use this opportunity to put that activity to good use: by making
 a cute little chart of how much `git commit` I've been doing recently.
 
 <figure>
-  <img src="/assets/images/posts/rough-github.png">
+  <img src="../../assets/images/posts/rough-github.png">
   <figcaption>This is just a screenshot, but you can see the live
   version on <a href="/open-source" target="_blank">my website</a>.</figcaption>
 </figure>

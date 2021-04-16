@@ -24,7 +24,7 @@ Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 visualisation framework, and [GitHub Pages](https://pages.github.com/).
 
 <figure>
-  <img src="/assets/images/posts/maps-and-shenanigans/epa-data-explore.png" />
+  <img src="../../assets/images/posts/maps-and-shenanigans/epa-data-explore.png" />
 </figure>
 
 You can probably skip the first section of this post if you just want to see a brief writeup of the
@@ -46,7 +46,7 @@ intimidating. My time with [nwPlus](/open-source/nwhacks2019) did get the ball r
 a nice design and seeing it come to life was quite satisfying.
 
 <figure>
-  <img src="/assets/images/projects/nwhacks-navbar.gif" />
+  <img src="../../assets/images/projects/nwhacks-navbar.gif" />
   <figcaption>Wheeee - see my
   <a href="/nwhacks2019" target="_blank">nwPlus recap</a> for more!</figcaption>
 </figure>
@@ -57,7 +57,7 @@ again with a project that has been in limbo for a while: [Seer](https://github.c
 (I didn't even do a writeup for this one yet :sweat_smile:)
 
 <figure>
-  <img src="/assets/images/projects/seer-wip.png" width="75%" />
+  <img src="../../assets/images/projects/seer-wip.png" width="75%" />
   <figcaption>
   The state I got <a href="" targe="_blank">Seer</a> to last summer - surpisingly
   <a href="https://seer.bobheadxi.dev/5ee20284" target="_blank">still accessible</a> at time
@@ -81,7 +81,7 @@ of the project and I got the go-ahead to hack on it for about 2 weeks of my inte
 awesome. :rocket:
 
 <figure>
-  <img src="/assets/images/posts/riot-alerts-explorer-wide.png" />
+  <img src="../../assets/images/posts/riot-alerts-explorer-wide.png" />
   <figcaption>
   The alert visualisation tool I made, as seen in
   <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
@@ -324,7 +324,7 @@ updateMapState({
 Then, when you visit the website and land on the intro slide, the map loads up like this:
 
 <figure>
-  <img src="/assets/images/posts/maps-and-shenanigans/intro.png" />
+  <img src="../../assets/images/posts/maps-and-shenanigans/intro.png" />
 </figure>
 
 Changing the pitch and bearing also yields cool results, this example using the simplified CBSA region
@@ -356,7 +356,7 @@ updateMapState({
 ```
 
 <figure>
-  <img src="/assets/images/posts/maps-and-shenanigans/questions.png" />
+  <img src="../../assets/images/posts/maps-and-shenanigans/questions.png" />
   <figcaption>
     Pitch and bearing changes the angle of the viewport, and a logarithmic scale on the
     <code>acs.total_pop</code> value provides a neat-looking extrusion based on the population of each region.
@@ -369,7 +369,7 @@ didn't try too hard to make it mobile-friendly, but it's nice to know the capabi
 you don't have to do it yourself.
 
 <figure>
-  <img src="/assets/images/posts/maps-and-shenanigans/acs-data.png" />
+  <img src="../../assets/images/posts/maps-and-shenanigans/acs-data.png" />
 </figure>
 
 This is probably my favourite slide - [see the source code here](https://sourcegraph.com/github.com/bobheadxi/society-and-air-quality/-/blob/vis/src/slides/methodology/DataACS.js).
@@ -437,7 +437,7 @@ Check out the commit [here](https://github.com/bobheadxi/society-and-air-quality
 working so I suspect I'm still doing something wrong, but it's something.
 
 <figure>
-<img src="/assets/images/posts/maps-and-shenanigans/interact_demo.gif" />
+<img src="../../assets/images/posts/maps-and-shenanigans/interact_demo.gif" />
 </figure>
 
 ---
@@ -445,7 +445,7 @@ working so I suspect I'm still doing something wrong, but it's something.
 ### GitHub Pages
 
 <figure>
-  <img src="/assets/images/posts/maps-and-shenanigans/github-pages.png" width="75%" />
+  <img src="../../assets/images/posts/maps-and-shenanigans/github-pages.png" width="75%" />
   <figcaption>You can find this page under repository settings on GitHub.</figcaption>
 </figure>
 

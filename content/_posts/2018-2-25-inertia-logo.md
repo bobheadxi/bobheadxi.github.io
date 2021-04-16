@@ -18,7 +18,7 @@ externalLink: false
 There isn't too much a project on GitHub can do in terms of looking attractive and professional outside of a clean name, concise description, and a clean README. In the past I hadn't really thought much about it since my projects were of rather... low quality and were unlikely to see widespread use. Take this README from my [very first personal project](/open-source/facebook-spotify-bot/):
 
 <figure>
-    <img src="/assets/images/posts/facebook-spotify-readme.png" width="80%">
+    <img src="../../assets/images/posts/facebook-spotify-readme.png" width="80%">
     <figcaption>Hmmm...</figcaption>
 </figure>
 
@@ -28,7 +28,7 @@ Badges aren't just nice in READMEs - I also use them in my [Project](/open-sourc
 
 <figure>
     <a href="/r-android-appstore/">
-        <img src="/assets/images/posts/reddit-android-project-page.png" width="60%">
+        <img src="../../assets/images/posts/reddit-android-project-page.png" width="60%">
     </a>
     <figcaption>Badges!</figcaption>
 </figure>
@@ -52,7 +52,7 @@ I learned quite a few things when I first saw [IGListKit's README](https://githu
 So of course I had to do something similar for [Inertia](https://github.com/ubclaunchpad/inertia), a project that we are hoping hobbyist users both within [UBC Launch Pad](https://ubclaunchpad.com) and in the wider Docker community will find useful, needed a bit of snazz. Here's what our README looked like originally:
 
 <figure>
-    <img src="/assets/images/posts/inertia-old-readme.png" width="90%">
+    <img src="../../assets/images/posts/inertia-old-readme.png" width="90%">
     <figcaption>Ehhhhh</figcaption>
 </figure>
 
@@ -76,21 +76,21 @@ I wanted to preserve the typical lighthearted gopher style and convey the same f
 As a visitor to the Inertia repository, these goals should hopefully be immediately conveyed by the logo. So I decided that the Inertia gopher would be unclothed (gasp!) and without any extraneous apparatuses. As for colour, I initially felt a simple black and white image would be fine, but after trying my hand at colouring it I thought it turned out fine.
 
 <figure>
-    <img src="/assets/images/posts/inertia-logo-progress.png">
+    <img src="../../assets/images/posts/inertia-logo-progress.png">
     <figcaption>Some initial drafts.</figcaption>
 </figure>
 
 A calm, leaping gopher seemed to do the trick. It took a very long time to make the speed trail thingos look right (and to be honest it still feels a bit off). Either way it felt like something was still missing - I figured a helmet might add a bit more of a "speedy" feel to the gopher, and give it some more character, despite what I said about extraneous apparatuses at first.
 
 <figure>
-    <img src="/assets/images/projects/inertia-gopher-only.png" width="40%">
+    <img src="../../assets/images/projects/inertia-gopher-only.png" width="40%">
     <figcaption>Safety first everyone!</figcaption>
 </figure>
 
 I was personally pretty happy with this version. In my eyes the gopher even seemed to be smiling a little as it joyfully leapt towards the heavens. I considered tacking on the word "Inertia" alongside the gopher, since I felt some handwritten text would go along nicely with a handdrawn image - I did something similar with [my first Inertia presentation](https://github.com/ubclaunchpad/inertia/blob/master/.static/inertia-v0-0-2-slides.pdf), albeit with a stylised font instead.
 
 <figure>
-    <img src="/assets/images/posts/inertia-logo-progress-2.png" width="90%">
+    <img src="../../assets/images/posts/inertia-logo-progress-2.png" width="90%">
     <figcaption>Doesn't seem quite right...</figcaption>
 </figure>
 

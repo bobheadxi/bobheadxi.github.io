@@ -44,7 +44,7 @@ the project, with links to implementation details and whatnot:
 {:toc}
 
 <figure>
-  <img src="/assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
+  <img src="../../assets/images/posts/ipfs-orchestrator/sketch.jpg" width="75%" />
   <figcaption>A super early sketch from one of our first meetings about a potential "ipfs-agent", which would become Nexus.</figcaption>
 </figure>
 
@@ -467,7 +467,7 @@ I introduced this feature very early on, and it came in useful as Nexus's
 capabilities grew, making it easy to demonstrate new features:
 
 <figure>
-  <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo1.png" width="100%" />
+  <img src="../../assets/images/posts/ipfs-orchestrator/ctl-demo1.png" width="100%" />
   <figcaption>Introducing the <code>nexus ctl</code> command to
   demonstrate MVP functionality - from
   <a href="https://github.com/RTradeLtd/Nexus/pull/6" target="_blank">#6</a>.</figcaption>
@@ -483,7 +483,7 @@ start-network: build
 ```
 
 <figure>
-  <img src="/assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
+  <img src="../../assets/images/posts/ipfs-orchestrator/ctl-demo2.png" width="100%" />
   <figcaption>Using <code>nexus ctl</code> commands
   (from <code>make</code>) to demonstrate a new feature - from
   <a href="https://github.com/RTradeLtd/Nexus/pull/13" target="_blank">#13</a>.</figcaption>
@@ -504,7 +504,7 @@ halfway-decent measure of this is code coverage!
 </p>
 
 <figure>
-  <img src="/assets/images/posts/ipfs-orchestrator/sunburst.svg" width="40%" />
+  <img src="../../assets/images/posts/ipfs-orchestrator/sunburst.svg" width="40%" />
   <figcaption>A "coverage sunburst", indicating test coverage
   in various subdirectories of the codebase - from
   <a href="https://codecov.io/gh/RTradeLtd/Nexus" target="_blank">codecov.io</a>.</figcaption>

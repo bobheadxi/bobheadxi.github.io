@@ -20,7 +20,7 @@ externalLink: false
 ---
 
 <figure>
-    <img src="/assets/images/posts/riot-alerts-explorer-wide.png" />
+    <img src="../../assets/images/posts/riot-alerts-explorer-wide.png" />
     <figcaption>
     Alert visualisation tool I built, as seen in
     <a href="https://technology.riotgames.com/news/technology-interns-riot-games">

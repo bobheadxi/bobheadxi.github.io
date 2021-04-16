@@ -43,7 +43,7 @@ should apply to a variety of different stacks.
 Here's a sneak peak of the end result:
 
 <p align="center">
-  <img src="/assets/images/posts/appengine/environments-deployed.png">
+  <img src="../../assets/images/posts/appengine/environments-deployed.png">
 </p>
 
 * TOC
@@ -90,7 +90,7 @@ run our tests, style checks, and and so on. This had the advantage of allowing
 me to stage deployments based on whether or not previous checks pass:
 
 <p align="center">
-  <img src="/assets/images/posts/appengine/pipeline.png">
+  <img src="../../assets/images/posts/appengine/pipeline.png">
 </p>
 
 Unfortunately this was eating up a huge chunk of our pipeline minutes - as you
@@ -297,7 +297,7 @@ As a bit of a stretch goal, I wanted to be able to see the deployments within
 the GitHub UI, just like with the Netlify branch previews. For example:
 
 <p align="center">
-  <img src="/assets/images/posts/appengine/branch-staged.png">
+  <img src="../../assets/images/posts/appengine/branch-staged.png">
 </p>
 
 There's another example of this at the top of this article. It's mostly a small
@@ -367,7 +367,7 @@ And that was it! As a bonus, notifications for these deployments show up in
 [Slack via the GitHub integration](https://slack.github.com/):
 
 <p align="center">
-  <img src="/assets/images/posts/appengine/slack-deploy.png">
+  <img src="../../assets/images/posts/appengine/slack-deploy.png">
 </p>
 
 ## Wrapup

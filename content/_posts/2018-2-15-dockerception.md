@@ -21,7 +21,7 @@ Last Sunday I finally had a morning at home to relax, and at long last I got to 
 
 <p align="center">
     <a href="https://www.instagram.com/p/BfCDws3h81K/?taken-by=savethefade">
-        <img src="/assets/images/home.jpg" width="75%" />
+        <img src="../../assets/images/home.jpg" width="75%" />
     </a>
 </p>
 
@@ -48,7 +48,7 @@ The deployment daemon runs persistently in the background on the server, receivi
 
 <p align="center">
     <a href="https://drive.google.com/file/d/1foO57l6egbaQ7I5zIDDe019XOgJm-ocn/view?usp=sharing">
-        <img src="/assets/images/posts/inertia-diagram.png" width="100%" />
+        <img src="../../assets/images/posts/inertia-diagram.png" width="100%" />
     </a>
 </p>
 
@@ -334,7 +334,7 @@ And now we can look all professional and stuff with all these Travis jobs that t
 
 <p align="center">
     <a href="https://travis-ci.org/ubclaunchpad/inertia">
-        <img src="/assets/images/posts/travis-builds.png" width="100%" />
+        <img src="../../assets/images/posts/travis-builds.png" width="100%" />
     </a>
 </p>
 

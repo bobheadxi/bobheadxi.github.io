@@ -44,7 +44,7 @@ generate all sorts of cool data and insights. I
 for a while, so I contributed a few fixes and features upstream!
 
 <figure>
-    <img src="/assets/images/projects/hercules-burndown-inertia.png" />
+    <img src="../../assets/images/projects/hercules-burndown-inertia.png" />
     <figcaption>A git diff burndown generated using Hercules of
     <a href="https://github.com/ubclaunchpad/inertia">Inertia</a> over its
     lifetime. Each coloured band represents code added in each time interval -

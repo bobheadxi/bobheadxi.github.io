@@ -41,7 +41,7 @@ To accommodate the former, a special 6-month course was devised at the SOAS Univ
 An example of one of their translation tasks, presented to student Patrick Field at the end of his 6 months of studying:
 
 <p align="center">
-    <img src="/assets/images/posts/translate-1.png" width="80%">
+    <img src="../../assets/images/posts/translate-1.png" width="80%">
 </p>
 
 No one in the audience old (and presumably some Japanese) people could answer. Neither could my dad, who has been speaking Japanese for over 20 years by this point, when I sent it to him the next day.
@@ -49,7 +49,7 @@ No one in the audience old (and presumably some Japanese) people could answer. N
 The next slide offered the answer that Patrick Field (correctly) wrote down at the time:
 
 <p align="center">
-    <img src="/assets/images/posts/translate-2.png" width="80%">
+    <img src="../../assets/images/posts/translate-2.png" width="80%">
 </p>
 
 A simple message, it turns out: "I'm going back to Japan on the 9th". Well.

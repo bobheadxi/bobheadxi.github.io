@@ -21,7 +21,7 @@ badges:
 <br />
 
 <figure>
-    <img src="/assets/images/projects/lp-projects-demo.gif" />
+    <img src="../../assets/images/projects/lp-projects-demo.gif" />
 </figure>
 
 <p align="center">
@@ -43,7 +43,7 @@ including:
   and other updates
 
 <figure>
-    <img src="/assets/images/projects/lp-projects-demo-mobile.gif" width="50%" />
+    <img src="../../assets/images/projects/lp-projects-demo-mobile.gif" width="50%" />
     <figcaption>The redesigned project showcase scales for mobile
     users.</figcaption>
 </figure>

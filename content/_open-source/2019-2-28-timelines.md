@@ -20,7 +20,7 @@ badges: []
 ---
 
 <p align="center">
-    <img src="/assets/images/projects/timelines-banner.png" width="100%" />
+    <img src="../../assets/images/projects/timelines-banner.png" width="100%" />
 </p>
 
 <p align="center">
@@ -66,7 +66,7 @@ During this time, I also started or improved a few other relevant side projects:
 * generator for [static, canonical Go package import paths](https://github.com/bobheadxi/twist)
 
 <p align="center">
-    <img src="/assets/images/projects/timelines-home.png" width="80%" />
+    <img src="../../assets/images/projects/timelines-home.png" width="80%" />
 </p>
 
 Unfortunately I've decided to abandon the project for the time being. However,

@@ -14,7 +14,7 @@ externalLink: false
 ---
 
 <p align="center">
-    <img src="/assets/images/projects/borrow-me-1.png" />
+    <img src="../../assets/images/projects/borrow-me-1.png" />
 </p>
 
 <p align="center">

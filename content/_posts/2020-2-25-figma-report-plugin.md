@@ -427,7 +427,7 @@ await template(figma.getNodeById(frameID) as FrameNode, projectData, assets);
 
 For the example template, this back-and-forth results in a page that looks like this:
 
-![template results](/assets/images/posts/figma-plugin/back-cover.png)
+![template results](../../assets/images/posts/figma-plugin/back-cover.png)
 
 If you find this example hard to follow, try and read through it again and match it up against
 the [plugin sequence diagram](#structuring-our-plugin) illustrated previously - each action should

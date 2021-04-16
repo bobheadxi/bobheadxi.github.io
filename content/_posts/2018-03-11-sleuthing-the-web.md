@@ -28,7 +28,7 @@ My first project at UBC Launch Pad was [Sleuth](/open-source/sleuth). The goal o
 The team started out as a five-person team, but ended up being just two people, including myself, which complicated plans a bit. The bulk of our effort ended up going into our content and search components, and the front end was a bit of a tacked-on interface to demo our main "feature": linked results.
 
 <figure>
-    <img src="/assets/images/projects/sleuth-1.png" width="75%" />
+    <img src="../../assets/images/projects/sleuth-1.png" width="75%" />
 </figure>
 
 I think it was pretty neat. Built mostly by team member [Bruno](https://github.com/bfbachmann), the front end is pretty clean, and featured cute, draggable nodes.
@@ -62,7 +62,7 @@ Fun fact - Google itself seems to cheat a bit on this by offering the [Google Se
 We didn't have the search presence of Google leverage when asking people to conform to our crawler's expectations, so I focused on defining a number of categories. On the top level, I set up two crawlers: a `broad_crawler` that would generically traverse the links in its source pages, and a `custom_crawler` that would take a custom parser module to handle crawling. A crawler is essentially a bot that would visit and retrieve data from sites. These crawlers would then identify and pass web pages to the appropriate `parsers`. The data flow looks a bit like this:
 
 <p align="center">
-    <img src="/assets/images/projects/sleuth-pipeline.png" />
+    <img src="../../assets/images/projects/sleuth-pipeline.png" />
 </p>
 
 ### Parsers
