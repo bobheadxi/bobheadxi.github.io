@@ -11,6 +11,9 @@ install-checks:
 serve:
 	bundle exec jekyll serve --incremental --config _config.yml,_config-dev.yml
 
+serve-hard:
+	bundle exec jekyll serve --config _config.yml,_config-dev.yml
+
 checks: spellcheck mdlint
 
 spellcheck:

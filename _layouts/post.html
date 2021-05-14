@@ -95,7 +95,7 @@ layout: page
     {% endif %} -->
 
     {% if page.collection!='open-source' and page.hidedescription!=true %}
-    <p class="date" style="color:#606060;margin-top:-25px;margin-bottom:30px;">
+    <p class="date" style="color:#606060;">
         <i> {{ page.description }} </i>
     </p>
     {% endif %}
@@ -159,8 +159,6 @@ layout: page
         {% endif %}
     </div>
     {% endif %}
-
-    {% include author.html %}
 
     <!-- if experience, only show things exactly related to that experience -->
     {% assign tags = page.tags %}

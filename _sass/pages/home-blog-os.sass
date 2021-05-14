@@ -39,7 +39,6 @@
     > .item > .url > .title
         margin: 0.25rem 0
         width: 75%
-        font-weight: 500
         transition: all ease-in-out .2s
 
     > .item:hover > .url > .title
@@ -76,18 +75,21 @@
         width: 95%
         margin: 0 auto
 
+    > .item > p
+        margin-block-start: 8px
+
     > .item > .url
         width: 100%
         display: block
-        padding: 20px 0
+        padding: 8px 0
         text-decoration: none
 
     > .item > .url
         > .title
             margin: 0
             width: 75%
-            font-weight: 500
             transition: all ease-in-out .2s
+            font-family: $fontSans
         > .image
             filter: saturate(20%)
             transition: 0.3s
