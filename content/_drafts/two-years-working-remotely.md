@@ -11,51 +11,40 @@ author: robert
 description: "Reflections on my first two years of remote: the work, the lifestyle, and the takeaways."
 ---
 
-As I try to finish up the final stretch of my degree and this tumultuous 2020 draws to a close, I realise that I am almost at this arbitrary two-year milestone in working remotely, both before and during the pandemic. This time of year always brings about a contemplative mood, so I figured I could do a bit of retrospective on this milestone, and use it as an excuse to write another blog post nobody really asked for.
+#draft
 
-I'll give a bit of an [overview of my experience](#experience), and reflect on a few aspects of remote work that I feel are noteworthy:
+I'm currently taking some time away from the software world to fulfill [Taiwan's mandatory military service](https://en.wikipedia.org/wiki/Conscription_in_Taiwan) (which I have a lot of things to say about, though that's another matter entirely). In the meantime I figured I'd reflect a bit on almost [two years of accumulated experience working remotely, both part-time and remotely](#experience), with a blog post that goes over some aspects I feel are particularly noteworthy:
 
-* 🤝  [Work](#work)
+* 🤝  [**Work**](#work) - highlights of working remotely, and some parts that set it apart from in-office work
+* 🧗‍♂️  [**Lifestyle**](#lifestyle) - how remote work changes your day-to-day life (and a word on [loneliness](#loneliness))
+* 🥡  [**Takeaways**](#takeaways)
 
-* 🧗‍♂️  [Lifestyle](#lifestyle) (and a word on [loneliness](#loneliness))
+And some [closing comments](#remote-work-and-me).
 
-* 🥡  [Takeaways](#takeaways)
-
-And, of course, some [closing comments](#remote-work-and-me).
-
-<br />
-
-Before we start though, a firm disclaimer: I am by no means an expert at working remotely. I'm no productivity guru, I get lazy with my written standups, I sometimes only skim through meeting notes instead of listening to the whole recording, and I have a hard time sticking to consistent working hours. I do not have any extra monitors, use a standard Apple wireless keyboard, and have never worked on beach (...yet?). This post is just me.
+Before we start, a firm disclaimer: I am by no means an expert at working remotely (or anything, for that matter). I'm no productivity guru, I get lazy with my written standups, I sometimes only skim through meeting notes instead of listening to the whole recording, and I can have a hard time sticking to consistent working hours. I do not have any extra monitors, use a standard Apple wireless keyboard, and have never worked on beach (...yet?). This post is just a collection of some of my thoughts on this topic.
 
 ## Experience
 
-First off, a bit of background to show that this post isn't *entirely* ungrounded. I'll denote each experience with a letter for easier reference later.
-
-My remote work timeline kind of goes as follows:
+This section is a bit of background to show that this post isn't *entirely* ungrounded, even if this list is not the most robust. My remote work timeline kind of goes as follows:
 
 * In September 2018, I got my first stint working remotely part-time for 8 months while taking courses and [working on Launch Pad](https://bobheadxi.dev/what-is-launch-pad/). I was one of maybe two or three developers in [a local startup](/rtrade-techologies/) trying to make enterprise applications for various blockchain technologies. This was my second technical job.
+* In October 2019, worked remotely part-time for 6 months at [real estate development startup](/sumus/), again while taking courses - but this time without working on Launch Pad. I was the only developer up until my last month there (when I got my friend hired, shortly before the company pivoted and dropped our team - oops). This was my fourth technical job.
+* In May 2020, I started as an intern working remotely full-time for 4 months. Unlike the first two companies, [this was a "real" software company](/sourcegraph/), and I was one of dozens of engineers. In the middle of this internship - around the end of June - I relocated back to Taiwan, putting me at a bit of a time difference with my (then) primarily North American team. This was my fifth technical job, and the one that inspired me to write this post - at this company, I realized that remote work is a skill in and of itself.
+* In September 2020, I switched to a part-time schedule at the same company and started taking the last courses of my degree.
+* In February 2021, I left to start fulfilling my military service requirement for Taiwan.
 
-* In October 2019, I landed another job working remotely part-time for 6 months, again while taking courses but this time without working on Launch Pad. This was a [real estate development startup](/sumus/), where I was the only developer up until my last month there. This was also my fourth technical job.
-
-* In May 2020, I started as an intern working remotely full-time for 4 months. During this time I also went back to help lead Launch Pad for a while. Unlike the first two companies, [this was a "real" software company](/sourcegraph/), and I was one of dozens of engineers. In the middle of this internship - around the end of June - I relocated back to Taiwan, putting me at a bit of a time difference with my (then) primarily North American team. This was my fifth technical job.
-
-* In September 2020, I switched to a part-time schedule at the above company and started taking the last courses of my degree.
-
-* As of January 2021, I am back to being full-time at the same company as I wait for final dates for my military service conscription.
-
-In between, I worked two "normal" office jobs, so I do have a bit of a reference point to compare with remote work:
+In between, I worked two "normal" office jobs, so I have a bit of a reference point to compare with remote work:
 
 * In January 2018 (my first technical job ever), I started at a *comparatively* [old-fashioned office co-op at a health authority](/bcgsc/) with cubicles and a coffee machine that required buying a membership to use. I cooked and packed my own lunches and got to work via a 15-minute bus ride and 5-minute train ride.
-
-* In May 2019, I got the opportunity to [intern at a famous Californian game developer](/riot-games/) complete with a food court and snack bars. The open office was a 5-minute skate away from the accomodations we were provided, and I can count on one hand the number of times I cooked my own meal that summer.
+* In May 2019, I got the opportunity to [intern at a well-known Californian game developer](/riot-games/) complete with a food court and snack bars. The open office was a 5-minute skate away from the accommodations we were provided, and I can count on one hand the number of times I cooked my own meal that summer.
 
 <br />
 
 ## Work
 
-The "remote" in "remote work" is fairly self-explanatory, but the "work" part is a bit more obscure, and your mileage will vary significantly from company to company (and likely even team to team), as well with your own personal habits.
+While the "remote" in "remote work" is fairly self-explanatory, your mileage with the "work" part will vary significantly from company to company, and likely even from team to team.
 
-That said, I've found the most noticable difference in a remote workplace is the difference between synchronous and asynchronous work becomes very apparent.
+I've found the most noticeable difference between a office and remote workplace is prominence of synchronous and asynchronous.
 
 ### Synchronous and asynchronous
 
@@ -72,9 +61,7 @@ I often hear concerns, especially from students or recent graduates, that the la
 
 - Since knowledge can be easily transferred verbally, there is not much incentive to write it down, leading to an ever-growing amount of "tribal knowledge": information that you can only get by knowing the right person, or asking the right question. Knowledge gets forgotten, lost, or miscommunicated. This is especially consequential in teams with lots of ownership areas or organizations with high member turnover (such as Launch Pad) - missing knowledge transfer will often result in repeated work, or failure to adapt and grow from past experiences.
 
-When working remotely, needless to say the opportunties for these downsides to come up are more limited due to being more reliant on asynchronous collaboration. A few positives also come out of a heavier dependence on being asynchronous:
-
-- Sdf
+When working remotely, the opportunities for these downsides to come up are more limited due to being more reliant on asynchronous collaboration. Some additional positives also come out of a heavier dependence on being asynchronous:
 
 - How you see people is very different: when your primary interaction is 
 - Thorsten Ball (author of *Writing an Interpreter in Go* and *Writing a Compiler in Go*) has a post, [What you think is bad about remote work, can, well, actually be good](https://thorstenball.com/blog/2020/05/22/what-you-think-is-bad-about-remote-work-can-actually-be-good/), that goes over this point nicely.
