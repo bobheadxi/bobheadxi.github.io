@@ -16,6 +16,10 @@ h1, h2, h3, h4
 		position: absolute
 		transform: translateX(-2rem)
 
+		@media #{$tablet}, #{$mobile}
+			position: inherit
+			transform: none
+
 h1
 	font-size: 2rem
 	letter-spacing: -1px
