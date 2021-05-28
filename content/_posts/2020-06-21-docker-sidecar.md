@@ -29,9 +29,9 @@ While I'll generally refer to Grafana in this writeup, you can apply it to prett
 
 ---
 
-> **⚠️ Update**: Since the writing of this post, we have pivoted on the plan (context: [sourcegraph#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/docker-images/prometheus).
->
-> Most of this article still applies though, but with Prometheus + Alertmanager instead.
+**⚠️ Update(7/8/2020)**: Since the writing of this post, we have pivoted on the plan ([sourcegraph#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/docker-images/prometheus), and relevant documentation [here](https://docs.sourcegraph.com/dev/background-information/observability/prometheus).
+
+Most of this article still applies though, but with Prometheus + Alertmanager instead of Grafana.
 
 ---
 
