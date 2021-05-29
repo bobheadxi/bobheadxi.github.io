@@ -66,7 +66,7 @@ In addition to the features listed above, I also worked on:
 
 <figure>
   <img src="../../assets/images/projects/ubclaunchpad-dot-com/project-modal.gif" width="80%" />
-  <figcaption>Effortless dive into a project for more details with the new website's modal-based projects showcase</figcaption>
+  <figcaption>Effortlessly dive into a project for more details with the new website's modal-based projects showcase</figcaption>
 </figure>
 
 Check out my pull requests in more detail [on GitHub](https://github.com/ubclaunchpad/ubclaunchpad.com/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed),
