@@ -10,7 +10,6 @@ tag:
 - scrapy
 - launch-pad
 category: blog
-featured: true
 author: robert
 description: scraping data for a bad search engine
 alt_location:
