@@ -5,12 +5,11 @@
 @import "base/general";
 @import "base/helpers";
 
-@import "pages/home-blog-os";
+@import "pages/categories";
 @import "pages/page";
 @import "pages/post";
 @import "pages/tags";
 
-@import "components/author";
 @import "components/disqus";
 @import "components/footer";
 @import "components/header";
@@ -19,7 +18,7 @@
 @import "components/pagination";
 @import "components/related";
 @import "components/share";
-@import "components/side-by-side";
 @import "components/social-links";
 @import "components/spoiler";
 @import "components/button";
+@import "components/post-tags";

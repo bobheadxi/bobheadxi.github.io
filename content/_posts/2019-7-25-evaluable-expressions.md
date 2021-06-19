@@ -8,15 +8,18 @@ tag:
 - golang
 - configuration
 - riot-games
-tech_writeup: true
+featured: true
 category: blog
 author: robert
 diagrams: true
 description: metaconfiguration with Go!
 ---
 
-One of my projects at [Riot Games](/experience/riot-games/) (as I introduced in a blog post on the official Riot Games technology blog, ["Technology Interns at Riot Games"](https://technology.riotgames.com/news/technology-interns-riot-games)) involved designing an extension to an internal application specification we have to describe services to allow engineers to declaratively define alerts on their application.
-The goal of the specification is to be human-readable for operators in different regions while giving programs sufficient information to automate the deployment of services and everything they require.
+One of my projects at [Riot Games](/experience/riot-games/) involved designing an extension to an internal application specification we have to describe services to allow engineers to declaratively define alerts on their application.
+An idea I had as part of my extension design proposal was to allow users to specify "selections" from other parts of the spec and perform arithmetic on them as values in their alert thresholds.
+
+I introduced this project in a blog post on the official Riot Games technology blog, ["Technology Interns at Riot Games"](https://technology.riotgames.com/news/technology-interns-riot-games), where you can learn a bit more about this.
+In a nutshell, the goal of this specification is to be human-readable for operators in different regions while giving programs sufficient information to automate the deployment of services and everything they require.
 Deployment at Riot Games is covered in [this blog post ("Dynamic Applications: Micro-Service Ecosystem")](https://technology.riotgames.com/news/running-online-services-riot-part-iv), and our application specification is mentioned in [this AWS Skill Point Episode ("Riot Games and League of Legends")](https://www.twitch.tv/videos/458272506?t=49m43s) if you want to learn more!
 
 - - -
@@ -38,7 +41,6 @@ a new article on the official blog, [*"Running Online Services at Riot: Products
     </figcaption>
 </figure>
 
-So an idea I had as part of my extension design proposal was to allow users to specify "selections" from other parts of the spec and perform arithmetic on them as values in their alert thresholds.
 This would allow engineers to set a single alert that would alert if 75% of their packs die, for example, without having to use a hardcoded number and overriding thresholds in each instance or environment that uses a different pack configuration.
 The spec would look something like:
 

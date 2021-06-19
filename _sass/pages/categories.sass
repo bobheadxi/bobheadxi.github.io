@@ -1,0 +1,86 @@
+// Base styles
+
+.home, .blog, .open-source
+    margin-top: 125px
+
+    > .post-list
+        border-top: 1px solid $epsilon
+        margin-top: 30px
+        padding-top: 40px
+        position: relative
+
+        &:before
+            display: block
+            content: " "
+            width: 7px
+            height: 7px
+            border: $epsilon 1px solid
+            position: absolute
+            top: -5px
+            left: 50%
+            margin-left: -5px
+            background: #FFF
+            box-shadow: #FFF 0 0 0 5px
+            border-radius: 3px
+
+        > .item
+            display: block
+            width: 95%
+            margin: 2rem auto
+
+            > .url
+                width: 100%
+                display: block
+                padding: 8px 0
+                text-decoration: none
+
+                .title
+                    margin: 0
+                    transition: all ease-in-out .2s
+                    font-family: $fontSans
+                    display: block
+
+                aside
+                    position: relative
+                    margin-bottom: 0.25rem
+                    font-weight: 300
+                    color: $gama
+                    transition: all ease-in-out .2s
+
+                p
+                    margin: 0
+                    transition: all ease-in-out .2s
+                    color: $alpha
+
+                .image
+                    filter: saturate(20%)
+                    transition: 0.3s
+
+                .emoji
+                    display: inline
+                    position: relative
+                    top: -4px
+                    margin-right: 10px
+
+        > .item:hover > .url
+            .title, aside
+                color: $delta
+            .image
+                filter: saturate(105%)
+            aside
+                color: $delta
+            p
+                color: $beta
+
+// Per-category styles
+
+.blog, .open-source
+    > .post-list > .item
+        p
+            margin-top: 0.5rem
+
+.blog, .open-source
+    > .post-list > .item
+        .post-tags
+            float: left
+            display: contents

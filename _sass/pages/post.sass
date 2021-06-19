@@ -31,7 +31,7 @@
                 display: block
                 margin: 0 auto
 
-        > .date, .post-tags
+        > .date
             @extend .wide
             color: $gama
             font-weight: 300
@@ -46,17 +46,6 @@
         > .date
             margin-bottom: 1.5rem
 
-        > .post-tags > .item
-            padding: 2px 8px
-            border-radius: 3px
-            font-size: 0.75rem
-            background: $epsilon
-            color: $alpha
-            letter-spacing: 1px
-            margin: 3px 1px
-            text-decoration: none
-            display: inline-block
-
     > .post-content
         > *
             @extend .not-wide
@@ -65,6 +54,14 @@
             margin-top: 2rem
             a
                 text-decoration: none
+
+        > p:first-of-type
+            @extend .wide
+            font-size: 1.2rem
+            text-align: center
+            line-height: 2rem
+            @media #{$mobile}
+                text-align: left
 
         > blockquote
             @extend .wide

@@ -97,22 +97,18 @@ window.onload = drawChart;
 window.onresize = drawChart;
 </script>
 
-<section class="list">
+<section class="post-list">
     {% for post in site.open-source reversed %}
         <div class="item">
             {% if post.star %}<br />{% endif %}
             <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-                <h3 class="title">{{ post.title }}</h3>
                 {% if post.star %}
-                    <br />
-                    <img class="image" src="{{ post.image }}" width="100%" style="margin-top:16px"/>
+                <br />
+                <img class="image" src="{{ post.image }}" width="100%" style="margin-top:16px"/>
                 {% endif %}
-                <div class="post-tags">
-                    {% for tag in post.tags %}
-                        <a class="item">{{ tag }}</a>
-                    {% endfor %}
-                </div>
+                <h3 class="title">{{ post.title }}</h3>
                 <p> {{ post.description }} </p>
+                {% include post-tags.html %}
             </a>
             {% if post.star %}<br />{% endif %}
         </div>

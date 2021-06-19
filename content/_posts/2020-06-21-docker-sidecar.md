@@ -13,7 +13,7 @@ author: robert
 description: adding sidecar services to Docker images of third-party services 
 ---
 
-Many open-source services are distributed as [Docker images](https://docs.docker.com/get-started/overview/#docker-objects), and since the purpose of these things is to be deployed and run, sometimes you'll want to extend the functionality slightly - whether it be adding your own endpoints, manipulating configuration of the service within the Docker image, or something along those lines.
+Many open-source services are distributed as [Docker images](https://docs.docker.com/get-started/overview/#docker-objects), but sometimes you'll want to extend the functionality slightly - whether it be adding your own endpoints, manipulating configuration of the service within the Docker image, or something along those lines.
 
 In some cases, such as for manipulating configuration, most images will allow you to mount configuration within the container or use environment variables, so you can build a proper sidecar service to do whatever updates you want and restart the target container. The same goes for extending endpoints - a proper sidecar can serve you well. You can have one service manage the a large number of containers, which is what I did for [a project I worked on at RTrade, *Nexus*](/ipfs-orchestrator).
 

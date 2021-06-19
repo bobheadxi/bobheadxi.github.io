@@ -13,7 +13,7 @@ tag:
 - rtrade
 category: blog
 author: robert
-tech_writeup: true
+featured: true
 description: building <i>Nexus</i>, an orchestrator for operating IPFS private networks
 ---
 

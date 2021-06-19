@@ -10,7 +10,7 @@ tag:
 - scrapy
 - launch-pad
 category: blog
-tech_writeup: true
+featured: true
 author: robert
 description: scraping data for a bad search engine
 alt_location:
@@ -18,12 +18,7 @@ alt_location:
   url: https://medium.com/ubc-launch-pad-software-engineering-blog/crawling-the-web-for-a-search-engine-a7988ee2e6e9
 ---
 
-* TOC
-{:toc}
-
-## Prelude
-
-My first project at UBC Launch Pad was [Sleuth](/open-source/sleuth). The goal of Sleuth changed quite a bit over the course of the semester but at its core we wanted it to be a search engine, geared towards UBC-related content.
+My first project at UBC Launch Pad was [Sleuth](/open-source/sleuth). The goal of Sleuth changed quite a bit over the course of the semester but at its core we wanted it to be a search engine, geared towards UBC-related content. This post will mostly be about the Web component's crawling systems and how an amateur (me) approached data farming for a search engine service and indexing content in [Apache Solr](https://lucene.apache.org/solr/), a schemaless database geared towards search.
 
 The team started out as a five-person team, but ended up being just two people, including myself, which complicated plans a bit. The bulk of our effort ended up going into our content and search components, and the front end was a bit of a tacked-on interface to demo our main "feature": linked results.
 
@@ -38,10 +33,6 @@ We set up Sleuth as a three-component project:
 * Web: Sleuth's API endpoints, database connections, and crawler
 * Solr: our Apache Solr instance
 * Frontend: Sleuth's snazzy face
-
-This post will mostly be about the Web component's crawling systems and how an amateur (me) approached data farming for a search engine service, with a bit about Solr. [Apache Solr](https://lucene.apache.org/solr/) is a schemaless database geared towards search, and felt like a natural choice for Sleuth.
-
-Stay tuned for another post about Solr, Sleuth's search API, the systems we built to facilitate it!
 
 ## Crawling and Scraping the Web
 
