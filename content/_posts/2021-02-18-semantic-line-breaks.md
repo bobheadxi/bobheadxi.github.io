@@ -62,7 +62,9 @@ This can be rather incomprehensible. If the text was not broken at all, the diff
 + Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor oh I am so hungry ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
-This is marginally better, but still quite difficult, especially because not all git interfaces will be able to show you the specific word that has changed (and even fewer that can do that for very, very long lines). Perhaps semantic line breaks could allow us to break this paragraph of text into smaller chunks, and make small diffs significantly more approachable.
+This is marginally better, but still quite difficult, especially because not all git interfaces will be able to show you the specific word that has changed (and even fewer that can do that for very, very long lines).
+
+Perhaps semantic line breaks could allow us to break this paragraph of text into smaller chunks, and make small diffs significantly more approachable, simpler to reason about, and easier to discuss.
 
 ## Solving unreadable changes
 
@@ -94,7 +96,7 @@ What if the same thing could happen for documentation source: a tool to automati
 
 - A *semantic boundary* is defined to be the end of a sentence.
 - Allow multiple short sentences to be part of a single line, up to a character threshold.
-- After a character threshold, add a *semantic line break*.
+- After a character threshold, a semantic boundary should be followed by a line break.
 
 A simpler set of rules reduces the opens the door to potential automation (a program would not need to make as many complicated decisions), and still achieves part of our original goal: changes now reflect changes to ideas within semantic boundaries, and more accurately reflect the idea being changed.
 
@@ -108,11 +110,7 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 
 In this diff, it is significantly clearer what *idea* has changed, as encapsulated by the sentence it belongs in. This makes it easier to understand the context of the change being made, reason about it, and open discussions regarding it.
 
-I've taken a stab at creating just such a tool, [Readable](https://github.com/bobheadxi/readable), which will add semantic line breaks to any document for you with a single command.
-
-```
-readable fmt **/*.md
-```
+I've taken a stab at creating just such a tool, [Readable](https://github.com/bobheadxi/readable), which will add semantic line breaks to any document for you with a single command, for example `readable fmt **/*.md`.
 
 It will also feature commands to preview changes, perform changes as you edit, and checks that can be run in continuous integration. So far it seems very promising, but there are a lot of edge cases to sort out and fix still.
 
