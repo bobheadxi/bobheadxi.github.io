@@ -5,7 +5,7 @@ image: /assets/images/profile.jpg
 headerImage: true
 tag:
 - javascript
-- hack
+- experiment
 - jekyll
 - analytics
 - my-website

@@ -1,11 +1,11 @@
 ---
-title: "Labelist: Serverless Function for Premium-Free Todoist Labels"
+title: "Serverless Function for Premium-Free Todoist Labels"
 layout: post
 description: a quick experiment with serverless functions and the Todoist API
 image: 
 headerImage: false
 tag:
-- hack
+- experiment
 - api
 - javascript
 - serverless
@@ -14,16 +14,11 @@ author: robert
 description: 
 ---
 
-This didn't really feel like enough of a project to warrant a project post, and
-I want to embark on more small-scale "hack" projects in my spare time (now that
-I've retired from [Launch Pad](https://bobheadxi.dev/tags/#launch-pad) for the
-time being.
-
-Anyway, I read about the [Bullet Journal (or BoJo for short)](https://bulletjournal.com/)
+I read about [Bullet Journals ("BoJo")](https://bulletjournal.com/)
 recently. It's more or less an analogue life journalling/task-management flow.
-I don't really trust myself to write and read and not lose a notebook (though
+I don't really trust myself to write and read and keey a physical notebook (though
 I do have a bunch of cute small notebooks I could use for this purpose), so I
-decided to have a think about how I could automate some parts of this.
+had a think about how I could automate some parts of this.
 
 For task management I currently use [Todoist](https://todoist.com), which has
 pretty robust natural language parsing that I love (for example, to create a task

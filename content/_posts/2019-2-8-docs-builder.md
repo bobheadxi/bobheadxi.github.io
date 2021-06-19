@@ -1,13 +1,13 @@
 ---
-title: "Automated Documentation Builds with Slate"
+title: "Automated Slate Documentation Builds"
 layout: post
 image: https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png
 headerImage: true
 tag:
 - docs
 - automation
-- bash
 - inertia
+- experiment
 - launch-pad
 category: blog
 author: robert
@@ -17,7 +17,7 @@ alt_location:
   url: https://medium.com/@bobheadxi/turning-slate-into-a-proper-documentation-builder-d0cf31abf459
 ---
 
-I’m currently working with [RTrade Technologies, Ltd.](undefined) and [a documentation website](https://gateway.temporal.cloud/ipfs/Qma4DNFSRR9eGqwm93zMUtqywLFpTRQji4Nnu37MTmNntM/account.html#account-api) was recently set up for one of our APIs. I thought it looked great, and slick, and super nice.
+Recently [at work](/rtrade), I came across [a documentation website](https://gateway.temporal.cloud/ipfs/Qma4DNFSRR9eGqwm93zMUtqywLFpTRQji4Nnu37MTmNntM/account.html#account-api) recently set up for one of our APIs. I thought it looked great, and slick, and super nice, and wanted to adopt it for anther project.
 
 I was told the documentation was generated using a project called [Slate](https://github.com/lord/slate), and after taking a look I knew I had to try it out. It’s very pretty.
 

@@ -6,7 +6,9 @@ headerImage: true
 diagrams: false
 tag:
 - automation
-- documentation
+- docs
+- experiment
+- collaboration
 category: blog
 author: robert
 description: making changes to documentation readable and understandable

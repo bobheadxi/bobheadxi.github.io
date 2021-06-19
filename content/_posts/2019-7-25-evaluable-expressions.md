@@ -16,7 +16,7 @@ description: metaconfiguration with Go!
 ---
 
 One of my projects at [Riot Games](/experience/riot-games/) involved designing an extension to an internal application specification we have to describe services to allow engineers to declaratively define alerts on their application.
-An idea I had as part of my extension design proposal was to allow users to specify "selections" from other parts of the spec and perform arithmetic on them as values in their alert thresholds.
+Part of my extension design proposal was a feature that would allow users to specify "selections" from other parts of the spec and perform arithmetic on them as values in their alert thresholds.
 
 I introduced this project in a blog post on the official Riot Games technology blog, ["Technology Interns at Riot Games"](https://technology.riotgames.com/news/technology-interns-riot-games), where you can learn a bit more about this.
 In a nutshell, the goal of this specification is to be human-readable for operators in different regions while giving programs sufficient information to automate the deployment of services and everything they require.

@@ -13,11 +13,12 @@ author: robert
 description: I gave an intro to Docker workshop!
 ---
 
-So on this day I gave a big "Developer's Guide to Docker" workshop at my school,
-UBC! The goal was to introduce the concept of containerized services, how they
+So today day I gave a big "Developer's Guide to Docker" workshop at my university!
+The goal was to introduce the concept of containerized services, how they
 are leveraged in industry, and how small-scale projects can take advantage of
-Docker during development. A lot of fun, though I always look a bit strange
-when presenting. :sweat_smile:
+Docker during development.
+
+A lot of fun, though I always look a bit strange when presenting. :sweat_smile:
 
 Links to various bits of the workshop:
 
