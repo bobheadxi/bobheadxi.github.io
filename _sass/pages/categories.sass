@@ -4,7 +4,7 @@
     margin-top: 125px
 
     > .post-list
-        border-top: 1px solid $epsilon
+        border-top: 1px solid var(--epsilon)
         margin-top: 30px
         padding-top: 40px
         position: relative
@@ -14,13 +14,13 @@
             content: " "
             width: 7px
             height: 7px
-            border: $epsilon 1px solid
+            border: var(--epsilon) 1px solid
             position: absolute
             top: -5px
             left: 50%
             margin-left: -5px
-            background: $background
-            box-shadow: $background 0 0 0 5px
+            background: var(--background)
+            box-shadow: var(--background) 0 0 0 5px
             border-radius: 3px
 
         > .item
@@ -44,13 +44,13 @@
                     position: relative
                     margin-bottom: 0.25rem
                     font-weight: 300
-                    color: $gama
+                    color: var(--gama)
                     transition: all ease-in-out .2s
 
                 p
                     margin: 0
                     transition: all ease-in-out .2s
-                    color: $alpha
+                    color: var(--zeta)
 
                 .image
                     filter: saturate(20%)
@@ -64,20 +64,28 @@
 
         > .item:hover > .url
             .title, aside
-                color: $delta
+                color: var(--delta)
             .image
                 filter: saturate(105%)
             aside
-                color: $delta
+                color: var(--delta)
             p
-                color: $beta
+                color: var(--beta)
 
 // Per-category styles
 
-.blog, .open-source
+.home
     > .post-list > .item
         p
             margin-top: 0.5rem
+
+    .section-title
+        font-weight: 500
+        text-align: center
+
+        > a
+            color: var(--zeta)
+            text-decoration: none
 
 .blog, .open-source
     > .post-list > .item

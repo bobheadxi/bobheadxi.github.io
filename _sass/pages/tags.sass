@@ -2,7 +2,7 @@
     margin-top: 125px
 
     > .post-list
-        border-top: 1px solid $epsilon
+        border-top: 1px solid var(--epsilon)
         margin-top: 30px
         padding-top: 40px
         position: relative
@@ -12,13 +12,13 @@
             content: " "
             width: 7px
             height: 7px
-            border: $epsilon 1px solid
+            border: var(--epsilon) 1px solid
             position: absolute
             top: -5px
             left: 50%
             margin-left: -5px
-            background: $background
-            box-shadow: $background 0 0 0 5px
+            background: var(--background)
+            box-shadow: var(--background) 0 0 0 5px
             border-radius: 3px
 
 .tags > .post-list
@@ -32,8 +32,8 @@
         padding: 3px 9px
         border-radius: 3px
         font-size: 0.75rem
-        background: $epsilon
-        color: $alpha
+        background: var(--epsilon)
+        color: var(--alpha)
         letter-spacing: 1px
         margin: 0 0.5rem 1rem
         text-decoration: none
@@ -61,7 +61,7 @@
         font-size: 1.2rem
 
     > .item:hover > .url > .title
-        color: $delta
+        color: var(--delta)
 
     // maybe we can't nest html5 elements
     // can you help me?
@@ -72,10 +72,10 @@
         width: 25%
         float: right
         font-weight: 300
-        color: $gama
+        color: var(--gama)
         text-align: right
         transition: all ease-in-out .2s
         font-size: 0.9rem
 
     .item:hover .url aside
-        color: $alpha
+        color: var(--alpha)
