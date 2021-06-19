@@ -84,7 +84,7 @@ and should act towards one another in a spirit of brotherhood.
 
 Both of these problems pose significant barriers to widespread adoption, which is necessary for any semantic line break specification to be of any use.
 
-## A linter for readable documentation source
+## A linter for semantic line breaks
 
 A similar problem arises with code standards: semicolons? Spaces or tabs? Left up to individuals, no standard will ever be truly consistent, especially in the face of the need to "just get the job done". Code formatting, however, has been solved mostly through *automated* tooling. Why bother arguing about semicolons if a program will just do it for you, and will even check if everything is consistent?
 
