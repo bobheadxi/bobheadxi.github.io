@@ -107,7 +107,8 @@ layout: page
     </span>
     {% endif %}
 
-    {% include post-tags.html tags=page.tags company=page.company %}
+    {% assign post=page %}
+    {% include post-tags.html %}
 </div>
 
 <!-- https://github.com/allejo/jekyll-anchor-headings -->
