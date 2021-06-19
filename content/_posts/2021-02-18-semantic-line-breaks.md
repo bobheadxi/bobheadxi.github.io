@@ -42,7 +42,7 @@ I quite like this idea! Consider the following text, where we want to change `in
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-If the text was broken at a character column, the resulting diff might look like:
+If the text was broken at a character column, the resulting diff (including reflowing the text) might look like:
 
 ```diff
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
