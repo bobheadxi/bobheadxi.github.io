@@ -14,14 +14,14 @@ author: robert
 description: making changes to documentation readable and understandable
 ---
 
-As an organization grows, it becomes increasingly important to record knowledge and processes. One popular approach is using a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files, tracked in Git, where changes can easily be proposed - though the readability and understandability of these changes is often quite poor, negating much of the benefits of using a version control system.
+As an organization grows, it becomes increasingly important to record knowledge and processes. One popular approach is using a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files, tracked in Git, where changes can easily be proposed and discussed. Unfortunately, the readability and understandability of these changes is often quite poor, negating much of the benefits of using a version control system.
 
 In general, Markdown files are written with lines breaks at some arbitrary character column (such as 80 characters), or are written with entire paragraphs on a single line.
 Both these approaches have significant issues:
 
 - Line-breaking at some arbitrary character column looks nice when viewed, but is easily lost when making and suggesting edits, necessitating reflowing entire paragraphs.
   This leads to incomprehensible or uninformative diffs that are difficult to review.
-- Writing entire paragraphs is reasonably readable nowadays due to most editors and viewers performing wrapping out-of-the-box, but they make suggestions and diffs difficult to review due to every single change causing a diff on entire paragraph.
+- Writing entire paragraphs on a single line is reasonably readable nowadays due to most editors and viewers performing wrapping out-of-the-box, but they make suggestions and diffs difficult to review due to every single change causing a diff on entire paragraphs.
 
 To combat this, the idea of *semantic line breaks* has been floated. The general idea is to perform line breaks along semantic boundaries, instead of just along paragraphs. An approach suggested at [`sembr.org`](https://sembr.org/) sums this up as:
 
