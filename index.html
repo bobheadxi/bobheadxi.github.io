@@ -3,37 +3,6 @@ layout: page
 title: Home
 ---
 
-<script>
-  /* welcome message - "shorter" behaviour for mobile devices */
-  setTimeout(function(){
-    var welcomeNotification = new Noty({
-      type: 'info',
-      text: '👋 Hello there! Looking for something specific?',
-      timeout: isMobile ? 5000 : undefined,
-      buttons: [
-        Noty.button('Projects', 'btn-box', function() {
-          ga('send', 'event', 'Notification', 'click', 'home');
-          location.replace('#open-source-highlights');
-          if (isMobile) welcomeNotification.close();
-        }),
-        Noty.button('Writing', 'btn-box', function() {
-          ga('send', 'event', 'Notification', 'click', 'home');
-          location.replace('#featured-posts');
-          if (isMobile) welcomeNotification.close();
-        }),
-        Noty.button('About Me', 'btn-box', function() {
-          ga('send', 'event', 'Notification', 'click', 'home', {
-            hitCallback: function() {
-              window.open('https://bobheadxi.dev/about');
-              if (isMobile) welcomeNotification.close();
-            }
-          });
-        }),
-      ]
-    }).show();
-  }, 2500);
-</script>
-
 <!-- EXPERIENCE -->
 
 <section class="post-list">
