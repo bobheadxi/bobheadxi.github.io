@@ -36,9 +36,9 @@ title: Home
   <div class="item" align="center" style="margin-bottom: 24px">
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
       {% if post.hero_image %}
-        <img class="image" src="{{ post.hero_image }}" width="50%" style="margin-bottom: 8px"/>
+        <img class="image" src="{{ post.hero_image }}" width="50%" />
       {% else %}
-        <img class="image" src="{{ post.image }}" style="margin-bottom: 8px; max-height:48px"/>
+        <img class="image" src="{{ post.image }}" style="max-height:48px"/>
       {% endif %}
       <h3 class="title">{{ post.title }}</h3>
       <p style="margin-bottom: 0px;margin-top:4px"> {{ post.description }} </p>
@@ -69,7 +69,7 @@ title: Home
   {% for post in site.open-source reversed %} {% if post.star %}
   <div class="item" align="center">
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
-      <img class="image" src="{{ post.image }}" width="50%" style="margin-bottom: 8px"/>
+      <img class="image" src="{{ post.image }}" width="50%" />
       <h3 class="title">{{ post.title }}</h3>
       <p> {{ post.description }} </p>
       {% include post-tags.html %}

@@ -100,10 +100,8 @@ window.onresize = drawChart;
 <section class="post-list">
     {% for post in site.open-source reversed %}
         <div class="item">
-            {% if post.star %}<br />{% endif %}
             <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
                 {% if post.star %}
-                <br />
                 <img class="image" src="{{ post.image }}" width="100%" style="margin-top:16px"/>
                 {% endif %}
                 <h3 class="title">{{ post.title }}</h3>

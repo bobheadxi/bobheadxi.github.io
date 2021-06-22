@@ -27,21 +27,18 @@ layout: compress
         var isMobile = window.matchMedia("only screen and (max-width: 760px)").matches;
 
         /* dark mode */
+        var prefersDark = false;
         function setDarkMode(isDark) {
             const theme = `theme-${isDark ? 'dark' : 'light'}`;
             document.querySelector('html').dataset.theme = theme;
+            prefersDark = isDark;
             console.log(`Set ${theme}`);
         }
+        const prefersDarkMatch = window.matchMedia('(prefers-color-scheme: dark)');
+        setDarkMode(prefersDarkMatch.matches);
 
-        const matchMediaPrefDark = window.matchMedia('(prefers-color-scheme: dark)');
-        setDarkMode(matchMediaPrefDark.matches);
-        console.info(`Call 'setDarkMode(${!matchMediaPrefDark.matches})' to ${matchMediaPrefDark.matches ? 'disable' : 'enable'} dark mode`);
-
-        function onSystemThemeChange(e) {
-            setDarkMode(e.matches);
-            console.log(document.querySelector('html').dataset.theme);
-        };
-        matchMediaPrefDark.addEventListener('change', onSystemThemeChange);
+        prefersDarkMatch.addEventListener('change', (e) => setDarkMode(e.matches));
+        console.info(`Call 'setDarkMode(${!prefersDark})' to ${prefersDark ? 'disable' : 'enable'} dark mode`);
     </script>
     <style>
         {% capture scss_sheet %}{% include style.scss %}{% endcapture %}
