@@ -71,11 +71,11 @@ Sadly, I wasn't able to figure out a nontrivial way to have the number of '#'s c
 
 ### Bold introductions
 
-Some books and blogs get big first letters for the first paragraph of a chapter or article. The effect looks nice on books, but I was never really sold on its usage in blog posts - though the look of an emphasized introduction is certainly striking. As I browsed through [iA Design Blog](https://ia.net/design/blog), I noticed that their first paragraphs were *big*, and it made each essay feel much more compelling.
+Some books and blogs get big first letters for the first paragraph of a chapter or article. The effect looks nice on books, but I was never really sold on its usage in blog posts - though the look of an emphasised introduction is certainly striking. As I browsed through [iA Design Blog](https://ia.net/design/blog), I noticed that their first paragraphs were *big*, and it made each essay feel much more compelling.
 
 ![](../../assets/images/dark-mode/wide-intro-ia.png)
 
-However, as I went about considering different options for making *my* intros real big as well, I realized a lot of my introductory paragraphs were complete garbage. While sometimes that was the intent - leading with a tangent before diving into the article's main topic - they definitely did not age well.
+However, as I went about considering different options for making *my* intros real big as well, I realised a lot of my introductory paragraphs were complete garbage. While sometimes that was the intent - leading with a tangent before diving into the article's main topic - they definitely did not age well.
 
 So perhaps a fortunate side effect is that this prompted me to go back through my posts and make the bare minimum effort to make them a bit more interesting. At least I look like I know what I'm talking about now!
 
@@ -97,7 +97,7 @@ I like to include all sorts of media in my blog posts - images, code snippets, d
 
 On [articles in the Sourcegraph Blog](https://about.sourcegraph.com/blog/optimizing-a-code-intel-commit-graph/#Performance-improvements) (and I recall that you can do this on Medium as well), I noticed that images were "blown up" - wider than the content - and I thought the effect looked quite nice, giving an expansive canvas for media to be enjoyed while still maintaining a nice reading experience for all the other stuff.
 
-To do this myself, I turned images I wanted to be blown up into `<figure>` elements, and gave them expanded widths, along with `<figcaption>`. This also served nicely to standardize the raw HTML I'd been previously using to give images captions.
+To do this myself, I turned images I wanted to be blown up into `<figure>` elements, and gave them expanded widths, along with `<figcaption>`. This also served nicely to standardise the raw HTML I'd been previously using to give images captions.
 
 <figure>
 	<img src="../../assets/images/dark-mode/wide-image.png" />
@@ -123,7 +123,7 @@ And last but not least, the star of today's show... dark mode! Because no site i
 	<figcaption>The site now switches do dark mode if you have dark mode enabled on your device!</figcaption>
 </figure>
 
-Luckily for me, the theme my site was based on made decent use of SASS variables for colours (though the naming of the colors left quite a bit to be desired, as you'll see in a moment).
+Luckily for me, the theme my site was based on made decent use of SASS variables for colours (though the naming of the colours left quite a bit to be desired, as you'll see in a moment).
 
 I found to my dismay that because these variables are compiled away at build time, they cannot be used to respond to [`prefers-color-scheme: dark`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme), which seems to be the standard way to detect for what theme you should show to the user.
 

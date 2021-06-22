@@ -18,7 +18,7 @@ checks: spellcheck mdlint
 
 spellcheck:
 	go run github.com/client9/misspell/cmd/misspell -locale UK -source text -i "center,color" ${SHELLCHECK_FLAGS} \
-		README.md index.html about.md blog open-source _posts
+		README.md index.html about.md blog open-source content
 
 mdlint:
 	markdownlint -c .markdownlint.json --ignore _site .
