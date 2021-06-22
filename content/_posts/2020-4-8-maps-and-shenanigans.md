@@ -16,7 +16,7 @@ author: robert
 description: messing around with Uber's deck.gl in a 2-day quarantine hack
 ---
 
-To scratch my visualization itch, I invested in a lively period of trying to hack together an interactive website for a course project.
+To scratch my visualisation itch, I invested in a lively period of trying to hack together an interactive website for a course project.
 Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 [BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), [Uber's `deck.gl`](https://github.com/uber/deck.gl)
 visualisation framework, [GitHub Pages](https://pages.github.com/), and a lot of hand-wringing.

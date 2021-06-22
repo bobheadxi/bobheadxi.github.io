@@ -14,7 +14,7 @@ author: robert
 description: making changes to documentation readable and understandable
 ---
 
-As an organization grows, it becomes increasingly important to record knowledge and processes. One popular approach is using a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files, tracked in Git, where changes can easily be proposed and discussed. Unfortunately, the readability and understandability of these changes is often quite poor, negating much of the benefits of using a version control system.
+As an organisation grows, it becomes increasingly important to record knowledge and processes. One popular approach is using a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files, tracked in Git, where changes can easily be proposed and discussed. Unfortunately, the readability and understandability of these changes is often quite poor, negating much of the benefits of using a version control system.
 
 In general, Markdown files are written with lines breaks at some arbitrary character column (such as 80 characters), or are written with entire paragraphs on a single line.
 Both these approaches have significant issues:
@@ -29,8 +29,8 @@ To combat this, the idea of *semantic line breaks* has been floated. The general
 
 This particular specification goes on to describe how this works:
 
-> Many lightweight markup languages, including Markdown, reStructuredText, and AsciiDoc, join consecutive lines with a space. Conventional markup languages like HTML and XML exhibit a similar behavior in particular contexts.
-> This behavior allows line breaks to be used as semantic delimiters, making prose easier to author, edit, and read in source — without affecting the rendered output.
+> Many lightweight markup languages, including Markdown, reStructuredText, and AsciiDoc, join consecutive lines with a space. Conventional markup languages like HTML and XML exhibit a similar behaviour in particular contexts.
+> This behaviour allows line breaks to be used as semantic delimiters, making prose easier to author, edit, and read in source — without affecting the rendered output.
 > [...]
 > By inserting line breaks at semantic boundaries, writers, editors, and other collaborators can make source text easier to work with, without affecting how it’s seen by readers.
 
