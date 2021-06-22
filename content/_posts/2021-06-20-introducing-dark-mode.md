@@ -34,11 +34,33 @@ iA Writer uses these gorgeous fonts - aptly named *Mono*, *Duo*, and *Quattro* -
 
 This site now uses *Quattro* as its serif font, and *Mono* as its monospaced font. I think the results are quite nice.
 
+### Bold introductions
+
+Some books and blogs get big first letters for the first paragraph of a chapter or article. The effect looks nice on books, but I was never really sold on its usage in blog posts - though the look of an emphasized introduction is certainly striking. As I browsed through [iA Design Blog](https://ia.net/design/blog), I noticed that their first paragraphs were *big*, and it made each essay feel much more compelling.
+
+![](../../assets/images/dark-mode/wide-intro-ia.png)
+
+However, as I went about considering different options for making *my* intros real big as well, I realized a lot of my introductory paragraphs were complete garbage. While sometimes that was the intent - leading with a tangent before diving into the article's main topic - they definitely did not age well.
+
+So perhaps a fortunate side effect is that this prompted me to go back through my posts and make the bare minimum effort to make them a bit more interesting. At least the new styling on each introduction looks nice now.
+
+![](../../assets/images/dark-mode/wide-intro.png)
+
+### Insightful lists
+
+I just learned about Jekyll's `post.excerpt` feature that gives you the first paragraph of a blog post. Again inspired by the iA Design Blog, which uses excerpts instead of custom descriptions to great effect, I decided to use them here as well.
+
+![](../../assets/images/dark-mode/light-blog-listing.gif)
+
+I think this gives a far better preview into the content of each post, and makes them look a lot more important.
+
+I also made minor improvements such as adding an on-hover effect to the clickable tags, which previously had no indication they were clickable.
+
 ### The big picture
 
 I like to include all sorts of media in my blog posts - images, code snippets, diagrams, quotes, and more. Unfortunately, I also like somewhat narrow widths for my content, which makes for a poor viewing experience for various forms of media.
 
-On the [Sourcegraph Blog]() (and I recall that you can do this on Medium as well), I noticed that images were "blown up" - wider than the content - and I thought the effect looked quite nice, giving an expansive canvas for media to be enjoyed while still maintaining a nice reading experience for all the other stuff.
+On [articles in the Sourcegraph Blog](https://about.sourcegraph.com/blog/optimizing-a-code-intel-commit-graph/#Performance-improvements) (and I recall that you can do this on Medium as well), I noticed that images were "blown up" - wider than the content - and I thought the effect looked quite nice, giving an expansive canvas for media to be enjoyed while still maintaining a nice reading experience for all the other stuff.
 
 To do this myself, I turned images I wanted to be blown up into `<figure>` elements, and gave them expanded widths, along with `<figcaption>`. This also served nicely to standardize the raw HTML I'd been previously using to give images captions.
 
@@ -52,11 +74,11 @@ I've also always liked the big quotes used in magazine and newspaper sites to gi
 
 ![](../../assets/images/dark-mode/wide-quote.png)
 
-Hopefully these changes make the reading experience a bit less monotonous, to make up for my boring content!
+[Mermaid diagrams](https://mermaid-js.github.io/mermaid) and some other things I might have forgotten also got this treatment. Hopefully these changes make the reading experience more exciting!
 
 ### Outdented heading anchors
 
-In iA Writer, headings get nicely outdented '#'s like so:
+While editing in iA Writer, headings get nicely outdented '#'s like so:
 
 ![](../../assets/images/dark-mode/header-outdent-ia.png)
 
@@ -89,44 +111,19 @@ Sadly, I wasn't able to figure out a nontrivial way to have the number of '#'s c
 
 ![](../../assets/images/dark-mode/header-outdent-bob.png)
 
-### Bold introductions
-
-Inspired by the [iA Design Blog](https://ia.net/design/blog).
-
-![](../../assets/images/dark-mode/wide-intro.png)
-
-This inspires me to write more interesting and captivating introductory paragraphs.
-
-### Insightful lists
-
-I just learned about Jekyll's `post.excerpt` feature that gives you the first paragraph of a blog post. Again inspired by the iA Design Blog, which uses excerpts instead of custom descriptions to great effect, I decided to use them here as well.
-
-![](../../assets/images/dark-mode/light-blog-listing.gif)
-
-I think this gives a far better preview into the content of each post, and makes them look a lot more important.
-
-I also made minor improvements such as adding an on-hover effect to the clickable tags, which previously had no indication they were clickable.
-
 ## Dark mode
 
 And last but not least, the star of today's show... dark mode! Because no site is complete without one.
 
 ![](../../assets/images/dark-mode/light-to-dark.gif)
 
-Particularly happy with this detail:
+Luckily for me, the theme my site was based on made decent use of SASS variables for colours (though the naming of the colors left quite a bit to be desired, as you'll see in a moment).
 
-![](../../assets/images/dark-mode/dark-blog-listing.gif)
+I found to my dismay that because these variables are compiled away at build time, they cannot be used to respond to [`prefers-color-scheme: dark`](https://developer.mozilla.org/en-US/docs/Web/CSS/@media/prefers-color-scheme), which seems to be the standard way to detect for what theme you should show to the user.
 
-Previously used SASS variables:
+Instead, I found some blog posts talking about [CSS variables](https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties), which turns out to be the only way to have properly variable variables in stylesheets. To be honest this is the first time I've had to do something like this myself, and this was news to me!
 
-```sass
-$alpha: #333
-
-.my-class
-	color: $alpha
-```
-
-Unfortunately, this is compiled at build time, and cannot be used to respond to `prefers-color-scheme: dark`
+My implementation ended up pretty straight forward, using [universal selectors](https://www.w3.org/TR/CSS2/selector.html#universal-selector) and setting the theme in JavaScript, though I'm sure there are other ways to do this too (maybe even JavaScript-free?).
 
 ```sass
 [data-theme="theme-light"]
@@ -156,28 +153,27 @@ function setDarkMode(isDark) {
     prefersDark = isDark;
     console.log(`Set ${theme}`);
 }
-```
 
-Set initial theme:
-
-```js
+// set the initial theme
 const prefersDarkMatch = window.matchMedia('(prefers-color-scheme: dark)');
 setDarkMode(prefersDarkMatch.matches);
-```
 
-Change when your preferences change:
-
-```js
+// watch for changes to the user's dark mode configuration
 prefersDarkMatch.addEventListener('change', (e) => setDarkMode(e.matches));
-console.info(`Call 'setDarkMode(${!prefersDark})' to ${prefersDark ? 'disable' : 'enable'} dark mode`);
 ```
+
+Having the `setDarkMode` function available is useful for development, allowing me to switch between the modes via console, and I added the `prefersDark` variable... just because, I guess. Maybe handy if I want to add a button to toggle dark mode?
+
+In the end, despite picking the colours semi-randomly and not making an awful lot of adjustments, I'm pretty happy with how this (in my opinion) quick effort turn out! I'm particularly pleased with how the blog listings look:
+
+![](../../assets/images/dark-mode/dark-blog-listing.gif)
 
 ## Up next
 
 There are still a lot of issues with dark mode - most noticeably the company logos I'm using that don't have transparent backgrounds, but also a few contrast issues in code highlighting.
 
-I recently wrote a newsletter featuring a ludicrous number of footnotes, and now I want to get Tufte-style footnotes here so that I can abuse them in my blog posts as well. Sadly, I haven't found a particularly elegant solution to this, so I'm putting it off for now.
-
 There also seems to be an issue with the tags page where posts from different collections do not get included that I definitely want to fix now that interaction with tags is more prominent.
+
+I recently wrote a newsletter featuring a ludicrous number of footnotes, and at some point I want to get [Tufte "sidenotes"](https://edwardtufte.github.io/tufte-css/#sidenotes) here so that I can abuse footnotes in my blog posts as well. Sadly, I haven't found a particularly elegant solution to this, so I'm putting it off for now.
 
 That's all for now - feel free to highlight anything on this post if you have comments for questions!
