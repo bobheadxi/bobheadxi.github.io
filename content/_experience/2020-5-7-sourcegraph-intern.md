@@ -24,7 +24,7 @@ From May 2020 to January 2021, I worked as a software engineering intern at [Sou
 The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug.
 The team also solves challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that Sourcegraph faces when we deploy and scale [Sourcegraph Cloud](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
 
-My work as an intern has had several areas of focus:
+My work as an intern had several areas of focus:
 
 * building out the [monitoring stack that ships with Sourcegraph](#monitoring-at-sourcegraph)
 * improving the [process for creating Sourcegraph releases](#sourcegraph-releases) to on-premise deployments with new capabilities
@@ -49,7 +49,7 @@ During my time at Sourcegraph, a major part of my focus has been on expanding th
 
 * I built features for and refactored the [Sourcegraph monitoring generator](https://docs.sourcegraph.com/dev/background-information/observability/monitoring-generator), which generates the Grafana dashboards, Prometheus rules and alerts definitions, documentation, and more that ship with Sourcegraph from a [custom monitoring specification](https://github.com/sourcegraph/sourcegraph/blob/main/monitoring/monitoring/README.md) that teams use to declare monitoring relevant to their services. Some changes include:
   * [team ownership of alerts](https://github.com/sourcegraph/sourcegraph/issues/12010), which is part of what drives our alerting infrastructure and also guides support request routing.
-  * [new API design for customizing graph panels](https://github.com/sourcegraph/sourcegraph/pull/17112) within our monitoring specification
+  * [new API design for customising graph panels](https://github.com/sourcegraph/sourcegraph/pull/17112) within our monitoring specification
   * generated [dashboard overlays](https://github.com/sourcegraph/sourcegraph/pull/17198) for alert events and version changes
   * driving a cross-team discussion to [overhaul the principles that drive our work on this tooling](https://github.com/sourcegraph/about/pull/2000) to help guide the future of monitoring at Sourcegraph
 
@@ -60,7 +60,7 @@ During my time at Sourcegraph, a major part of my focus has been on expanding th
 
 I also made a wide range of other improvements such as:
 
-* [Shipping cAdvisor with Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/9791), which now serves container metrics for our standardized dashboards across deployment types
+* [Shipping cAdvisor with Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/9791), which now serves container metrics for our standardised dashboards across deployment types
 * [Update dashboards to scale with deployment sizes](https://github.com/sourcegraph/sourcegraph/pull/12756)
 
 <br />
@@ -79,11 +79,11 @@ Previously, creating Sourcegraph releases was a lengthy, complex process that in
   <img src="../../assets/images/experience/sourcegraph/single-day-releases.png" width="75%">
   <figcaption>
   Chart of downwards trend of steps required to create a release, based on checklist items in our generated release tracking issues (for example, <a href="https://github.com/sourcegraph/sourcegraph/issues/17727">sourcegraph#17727</a>).
-  Patch release steps increased due to improved documentation and standardization of the process.
+  Patch release steps increased due to improved documentation and standardisation of the process.
   </figcaption>
 </figure>
 
-* Improved our integration and regression testing suite by introducing the capability to [directly leverage candidate images in tests, generalizing test setup tooling, and migrating our automated upgrade tests to ensure compatibility](https://github.com/sourcegraph/sourcegraph/pull/14974)
+* Improved our integration and regression testing suite by introducing the capability to [directly leverage candidate images in tests, generalising test setup tooling, and migrating our automated upgrade tests to ensure compatibility](https://github.com/sourcegraph/sourcegraph/pull/14974)
   * Work on automated end-to-end testing by the Distribution team also contributed to the removal of many release steps
   * The use of shared per-build candidate images is now the standard way to run integration tests, saving a lot of build time previously spent building images for each individual test
 

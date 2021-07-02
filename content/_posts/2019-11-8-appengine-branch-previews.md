@@ -5,31 +5,29 @@ hero_image: /assets/images/posts/appengine/branch-staged.png
 image: https://miro.medium.com/max/996/1*VHYGqjhONSJ20pRlIUbg7w.png
 headerImage: true
 tag:
-- hack
+- experiment
 - gcp
 - automation
 - devops
 - sumus
 category: blog
 author: robert
-tech_writeup: true
+featured: true
 description: leveraging GitHub Actions for easy-to-use, automated branch preview deployments
 alt_location:
   type: DEV
   url: https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco
 ---
 
-Shortly after I returned to school, early in October 2019 I started
-[working part-time remotely for Sumus](/experience/sumus), a property management company
-based out of Lethbridge, Alberta. My role was primarily as a software developer
-on a investor portal they wanted to build. I wasn't starting from scratch - there
-was already a sizable codebase going, and a simple deployment set up on
+When I started [working remotely part-time for Sumus](/experience/sumus), my role was primarily as a software developer
+on an investor portal they wanted to build. I wasn't starting from scratch - there
+was already a sizable codebase going, and a simple nonautomated deployment set up on
 [Google App Engine](https://cloud.google.com/appengine/).
 
 Right off the bat I had a number of tech-debt-related issues I wanted to address
 before I started developing new features, one of which was automating this
 deployment process. App Engine does not seem to have a great way of doing this
-outside of using their source control, so I decided to do this myself.
+outside of using Google's source control product, so I decided to do this myself.
 
 As I progressed on the automation of the App Engine deployment,
 I realised branch previews were not that much more of a hassle to set up, so I

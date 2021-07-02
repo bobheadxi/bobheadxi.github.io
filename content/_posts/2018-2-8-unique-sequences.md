@@ -12,39 +12,12 @@ author: robert
 description: and an introduction to epigenetics
 ---
 
-It's been raining a lot. When it stops raining and the sun comes out, it can be pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and wonder how you ended up there.
-
-<p align="center">
-    <a href="https://bobheadxi.tumblr.com/post/170642555355/grey-deys-and-tumblr-gif-size-limits-by-robert">
-        <img src="https://78.media.tumblr.com/0b435fbf4181a53fce56a8a54a55f368/tumblr_p3tqj0HOWc1rg86u5o1_1280.gif" width="75%" />
-    </a>
-</p>
-
-<p align="center">
-    <i>Rain, coffee, cough hee, and rain.</i>
-</p>
-
-Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent (I think) questions I found myself asking recently:
-
-* why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
-* why is tumblr's gif file size limit so damn small?
-* where did I leave my bag of rice?
-* why is there a wooden giraffe here?
-* why does water come out of both of these shower faucets simultaneously?
-* what do you do with long hairs that you lose in the shower?
-
-The last question there has, I've learned, an ingenious solution: stick it on the shower wall for the next person to admire. The wooden giraffe turned out to be a failed endeavour in setting up a wooden giraffe smuggling business - seems like demand for wooden giraffes was not quite as high as expected.
-
-The rest of the questions were a bit more mysterious and, like most questions, went largely unanswered.
-
-* TOC
-{:toc}
-
-## Epigenetics and DNA Methylation
+I've been [working in the Bioinformatics team at Michael Smith Genome Sciences Center](/bcgsc).
+Most of my contributions center around building web tools, but I had the opportunity to do some more bioinformatic work as well.
 
 First off, a disclaimer: all of the following is extremely simplified and is mostly based off what I've learned at work and read over the past few weeks. Nonetheless, this was a lot of fun to put together, and the subject as a whole is pretty cool.
 
-Anyway, a quick introduction to the study of epigenetics:
+## Epigenetics and DNA Methylation
 
 > The plethora of cell types within an organism share a unifying genome. Despite this genetic unity, the various cell types, functions and phenotypes within an individual's cytome remain widely varied due to vast differences in their gene expression, both quantitatively and qualitatively. These variances are known to be dictated by so-called epigenetic mechanisms, such that individual cell types and developmental states, within an individual organism, have unique epigenomes. Thus, epigenetic mechanisms are crucially relevant in differentiation and development of all cell types, including those which do so in pathological contexts.<sup>[[1]](#r1)</sup>
 
@@ -52,14 +25,14 @@ In a nutshell, epigenetics is the study of the mechanisms that cause expression 
 
 <figure>
     <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/DNA_methylation.png" width="80%" />
-    <figcaption>CC BY-SA 4.0</a> license</figcaption>
+    <figcaption>CC BY-SA 4.0 license</figcaption>
 </figure>
 
 DNA methylation can affect gene expression thanks to how it attracts and repels various DNA-binding proteins due to its position in the DNA helix at what are known as [CpG islands](https://en.wikipedia.org/wiki/CpG_site). These are often near transcription start sites,<sup>[[4]](#r4)</sup> and methylation at these sites can cause gene silencing<sup>[[3]](#r3)</sup> by limiting transcription in the area.
 
 <figure>
     <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cpg_islands.svg/1024px-Cpg_islands.svg.png" width="90%" />
-    <figcaption>CC BY-SA 3.0</a> license</figcaption>
+    <figcaption>CC BY-SA 3.0 license</figcaption>
 </figure>
 
 DNA methylation and its gene silencing effects has close associations with the onset of many cancer types<sup>[[8]](#r8)</sup> - there's [this great video on YouTube](https://www.youtube.com/watch?v=UUM7HiFkDd4) by the Garvan Institute of Medical Research that gives a quick rundown of DNA methylation biomarkers and its role in cancers. Epigenetic modifications like hypomethylation (gene activation) and hypermethylation (gene silencing) enable cancer traits such as increased cell growth, immune cell evasion, and the ability to spread to other parts of the other body.
@@ -386,3 +359,30 @@ Amazing stuff.
 <p style="font-size:90%">
     <a name="r9">[9]</a> O’Geen, Henriette, Lorigail Echipare, and Peggy J. Farnham. <a href="https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4151291/">“Using ChIP-Seq Technology to Generate High-Resolution Profiles of Histone Modifications.</a>” Methods in molecular biology (Clifton, N.J.) 791 (2011): 265–286. PMC. Web. 8 Feb. 2018.
 </p>
+
+## Random
+
+It's been raining a lot. When it stops raining and the sun comes out, it can be pretty confusing, like that brief feeling you have when you wake up on your friend's couch after a long night and wonder how you ended up there.
+
+<p align="center">
+    <a href="https://bobheadxi.tumblr.com/post/170642555355/grey-deys-and-tumblr-gif-size-limits-by-robert">
+        <img src="https://78.media.tumblr.com/0b435fbf4181a53fce56a8a54a55f368/tumblr_p3tqj0HOWc1rg86u5o1_1280.gif" width="75%" />
+    </a>
+</p>
+
+<p align="center">
+    <i>Rain, coffee, cough hee, and rain.</i>
+</p>
+
+Not to say that "how did I get here?" is a particularly bad question. In fact, it is an excellent question. Here are some other decent (I think) questions I found myself asking recently:
+
+* why would you keep a scary doll, complete with a mini wooden seat, in your guest bedroom?
+* why is tumblr's gif file size limit so damn small?
+* where did I leave my bag of rice?
+* why is there a wooden giraffe here?
+* why does water come out of both of these shower faucets simultaneously?
+* what do you do with long hairs that you lose in the shower?
+
+The last question there has, I've learned, an ingenious solution: stick it on the shower wall for the next person to admire. The wooden giraffe turned out to be a failed endeavour in setting up a wooden giraffe smuggling business - seems like demand for wooden giraffes was not quite as high as expected.
+
+The rest of the questions were a bit more mysterious and, like most questions, went largely unanswered.

@@ -2,7 +2,7 @@
 layout: page
 title: Tags
 ---
-<section class="list">
+<section class="post-list">
     <h1 class="title">Tags</h1>
 
     {% assign tags_list = site.tags %}
@@ -26,7 +26,7 @@ title: Tags
     {% for tag in site.tags  %}
     <h2 class="title" id="{{ tag[0] | slugify }}">#{{ tag[0] }}</h2>
 
-    <ul class="list">
+    <ul class="post-list">
         {% assign pages_list = tag[1] %}
         {% for post in pages_list reversed %}
             {% if post.title != null %}

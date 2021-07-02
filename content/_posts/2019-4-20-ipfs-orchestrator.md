@@ -13,21 +13,15 @@ tag:
 - rtrade
 category: blog
 author: robert
-tech_writeup: true
+featured: true
 description: building <i>Nexus</i>, an orchestrator for operating IPFS private networks
 ---
 
-The [Interplanetary Filesystem (IPFS)](https://ipfs.io/) is a piece of tech I've
-been working with extensively during my time as a remote software engineer at
-[RTrade Technologies](/experience/rtrade-techologies). It's been interesting, but juggling
-part-time remote dev work with my [UBC Launch Pad involvement](https://bobheadxi.dev/tags/#launch-pad)
-and schoolwork certainly takes a bit of a toll - I'll probably write a blog post
-about that at some point.
+[RTrade Technologies](/experience/rtrade-techologies) wanted to explore offering a service that would provide a set of
+[Interplanetary Filesystem (IPFS)](https://ipfs.io/) nodes, hosted on our end, that customers can use to bootstrap their private
+networks - groups of IPFS nodes that only talk to each other.
 
-Anyway - RTrade wanted to explore offering a service that would provide a set of
-IPFS nodes, hosted on our end, that customers can use to bootstrap their private
-networks - groups of IPFS nodes that only talk to each other. It's a bit of a
-underdocumented feature (a quick search for "ipfs private networks" only surfaces
+These "private networks" a bit of a underdocumented feature (a quick search for "ipfs private networks" only surfaces
 blog posts from individuals about how to manually deploy such a network), and it
 kind of goes against the whole "open filesystem" concept of IPFS. That said, it
 seemed like it had its use cases - for example, a business could leverage a

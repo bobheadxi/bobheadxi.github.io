@@ -18,9 +18,6 @@ alt_location:
 
 We've had a design sitting around for a while now, but this year we've finally decided to get to work and churn out a brand new, from-the-ground-up refresh of our 4-year-old website to showcase our new branding and this semester's projects!
 
-* toc
-{:toc}
-
 ## The New Website
 
 ![landing](../../assets/images/posts/introducing-new-launch-pad-site/landing.gif)

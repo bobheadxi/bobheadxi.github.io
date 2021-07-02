@@ -11,21 +11,22 @@ tag:
 - python
 - bigquery
 category: blog
-tech_writeup: true
+featured: true
 author: robert
 description: messing around with Uber's deck.gl in a 2-day quarantine hack
 ---
 
-So started this little visualisation project in earnest on April 5th as a personal stretch
-goal for a course project I was working on, and stopped when I handed in the things that were actually due for the assignment on April 7th.
-It was a lively period of trying to get everything to work: wrangling data, fiddling with libraries, all the good stuff.
+To scratch my visualisation itch, I invested in a lively period of trying to hack together an interactive website for a course project.
 Featured in this post: some [Python + Notebooks](https://jupyter.org/),
 [BigQuery](https://cloud.google.com/bigquery), [React](https://reactjs.org/), [Uber's `deck.gl`](https://github.com/uber/deck.gl)
-visualisation framework, and [GitHub Pages](https://pages.github.com/).
+visualisation framework, [GitHub Pages](https://pages.github.com/), and a lot of hand-wringing.
 
 <figure>
   <img src="../../assets/images/posts/maps-and-shenanigans/epa-data-explore.png" />
 </figure>
+
+I started this little visualisation project in earnest on April 5th as a personal stretch
+goal for a course project I was working on, and stopped when I handed in the things that were actually due for the assignment on April 7th.
 
 You can probably skip the first section of this post if you just want to see a brief writeup of the
 work behind this screenshot (or just go [straight to the final website](https://bobheadxi.dev/society-and-air-quality/)). As always, please feel free to

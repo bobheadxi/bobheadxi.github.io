@@ -8,7 +8,7 @@
             max-width: 100%
 
     .not-wide
-        max-width: 30rem
+        max-width: $contentWidth
         margin-left: auto
         margin-right: auto
 
@@ -19,10 +19,11 @@
             margin-right: auto
 
     > .post-header
+        margin-bottom: 3rem
+
         > .title
             @extend .wide
             text-align: center
-            margin-bottom: 3rem
 
         > .title-image
             > img
@@ -30,9 +31,9 @@
                 display: block
                 margin: 0 auto
 
-        > .date, .post-tags
+        > .date
             @extend .wide
-            color: $gama
+            color: var(--gama)
             font-weight: 300
             text-transform: uppercase
             text-align: center
@@ -43,18 +44,7 @@
             text-rendering: optimizeLegibility
 
         > .date
-            margin-bottom: 2rem
-
-        > .post-tags > .item
-            padding: 2px 8px
-            border-radius: 3px
-            font-size: 0.75rem
-            background: $epsilon
-            color: $alpha
-            letter-spacing: 1px
-            margin: 3px 1px
-            text-decoration: none
-            display: inline-block
+            margin-bottom: 1.5rem
 
     > .post-content
         > *
@@ -64,6 +54,14 @@
             margin-top: 2rem
             a
                 text-decoration: none
+
+        > p:first-of-type
+            @extend .wide
+            font-size: 1.2rem
+            text-align: center
+            line-height: 2rem
+            @media #{$mobile}
+                text-align: left
 
         > blockquote
             @extend .wide

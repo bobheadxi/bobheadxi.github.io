@@ -13,17 +13,18 @@ tag:
 - sumus
 category: blog
 author: robert
-tech_writeup: true
+featured: true
 description: building a Figma Plugin for making data immediately presentable
 alt_location:
   type: DEV
   url: https://dev.to/bobheadxi/generating-reports-in-figma-with-a-custom-figma-plugin-2615
 ---
 
-My second chunk of work for my [part-time remote position at Sumus](/experience/sumus) (read about
-[the first chunk here](/appengine-branch-previews)) involved building a Figma plugin to generate
+One of my projects while [working at Sumus](/experience/sumus) involved building a Figma plugin to generate
 a property pitch report from data about a property collected by employees, mostly aggregated on a
-central [Wordpress](https://wordpress.com/) instance. For the unfamiliar, [Figma](https://www.figma.com/)
+central [Wordpress](https://wordpress.com/) instance.
+
+For the unfamiliar, [Figma](https://www.figma.com/)
 is a neat web-based tool for collaborative design, featuring a very robust set of APIs, which made
 choosing it for automating the property pitch report process a pretty obvious one.
 

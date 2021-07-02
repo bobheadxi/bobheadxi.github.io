@@ -3,7 +3,7 @@ layout: page
 ---
 
 <!-- https://hypothes.is/ only for blog posts -->
-{% if post.collection != 'experience' %}
+{% if page.collection != 'experience' %}
     <script>
     window.hypothesisConfig = function() {
         return {
@@ -95,7 +95,7 @@ layout: page
     {% endif %} -->
 
     {% if page.collection!='open-source' and page.hidedescription!=true %}
-    <p class="date" style="color:#606060;margin-top:-25px;margin-bottom:30px;">
+    <p class="date" style="color:#606060;">
         <i> {{ page.description }} </i>
     </p>
     {% endif %}
@@ -107,18 +107,13 @@ layout: page
     </span>
     {% endif %}
 
-    {% if site.show-tags %}
-    <div class="post-tags">
-        {% for tag in page.tags %} {% if tag != page.company %}
-        <a class="item" href="{{ site.url }}/tags/#{{ tag | slugify }}">{{ tag }}</a>
-        {% endif %} {% endfor %}
-    </div>
-    {% endif %}
+    {% assign post=page %}
+    {% include post-tags.html %}
 </div>
 
 <!-- https://github.com/allejo/jekyll-anchor-headings -->
 <div class="post-content">
-    {% include anchor_headings.html html=content anchorBody='#' beforeHeading=true %}
+    {% include anchor_headings.html html=content anchorBody='#' anchorClass='heading-anchor' beforeHeading=true %}
 </div>
 
 <!-- mermaid need to be initialized after content -->
@@ -160,8 +155,6 @@ layout: page
     </div>
     {% endif %}
 
-    {% include author.html %}
-
     <!-- if experience, only show things exactly related to that experience -->
     {% assign tags = page.tags %}
     {% if page.collection == 'experience' %}
@@ -169,5 +162,3 @@ layout: page
     {% endif %}
     {% include related.html tags=tags %}
 </div>
-
-

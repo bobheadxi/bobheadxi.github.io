@@ -6,7 +6,7 @@ headerImage: true
 tag:
 - javascript
 - visualisation
-- hack
+- experiment
 - my-website
 category: blog
 author: robert

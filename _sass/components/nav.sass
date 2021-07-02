@@ -11,7 +11,7 @@
         > .item > .link
             display: inline-block
             font-weight: 300
-            font-size: 1.4rem
+            font-size: 1.1rem
             padding: 10px 5px
             text-decoration: none
 
@@ -24,7 +24,7 @@
         padding: 0 13px 0
 
         > .item > .link
-            font-size: 1.25rem
+            font-size: 1rem
             padding: 20px 10px
 
 .nav-home
@@ -34,6 +34,11 @@
     > .list
         padding: 0
 
+        > .item
+            // align vertically on mobile
+            @media #{$mobile}
+                display: block
+
         > .item > .link
             font-size: 1.25rem
             margin: 0
@@ -42,4 +47,4 @@
             width: 120px
 
             &:hover
-                color: $alpha
+                color: var(--alpha)

@@ -1,9 +1,9 @@
 .footer-main
-    border-top: 1px solid $epsilon
+    border-top: 1px solid var(--epsilon)
     padding: 40px 0
     margin: auto
     font-size: 0.75rem
-    color: $gama
+    color: var(--gama)
     font-weight: 300
     text-align: center
     position: relative
@@ -13,29 +13,29 @@
         content: " "
         width: 7px
         height: 7px
-        border: $epsilon 1px solid
+        border: var(--epsilon) 1px solid
         position: absolute
         top: -5px
         left: 50%
         margin-left: -5px
-        background: #FFF
-        box-shadow: #FFF 0 0 0 5px
+        background: var(--background)
+        box-shadow: var(--background) 0 0 0 5px
         border-radius: 3px
 
     .link
         display: inline
-        color: $beta
+        color: var(--beta)
         text-decoration: none
         border-bottom: 1px solid transparent
         transition: ease-in-out all .3s
         padding-bottom: 1px
 
         &:hover
-            border-color: $gama
+            border-color: var(--gama)
 
         > .icon
             width: 15px !important
-            fill: $gama !important
+            fill: var(--gama) !important
             transition: ease-in-out all .3s
             position: relative
             top: 3px
@@ -43,8 +43,8 @@
             margin: 0
 
             &:hover
-                fill: $delta !important
+                fill: var(--delta) !important
 
     > .extra
-        color: $gama
+        color: var(--gama)
         margin-top: 0

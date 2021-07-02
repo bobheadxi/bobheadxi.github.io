@@ -1,13 +1,29 @@
-$fontSans: "Helvetica Neue", Helvetica, Arial, sans-serif
-$fontMonospace: "Consolas", Liberation Mono, Menlo, Courier, monospace
+$fontSans: "iA Writer Quattro", "Helvetica Neue", Helvetica, Arial, sans-serif
+$fontMonospace: "iA Writer Mono", "Consolas", Liberation Mono, Menlo, Courier, monospace
 
-$alpha: #333
-$beta: #222
-$gama: #aaa
-$delta: #5A85F3
-$epsilon: #ededed
+[data-theme="theme-light"]
+    --background: #ffffff
+    --alpha: #333
+    --beta: #222
+    --gama: #aaa
+    --delta: #5A85F3
+    --epsilon: #ededed
+    --zeta: #666
 
-$mobile: "only screen and (max-width: 400px)"
-$tablet: "only screen and (min-width: 400px) and (max-width: 1050px)"
-$above: "only screen and (min-width: 780px)"
-$below: "only screen and (max-width: 780px)"
+    --syntax-nt: navy
+
+[data-theme="theme-dark"]
+    --background: #141414
+    --alpha: #aaa
+    --beta: #eeeeee
+    --gama: #5a5a5a
+    --delta: #5A85F3
+    --epsilon: #202020
+    --zeta: #929292
+
+    --syntax-nt: lightblue
+
+$mobile: "only screen and (max-width: 450px)"
+$tablet: "only screen and (min-width: 450px) and (max-width: 750px)"
+
+$contentWidth: 36rem

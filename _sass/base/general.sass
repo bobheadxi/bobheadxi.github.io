@@ -4,18 +4,27 @@ body, html
 body
 	line-height: 1
 	font: 1rem $fontSans
-	color: $alpha
+	color: var(--alpha)
+	background: var(--background)
 
 h1, h2, h3, h4
 	font-family: $fontSans
-	color: $beta
+	color: var(--beta)
 	-webkit-font-smoothing: antialiased
 	text-rendering: optimizeLegibility
+
+	> .heading-anchor
+		position: absolute
+		transform: translateX(-2rem)
+
+		@media #{$tablet}, #{$mobile}
+			position: inherit
+			transform: none
 
 h1
 	font-size: 2rem
 	letter-spacing: -1px
-	color: $beta
+	color: var(--beta)
 	font-weight: 700
 
 h2
@@ -28,26 +37,26 @@ h4
 	font-size: 1.25rem
 
 a
-	color: $delta
+	color: var(--delta)
 	text-decoration: underline
 
 
 p
-	line-height: 1.7rem
-	color: $alpha
+	line-height: 1.5rem
+	color: var(--alpha)
 	font-weight: 300
-	margin-bottom: 20px
 
 strong
-	font-weight: 400
-	color: #000
+	font-weight: 600
+	color: var(--beta)
 
 ul, ol
 	padding-inline-start: 2rem
 	li
-		line-height: 1.7rem
+		line-height: 1.5rem
 		font-weight: 300
-		color: $alpha
+		color: var(--alpha)
+		margin-top: 0.3rem
 
 img,
 pre,
@@ -63,37 +72,34 @@ figcaption
 	top: 0.5rem
 	margin-right: 0.5rem
 	margin-left: 0.5rem
-	margin-top: 0.5rem
 	text-align: center
-	font-size: 0.9rem
-	font-style: italic
+	font-size: 0.8rem
 	font-weight: 300
 
 blockquote
 	padding-left: 15px
-	border-left: 6px solid #eee
+	border-left: 6px solid var(--epsilon)
 	width: fit-content
-	*
-		font-size: 1.1rem
-		font-style: italic
 
 hr
 	border: none
 	height: 1px
 	margin: 40px auto
-	background: #eee
+	background: var(--epsilon)
 	width: 100%
 
 figure.highlight
 	width: 100%
 	margin: 0
 
+code, tt, pre
+	background: var(--background)
+
 code,
 tt
 	padding: 1px 0
 	font-family: $fontMonospace
-	font-size: 0.75rem
-	background: #fff
+	font-size: 0.85rem
 	border-radius: 2px
 	border-radius: 2px
 
@@ -103,11 +109,10 @@ pre
 	width: 100%
 	padding: 5px 10px
 	font-family: $fontMonospace
-	font-size: 0.75rem
+	font-size: 0.85rem
 	line-height: 1.25rem
 	overflow: auto
-	background: #fff
-	border: 1px solid $epsilon
+	border: 1px solid var(--epsilon)
 	border-radius: 2px
 
 .wrapper-normal,
@@ -123,7 +128,7 @@ pre
 		width: 88%
 
 .wrapper-normal
-	max-width: 610px
+	max-width: $contentWidth
 
 .wrapper-large
 	max-width: 1080px

@@ -12,26 +12,11 @@ author: robert
 description: saying goodbye to "this.thing = that.thing"
 ---
 
-Despite my last blog post from way back in 2017, I have not learned any lessons regarding ground beef and continue to eat it on a daily basis. Though I suppose I have changed slightly - I eat more ground pork now, for no real reason other than to make this beauty every day:
-
-<p align="center">
-    <img src="https://st2.depositphotos.com/1859627/9435/i/950/depositphotos_94358986-stock-photo-taiwanese-braised-pork-rice.jpg" alt="I do like watermarks and stock photos" width="70%" />
-</p>
-
-<p align="center">
-    <i>I do like watermarks.</i>
-</p>
-
-This particular picture isn't mine but you get the idea.
-
-* TOC
-{:toc}
-
-## Prelude
-At work, part of my job has been slowly revamping my team's various scattered web platforms - a collection of about 3 servers serving 6 different websites - into a more consolidated and (hopefully) neater codebase.
+At work, part of my job has been slowly revamping my team's various scattered web platforms - a collection of about 3 servers serving 6 different websites - into a more consolidated and (hopefully) neater codebase. This involved trying to get rid of a lot of scary code.
 
 ## The Problem
-The previous intern had gotten a bit of a head start on the rewrite by scaffolding a simple server using [Express](https://expressjs.com), a Node.js framework. When I had a look I think I nearly had a heart attack - every endpoint looked something like this:
+
+A previous intern had gotten a bit of a head start on the rewrite by scaffolding a simple server using [Express](https://expressjs.com), a Node.js framework. When I had a look I think I nearly had a heart attack - every endpoint looked something like this:
 
 ```js
 router.post('/do_thing', (req, res) => {
@@ -447,3 +432,17 @@ And if you ever feel like adding functionality across all classes, you can simpl
 Feel free to get in touch through my email if you have any questions or suggestions about this though! I personally have found this very handy and although I'm sure it could use some changes to improve its flexibility (one thing I'm hoping to look into is implementing some sort of field validations, such as checking if required fields are present) I think this is far better than the original sprawling list of `this.thing = that.thing`.
 
 Thanks for reading, and I hope you found this useful!
+
+## Random
+
+Despite my last blog post from way back in 2017, I have not learned any lessons regarding ground beef and continue to eat it on a daily basis. Though I suppose I have changed slightly - I eat more ground pork now, for no real reason other than to make this beauty every day:
+
+<p align="center">
+    <img src="https://st2.depositphotos.com/1859627/9435/i/950/depositphotos_94358986-stock-photo-taiwanese-braised-pork-rice.jpg" alt="I do like watermarks and stock photos" width="70%" />
+</p>
+
+<p align="center">
+    <i>I do like watermarks.</i>
+</p>
+
+This particular picture isn't mine but you get the idea.
