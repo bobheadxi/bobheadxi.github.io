@@ -5,6 +5,7 @@ image: ''
 headerImage: false
 tag:
 - misc
+- opinion
 star: false
 category: blog
 author: robert
