@@ -27,16 +27,16 @@ Before we start, a firm disclaimer: I am by no means an expert at working remote
 
 Anyway, I started studying in university in 2016. My remote work timeline roughly goes as follows:
 
-* In September 2018, I landed my first stint working **remotely part-time** as was one of maybe two or three developers in [a local startup](/rtrade-techologies/) trying to make enterprise applications for various blockchain technologies. This was my second technical job, and went on for 8 months. I had a full course load in university at the time, as well as some [club commitments](/what-is-launch-pad).
-* In October 2019, I began working **remotely part-time** at [real estate development startup](/sumus/). I was the only developer up until my last month there. This was my fourth technical job, and I was there for 6 months.
-* In May 2020, I started as an intern working **remotely full-time**. Unlike the first two companies, [this was a "real" software company](/sourcegraph/), and I was one of dozens of engineers. In the middle of this internship - around the end of June - I relocated back to Taiwan, putting me at a bit of a time difference with my (then) primarily North American team. This was my fifth technical job, and the one that inspired me to write this post - at this company, I realized that remote work is a skill in and of itself.
+* In September 2018, I landed my first stint working **remotely part-time** as was one of maybe two or three developers in [a local startup](../_experience/2018-8-1-rtrade.md) trying to make enterprise applications for various blockchain technologies. This was my second technical job, and went on for 8 months. I had a full course load in university at the time, as well as some [club commitments](../_posts/2018-12-9-what-is-launch-pad.md).
+* In October 2019, I began working **remotely part-time** at [real estate development startup](../_experience/2019-10-1-sumus.md). I was the only developer up until my last month there. This was my fourth technical job, and I was there for 6 months.
+* In May 2020, I started as an intern working **remotely full-time**. Unlike the first two companies, [this was a "real" software company](../_experience/2020-5-7-sourcegraph-intern.md), and I was one of dozens of engineers. In the middle of this internship - around the end of June - I relocated back to Taiwan, putting me at a bit of a time difference with my (then) primarily North American team. This was my fifth technical job, and the one that inspired me to write this post - at this company, I realized that remote work is a skill in and of itself.
 * In September 2020, I switched to a working **remotely part-time** at the same company and started taking the last courses of my degree.
 * In February 2021, I left to start fulfilling my military service requirement for Taiwan, having finished my courses and pretty much graduated.
 
 In between, I worked two "normal" office jobs, so I have a bit of a reference point to compare with remote work:
 
-* In January 2018 (my first technical job ever), I started at a kind of [old-fashioned office co-op at a health authority](/bcgsc/) with cubicles and a coffee machine that required buying a membership to use. I cooked and packed my own lunches and got to work via a 15-minute bus ride and 5-minute train ride.
-* In May 2019, I [interned at a well-known Californian game developer](/riot-games/) complete with a food court and snack bars. The open office was a 5-minute skate away from the accommodations we were provided, and I can count on one hand the number of times I cooked my own meal that summer.
+* In January 2018 (my first technical job ever), I started at a kind of [old-fashioned office co-op at a health authority](../_experience/2018-1-8-bcgsc.md) with cubicles and a coffee machine that required buying a membership to use. I cooked and packed my own lunches and got to work via a 15-minute bus ride and 5-minute train ride.
+* In May 2019, I [interned at a well-known Californian game developer](../_experience/2019-5-7-riot-games.md) complete with a food court and snack bars. The open office was a 5-minute skate away from the accommodations we were provided, and I can count on one hand the number of times I cooked my own meal that summer.
 
 <br />
 

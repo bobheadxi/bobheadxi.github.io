@@ -1,0 +1,6 @@
+{
+    "search.exclude": {
+        "**/_site": true,
+        "**/.sass-cache": true
+    }
+}
