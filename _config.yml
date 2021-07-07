@@ -13,6 +13,7 @@ plugins:
   - jekyll-feed
   - jekyll-admin
   - jekyll-mentions
+  - jekyll-relative-links # https://github.blog/2016-12-05-relative-links-for-github-pages/
   - jemoji
 jekyll-mentions:
     base_url: https://github.com
@@ -80,3 +81,8 @@ post-advance-links:
 
 # do you want some animations?
 animation: true
+
+# https://github.com/benbalter/jekyll-relative-links#configuration
+relative_links:
+  enabled: true
+  collections: true

@@ -9,12 +9,15 @@ headerImage: true
 company: sourcegraph
 organisation: "Sourcegraph, Inc."
 orgLink: https://about.sourcegraph.com
-description: "Starting July 2021"
+description: "July 2021 - Present | Remote"
 author: robert
 ---
 
-I will be re-joining Sourcegraph as a Software Engineer in July 2021.
-Previously, I [worked at Sourcegraph as Software Engineer Intern](/experience/sourcegraph-intern).
+Starting in July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph) on the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution).
+The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug.
+The team also solves challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that Sourcegraph faces when we deploy and scale [Sourcegraph Cloud](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
+
+Previously, I [also worked at Sourcegraph as Software Engineer Intern](2020-5-7-sourcegraph-intern.md).
 
 <br />
 
