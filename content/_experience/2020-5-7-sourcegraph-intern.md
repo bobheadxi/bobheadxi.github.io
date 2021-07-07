@@ -20,7 +20,7 @@ description: "May 2020 - January 2021 | Remote"
 author: robert
 ---
 
-From May 2020 to January 2021, I worked as a software engineering intern at [Sourcegraph](#about-sourcegraph) on the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution).
+From May 2020 to January 2021, I worked as a software engineer intern at [Sourcegraph](#about-sourcegraph) on the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution).
 The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug.
 The team also solves challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that Sourcegraph faces when we deploy and scale [Sourcegraph Cloud](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
 
@@ -32,13 +32,15 @@ My work as an intern had several areas of focus:
 
 Most of the company's work is open-source, so you can [see my pull requests for Sourcegraph on GitHub](https://github.com/search?o=desc&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged&s=comments&type=Issues)! If you poke around, you might spot me chiming in on a variety of other pull requests and issue discussions as well.
 
+A brief hiatus after my internship, I [returned to Sourcegraph full-time](2021-7-5-sourcegraph.md).
+
 <br />
 
 ## Monitoring at Sourcegraph
 
 During my time at Sourcegraph, a major part of my focus has been on expanding the capabilities of Sourcegraph's built-in monitoring stack and improving the experience for administrators of Sourcegraph deployments, Sourcegraph engineers, and Sourcegraph support.
 
-* I created a new sidecar service to ship with the [Sourcegraph Prometheus image](https://docs.sourcegraph.com/dev/background-information/observability/prometheus), which I wrote a bit about in [this blog post](/docker-sidecar/). This service enabled me to build:
+* I created a new sidecar service to ship with the [Sourcegraph Prometheus image](https://docs.sourcegraph.com/dev/background-information/observability/prometheus), which I wrote a bit about in [this blog post](../_posts/2020-06-21-docker-sidecar.md). This service enabled me to build:
   * [alerting capabilities and configuration](https://docs.sourcegraph.com/admin/observability/alerting) directly within Sourcegraph, which now powers all alerting needs (routing, paging, and more) at Sourcegraph and [completely replaced our old alerting infrastructure](https://github.com/sourcegraph/sourcegraph/issues/5370#issuecomment-629406540)
   * the ability to [include recent alerts data in bug reports](https://github.com/sourcegraph/sourcegraph/pull/10704) and [render service status within the Sourcegraph app](https://github.com/sourcegraph/sourcegraph/pull/11957)
 
@@ -55,7 +57,7 @@ During my time at Sourcegraph, a major part of my focus has been on expanding th
 
 <figure>
   <img src="../../assets/images/experience/sourcegraph/dashboards.png" />
-  <figcaption>Generated Grafana dashboard for a Sourcegraph service.</figcaption>
+  <figcaption>Generated Grafana dashboard for a Sourcegraph service, including annotations and panels that work for out-of-the-box for all services, providing a consistent experience across dashboards.</figcaption>
 </figure>
 
 I also made a wide range of other improvements such as:
