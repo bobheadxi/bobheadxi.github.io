@@ -13,7 +13,7 @@ author: robert
 description: "Reflections on my first two years of remote: the work, the lifestyle, and the takeaways."
 ---
 
-Since starting university, I've worked a number of remote software development positions consisting of both part-time and full-time roles - a lot of which happened pre-COVID - as part of my early career. These roles have done much to reshape the way I approach work, collaboration, and how I live my life.
+Since starting university, I've worked a number of remote software development positions consisting of both part-time and full-time roles - a lot of which happened pre-COVID - as part of my early career. These experiences have done much to reshape the way I approach work, collaboration, and how I live my life.
 
 In this post I reflect a bit on almost two years of accumulated experience working remotely and share some of my thoughts on the subject.
 
@@ -21,11 +21,11 @@ In this post I reflect a bit on almost two years of accumulated experience worki
 * 🧗‍♂️  [Lifestyle](#lifestyle) - how remote work changes your day-to-day life (and a word on [loneliness](#loneliness))
 * 🥡  [Takeaways](#takeaways) - how remote work can change your day-to-day life
 
-## Experience
+Before we start, a firm disclaimer: This post is just a collection of some of my *personal* thoughts on what working remotely has been like for me. Many of the things I write about here is purely anecdotal. Consult at your own risk :)
 
-Before we start, a firm disclaimer: I am by no means an expert at working remotely (or anything, for that matter). This post is just a collection of some of my personal thoughts on what working remotely has been like *for me*. Many of the things I write about here is purely anecdotal - a particular case to consider.
+## My experience
 
-Anyway, I started studying in university in 2016. My remote work timeline roughly goes as follows:
+I started studying in university in 2016. My remote work timeline roughly goes as follows:
 
 * In September 2018, I landed my first stint working **remotely part-time** as was one of maybe two or three developers in [a local startup](../_experience/2018-8-1-rtrade.md) trying to make enterprise applications for various blockchain technologies. This was my second technical job, and went on for 8 months. I had a full course load in university at the time, as well as some [club commitments](../_posts/2018-12-9-what-is-launch-pad.md).
 * In October 2019, I began working **remotely part-time** at [real estate development startup](../_experience/2019-10-1-sumus.md). I was the only developer up until my last month there. This was my fourth technical job, and I was there for 6 months.
@@ -44,28 +44,26 @@ In between, I worked two "normal" office jobs, so I have a bit of a reference po
 
 While the "remote" in "remote work" is fairly self-explanatory, your mileage with the "work" part will vary significantly from company to company, and likely even from team to team.
 
-Consistently, however, it seems the most noticeable difference in a remote-first workplace is the prominence of *asynchronous* collaboration, as opposed to *synchronous* collaboration.
-
 With the recent COVID pandemic, it has also become rather popular to conflate "remote work" with "working from home". I think this is a mistake. Firstly, just because you are working remotely doesn't mean you're actually at home all day, as if in lockdown. Secondly, many companies treat "working from home" as "temporarily away from office". They try to bring over the same processes and methods that may have worked in an office but translate poorly into a remote setting.
 
-### Synchronous and asynchronous
+This happens to be, I think, the source of the most significant variances in the quality of your remote work experience: the degree to which your company is invested in prioritizing remote work.
 
-My interpretation:
-
-- If you have a question, generally you'll run over to your co-worker's desk and just ask. Important decision-making happens in live meetings, whether in person or over video calls. Everything happens in real-time: you ask a question, you at least expect to get a response on the spot, and if you don't it blocks your progress. This is *synchronous* work.
-- You have a generally minimal expectation of an immediate response on most things. Important decision-making happens across a mix of minimal meetings and written discussions and documents. This kind of work includes things like churning out code by yourself, reviewing a pull request on your own, or writing a report. Collaboration is structured to support members in making decisions so that interdependencies don't block progress. This is *asynchronous* work.
-
-The most immediate difference is the emphasis on *autonomy* - asynchronous work focuses on giving you the tools and resources to make sound decisions on your own, and doesn't hold you as closely to the requirements of others.
-
-I often hear concerns, especially from students or recent graduates, that the lack of synchronous communication opportunities attached to a remote job might be a blocker for learning opportunities or support channels. While there are definitely cons to consider (which I'll get to in a bit), there are a few things I've found in office settings that negate the positives of having ample synchronous time together:
+### Office perks
 
 - Just because your co-worker's desk is a few seats over, doesn't mean that your questions will be answered immediately anyway. They might have meetings themselves, or some scheduled focus time. You will probably have meetings of your own to attend. I've even occasionally found the expectation that both parties have spare time at the same time to be a blocker to getting an answer that could have been communicated quickly over a message. **An immediate response is not always a reasonable expectation**, *especially* in a professional environment.
 - Meetings, depending on team culture, can be a poor medium for communication. **You wait your turn to make your voice heard, or you are overpowered by the more talkative senior members in your team**. Debating a point live is also a skill that requires practice, and if you come up with a point after the fact there might not be a channel for you to communicate it short of another meeting. If you are a junior team member, this will probably not help your confidence.
 - **When knowledge can be easily transferred verbally, there is not much incentive to write it down, leading to an ever-growing amount of "tribal knowledge": information that you can only get by knowing the right person, or asking the right question**. Knowledge gets forgotten, lost, or miscommunicated. As an inexperienced employee, this makes life very difficult for you too, and will seriously hamper your ability to figure out what is going on.
 
+### Synchronous and asynchronous
+
+My interpretation:
+
+- Things generally happens in real-time. If you have a question, generally you'll run over to your co-worker's desk and just ask. Important decision-making happens in live meetings. This is *synchronous* work, and is often the default at an office environment.
+- Important decision-making happens across a mix of minimal meetings and written discussions and documents. An immediate response on most things is not the norm. Collaboration is structured to support members in making decisions with tools, resources, and strategies so that interdependencies don't block progress. This is *asynchronous* work, which is a big part of having a functional remote workplace.
+
 ### Precision and freedom
 
-Precision is vital to collaborative processes. If participants are misaligned, that can lead to all sorts of mess. It *feels* more precise to have an announcement made in person, where you can look at very participant and verify that yes, they are indeed here, and they are not asleep - and better yet, nodding in approval. It *feels* more precise to have somebody sit down next to you and give you the exact answer you are looking for.
+Precision is vital to collaborative processes. If participants are misaligned, all sorts of mess can ensue. It feels more precise to have an announcement made in person, where you can look at very participant and verify that yes, they are indeed here, and they are not asleep - and better yet, nodding in approval. It feels more precise to have somebody sit down next to you and give you the exact answer you are looking for.
 
 On the other hand, freedom is where innovation is born - and it seems the office empowers freedom, through the hallway chats, the lunch break discussions, and more. But with this type of freedom you lose precision: people miss out on discussions, TODO
 
