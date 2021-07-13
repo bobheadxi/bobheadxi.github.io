@@ -29,7 +29,9 @@ While I'll generally refer to Grafana in this writeup, you can apply it to prett
 
 ---
 
-**⚠️ Update(7/8/2020)**: Since the writing of this post, we have pivoted on the plan ([sourcegraph#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/docker-images/prometheus), and relevant documentation [here](https://docs.sourcegraph.com/dev/background-information/observability/prometheus).
+## Update
+
+⚠️ Since the writing of this post, we have pivoted on the plan ([sourcegraph#11452](https://github.com/sourcegraph/sourcegraph/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/docker-images/prometheus), and relevant documentation [here](https://docs.sourcegraph.com/dev/background-information/observability/prometheus).
 
 Most of this article still applies though, but with Prometheus + Alertmanager instead of Grafana.
 
@@ -310,5 +312,14 @@ Some relevant pull requests implementing these features:
 
 * [sourcegraph#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environments and adding it back in [sourcegraph#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
 * [sourcegraph#11554](https://github.com/sourcegraph/sourcegraph/pull/11554) adds the ability for the sidecar to start and restart the main service.
+
+Note that most of the above work has been superseded by a pivot to Prometheus (see the [update](#️update)).
+Following the pivot, a lot of other work was enabled by the addition of this sidecar:
+
+* [sourcegraph#12010](https://github.com/sourcegraph/sourcegraph/issues/12010) (implementation: [sourcegraph#12491](https://github.com/sourcegraph/sourcegraph/pull/12491)) proposed a mechanism for denoting ownership in our monitoring and routing alerts appropriately.
+* [sourcegraph#17602](https://github.com/sourcegraph/sourcegraph/pull/17602) demonstrated potential summary capabilities a sidecar can export.
+* [sourcegraph#17014](https://github.com/sourcegraph/sourcegraph/pull/17014) and [sourcegraph#17034](https://github.com/sourcegraph/sourcegraph/pull/17034) adds timestamped links to relevant Grafana panels to alert messages.
+
+## About Sourcegraph
 
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
