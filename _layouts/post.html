@@ -2,8 +2,8 @@
 layout: page
 ---
 
-<!-- https://hypothes.is/ only for blog posts -->
 {% if page.collection != 'experience' %}
+    <!-- https://hypothes.is/ only for blog posts -->
     <script>
     window.hypothesisConfig = function() {
         return {
@@ -46,8 +46,8 @@ layout: page
     </script>
 {% endif %}
 
-<!-- alert guest to alternative places to view this post -->
 {% if page.alt_location %}
+    <!-- alert guest to alternative places to view this post -->
     <script>
         if (!isMobile) {
             let altPlatform = '{{ page.alt_location.type }}';
@@ -72,9 +72,27 @@ layout: page
     </script>
 {% endif %}
 
-<!-- diagraming stuff -->
 {% if page.diagrams %}
+    <!-- diagraming stuff -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/8.4.8/mermaid.min.js"></script>
+{% endif %}
+
+{% if page.maths %}
+    <!-- latex stuff https://katex.org/docs/autorender.html -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.css" integrity="sha384-zTROYFVGOfTw7JV7KUu8udsvW2fx4lWOsCEDqhBreBwlHI4ioVRtmIvEThzJHGET" crossorigin="anonymous">
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/katex.min.js" integrity="sha384-GxNFqL3r9uRJQhR+47eDxuPoNE7yLftQM8LcxzgS4HT73tp970WS/wV5p8UzCOmb" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.13.18/dist/contrib/auto-render.min.js" integrity="sha384-vZTG03m+2yp6N6BNi5iM4rW4oIwk5DfcNdFfxkk9ZWpDriOkXX8voJBFrAO7MpVl" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            renderMathInElement(document.body, {
+                delimiters: [
+                    {left: '$$', right: '$$', display: true},
+                    {left: '$', right: '$', display: false},
+                ],
+                throwOnError : true
+            });
+        });
+    </script>
 {% endif %}
 
 <div class="post-header">
@@ -116,8 +134,8 @@ layout: page
     {% include anchor_headings.html html=content anchorBody='#' anchorClass='heading-anchor' beforeHeading=true %}
 </div>
 
-<!-- mermaid need to be initialized after content -->
 {% if page.diagrams %}
+    <!-- mermaid need to be initialized after content -->
     <script>
         /* https://github.com/mermaidjs/mermaid-gitbook/blob/master/content/mermaidAPI.md */
         mermaid.initialize({
