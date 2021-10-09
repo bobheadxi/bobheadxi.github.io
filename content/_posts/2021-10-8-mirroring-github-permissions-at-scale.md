@@ -16,7 +16,7 @@ description: scaling GitHub permissions mirroring for thousands of users and rep
 
 As a tool for searching over all your code, accurately mirroring repository permissions defined in the relevant code hosts is a core part of [Sourcegraph](https://about.sourcegraph.com/)'s functionality. Typically, the only way to do this is through the APIs of code hosts, though rate limits can mean it can take several *weeks* to work through a large number of users and repositories.
 
-This article goes over some of the work I did on improving GitHub permissions mirroring at Sourcegraph, with the help of several co-workers - primarily [Joe Chen](https://github.com/unknwon) (who wrote most of Sourcegraph's original permissions mirroring code and helped me get up to speed - and is also the author of some big open-source projects like [gogs/gogs](https://github.com/gogs/gogs) and [go-ini/ini](https://github.com/go-ini/ini)) and [Ben Gorden](https://github.com/benjaminwgordon) (who helped a ton on the customer-facing side of things).
+This article goes over some of the work I did on improving GitHub permissions mirroring at Sourcegraph, with the help of several co-workers - primarily [Joe Chen](https://github.com/unknwon) (who wrote most of Sourcegraph's original permissions mirroring code and helped me get up to speed - and is also the author of some big open-source projects like [gogs/gogs](https://github.com/gogs/gogs) and [go-ini/ini](https://github.com/go-ini/ini)) and [Ben Gordon](https://github.com/benjaminwgordon) (who helped a ton on the customer-facing side of things).
 
 ## GitHub rate limits
 
@@ -256,7 +256,7 @@ ON CONFLICT ON CONSTRAINT
   /* ... */
 ```
 
-This implementation of the query was slower for smaller cases, but for larger datasets was either on par or faster than the original query
+This implementation of the query was slower for smaller cases, but for larger datasets was either on par or faster than the original query:
 
 | Case   | Accounts | Cost           | Clock        | Comparison  |
 | ------ | -------- | -------------- | ------------ | ----------- |
