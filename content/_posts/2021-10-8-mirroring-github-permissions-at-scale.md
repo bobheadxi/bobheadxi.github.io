@@ -30,7 +30,7 @@ To come up with a hopefully representative example for this post, I found a [ran
 
 $$\left(\dfrac{\text{4000} \times \text{5000}}{100} \times 2 \right) / 5000 = 80 \text{ hours}$$
 
-Three days is far from ideal, but definitely enroaching into the territory of "cannot be done in a weekend". In practice, implementation details mean that realistically we will consume far more requests than this, since we currently perform several types of sync (I'll get to this in a bit), so the process can take even longer.
+Three days is *okay*, but definitely enroaching into the territory of "cannot be done in a weekend". In practice, implementation details mean that realistically we will consume far more requests than this, since we currently perform several types of sync (I'll get to this in a bit), so the process will likely take longer than 80 hours.
 
 The time to sync increases dramatically for even larger numbers of users and repositories - such as one customer that was projected to take upwards of *an entire month* to perform a full sync. Imagine paying thousands of dollars for a software product, only to have it unusable for the first month! Excessive rate limiting also means that permissions are far more likely to go stale, and can cause issues with other parts of Sourcegraph that also leverage GitHub APIs. The issue became a blocker for this particular customer, so we had to devise a solution to this issue.
 
