@@ -4,6 +4,8 @@ layout: post
 tag:
 - remote
 - sourcegraph
+- golang
+- postgres
 image: /assets/images/experience/sourcegraph.png
 headerImage: true
 company: sourcegraph
@@ -13,11 +15,11 @@ description: "July 2021 - Present | Remote"
 author: robert
 ---
 
-Starting in July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph) on the [Distribution team](https://about.sourcegraph.com/handbook/engineering/distribution).
-The Distribution team is responsible for making Sourcegraph easy to deploy, scale, monitor, and debug.
-The team also solves challenging problems that our customers face when they deploy and scale Sourcegraph on-premise in a variety of environments, and that Sourcegraph faces when we deploy and scale [Sourcegraph Cloud](https://sourcegraph.com/search) (the largest Sourcegraph installation in the world).
+Since July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph).
+I started in [the Distribution team that I was in as a Software Engineer Intern](2020-5-7-sourcegraph-intern.md) working on problems surrounding how Sourcegraph is deployed and operated in both [Sourcegraph Cloud](https://sourcegraph.com/search) and on-premise deployments, but later moved to the newly created Developer Experience team.
+The Developer Experience team's mission is to make it so that every developer feels empowered to be productive in contributing to the Sourcegraph application.
 
-Previously, I [also worked at Sourcegraph as Software Engineer Intern](2020-5-7-sourcegraph-intern.md).
+In addition to work directly related to the Distribution and Developer Experience teams' ownership areas, I have also contributed to parts of the core application, such as working on [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md).
 
 <br />
 
