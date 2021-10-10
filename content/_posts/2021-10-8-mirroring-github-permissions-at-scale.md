@@ -99,11 +99,11 @@ To mitigate outdated caches, a flag to the provider interface was added to allow
 
 The approach was promising, and a feature-flagged user-centric sync backed by a Redis cache was implemented in [sourcegraph#23978 authz/github: user-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph/pull/23978).
 
-Well, admittedly, it was only feature-flagged to off by default [in a follow-up PR](https://github.com/sourcegraph/sourcegraph/pull/24318) when I realised this required additional authentication scopes we do not request by default against the GitHub API (in order query organizations and teams).
+Well, admittedly, it was only feature-flagged to off by default [in a follow-up PR](https://github.com/sourcegraph/sourcegraph/pull/24318) when I realised this required additional authentication scopes we do not request by default against the GitHub API (in order to query organizations and teams).
 
 ## Two-way sync
 
-As mentioned earlier, Sourcegraph's authorization providers provide two-way sync: user-centric and repo-centric. To make the cach-backed sync complete, equivalent functionality had to be implemented for repo-centric sync.
+As mentioned earlier, Sourcegraph's authorization providers provide two-way sync: user-centric and repo-centric. To make the cache-backed sync complete, equivalent functionality had to be implemented for repo-centric sync.
 
 Because GitHub organizations are conveniently supersets of teams (unlike *some* code hosts), user-centric cache was implemented with either `organization` or `organization/team` as keys and a big list of repositories as its value:
 
@@ -124,7 +124,7 @@ org/team: {
 }
 ```
 
-On paper, the performance improvements gained here are similar to the ones when implementing caching for user-centric sync,
+On paper, the performance improvements gained here are similar to the ones when implementing caching for user-centric sync, except scaling off the number of users in teams and organizations instead of repositories.
 
 This was implemented in [sourcegraph#24328 authz/github: repo-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph/pull/24328).
 
