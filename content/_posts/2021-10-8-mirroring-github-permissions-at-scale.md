@@ -30,7 +30,9 @@ To come up with a hopefully representative example for this post, I found a [ran
 
 $$\left(\dfrac{\text{4000} \times \text{5000}}{100} \times 2 \right) / 5000 = 80 \text{ hours}$$
 
-Three days is *okay*, but definitely enroaching into the territory of "cannot be done in a weekend". In practice, implementation details mean that realistically we will consume far more requests than this, since we currently perform several types of sync (I'll get to this in a bit), so the process will likely take longer than 80 hours.
+Three days is *okay*, but definitely enroaching into the territory of "cannot be done in a weekend". In practice, implementation details mean that realistically we will consume far more requests than this, since we currently perform several types of sync[^two], so the process will likely take longer than 80 hours.
+
+[^two]: See [Two-way sync](#two-way-sync).
 
 The time to sync increases dramatically for even larger numbers of users and repositories - such as one customer that was projected to take upwards of *an entire month* to perform a full sync. Imagine paying thousands of dollars for a software product, only to have it unusable for the first month! Excessive rate limiting also means that permissions are far more likely to go stale, and can cause issues with other parts of Sourcegraph that also leverage GitHub APIs. The issue became a blocker for this particular customer, so we had to devise a solution to this issue.
 
@@ -97,9 +99,9 @@ Even if we had a 100 teams and organizations, this would fall under the hourly r
 
 To mitigate outdated caches, a flag to the provider interface was added to allow partial cache invalidation along the path of a sync (important because you don't want every single team and organization queued for a sync all at once) and tying it into the various ways of triggering a sync (notably webhook receivers and the API).
 
-The approach was promising, and a feature-flagged user-centric sync backed by a Redis cache was implemented in [sourcegraph#23978 authz/github: user-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph/pull/23978).
+The approach was promising, and a feature-flagged[^flagged] user-centric sync backed by a Redis cache was implemented in [sourcegraph#23978 authz/github: user-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph/pull/23978).
 
-Well, admittedly, it was only feature-flagged to off by default [in a follow-up PR](https://github.com/sourcegraph/sourcegraph/pull/24318) when I realised this required additional authentication scopes we do not request by default against the GitHub API (in order to query organizations and teams).
+[^flagged]: Well, admittedly, it was only feature-flagged to off by default [in a follow-up PR](https://github.com/sourcegraph/sourcegraph/pull/24318) when I realised this required additional authentication scopes we do not request by default against the GitHub API (in order to query organizations and teams).
 
 ## Two-way sync
 
@@ -280,3 +282,5 @@ After working through the issues mentioned in this article as well as a variety 
 ## About Sourcegraph
 
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
+
+---
