@@ -1,0 +1,22 @@
+name: Compress images (manual)
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    name: calibreapp/image-actions
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Compress Images
+      uses: calibreapp/image-actions@main
+      id: calibre
+      with:
+        githubToken: ${{ secrets.GITHUB_TOKEN }}
+        compressOnly: true
+    - if: steps.calibre.outputs.markdown != ''
+      uses: peter-evans/create-pull-request@v3
+      with:
+        title: "assets: compress images"
+        branch-suffix: timestamp
+        commit-message: "assets: compress images"
+        body: ${{ steps.calibre.outputs.markdown }}
