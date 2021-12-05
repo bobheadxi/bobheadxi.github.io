@@ -9,7 +9,7 @@ tag:
 - automation
 - vue
 - typescript
-image: https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true
+image: assets/images/projects/gobenchdata/demo-chart.png
 headerImage: false
 description: "<i>gobenchdata</i> - Run Go benchmarks, publish results to an interactive web app, and check for performance regressions in your pull requests"
 author: robert
@@ -24,7 +24,7 @@ badges:
 
 <p align="center">
   <a href="https://gobenchdata.bobheadxi.dev">
-    <img src="https://github.com/bobheadxi/gobenchdata/blob/master/.static/demo-chart.png?raw=true" alt="demo">
+    <img src="assets/images/projects/gobenchdata/demo-chart.png" alt="demo">
   </a>
 </p>
 
