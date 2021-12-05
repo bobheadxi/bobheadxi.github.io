@@ -30,7 +30,7 @@ My work as an intern had several areas of focus:
 * improving the [process for creating Sourcegraph releases](#sourcegraph-releases) to on-premise deployments with new capabilities
 * experimenting with changes to the [pipelines that help us roll out Sourcegraph changes](#deployment-pipelines) to the various deployments we manage ourselves
 
-Most of the company's work is open-source, so you can [see my pull requests for Sourcegraph on GitHub](https://github.com/search?o=desc&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged&s=comments&type=Issues)! If you poke around, you might spot me chiming in on a variety of other pull requests and issue discussions as well.
+Most of the company's work is open-source, so you can [see my pull requests for Sourcegraph on GitHub](https://github.com/search?l=&o=desc&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged+updated%3A%3C2021-05-01&s=comments&type=Issues)! If you poke around, you might spot me chiming in on a variety of other pull requests and issue discussions as well.
 
 A brief hiatus after my internship, I [returned to Sourcegraph full-time](2021-7-5-sourcegraph.md).
 
