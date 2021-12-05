@@ -72,7 +72,7 @@ which was a simple visualisation generator for benchmark results over time, but 
 sexy project or anything.
 
 <figure>
-  <img src="assets/images/projects/gobenchdata/demo-chart.png" />
+  <img src="../../assets/images/projects/gobenchdata/demo-chart.png" />
 </figure>
 
 Fortunately, I finished my first intern project at Riot Games with some time to spare so I decided

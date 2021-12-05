@@ -24,7 +24,7 @@ badges:
 
 <p align="center">
   <a href="https://gobenchdata.bobheadxi.dev">
-    <img src="assets/images/projects/gobenchdata/demo-chart.png" alt="demo">
+    <img src="../../assets/images/projects/gobenchdata/demo-chart.png" alt="demo">
   </a>
 </p>
 
