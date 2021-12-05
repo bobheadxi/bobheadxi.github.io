@@ -10,6 +10,7 @@ title: About
 
 **Hey! My name is Robert.**
 
+I am currently working as a [software engineer at Sourcegraph's Developer Experience team](/experience/sourcegraph).
 My professional experience includes software engineering internships at [Sourcegraph](/experience/sourcegraph-intern), [Riot Games](/experience/riot-games), and the [Michael Smith Genome Sciences Center](/experience/bcgsc).
 I've also worked part-time remote software development positions at startups like [Sumus Property Group](/experience/sumus) and [RTrade Technologies](/experience/rtrade/) while taking studying at university.
 
