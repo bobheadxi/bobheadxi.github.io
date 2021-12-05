@@ -4,6 +4,7 @@ layout: post
 image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 headerImage: true
 maths: true
+featured: true
 tag:
 - golang
 - postgres
