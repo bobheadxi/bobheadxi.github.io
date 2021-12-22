@@ -2,6 +2,7 @@
 title: "Mirroring GitHub Permissions at Scale"
 layout: post
 image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
+hero_image: /assets/images/posts/sourcegraph-perms-sync.png
 headerImage: true
 maths: true
 featured: true
@@ -42,6 +43,15 @@ The time to sync increases dramatically for even larger numbers of users and rep
 I got my first hands-on experience with Sourcegraph's authorization providers when [expanding `p4 protect` support for the Perforce integration](https://github.com/sourcegraph/sourcegraph/pull/23755).
 
 In a nutshell, Sourcegraph internally defines an interface *authorization providers* can implement to provide access lists for users (*user-centric* permissions) and repositories (*repo-centric* permissions) - [`authz.Provider`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@8685a6bef8c3e9d2556335cb25448dbc1b356a4a/-/blob/internal/authz/iface.go) - to populate a single source-of-truth table for permissions.
+This happens continuously and passively in the background. The populated table is then queried by various code paths that use the data to decide what content can and cannot be shown to a user.
+
+<figure>
+<img src="../../assets/images/posts/sourcegraph-perms-sync.png" />
+<figcaption>
+Sourcegraph's repository permissions sync state indicator shows when the last sync occurred.
+Site administrators can also trigger a manual sync.
+</figcaption>
+</figure>
 
 ---
 
