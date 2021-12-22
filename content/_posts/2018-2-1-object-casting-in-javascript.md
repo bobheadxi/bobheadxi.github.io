@@ -333,7 +333,7 @@ function swapKeyValues(object) {
 
 ---
 
-**Update**: A reader asked about a line in these helpers that I think is pretty cool:
+**⚠️ Update**: A reader asked about a line in these helpers that I think is pretty cool:
 
 ```js
 return { [newKey]: target[key] };

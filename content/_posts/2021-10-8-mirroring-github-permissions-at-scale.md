@@ -43,7 +43,13 @@ I got my first hands-on experience with Sourcegraph's authorization providers wh
 
 In a nutshell, Sourcegraph internally defines an interface *authorization providers* can implement to provide access lists for users (*user-centric* permissions) and repositories (*repo-centric* permissions) - [`authz.Provider`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@8685a6bef8c3e9d2556335cb25448dbc1b356a4a/-/blob/internal/authz/iface.go) - to populate a single source-of-truth table for permissions.
 
-For something like Perforce, user-centirc sync is as simple as building a list of patterns from the Perforce protections table that work with [PostgreSQL's `SIMILAR TO` operator](https://www.postgresql.org/docs/12/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP), like so:
+---
+
+**⚠️ Update:** Since the writing of this post, I've contributed an improved and more in-depth description of how permissions sync works in Sourcegraph, if you are interested in a better overview: [*Repository permissions - Background permissions syncing*](https://docs.sourcegraph.com/admin/repo/permissions#background-permissions-syncing).
+
+---
+
+For something like Perforce, user-centric sync is as simple as building a list of patterns from the Perforce protections table that work with [PostgreSQL's `SIMILAR TO` operator](https://www.postgresql.org/docs/12/functions-matching.html#FUNCTIONS-SIMILARTO-REGEXP), like so:
 
 ```go
 // For the following p4 protect:

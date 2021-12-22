@@ -430,7 +430,7 @@ so for now I'm just stuck with a rather uninteractive map.
 
 ---
 
-> **✅ Update(4/10/2020)**: I spent some time fiddling with this and managed to get some basic
+**✅ Update(4/10/2020):** I spent some time fiddling with this and managed to get some basic
 interactions working by moving context subscription to the topmost level (I suppose rendering it
 pointless, but oh well) and removing all `mapState` depenedencies from `updateMapState`. Slides then
 check for loading/error state, and if they are selected, call `updateMapState` through `useEffect`.

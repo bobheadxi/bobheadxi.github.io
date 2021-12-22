@@ -24,8 +24,7 @@ Deployment at Riot Games is covered in [this blog post ("Dynamic Applications: M
 
 - - -
 
-**✅ Update(2/25/2020)**:
-a new article on the official blog, [*"Running Online Services at Riot: Products, Not Services"*](https://technology.riotgames.com/news/running-online-services-riot-part-vi), was recently published that elaborates on the specification I worked on, and briefly mentions my intern project!
+**✅ Update(2/25/2020):** a new article on the official blog, [*"Running Online Services at Riot: Products, Not Services"*](https://technology.riotgames.com/news/running-online-services-riot-part-vi), was recently published that elaborates on the specification I worked on, and briefly mentions my intern project!
 (emphasis mine)
 
 > The specification also includes all the metadata required to run and operate an entire environment.
