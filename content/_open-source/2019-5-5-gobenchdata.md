@@ -9,7 +9,7 @@ tag:
 - automation
 - vue
 - typescript
-image: assets/images/projects/gobenchdata/demo-chart.png
+image: /assets/images/projects/gobenchdata/demo-chart.png
 headerImage: false
 description: "<i>gobenchdata</i> - Run Go benchmarks, publish results to an interactive web app, and check for performance regressions in your pull requests"
 author: robert
