@@ -12,7 +12,6 @@ description: "<i>res</i> - ergonomic primitives for working with JSON in Golang 
 author: robert
 star: false
 externalLink: false
-badges: []
 ---
 
 <p align="center">

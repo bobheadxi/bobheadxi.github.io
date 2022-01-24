@@ -16,7 +16,6 @@ description: "<i>Timelines</i> - historical analysis of Git repositories and Git
 author: robert
 star: false
 externalLink: false
-badges: []
 ---
 
 <p align="center">

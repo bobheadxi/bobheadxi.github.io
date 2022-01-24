@@ -12,9 +12,6 @@ description: "<i>ubclaunchpad.com</i> - the new official website for Launch Pad,
 author: robert
 star: true
 externalLink: false
-badges:
-- <img src="https://img.shields.io/website/https/ubclaunchpad.com.svg" />
-- <img src="https://img.shields.io/github/languages/top/ubclaunchpad/ubclaunchpad.com.svg?color=purple" />
 ---
 
 <p align="center">

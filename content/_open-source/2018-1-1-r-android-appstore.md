@@ -12,10 +12,6 @@ description: "widely used portal for luxuriously browsing a popular community-cu
 author: robert
 star: false
 externalLink: false
-badges:
-- <img src="https://img.shields.io/github/downloads/d4rken/reddit-android-appstore/total.svg" alt="Total Downloads" />
-- <img src="https://img.shields.io/github/stars/d4rken/reddit-android-appstore.svg" /> 
-- <img src="https://img.shields.io/github/languages/top/d4rken/reddit-android-appstore?color=b07219" />
 ---
 
 <figure>

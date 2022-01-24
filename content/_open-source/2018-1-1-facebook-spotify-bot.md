@@ -10,10 +10,6 @@ headerImage: false
 description: "a more controlled and interactive take on shared playlists and simple song searches"
 author: robert
 externalLink: false
-badges:
-- <img src="https://travis-ci.org/bobheadxi/facebook-spotify-chatbot.svg?branch=dev" />
-- <img src="https://img.shields.io/github/languages/top/bobheadxi/facebook-spotify-chatbot.svg" />
-- <img src="https://img.shields.io/github/contributors/bobheadxi/facebook-spotify-chatbot.svg" />
 ---
 
 <p align="center">

@@ -12,8 +12,6 @@ description: "the (old) official website for Launch Pad, UBC's student-lead soft
 author: robert
 star: false
 externalLink: false
-badges:
-- <img src="https://img.shields.io/github/languages/top/ubclaunchpad/ubclaunchpad.github.io.svg?color=purple" />
 ---
 
 *⚠️ This project has been superseded by [a new website that I built](/open-source/ubclaunchpad-dot-com)!*
