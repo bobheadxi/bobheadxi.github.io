@@ -15,8 +15,7 @@ title: Home
     <a class="url" href="{% if post.externalLink %}{{ post.externalLink }}{% else %}{{ site.url }}{{ post.url }}{% endif %}">
       <img class="image" src="{{ post.image }}" width="128px" />
       <h3 class="title">{{ post.title }}</h3>
-      {% include post-tags.html ignore_job_type=true %}
-      <p> {{ post.description }} </p>
+      <p style="margin-top: 0.5rem;"> {{ post.description }} </p>
     </a>
   </div>
   {% endfor %}
