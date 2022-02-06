@@ -15,16 +15,24 @@ description: "July 2021 - Present | Remote"
 author: robert
 ---
 
-Since July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph).
-I started in [the Distribution team that I was in as a Software Engineer Intern](2020-5-7-sourcegraph-intern.md) working on problems surrounding how Sourcegraph is deployed and operated in both [Sourcegraph Cloud](https://sourcegraph.com/search) and on-premise deployments, but later moved to the newly created Developer Experience team.
+Since July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph), mostly in the the newly created [Developer Experience team](https://handbook.sourcegraph.com/departments/product-engineering/engineering/enablement/dev-experience).
 The Developer Experience team's mission is to make it so that every developer feels empowered to be productive in contributing to the Sourcegraph application.
 
-As part of the Developer Experience team, I've contributed extensively to [`sg`, our developer tool](https://docs.sourcegraph.com/dev/background-information/sg), the [Sourcegraph monitoring generator](https://docs.sourcegraph.com/dev/background-information/observability/monitoring-generator), Sourcegraph's continuous integration infrastructure, [Sourcegraph's managed instances tooling and processes](https://handbook.sourcegraph.com/product-engineering/engineering/enablement/delivery/managed), and much more.
+As part of the Developer Experience team, I've contributed extensively to:
+
+- [`sg`, the Sourcegraph developer tool](https://docs.sourcegraph.com/dev/background-information/sg)
+- Sourcegraph's continuous integration infrastructure and [pipeline generator](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTE3)
+- the [Sourcegraph monitoring generator](https://docs.sourcegraph.com/dev/background-information/observability/monitoring-generator)
+- [Sourcegraph's managed instances tooling and processes](https://handbook.sourcegraph.com/product-engineering/engineering/enablement/delivery/managed)
+- the [Sourcegraph developer experience newsletter](https://handbook.sourcegraph.com/departments/product-engineering/engineering/enablement/dev-experience/newsletter)
+
+...and more.
 
 In addition to work directly related to the Distribution and Developer Experience teams' ownership areas, I have also contributed to parts of the core application, such as:
 
-- working on [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md)
-- designing and developing [an extended permissions model for Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/27916)
+- [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md) for large enterprises and supporting the continued maintainence of Sourcegraph's permissions syncing systems
+- designing and developing [an extended permissions model for Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/27916), notably [implementing expanded access control parsing for Perforce](https://github.com/sourcegraph/sourcegraph/pull/26745)
+- creating [standardized actor propagation tooling](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6OTI=) across services
 
 Most of the company's work is open-source, so you can [see my pull requests for Sourcegraph on GitHub](https://github.com/search?l=&o=desc&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged+created%3A%3E2021-05-01&s=comments&type=Issues)!
 
