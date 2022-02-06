@@ -124,5 +124,4 @@ This tooling has enabled the team to operate increasing numbers of managed insta
 ### About Sourcegraph
 
 [Sourcegraph](https://about.sourcegraph.com/about) provides code search and intelligence on the web across massive collections of codebases.
-Their [long-term vision](https://about.sourcegraph.com/company/strategy) is to make it so everyone, in every community, in every country, and in every industry — not just the ones working at the half-dozen dominant tech companies — can create products using the best technology.
 Sourcegraph is a fully distributed company with employees across the world.
