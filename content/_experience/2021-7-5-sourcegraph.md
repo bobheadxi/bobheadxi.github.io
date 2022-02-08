@@ -30,9 +30,9 @@ As part of the Developer Experience team, I've contributed extensively to:
 
 In addition to work directly related to the Distribution and Developer Experience teams' ownership areas, I have also contributed to parts of the core application, such as:
 
-- [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md) for large enterprises and supporting the continued maintainence of Sourcegraph's permissions syncing systems
+- [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md) for large enterprises and supporting the continued maintenance of Sourcegraph's permissions syncing systems
 - designing and developing [an extended permissions model for Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/27916), notably [implementing expanded access control parsing for Perforce](https://github.com/sourcegraph/sourcegraph/pull/26745)
-- creating [standardized actor propagation tooling](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6OTI=) across services
+- creating [standardised actor propagation tooling](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6OTI=) across services
 
 Most of the company's work is open-source, so you can [see my pull requests for Sourcegraph on GitHub](https://github.com/search?l=&o=desc&q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged+created%3A%3E2021-05-01&s=comments&type=Issues)!
 

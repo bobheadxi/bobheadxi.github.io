@@ -116,7 +116,7 @@ I worked on making adjustments to our build and publish pipelines, such as enabl
 Deployment methodology varies from instance to instance, but when I first joined Sourcegraph we did not have any instance that was kept closely up to date synchronously with both the state of our monorepo, [`sourcegraph/sourcegraph`](https://github.com/sourcegraph/sourcegraph), and the state of our primary method of distributing Sourcegraph, [`sourcegraph/deploy-sourcegraph`](https://github.com/sourcegraph/deploy-sourcegraph). To amend this, I built a trigger-based pipeline that would keep `deploy-sourcegraph` in sync with the latest images, and immediately propagate changes in `deploy-sourcegraph` to an [internal dogfood instance](https://about.sourcegraph.com/handbook/engineering/deployments/instances#k8s-sgdev-org).
 
 I also developed tooling to automate the upgrades of our [managed Sourcegraph instances offering](https://docs.sourcegraph.com/admin/install/managed).
-The tooling performs Terraform rewrites, configuration updates, and more - a previously a very manual process - greatly reducing the time it takes to conduct an upgrade, and minimizing the possibility of mistakes.
+The tooling performs Terraform rewrites, configuration updates, and more - a previously a very manual process - greatly reducing the time it takes to conduct an upgrade, and minimising the possibility of mistakes.
 This tooling has enabled the team to operate increasing numbers of managed instances with minimal overhead.
 
 <br />

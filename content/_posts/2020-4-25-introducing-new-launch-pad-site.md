@@ -58,7 +58,7 @@ By the time April 2020 rolled around, we were in desperate need of an online pla
 
 There were two main pain points of the existing website (which is over 4 years old at this point) that I wanted to tackle with a rewrite:
 
-* The old website was written with the bare minimum amount of web technologies possible. While this has its advantages, it also meant that nobody really wanted to work on it - learning is a big motivator, and web development at larger firms tend to revolve around trendy web frameworks nowadays. It also meant that adding any sort of interactive required adding gnarly JavaScript and jQuery that nobody really wanted to maintain. It also meant that code resuse could be rather difficult, even though the CSS classes were reasonably well-maintained.
+* The old website was written with the bare minimum amount of web technologies possible. While this has its advantages, it also meant that nobody really wanted to work on it - learning is a big motivator, and web development at larger firms tend to revolve around trendy web frameworks nowadays. It also meant that adding any sort of interactive required adding gnarly JavaScript and jQuery that nobody really wanted to maintain. It also meant that code reuse could be rather difficult, even though the CSS classes were reasonably well-maintained.
 * The website was difficult for non-technical folks (and frankly anyone not familiar with the codebase) to update. With everything piled up in one massive `index.html` and a handful of random JavaScript files, the website quickly lagged behind in content, and there were times when we didn't even add club signup links on the website until well into a recruitment season.
 
 In hopes of remedying these issues, I made two major decisions right as I started:
