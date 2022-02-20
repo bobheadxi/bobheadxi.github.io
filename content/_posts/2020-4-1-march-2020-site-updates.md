@@ -1,5 +1,5 @@
 ---
-title: "March 2020 Updates for bobheadxi.dev"
+title: "March 2020 updates for bobheadxi.dev"
 layout: post
 image: /assets/images/profile.jpg
 headerImage: true

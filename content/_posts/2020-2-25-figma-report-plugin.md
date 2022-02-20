@@ -1,5 +1,5 @@
 ---
-title: "Generating Reports in Figma with a Custom Figma Plugin"
+title: "Generating reports in Figma with a custom Figma plugin"
 layout: post
 hero_image: /assets/images/experience/sumus/pitcher-demo.png
 image: https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg

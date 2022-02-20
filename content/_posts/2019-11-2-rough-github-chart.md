@@ -1,5 +1,5 @@
 ---
-title: "GitHub Activity Chart with Rough.js"
+title: "GitHub activity chart with Rough.js"
 layout: post
 image: /assets/images/posts/rough-github.png
 headerImage: true

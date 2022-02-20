@@ -1,5 +1,5 @@
 ---
-title: "Automated Slate Documentation Builds"
+title: "Automated Slate documentation builds"
 layout: post
 image: https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png
 headerImage: true

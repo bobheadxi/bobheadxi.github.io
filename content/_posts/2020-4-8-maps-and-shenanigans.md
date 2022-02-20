@@ -1,5 +1,5 @@
 ---
-title: "Pretty Things, Maps, and React Shenanigans"
+title: "Pretty things, maps, and React shenanigans"
 layout: post
 hero_image: /assets/images/posts/maps-and-shenanigans/epa-data-explore.png
 headerImage: false

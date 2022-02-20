@@ -1,5 +1,5 @@
 ---
-title: "Serverless Function for Premium-Free Todoist Labels"
+title: "Serverless function for premium-free Todoist labels"
 layout: post
 description: a quick experiment with serverless functions and the Todoist API
 image: 

@@ -1,5 +1,5 @@
 ---
-title: "Sleuthing the Web"
+title: "Sleuthing the web"
 layout: post
 hero_image: /assets/images/projects/sleuth-1.png
 image: /assets/images/posts/squirrel.png

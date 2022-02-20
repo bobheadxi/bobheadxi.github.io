@@ -1,5 +1,5 @@
 ---
-title: "Workshop: A Developer's Guide to Docker"
+title: "Workshop: a developer's guide to Docker"
 layout: post
 image: /assets/images/posts/docker-workshop.png
 headerImage: true

@@ -1,5 +1,5 @@
 ---
-title: "Intercepted Wartime Dispatches Between Berlin and Tokyo"
+title: "Intercepted wartime dispatches between Berlin and Tokyo"
 layout: post
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/a/a4/Type_97_cypher_machine.jpg/1328px-Type_97_cypher_machine.jpg
 headerImage: true

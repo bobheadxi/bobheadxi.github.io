@@ -1,5 +1,5 @@
 ---
-title: "Introducing the New Launch Pad Website"
+title: "Introducing the new UBC Launch Pad website"
 layout: post
 image: https://raw.githubusercontent.com/ubclaunchpad/ubclaunchpad.com/master/.static/banner.png
 headerImage: true

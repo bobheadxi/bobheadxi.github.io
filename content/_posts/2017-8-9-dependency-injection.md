@@ -1,5 +1,5 @@
 ---
-title: "Dependency Injection for Testable Code"
+title: "Dependency injection for testable code"
 layout: post
 image: https://miro.medium.com/max/321/1*ZHDFHf2l1dh__D7gvyIT4w.png
 headerImage: true

@@ -1,5 +1,5 @@
 ---
-title: "IPFS Private Network Node Orchestration"
+title: "IPFS private network node orchestration"
 layout: post
 hero_image: /assets/images/posts/ipfs-orchestrator/sketch.jpg
 image: https://upload.wikimedia.org/wikipedia/commons/1/18/Ipfs-logo-1024-ice-text.png

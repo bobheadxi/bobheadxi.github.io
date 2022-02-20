@@ -1,5 +1,5 @@
 ---
-title: "Determining the Uniqueness of Oligonucleotide Sequences"
+title: "Determining the uniqueness of oligonucleotide sequences"
 layout: post
 image: https://biopython.org/assets/images/biopython_logo_s.png
 headerImage: true

@@ -1,5 +1,5 @@
 ---
-title: "Mirroring GitHub Permissions at Scale"
+title: "Mirroring GitHub permissions at scale"
 layout: post
 image: https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png
 hero_image: /assets/images/posts/sourcegraph-perms-sync.png

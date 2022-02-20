@@ -1,5 +1,5 @@
 ---
-title: Building a Self-Hosted Continuous Deployment Solution
+title: Building a self-hosted continuous deployment solution
 description: How a team of students designed and created a flexible, Docker-based Heroku alternative
 layout: post
 image: https://raw.githubusercontent.com/ubclaunchpad/inertia/master/.static/inertia-init.png
