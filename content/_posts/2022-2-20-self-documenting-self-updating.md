@@ -190,7 +190,7 @@ Learn more about our observability ecosystem in our [developer documentation](ht
 
 ## Continuous integration pipelines
 
-At Sourcegraph, our core continuous integration pipeline are - you guessed it - generated! Our [pipeline generator program](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/enterprise/dev/ci) analyzes a build's variables (changes, branch names, commit messages, environment variables, and more) in order to create a pipeline to run on our [Buildkite](https://buildkite.com/) agent fleet.
+At Sourcegraph, our core continuous integration pipeline are - you guessed it - generated! Our [pipeline generator program](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/enterprise/dev/ci) analyses a build's variables (changes, branch names, commit messages, environment variables, and more) in order to create a pipeline to run on our [Buildkite](https://buildkite.com/) agent fleet.
 
 Typically, [Buildkite pipelines](https://buildkite.com/docs/pipelines/defining-steps) are specified similarly to [GitHub Action workflows](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) - by committing a YAML file to your repository that build agents pick up and run. This YAML file will specify what commands should get run over your codebase, and will usually support some simple conditions.
 
@@ -201,7 +201,7 @@ steps:
   - group: "Pipeline setup"
     steps:
       - label: ':hammer_and_wrench: :pipeline: Generate pipeline'
-        # Prioritize generating pipelines so that jobs can get generated and queued up as soon
+        # Prioritise generating pipelines so that jobs can get generated and queued up as soon
         # as possible, so as to better assess pipeline load e.g. to scale the Buildkite fleet.
         priority: 10
         command: |
@@ -237,7 +237,7 @@ type RunTypeMatcher struct {
 When matched, a `RunType = iota` is associated with the build, which can then be leveraged to determine what kinds of steps to include. For example:
 
 - Pull requests run a bare-bones pipeline generated from what has changed in your pull requests (read on to learn more) - this enables us to keep feedback loops short on pull requests.
-- Tagged release builds run our full suite of tests, and publishes finalized images to our public Docker registries.
+- Tagged release builds run our full suite of tests, and publishes finalised images to our public Docker registries.
 - The `main` branch runs our full suite of tests, and publishes preview versions of our images to internal Docker registries. It also generates notifications that can notify build authors if their builds have failed in `main`.
 - Similarly, a "main dry run" run type is available by pushing to a branch prefixed with `main-dry-run/` - this runs _almost_ everything that gets run on `main`. Useful for double-checking your changes will pass when merged.
 - Scheduled builds are run with specific environment variables for browser extension releases and release branch health checks.
@@ -260,7 +260,7 @@ if strings.HasSuffix(p, ".go") || p == "go.sum" || p == "go.mod" {
 }
 ```
 
-However, engineers can also define database migrations that might not change Go code - in these situations, we still want to run Go tests, and we also want to run migration tests. We can centralize this detection like this:
+However, engineers can also define database migrations that might not change Go code - in these situations, we still want to run Go tests, and we also want to run migration tests. We can centralise this detection like this:
 
 ```go
 if strings.HasPrefix(p, "migrations/") {
@@ -345,7 +345,7 @@ In this snippet, we have:
 <figure>
     <img src="/assets/images/posts/self-documenting/pipeline-trace.png">
     <figcaption>
-        Build traces help visualize and track the performance of various pipeline steps.
+        Build traces help visualise and track the performance of various pipeline steps.
         Uploaded traces are automatically linked from builds via Buildkite annotations for easy reference, and can also be queried directly in <a href="https://www.honeycomb.io/">Honeycomb</a>.
     </figcaption>
 </figure>
@@ -407,7 +407,7 @@ ForEachDiffType(func(checkDiff Diff) {
 return strings.Join(allDiffs, ", ")
 ```
 
-We can take that a bit further to iterate over all our run types and diff types in order to generate a reference page of what each pipeline does - since this page gets committed, it is also a good way to visualize changes to generated pipelines caused by code changes as well!
+We can take that a bit further to iterate over all our run types and diff types in order to generate a reference page of what each pipeline does - since this page gets committed, it is also a good way to visualise changes to generated pipelines caused by code changes as well!
 
 ```go
 // Generate each diff type for pull requests
@@ -502,7 +502,7 @@ Learn more about our continuous integration ecosystem in our [developer document
 
 ## Wrapup
 
-The generator approach has helped us build a low-maintainence and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, and integrate.
+The generator approach has helped us build a low-maintenance and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, and integrate.
 
 <br />
 
