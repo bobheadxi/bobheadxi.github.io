@@ -14,6 +14,7 @@ tag:
 category: blog
 author: robert
 description: building self-sustaining ecosystems
+draft: true
 ---
 
 In a rapidly moving organization, documentation drift is inevitable as the underlying tools undergoes changes to suit business needs, especially for internal tools where leaning on tribal knowledge can often seem more efficient in the short term. Tools that rely on each other become increasingly difficult to build as each component becomes more complex. This introduces debt that makes for a confusing onboarding process and poor developer experience.
@@ -22,7 +23,7 @@ One approach for keeping documentation debt at bay is to choose tools that come 
 
 Of course, in addition to generated documentation you do still need to write documentation to tie the pieces together - for example, the [UBC Launch Pad website still had a brief intro guide](https://github.com/ubclaunchpad/ubclaunchpad.com/blob/master/README.md) and we did put together a [usage guide for Inertia](https://inertia.ubclaunchpad.com/), but generated documentation helps you ensure the nitty gritty stays up to date, and focus on high-level guidance in your handcrafted writing.
 
-At [Sourcegraph](../_experience/2021-7-5-sourcegraph.md), I've been exploring avenues for taking this even further. Once you move away from off-the-shelf generators and invest in leveraging your code to generate exactly what you need, you can build a pretty neat ecosystem of documentation, integrations, and tooling that is always up to date by design and provides the groundwork for some cool things. In this article, I'll talk about some of the things we've built with this approach in mind: our [observability ecosystem](#observability-ecosystem) and our [continuous integration pipelines](#continuous-integration-pipelines).
+At [Sourcegraph](../_experience/2021-7-5-sourcegraph.md), I've been exploring avenues for taking this even further. Once you move away from off-the-shelf generators and invest in leveraging your code to generate exactly what you need, you can build a pretty neat ecosystem of documentation, integrations, and tooling that is always up to date by design. In this article, I'll talk about some of the things we've built with this approach in mind: Sourcegraph's [observability ecosystem](#observability-ecosystem) and [continuous integration pipelines](#continuous-integration-pipelines).
 
 <br />
 
@@ -53,7 +54,7 @@ func GitServer() *Container {
                     // Some options, like this one, makes changes to both how the panel
                     // is rendered as well as when the alert fires
                     DataMayNotExist: true,
-                    // Configure documentation
+                    // Configure documentation about possible solutions if the alert fires
                     PossibleSolutions: `
                         - **Provision more disk space:** Sourcegraph will begin deleting...
                     `,
@@ -181,7 +182,7 @@ We also now have a tool, [`sg`](https://docs.sourcegraph.com/dev/background-info
 
 This all comes together to form a cohesive monitoring development and usage ecosystem that is tightly integrated, encodes best practices, self-documenting (both in the content it generates as well as the APIs available), and easy to extend.
 
-Learn more about our observability ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/observability), and check out the [monitoring generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/monitoring/monitoring/generator.go).
+Learn more about our observability ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/observability), and check out the [monitoring generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/monitoring/monitoring).
 
 <br />
 
@@ -347,7 +348,9 @@ In this snippet, we have:
     </figcaption>
 </figure>
 
-Additional helpers are available that tweak how a step is created. For example, with `bk.AnnotatedCmd` one can indicate that a step will generate annotations by writing to `./annotations` - a wrapper script is configured to make sure these annotations get picked up:
+Features like the build step traces [was implemented without having to make sweeping changes pipeline configuration](https://github.com/sourcegraph/sourcegraph/pull/29444/files), thanks to the generated approach - we just had to adjust the generator to inject the appropriate scripting, and now it _just works_ across all commands in the pipeline.
+
+Additional functions are also available that tweak how a step is created. For example, with `bk.AnnotatedCmd` one can indicate that a step will generate annotations by writing to `./annotations` - a wrapper script is configured to make sure these annotations gets picked up and uploaded via Buildkite's API:
 
 ```go
 // AnnotatedCmd runs the given command, picks up files left in the `./annotations`
@@ -371,21 +374,16 @@ Additional helpers are available that tweak how a step is created. For example, 
 //    where to go and what to do next.
 func AnnotatedCmd(command string, opts AnnotatedCmdOpts) StepOpt {
     var annotateOpts string
-    if opts.Type == "" {
-        annotateOpts += fmt.Sprintf(" -t %s", AnnotationTypeError)
-    } else {
-        annotateOpts += fmt.Sprintf(" -t %s", opts.Type)
-    }
-    if opts.MultiJobContext != "" {
-        annotateOpts += fmt.Sprintf(" -c %q", opts.MultiJobContext)
-    }
+    // ... set up options
+    // './an' is a script that runs the given command and uploads the exported annotations
+    // with the given annotation options before exiting.
     annotatedCmd := fmt.Sprintf("./an %q %q %q",
         tracedCmd(command), fmt.Sprintf("%v", opts.IncludeNames), strings.TrimSpace(annotateOpts))
     return RawCmd(annotatedCmd)
 }
 ```
 
-This allows all steps to easily create annotations by simply writing content to a file, and get them uploaded, formatted, and grouped nicely without having to learn the specifics of the Buildkite annotations API:
+The author of a pipeline step can then easily opt in to having their annotations uploaded by changing `bk.Cmd(...)` to `bk.AnnotatedCmd(...)`. This allows all steps to easily create annotations by simply writing content to a file, and get them uploaded, formatted, and grouped nicely without having to learn the specifics of the [Buildkite annotations API](https://buildkite.com/docs/agent/v3/cli-annotate):
 
 <figure>
     <img src="/assets/images/posts/self-documenting/annotations.png">
@@ -407,4 +405,105 @@ ForEachDiffType(func(checkDiff Diff) {
 return strings.Join(allDiffs, ", ")
 ```
 
-TODO
+We can take that a bit further to iterate over all our run types and diff types in order to generate a reference page of what each pipeline does - since this page gets committed, it is also a good way to visualize changes to generated pipelines caused by code changes as well!
+
+```go
+// Generate each diff type for pull requests
+changed.ForEachDiffType(func(diff changed.Diff) {
+    pipeline, err := ci.GeneratePipeline(ci.Config{
+        RunType: runtype.PullRequest,
+        Diff:    diff,
+    })
+    if err != nil {
+        log.Fatalf("Generating pipeline for diff type %q: %s", diff, err)
+    }
+    fmt.Fprintf(w, "\n- Pipeline for `%s` changes:\n", diff)
+    for _, raw := range pipeline.Steps {
+        printStepSummary(w, "  ", raw)
+    }
+})
+
+// For the other run types, we can also generate detailed information about what
+// conditions trigger each run type!
+for rt := runtype.PullRequest + 1; rt < runtype.None; rt += 1 {
+    m := rt.Matcher()
+    if m.Branch != "" {
+        matchName := fmt.Sprintf("`%s`", m.Branch)
+        if m.BranchRegexp {
+            matchName += " (regexp match)"
+        } else if m.BranchExact {
+            matchName += " (exact match)"
+        }
+        conditions = append(conditions, fmt.Sprintf("branches matching %s", matchName))
+        if m.BranchArgumentRequired {
+            conditions = append(conditions, "requires a branch argument in the second branch path segment")
+        }
+    }
+    if m.TagPrefix != "" {
+        conditions = append(conditions, fmt.Sprintf("tags starting with `%s`", m.TagPrefix))
+    }
+    // etc.
+}
+```
+
+<figure>
+    <img src="/assets/images/posts/self-documenting/sg-ci-docs.png">
+    <figcaption>
+        A web version of this reference page is also published to the <a href="https://docs.sourcegraph.com/dev/background-information/continuous_integration">pipeline types reference</a>. You can also check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/enterprise/dev/ci/gen-pipeline.go">docs generation code</a> directly!
+    </figcaption>
+</figure>
+
+Taking this _even further_, with run type requirements available we can also integrate run types into other tooling - for example, our developer tool `sg` can help you create builds of various run types from a command like `sg ci build docker-images-patch` to build a Docker image for a specific service:
+
+```go
+// Detect what run-type someone might be trying to build
+rt := runtype.Compute("", fmt.Sprintf("%s/%s", args[0], branch), nil)
+// From the detected matcher, we can see if an argument is required and request it
+m := rt.Matcher()
+if m.BranchArgumentRequired {
+    var branchArg string
+    if len(args) >= 2 {
+        branchArg = args[1]
+    } else {
+        branchArg, err = open.Prompt("Enter your argument input:")
+        if err != nil {
+            return err
+        }
+    }
+    branch = fmt.Sprintf("%s/%s", branchArg, branch)
+}
+// Push to the branch required to trigger a build
+branch = fmt.Sprintf("%s%s", rt.Matcher().Branch, branch)
+gitArgs := []string{"push", "origin", fmt.Sprintf("%s:refs/heads/%s", commit, branch)}
+if *ciBuildForcePushFlag {
+    gitArgs = append(gitArgs, "--force")
+}
+run.GitCmd(gitArgs...)
+// Query Buildkite API to get the created build
+// ...
+```
+
+Using a similar iteration over the available run types we can also provide tooltips that automatically list out all the supported run types that can be created this way:
+
+<figure>
+    <img src="/assets/images/posts/self-documenting/sg-ci-build.png">
+    <figcaption>
+        Check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/dev/sg/sg_ci.go"><code>sg ci build</code> source code</a> directly, or the <a href="https://github.com/sourcegraph/sourcegraph/pull/30932#discussion_r803196181">discussion behind the inception of this feature</a>.
+    </figcaption>
+</figure>
+
+So now we have generated pipelines, documentation about them, the capability to extend pipeline specifications with additional feature like tracing, _and_ tooling that is integrated and automatically kept in sync with pipeline specifications - all derived from a single source of truth!
+
+Learn more about our continuous integration ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/continuous_integration), and check out the [pipeline generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/enterprise/dev/ci).
+
+<br />
+
+## Wrapup
+
+The generator approach has helped us build a low-maintainence and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, and integrate.
+
+<br />
+
+## About Sourcegraph
+
+Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
