@@ -1,5 +1,5 @@
 ---
-title: "Extending Docker Images with Sidecar Services"
+title: "Extending Docker images with sidecar services"
 layout: post
 image: https://i.pinimg.com/originals/ac/72/2b/ac722ba2b916d1b1e02f076473a2cdbb.jpg
 hero_image: /assets/images/posts/docker-sidecar.png

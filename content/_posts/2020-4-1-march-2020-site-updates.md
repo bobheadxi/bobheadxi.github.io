@@ -1,5 +1,5 @@
 ---
-title: "March 2020 Updates for bobheadxi.dev"
+title: "March 2020 updates for bobheadxi.dev"
 layout: post
 image: /assets/images/profile.jpg
 headerImage: true
@@ -42,7 +42,9 @@ and leaner, but it's holding together for the time being. You can check out the
 
 ## Hypothes.is Integration for Annotations
 
-![hypothesis overlay](../../assets/images/posts/march-2020-site-updates/hypothesis.gif)
+<figure>
+    <img src="/assets/images/posts/march-2020-site-updates/hypothesis.gif">
+</figure>
 
 [Hypothes.is](https://web.hypothes.is/) is an open web annotation platform that aims to provide
 a collaborative discussion layer on top of web content. I'm exploring using it as a note-taking
@@ -72,7 +74,9 @@ that. 🙃
 
 ## Annoying Popups
 
-![noty in home](../../assets/images/posts/march-2020-site-updates/noty-home.gif)
+<figure>
+    <img src="/assets/images/posts/march-2020-site-updates/noty-home.gif">
+</figure>
 
 This mostly stemmed from my [new Hypothes.is integration](#hypothesis-integration) - how do I let
 the little traffic I get know that they can leave comments? Then I remembered, hey, I came across
@@ -83,7 +87,9 @@ set up, so after adding an alert for Hypothes.is I set up an additional welcome 
 
 ### Conditional Popups
 
-![noty on a post](../../assets/images/posts/march-2020-site-updates/noty-post.gif)
+<figure>
+    <img src="/assets/images/posts/march-2020-site-updates/noty-post.gif">
+</figure>
 
 {% raw %}
 The template language used by [Jekyll](https://jekyllrb.com/), [Liquid](https://shopify.github.io/liquid/)

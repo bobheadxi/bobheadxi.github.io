@@ -1,5 +1,5 @@
 ---
-title: "Determining the Uniqueness of Oligonucleotide Sequences"
+title: "Determining the uniqueness of oligonucleotide sequences"
 layout: post
 image: https://biopython.org/assets/images/biopython_logo_s.png
 headerImage: true
@@ -50,7 +50,7 @@ Another method is known as [bisulfite conversion](https://en.wikipedia.org/wiki/
 
 <figure>
     <img src="https://www.epigentek.com/catalog/images/headers/catdesc/dna-bisulfite-conversion.png" width="90%" />
-    <figcaption>Epigentek documentation</a></figcaption>
+    <figcaption>Epigentek documentation</figcaption>
 </figure>
 
 My team often receives such bisulfite converted sequences, albeit with an additional inertesting step: samples are spiked with unmethylated [lambda phage](https://en.wikipedia.org/wiki/Lambda_phage), a procedure often done<sup>[[5]](#r5)</sup><sup>[[6]](#r6)</sup> to determine the efficiency of the conversion. Due to the lack of methylated cytosine residues in the lambda, if the conversion reaction is complete, all of the lambda sequence's cytosine should be converted to uracil when aligned to the lambda genome. This conversion rate is used to assess the effectiveness of the bisulfite conversion, which we provide as feedback to the lab or our collaborators.

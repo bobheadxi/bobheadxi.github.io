@@ -1,5 +1,5 @@
 ---
-title: "June 2021 Updates for bobheadxi.dev"
+title: "June 2021 updates for bobheadxi.dev"
 layout: post
 image: false
 headerImage: false

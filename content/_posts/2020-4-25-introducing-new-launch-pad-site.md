@@ -1,5 +1,5 @@
 ---
-title: "Introducing the New Launch Pad Website"
+title: "Introducing the new UBC Launch Pad website"
 layout: post
 image: https://raw.githubusercontent.com/ubclaunchpad/ubclaunchpad.com/master/.static/banner.png
 headerImage: true
@@ -20,7 +20,9 @@ We've had a design sitting around for a while now, but this year we've finally d
 
 ## The New Website
 
-![landing](../../assets/images/posts/introducing-new-launch-pad-site/landing.gif)
+<figure>
+  <img src="/assets/images/posts/introducing-new-launch-pad-site/landing.gif">
+</figure>
 
 We’re launching our new website today on [ubclaunchpad.com](https://ubclaunchpad.com)! The revamped website features:
 
@@ -65,6 +67,8 @@ In hopes of remedying these issues, I made two major decisions right as I starte
 
 * I chose an approachable web framework, in this case [Vue.js](https://vuejs.org/). Its template-based approach seemed well-suited to the mostly-static website that we were going to build, while being reasonably trendy and flexible enough to accommodate new integrations in the future (for example, with our [Slack bot](https://github.com/ubclaunchpad/rocket2)). To go with it I chose [TypeScript](https://www.typescriptlang.org), a typed superset of JavaScript, which would serve as a form of self-documentation for future Launch Pad students to leverage.
 * I wanted as much of the website's information configurable through a familar yet easily validated format. Updating the projects featured on the website or our sponsors or the positions open for application should be a simple matter of editing a single file and redeploying the website. To do this, I added [TypeScript types for the data we would need](https://github.com/ubclaunchpad/ubclaunchpad.com/blob/master/src/data/types.ts) and a [single file, `config.ts`, where all the website data could be viewed and edited](https://github.com/ubclaunchpad/ubclaunchpad.com/blob/master/src/config.ts). Accompanying this is an automatically generated [configuration guidelines website](https://ubclaunchpad.com/config) that provides additional instructions and presents documentation on every single field in a hopefully digestible and not-overly-intimidating matter.
+
+![](../../assets/images/posts/introducing-new-launch-pad-site/docs.png)
 
 We'd made a few attempts at starting development on the website before, but unfortunately since it was always treated as more of a club "side project" or an off-season project, it was quite difficult to get the ball rolling and development would quickly fizzle out. To get the project off the ground with some momentum, I decided I would build the initial implementation by myself. I [started off on my own on April 17th](https://github.com/ubclaunchpad/ubclaunchpad.com/commit/64e720c4bb1fd74f9aa49fd4096b10a25a5212fe), [finished implementing a first pass of the entire website just *two* days later](https://github.com/ubclaunchpad/ubclaunchpad.com/issues/16), set up what documentation I could, and opened the project up to contributions from the club!
 

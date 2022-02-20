@@ -1,5 +1,5 @@
 ---
-title: "Castles in the Sand"
+title: "Castles in the sand"
 layout: post
 image: ''
 headerImage: false

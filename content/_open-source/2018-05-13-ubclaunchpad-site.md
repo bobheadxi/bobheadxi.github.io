@@ -49,6 +49,6 @@ including:
 Check out my pull requests in more detail
 [here](https://github.com/ubclaunchpad/ubclaunchpad.github.io-old/pulls?q=is%3Apr+author%3Abobheadxi+is%3Aclosed).
 
-Also see [the new website that I built](/open-source/ubclaunchpad-dot-com) to replace this one!
+Also see [the new website that I built](2020-4-26-ubclaunchpad-dot-com.md) to replace this one!
 
 <br />

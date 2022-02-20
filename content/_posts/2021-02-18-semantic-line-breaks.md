@@ -1,5 +1,5 @@
 ---
-title: "Semantic Line Breaks"
+title: "Semantic line breaks"
 layout: post
 image: /assets/images/posts/semantic-line-breaks/enter.png
 headerImage: true

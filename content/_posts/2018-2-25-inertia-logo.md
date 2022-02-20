@@ -1,5 +1,5 @@
 ---
-title: "The Inertia Logo and README Design"
+title: "The Inertia logo and README design"
 layout: post
 tag:
 - misc

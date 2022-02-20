@@ -1,5 +1,5 @@
 ---
-title: Object Casting with Polymorphic Classes in JavaScript
+title: Object casting with polymorphic classes in JavaScript
 layout: post
 image: https://seeklogo.com/images/J/javascript-logo-E967E87D74-seeklogo.com.png
 headerImage: true

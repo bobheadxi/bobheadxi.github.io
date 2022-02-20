@@ -1,5 +1,5 @@
 ---
-title: "Automated Slate Documentation Builds"
+title: "Automated Slate documentation builds"
 layout: post
 image: https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png
 headerImage: true
@@ -17,11 +17,9 @@ alt_location:
   url: https://medium.com/@bobheadxi/turning-slate-into-a-proper-documentation-builder-d0cf31abf459
 ---
 
-Recently [at work](/rtrade), I came across [a documentation website](https://gateway.temporal.cloud/ipfs/Qma4DNFSRR9eGqwm93zMUtqywLFpTRQji4Nnu37MTmNntM/account.html#account-api) recently set up for one of our APIs. I thought it looked great, and slick, and super nice, and wanted to adopt it for anther project.
+Recently [at work](/rtrade), I came across [a documentation website](https://gateway.temporal.cloud/ipfs/Qma4DNFSRR9eGqwm93zMUtqywLFpTRQji4Nnu37MTmNntM/account.html#account-api) recently set up for one of our APIs. I thought it looked great, and slick, and super nice, and wanted to adopt it for anther project. I was told the documentation was generated using a project called [Slate](https://github.com/lord/slate), and after taking a look I knew I had to try it out. It’s very pretty.
 
-I was told the documentation was generated using a project called [Slate](https://github.com/lord/slate), and after taking a look I knew I had to try it out. It’s very pretty.
-
-![[Wow!](https://raw.githubusercontent.com/lord/img/master/screenshot-slate.png)](https://cdn-images-1.medium.com/max/2800/1*NMCPwETJJL7-pIy4XCitYA.png)
+![](https://raw.githubusercontent.com/lord/img/master/screenshot-slate.png)
 
 First step: read some docs. “[Getting Started with Slate](https://github.com/lord/slate#getting-started-with-slate)” seemed like a good place to get started.
 
@@ -158,6 +156,9 @@ And it worked! bundle exec middleman server kindly updated my local deployment t
 
 Here’s what the documentation site looks like now:
 
-![wheeeee](https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png)
+<figure>
+  <img src="https://cdn-images-1.medium.com/max/5528/1*fSQLmcXU6XELwEw65nlJSQ.png">
+  <figcaption>Wheeee</figcaption>
+</figure>
 
 Feel free to check out the [commit](https://github.com/ubclaunchpad/inertia/commit/40bfc25c78e5110c690b379b96476f258d3d897b) or [pull request](https://github.com/ubclaunchpad/inertia/pull/536) that added all this stuff to [Inertia](https://github.com/ubclaunchpad/inertia), a [UBC Launch Pad](https://ubclaunchpad.com/) project!

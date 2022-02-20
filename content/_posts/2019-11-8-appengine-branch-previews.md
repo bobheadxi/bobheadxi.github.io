@@ -1,5 +1,5 @@
 ---
-title: "Branch Previews with Google App Engine and GitHub Actions"
+title: "Branch previews with Google App Engine and GitHub Actions"
 layout: post
 hero_image: /assets/images/posts/appengine/branch-staged.png
 image: https://miro.medium.com/max/996/1*VHYGqjhONSJ20pRlIUbg7w.png
@@ -40,9 +40,9 @@ should apply to a variety of different stacks.
 
 Here's a sneak peak of the end result:
 
-<p align="center">
+<figure>
   <img src="../../assets/images/posts/appengine/environments-deployed.png">
-</p>
+</figure>
 
 * TOC
 {:toc}
@@ -87,9 +87,9 @@ process - my first iteration used [CircleCI](https://circleci.com/), where we
 run our tests, style checks, and and so on. This had the advantage of allowing
 me to stage deployments based on whether or not previous checks pass:
 
-<p align="center">
+<figure>
   <img src="../../assets/images/posts/appengine/pipeline.png">
-</p>
+</figure>
 
 Unfortunately this was eating up a huge chunk of our pipeline minutes - as you
 can see in the image above, the `appengine_stage` job takes more than 97% of
@@ -294,9 +294,9 @@ jobs:
 As a bit of a stretch goal, I wanted to be able to see the deployments within
 the GitHub UI, just like with the Netlify branch previews. For example:
 
-<p align="center">
+<figure>
   <img src="../../assets/images/posts/appengine/branch-staged.png">
-</p>
+</figure>
 
 There's another example of this at the top of this article. It's mostly a small
 quality of life thing, but the more I thought about it the more I wanted it so...
