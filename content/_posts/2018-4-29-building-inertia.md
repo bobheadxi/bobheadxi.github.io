@@ -49,7 +49,9 @@ We set out with a few primary goals in mind:
 
 Continuous deployment just means automating the process of updating a deployed project as code changes. To accomplish this, we quickly settled on a simple two-component design: a client-side command line interface (CLI), and a server-side daemon.
 
-![](https://miro.medium.com/max/2194/1*gAo_SLqHkK9vjQQyG8OyQQ.png)
+<figure>
+	<img src="https://miro.medium.com/max/2194/1*gAo_SLqHkK9vjQQyG8OyQQ.png" />
+</figure>
 
 A daemon is typically a process that runs persistently in the background— in our case, a tiny server that runs on your remote host, waiting for commands to be delivered to it. These could be HTTP requests from the CLI or [WebHook events from GitHub](https://developer.github.com/webhooks/). WebHooks are HTTP POST requests that are sent by “notifiers” — in this case, GitHub — to registered “listeners”, such as the Inertia daemon. This allows Inertia to automatically detect changes to your applications source code and make updates to the project in the background, without requiring manual intervention.
 
@@ -173,9 +175,12 @@ The previously mentioned RSA key is [registered to a test repository](https://gi
 
 Travis is set up to [run all of our unit and integration tests on each of the mock remotes](https://github.com/ubclaunchpad/inertia/blob/master/.travis.yml#L14), effectively making sure our stuff consistently works across a range of platforms.
 
-![](https://miro.medium.com/max/4104/1*0u2ZqbvLEKUK8rZhd7uGAA.png)
+<figure>
+	<img src="https://miro.medium.com/max/4104/1*0u2ZqbvLEKUK8rZhd7uGAA.png">
+	<figcaption>Takes a while each time, but Travis has helped us catch a lot of bugs 🕷</figcaption>
+</figure>
 
-Takes a while each time, but Travis has helped us catch a lot of bugs 🕷
+<br />
 
 ## 🚀 The Road Forward
 

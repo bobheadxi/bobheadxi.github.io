@@ -319,15 +319,10 @@ script:
 
 And now we can look all professional and stuff with all these Travis jobs that take forever!
 
-<p align="center">
-    <a href="https://travis-ci.org/ubclaunchpad/inertia">
-        <img src="../../assets/images/posts/travis-builds.png" width="100%" />
-    </a>
-</p>
-
-<p align="center">
-    <i>Builds for days!!</i>
-</p>
+<figure>
+    <img src="../../assets/images/posts/travis-builds.png" width="100%" />
+    <figcaption>Builds for days!!</figcaption>
+</figure>
 
 ## Random
 
