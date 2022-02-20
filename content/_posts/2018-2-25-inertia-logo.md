@@ -7,7 +7,7 @@ tag:
 image: https://github.com/ubclaunchpad/inertia/blob/master/.static/inertia-with-name.png?raw=true
 headerImage: true
 photography: true
-hidden: true # don't count this post in blog pagination
+draft: true
 description: READMEs that really say "READ ME"
 hidedescription: false
 category: photography

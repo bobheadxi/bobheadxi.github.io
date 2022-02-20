@@ -2,7 +2,7 @@
 title: "Self-documenting and self-updating tooling"
 layout: post
 image: https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/313/pencil_270f-fe0f.png
-hero_image: false
+hero_image: /assets/images/posts/self-documenting/sg-ci-docs.png
 headerImage: true
 maths: false
 featured: false
