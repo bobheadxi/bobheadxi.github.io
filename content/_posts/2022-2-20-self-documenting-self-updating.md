@@ -10,6 +10,8 @@ tag:
 - golang
 - docs
 - automation
+- configuration
+- design
 - sourcegraph
 category: blog
 author: robert
