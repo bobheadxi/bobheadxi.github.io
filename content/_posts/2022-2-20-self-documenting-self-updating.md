@@ -92,6 +92,7 @@ I loved this idea, so I ran with it and worked on a series of changes that expan
 <figure>
     <video autoplay loop muted playsinline>
         <source src="/assets/images/posts/self-documenting/dashboard-annotations.webm" type="video/webm">
+        <source src="/assets/images/posts/self-documenting/dashboard-annotations.mp4" type="video/mp4">
     </video>
     <figcaption>
         Version and alert annotations in Sourcegraph's generated dashboards. Dashboard like these are automatically provided by defining observables using our monitoring specification, alongside everything else mentioned previously.
