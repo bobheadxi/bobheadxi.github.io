@@ -90,7 +90,7 @@ I loved this idea, so I ran with it and worked on a series of changes that expan
 - Grafana dashboards that now automatically includes links to the generated documentation, annotation layers for generated alerts, improved alert overview graphs, and more.
 
 <figure>
-    <video autoplay loop muted playsinline style="width: 100%; height: auto">
+    <video autoplay loop muted playsinline>
         <source src="/assets/images/posts/self-documenting/dashboard-annotations.webm" type="video/webm">
     </video>
     <figcaption>
