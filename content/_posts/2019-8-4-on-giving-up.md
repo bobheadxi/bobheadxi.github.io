@@ -7,7 +7,7 @@ tag:
 - misc
 category: blog
 author: robert
-hidden: true
+draft: true
 description: 
 ---
 

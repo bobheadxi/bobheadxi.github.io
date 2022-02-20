@@ -28,7 +28,7 @@ title: Blog
 		<p class="text-center">Nothing published yet!</p>
 	{% elsif site.paginate %}
 		{% for post in paginator.posts %}
-			{% if post.hidden != true %}
+			{% if post.draft != true %}
 				{% include blog-post.html %}
 			{% endif %}
 		{% endfor %}
@@ -36,7 +36,7 @@ title: Blog
 		{% include pagination.html%}
 	{% else %}
 		{% for post in site.posts %}
-			{% if post.hidden != true %}
+			{% if post.draft != true %}
 				{% include blog-post.html %}
 			{% endif %}
 		{% endfor %}

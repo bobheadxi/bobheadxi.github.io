@@ -8,7 +8,7 @@ tag:
 star: false
 category: blog
 author: robert
-hidden: true
+draft: true
 description: look yea to Ozymandias... and be at peace
 ---
 
