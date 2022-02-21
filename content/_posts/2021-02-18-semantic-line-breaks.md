@@ -83,7 +83,9 @@ I quite like this idea! Perhaps semantic line breaks could allow us to break thi
 
 [`sembr.org`](https://sembr.org/) proposes a set of rules that would make content easier to manage and make changes to. Their website presents the following example:
 
-> All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+```
+All human beings are born free and equal in dignity and rights. They are endowed with reason and conscience and should act towards one another in a spirit of brotherhood.
+```
 
 Their *recommendation* is to change this to:
 
@@ -93,19 +95,27 @@ They are endowed with reason and conscience
 and should act towards one another in a spirit of brotherhood.
 ```
 
-*Recommendation* is the crux of the problem here, and is a significant drawback. The [`sembr.org`](https://sembr.org/) specification depends entirely on the writer to maintain the appropriate formatting, and it leaves the interpretation of what a "semantic boundary" is at all up in the air. *Nine* of the twelve requirements in this particular specification are `MAY`'s, `SHOULD`'s, and `RECOMMEND`'s! This is surely to lead to:
+*Recommendation* is the crux of the problem here, and is a significant barrier to adoption.
+The [`sembr.org`](https://sembr.org/) specification depends entirely on the writer to maintain the appropriate formatting, and it leaves the interpretation of what a "semantic boundary" is at all up in the air.
+*Nine* of the twelve requirements in this particular specification are `MAY`'s, `SHOULD`'s, and `RECOMMEND`'s!
+This is surely to lead to:
 
 - Inconsistent and difficult documents, thanks to so much of the  specification being up for interpretation.
 - Contributors forgetting to add, or simply not wanting to go through the trouble of adding, the necessary line breaks.
-- *Someone* is going to be frustrated at someone else's very short lines, and refuse to format appropriately. Alternatively, they might disagree with someone else's line breaks, and cause unnecessary churn in diffs.
+- *Someone* is going to be frustrated at someone else's very short lines, and refuse to format appropriately.
+  Alternatively, they might disagree with someone else's line breaks, and cause unnecessary churn in diffs.
 
 Both of these problems pose significant barriers to widespread adoption, which is necessary for any semantic line break specification to be of any use.
 
 ## A formatter for semantic line breaks
 
-A similar problem arises with code standards: semicolons? Spaces or tabs? Left up to individuals, no standard will ever be truly consistent, especially in the face of the need to "just get the job done". Code formatting, however, has been solved mostly through *automated* tooling. Why bother arguing about semicolons if a program will just do it for you, and will even check if everything is consistent?
+A similar problem arises with code standards: semicolons? Spaces or tabs?
+Left up to individuals, no standard will ever be truly consistent, especially in the face of the need to "just get the job done".
+In code formatting, this has primarily been solved mostly through automated tooling.
+Why bother arguing about semicolons if a program will just do it for you, and will even check if everything is consistent?
 
-What if the same thing could happen for documentation source: a tool to automatically format your text? To accommodate this, I propose a simpler specification that still offers a small amount of customization:
+What if the same thing could happen for documentation source: a tool to automatically format your text?
+To accommodate this, I propose a simpler specification that still offers a small amount of customization:
 
 - A *semantic boundary* is defined to be the end of a sentence.
 - Allow multiple short sentences to be part of a single line, up to a character threshold.
@@ -121,10 +131,13 @@ Returning to the *Lorem ipsum* example, with this version of semantic line break
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
-In this diff, it is significantly clearer what *idea* has changed, as encapsulated by the sentence it belongs in. This makes it easier to understand the context of the change being made, reason about it, and open discussions regarding it.
+In this diff, it is significantly clearer what *idea* has changed, as encapsulated by the sentence it belongs in.
+This makes it easier to understand the context of the change being made, reason about it, and open discussions regarding it.
 
 I've taken a stab at creating just such a tool, [Readable](https://github.com/bobheadxi/readable), which will add semantic line breaks to any document for you with a single command, for example `readable fmt **/*.md`.
 
-It will also feature commands to preview changes, perform changes as you edit, and checks that can be run in continuous integration. So far it seems very promising, but there are a lot of edge cases to sort out and fix still.
+It will also feature commands to preview changes, perform changes as you edit, and checks that can be run in continuous integration.
+So far it seems very promising, but there are a lot of edge cases to sort out and fix still.
 
-Readable is being built in [TypeScript](https://www.typescriptlang.org/) with [Deno](https://deno.land/), a handy new TypeScript and Javascript runtime. Follow the project on [GitHub](https://github.com/bobheadxi/readable)!
+Readable is being built in [TypeScript](https://www.typescriptlang.org/) with [Deno](https://deno.land/), a handy new TypeScript and Javascript runtime.
+Follow the project on [GitHub](https://github.com/bobheadxi/readable)!
