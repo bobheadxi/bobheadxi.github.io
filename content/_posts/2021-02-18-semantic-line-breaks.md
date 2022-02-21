@@ -14,33 +14,26 @@ author: robert
 description: making changes to documentation readable and understandable
 ---
 
-As an organisation grows, it becomes increasingly important to record knowledge and processes. One popular approach is using a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files, tracked in Git, where changes can easily be proposed and discussed. Unfortunately, the readability and understandability of these changes is often quite poor, negating much of the benefits of using a version control system.
+As an organisation grows, it becomes increasingly important to record knowledge and processes.
+One popular approach is using a collection of [Markdown](https://en.wikipedia.org/wiki/Markdown) files, tracked in [Git](https://git-scm.com/), where changes can easily be proposed and discussed.
+Unfortunately, the readability and understandability of these changes is often quite poor, negating much of the benefits of using a version control system.
 
+Consider what a change - or a "diff" - usually looks like:
+
+```diff
+- this line was removed
++ this line was added
+```
+
+How does this play with changes to documentation?
 In general, Markdown files are written with lines breaks at some arbitrary character column (such as 80 characters), or are written with entire paragraphs on a single line.
 Both these approaches have significant issues:
 
-- Line-breaking at some arbitrary character column looks nice when viewed, but is easily lost when making and suggesting edits, necessitating reflowing entire paragraphs.
+- Line-breaking at some arbitrary character column looks nice when viewed in a terminal or code editor, but the consistency of line widths is easily lost when making and suggesting edits, necessitating reflowing entire paragraphs and creating unreadable diffs.
   This leads to incomprehensible or uninformative diffs that are difficult to review.
 - Writing entire paragraphs on a single line is reasonably readable nowadays due to most editors and viewers performing wrapping out-of-the-box, but they make suggestions and diffs difficult to review due to every single change causing a diff on entire paragraphs.
 
-To combat this, the idea of *semantic line breaks* has been floated. The general idea is to perform line breaks along semantic boundaries, instead of just along paragraphs. An approach suggested at [`sembr.org`](https://sembr.org/) sums this up as:
-
-> When writing text with a compatible markup language, add a line break after each substantial unit of thought.
-
-This particular specification goes on to describe how this works:
-
-> Many lightweight markup languages, including Markdown, reStructuredText, and AsciiDoc, join consecutive lines with a space. Conventional markup languages like HTML and XML exhibit a similar behaviour in particular contexts.
-> This behaviour allows line breaks to be used as semantic delimiters, making prose easier to author, edit, and read in source — without affecting the rendered output.
-> [...]
-> By inserting line breaks at semantic boundaries, writers, editors, and other collaborators can make source text easier to work with, without affecting how it’s seen by readers.
-
-In my interpretation, a good semantic line break specification then ought to:
-
-- Make use of how most Markdown specifications ignore single new lines to still provide a good **rendered Markdown** experience.
-- Leverage modern line-wrapping in most viewers to maintain a good **raw Markdown** experience.
-- Maintain understandable diffs in Markdown documentation for a good **reviewing** experience.
-
-I quite like this idea! Consider the following text, where we want to change `incididunt` with `oh I am so hungry`:
+Consider the following text, where we want to change `incididunt` with `I am so hungry`:
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -59,12 +52,32 @@ This can be rather incomprehensible. If the text was not broken at all, the diff
 
 ```diff
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor oh I am so hungry ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
++ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor I am so hungry ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
 This is marginally better, but still quite difficult, especially because not all git interfaces will be able to show you the specific word that has changed (and even fewer that can do that for very, very long lines).
 
-Perhaps semantic line breaks could allow us to break this paragraph of text into smaller chunks, and make small diffs significantly more approachable, simpler to reason about, and easier to discuss.
+To combat this, the idea of *semantic line breaks* has been floated.
+The general idea is to perform line breaks along semantic boundaries, instead of just along paragraphs.
+An approach suggested at [`sembr.org`](https://sembr.org/) sums this up as:
+
+> When writing text with a compatible markup language, add a line break after each substantial unit of thought.
+
+This particular specification goes on to describe how this works:
+
+> Many lightweight markup languages, including Markdown, reStructuredText, and AsciiDoc, join consecutive lines with a space.
+> Conventional markup languages like HTML and XML exhibit a similar behaviour in particular contexts.
+> This behaviour allows line breaks to be used as semantic delimiters, making prose easier to author, edit, and read in source — without affecting the rendered output.
+> [...]
+> By inserting line breaks at semantic boundaries, writers, editors, and other collaborators can make source text easier to work with, without affecting how it’s seen by readers.
+
+In my interpretation, a good semantic line break specification then ought to:
+
+- Make use of how most Markdown specifications ignore single new lines to still provide a good **rendered Markdown** experience.
+- Leverage modern line-wrapping in most viewers to maintain a good **raw Markdown** experience.
+- Maintain understandable diffs in Markdown documentation for a good **reviewing** experience.
+
+I quite like this idea! Perhaps semantic line breaks could allow us to break this paragraph of text into smaller chunks, and make small diffs significantly more approachable, simpler to reason about, and easier to discuss.
 
 ## Solving unreadable changes
 
@@ -104,7 +117,7 @@ Returning to the *Lorem ipsum* example, with this version of semantic line break
 
 ```diff
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor oh I am so hungry ut labore et dolore magna aliqua.
++ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor I am so hungry ut labore et dolore magna aliqua.
 Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
