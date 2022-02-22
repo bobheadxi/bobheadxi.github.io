@@ -16,22 +16,21 @@ tag:
 category: blog
 author: robert
 description: building self-sustaining ecosystems
-draft: true
 ---
 
-In a rapidly moving organization, documentation drift is inevitable as the underlying tools undergoes changes to suit business needs, especially for internal tools where leaning on tribal knowledge can often seem more efficient in the short term. Tools that rely on each other become increasingly difficult to build as each component becomes more complex. This introduces debt that makes for a confusing onboarding process and poor developer experience.
+In a rapidly moving organization, documentation drift is inevitable as the underlying tools undergoes changes to suit changing needs, especially for internal tools where leaning on tribal knowledge can often be more efficient in the short term. As each component grows in complexity, however, this introduces debt that makes for a confusing onboarding process, a poor developer experience, and makes building integrations more difficult.
 
 One approach for keeping documentation debt at bay is to choose tools that come with automated writing of documentation built-in. You can design your code in such a way that code documentation generators can also double as user guides (which I explored with [my rewrite of the UBC Launch Pad website](2020-4-25-introducing-new-launch-pad-site.md)'s generated [configuration documentation](https://ubclaunchpad.com/config)), or specifications that can generate both code and documentation (which I tried with [Inertia](2018-4-29-building-inertia.md)'s [API reference](https://inertia.ubclaunchpad.com/api/)). Some libraries, like Cobra, a Go library for build CLIs, can also generate reference documentation for commands (such as [Inertia](2018-4-29-building-inertia.md)'s [CLI reference](https://inertia.ubclaunchpad.com/cli/inertia_$%7Bremote_name%7D.html)). This allows you to meet your users where they are - for example, the less technically oriented can check out a website while the more hands-on users can find what they need within the code or in the command line - while maintaining a single source of truth that keeps everything up to date.
 
 Of course, in addition to generated documentation you do still need to write documentation to tie the pieces together - for example, the [UBC Launch Pad website still had a brief intro guide](https://github.com/ubclaunchpad/ubclaunchpad.com/blob/master/README.md) and we did put together a [usage guide for Inertia](https://inertia.ubclaunchpad.com/), but generated documentation helps you ensure the nitty gritty stays up to date, and focus on high-level guidance in your handcrafted writing.
 
-At [Sourcegraph](../_experience/2021-7-5-sourcegraph.md), I've been exploring avenues for taking this even further. Once you move away from off-the-shelf generators and invest in leveraging your code to generate exactly what you need, you can build a pretty neat ecosystem of documentation, integrations, and tooling that is always up to date by design. In this article, I'll talk about some of the things we've built with this approach in mind: Sourcegraph's [observability ecosystem](#observability-ecosystem) and [continuous integration pipelines](#continuous-integration-pipelines).
+At [Sourcegraph](../_experience/2021-7-5-sourcegraph.md), I've been exploring avenues for taking this even further. Once you move away from off-the-shelf generators and invest in leveraging your code to generate exactly what you need, you can build a pretty neat ecosystem of not just documentation generators, but also interesting integrations and tooling that is always up to date by design. In this article, I'll talk about some of the things we've built with this approach in mind: Sourcegraph's [observability ecosystem](#observability-ecosystem) and [continuous integration pipelines](#continuous-integration-pipelines).
 
 <br />
 
 ## Observability ecosystem
 
-The Sourcegraph product has shipped with Prometheus metrics and Grafana dashborads for quite a while, used both by Sourcegraph for [Sourcegraph Cloud](https://sourcegraph.com) and by self-hosted customers to operate Sourcegraph instances. These have been created from our own Go-based specification since before I started working here. The spec would look something like this (truncated for brevity):
+The Sourcegraph product has shipped with Prometheus metrics and Grafana dashboards for quite a while, used both by Sourcegraph for [Sourcegraph Cloud](https://sourcegraph.com) and by self-hosted customers to operate Sourcegraph instances. These have been created from our own Go-based specification since before I started working here. The spec would look something like this (truncated for brevity):
 
 {% raw %}
 
@@ -212,7 +211,9 @@ steps:
           buildkite-agent pipeline upload generated-pipeline.yml
 ```
 
-This allows us to do a _ton_ of cool things. For example, we primarily condition pipelines on a combination of what we call "run types" and "diff types". A run type is specified as follows:
+The pipeline generator has also been around at Sourcegraph since long before I joined, but I've since done some significant refactors to it, including refactoring some of its core functionality - what we call "run types" and "diff types", which are used to determine the appropriate pipeline go generate for any given build. This allows us to do a _ton_ of cool things.
+
+First, some background on the technical details. A run type is specified as follows:
 
 ```go
 // RunTypeMatcher defines the requirements for any given build to be considered a build of
@@ -503,7 +504,9 @@ Learn more about our continuous integration ecosystem in our [developer document
 
 ## Wrapup
 
-The generator approach has helped us build a low-maintenance and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, and integrate.
+The generator approach has helped us build a low-maintenance and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, integrate, validate, and more.
+
+Also, it's a lot of fun!
 
 <br />
 
