@@ -12,7 +12,7 @@ tag:
 - sumus
 category: blog
 author: robert
-featured: true
+featured: false
 description: leveraging GitHub Actions for easy-to-use, automated branch preview deployments
 alt_location:
   type: DEV

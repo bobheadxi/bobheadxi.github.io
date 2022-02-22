@@ -8,7 +8,7 @@ tag:
 - golang
 - configuration
 - riot-games
-featured: true
+featured: false
 category: blog
 author: robert
 diagrams: true
