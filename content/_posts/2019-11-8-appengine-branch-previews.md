@@ -19,8 +19,6 @@ alt_location:
   url: https://dev.to/bobheadxi/branch-previews-with-google-app-engine-and-github-actions-3pco
 ---
 
-> **⚠️ WARNING:** Please make sure you pin usages of `bobheadxi/deployments` to a specific version! The usage examples in this article may not be up to date - please see the Action usage docs for more details: [GitHub Deployments Action](https://github.com/marketplace/actions/github-deployments)
-
 When I started [working remotely part-time for Sumus](/experience/sumus), my role was primarily as a software developer
 on an investor portal they wanted to build. I wasn't starting from scratch - there
 was already a sizable codebase going, and a simple nonautomated deployment set up on
@@ -292,6 +290,8 @@ jobs:
 {% endraw %}
 
 #### GitHub Deployments
+
+> **⚠️ WARNING:** Please make sure you pin usages of `bobheadxi/deployments` below to a specific version! The usage examples in this article may not be up to date - please see the Action usage docs for more details: [GitHub Deployments Action](https://github.com/marketplace/actions/github-deployments)
 
 As a bit of a stretch goal, I wanted to be able to see the deployments within
 the GitHub UI, just like with the Netlify branch previews. For example:
