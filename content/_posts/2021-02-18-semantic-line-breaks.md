@@ -33,6 +33,7 @@ Both these approaches have significant issues:
   This leads to incomprehensible or uninformative diffs that are difficult to review.
 - Writing entire paragraphs on a single line is reasonably readable nowadays due to most editors and viewers performing wrapping out-of-the-box, but they make suggestions and diffs difficult to review due to every single change causing a diff on entire paragraphs.
 
+In the example above, the diff is small and there is not too much going on, so it is easy to see what has changed.
 Consider the following text, where we want to change `incididunt` with `I am so hungry`:
 
 > Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
@@ -41,9 +42,9 @@ If the text was broken at a character column, the resulting diff (including refl
 
 ```diff
 - Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-+ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor oh I am
++ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor I am so
 - ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-+ so hungry ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
++ hungry ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
 - ullamco laboris nisi ut aliquip ex ea commodo consequat.
 + exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
@@ -55,7 +56,7 @@ This can be rather incomprehensible. If the text was not broken at all, the diff
 + Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor I am so hungry ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 ```
 
-This is marginally better, but still quite difficult, especially because not all git interfaces will be able to show you the specific word that has changed (and even fewer that can do that for very, very long lines).
+This is marginally better, but still quite difficult, especially because not all git interfaces will be able to show you the specific word that has changed (and even fewer that can do that for very, very long lines, as is the case for paragraphs of many sentences).
 
 To combat this, the idea of *semantic line breaks* has been floated.
 The general idea is to perform line breaks along semantic boundaries, instead of just along paragraphs.
