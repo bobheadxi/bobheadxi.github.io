@@ -19,20 +19,9 @@ author: robert
 externalLink: false
 ---
 
-<figure>
-    <img src="../../assets/images/posts/riot-alerts-explorer-wide.png" />
-    <figcaption>
-    Alert visualisation tool I built, as seen in
-    <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
-    a blog post I contributed to on the official Riot Games Technology blog</a>.
-    </figcaption>
-</figure>
-
-<br />
-
 From May to August 2019, I worked as a software engineering intern at [Riot Games](#about-riot-games) in the Operability team under a group called Riot Developer Experience, which aspires to simplify the foundation for developing and operating services, empowering teams to focus on their own problem spaces. Operability specifically owns a variety of systems within Riot Games, though our work at the time mostly pertained to operational monitoring - providing engineers at Riot visibility into how their services are performing and behaving across the globe.
 
-During my time at Riot Games, I primarily worked on two projects in this space:
+During my time at Riot Games, I primarily worked on two projects in this space: a [deployable artefact specification extension](#deployable-artefact-specification-extension), and an [alert visualization and analysis tool](#alert-visualisation-and-analysis-tool).
 
 ## Deployable Artefact Specification Extension
 
@@ -50,7 +39,7 @@ This project used Golang for integrating with our Golang-based deployment orches
 
 See [this blog post](/evaluable-expressions) for a writeup about a small chunk of work I did for this project!
 
-## Alert Visualisation
+## Alert Visualisation and Analysis Tool
 
 The second project was a service for holistically looking at all alerts firing across Riot, and constructing a graph of them based on the associated data centres, related applications, network topography, and more to aid in triage and root cause analysis of events. Doing so allows engineers to ask questions about alerts based on relations. For example, how soon was alert A fired after alert B? Do they have a network dependency between them? Are they owned by the same team? Do they all happen to be in the same datacenter? The goal was to help engineers triage the root cause of issues that might cause a cascade of alerts across Riot’s microservice ecosystem through a flexible, interactive, and extensible visualisation tool.
 
@@ -66,9 +55,9 @@ The second project was a service for holistically looking at all alerts firing a
 This project was built on Golang, usage of 3rd-party APIs, internal APIs, and MongoDB access to query for data, and leveraged the [Cayley graph database](https://github.com/cayleygraph/cayley) internally for maintaining active alert relationships. It runs as a service and web application that continuously monitors alerts and maintains a sliding window of alert relations that can be queried and visualised in the web application through a query builder I implemented. Additional "layers" can be easily implemented through the service's plugin system to provide more context on potential relationships between alerts.
 
 <figure>
-    <img src="https://technology.riotgames.com/sites/default/files/intern11-robert2.png" width="70%" />
+    <img src="../../assets/images/posts/riot-alerts-explorer-wide.png" />
     <figcaption>
-    Another view of the alert visualizer, demonstrating the query builder and a simple interactive visualisation.
+    The alert visualizer, demonstrating the query builder and a simple interactive visualisation.
     Labels can be toggled for the nodes and edges in the right panel.
     </figcaption>
 </figure>
@@ -77,6 +66,15 @@ The project featured an interactive display of relationships, allowing users to 
 around the nodes easily, as well as a query interface where users can either write raw queries
 themselves using [a graph query language](https://github.com/cayleygraph/cayley/blob/master/docs/gizmoapi.md)
 or construct queries using the parameterized builder I created, as seen in the screenshot above.
+
+<figure>
+    <img src="https://technology.riotgames.com/sites/default/files/intern11-robert2.png" width="70%" />
+    <figcaption>
+    Another view of the alert visualizer, as seen in
+    <a href="https://technology.riotgames.com/news/technology-interns-riot-games">
+    a blog post I contributed to on the official Riot Games Technology blog</a>.
+    </figcaption>
+</figure>
 
 <br />
 
