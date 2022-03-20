@@ -21,7 +21,7 @@ externalLink: false
 
 From May to August 2019, I worked as a software engineering intern at [Riot Games](#about-riot-games) in the Operability team under a group called Riot Developer Experience, which aspires to simplify the foundation for developing and operating services, empowering teams to focus on their own problem spaces.
 
-Operability specifically owns a variety of systems within Riot Games, though our work at the time mostly pertained to operational monitoring - providing engineers at Riot visibility into how their services are performing and behaving across the globe. I primarily worked on two projects in this space: a [deployable artefact specification extension](#deployable-artefact-specification-extension), and an [alert visualization and analysis tool](#alert-visualisation-and-analysis-tool).
+Operability specifically owns a variety of systems within Riot Games, though our work at the time mostly pertained to operational monitoring - providing engineers at Riot visibility into how their services are performing and behaving across the globe. I primarily worked on two projects in this space: a [deployable artefact specification extension](#deployable-artefact-specification-extension), and an [alert visualisation and analysis tool](#alert-visualisation-and-analysis-tool).
 
 ## Deployable Artefact Specification Extension
 

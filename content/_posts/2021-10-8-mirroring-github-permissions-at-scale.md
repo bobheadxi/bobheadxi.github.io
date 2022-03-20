@@ -258,7 +258,7 @@ FROM
  unnest(ARRAY['hello','world']::TEXT[], ARRAY['1,2,3','4,5,6']::TEXT[]) AS t(a, b)
 ```
 
-An `EXPLAIN ANALYZE` on the 5000-row sample query that didn't hit the parameter limit, however, indicated that the performance of this was about 5x worse than before (with a cost of ~337.51, compared to the previous cost of ~62.50 before). It was also a bit of a dirty hack anyway, so I ended up resorting to simply paging the insert instead to avoid hitting the parameter limit. This was implemented in [sourcegraph#24852 database: page upsertRepoPermissionsBatchQuery](https://github.com/sourcegraph/sourcegraph/pull/24852).
+An `EXPLAIN ANALYZE` on the 5000-row sample query that didn't hit the parameter limit, however, indicated that the performance of this was about 5x worse than before (with a cost of 337.51, compared to the previous cost of 62.50). It was also a bit of a dirty hack anyway, so I ended up resorting to simply paging the insert instead to avoid hitting the parameter limit. This was implemented in [sourcegraph#24852 database: page upsertRepoPermissionsBatchQuery](https://github.com/sourcegraph/sourcegraph/pull/24852).
 
 However, it seemed that this was not the only instance of us exceeding the parameter limits. Another query was running into a similar issue on a different customer instance. This time, there were no array types in the values being inserted, so I was able to try out the insert-as-arrays workaround:
 
