@@ -164,7 +164,7 @@ However, despite reasonably robust testing of the behaviour of the code, we had 
 
 All was well at first in the trial run - the backlog of repositories queued for an initial permissions sync was very rapidly being worked through, with a projected 3-day time to full sync - a huge improvement from the the previously projected 30 days. However, with just a few thousand repositories left to process, the sync stalled.
 
-Metrics indicated jobs were timing out, and a look at the logs revealed thousands upon thousands of lines of random comma-delimited numbers. It seemed that printing all this junk was causing the service to stall, and sure enough [setting the log driver to `none`](https://docs.docker.com/config/containers/logging/configure/#configure-the-logging-driver-for-a-container) to disable all output on the relevant service allowed to sync to proceed and continue.
+Metrics indicated jobs were timing out, and a look at the logs revealed thousands upon thousands of lines of random comma-delimited numbers. It seemed that printing all this junk was causing the service to stall, and sure enough [setting the log driver to `none`](https://docs.docker.com/config/containers/logging/configure/#configure-the-logging-driver-for-a-container) to disable all output on the relevant service allowed the sync to proceed and continue.
 
 Where did the log come from? [I left a stray `log.Printf("%+v\n", group)` in there when I was debugging cache entries](https://github.com/sourcegraph/sourcegraph/pull/24822). At scale these entries could contain many thousands of entries, causing the system to degrade. Be careful what you log!
 
