@@ -435,6 +435,91 @@ the [plugin sequence diagram](#structuring-our-plugin) illustrated previously - 
 more or less align with the arrows on the diagram. It definitely took me a little while to get the
 hang of as well :sweat_smile:
 
+#### Example: Creating a Map View
+
+In the [above example we show how we can leverage this framework to load image assets](#example-declaring-downloading-and-using-an-image-asset) - but why stop there?
+We can take this a step further and *generate* image assets on the fly, such as maps:
+
+![](/assets/images/experience/sumus/pitcher-map.png)
+
+We can do this with [the Mapbox SDK's static images service](https://github.com/mapbox/mapbox-sdk-js/blob/master/docs/services.md#static), which accepts a variety of parameters to create a map.
+After writing a bit of a wrapper layer around the API to tailor it to our needs, we end up with a code snippet like this that extends the asset loader in the previous example:
+
+```ts
+switch (ast.type) {
+  // other types...
+
+  case AssetType.MAP: {
+    // set up layers, coordinates, etc such as:
+    const overlays: { marker?: Marker, geoJson?: any }[] = [{
+      marker: {
+        coordinates: targetCoords,
+        size: 'large',
+        color: '#ff0000',
+      },
+    }];
+
+    // ... more setup
+
+    const mapURI = mapbox.generateMap(overlays, {
+      style,
+      position: {
+        coordinates: mapCenter,
+        zoom: (scale === 'SMALL') ? 11.5 : 4,
+      },
+      width: dimensions ? dimensions.width : undefined,
+      height: dimensions ? dimensions.height : undefined,
+    });
+
+    // set up data to pass back to the FigmaSandbox
+    loaded[name] = await getImage(mapURI);
+    loaded[`${name}.center`] = mapCenter;
+    break;
+  }
+}
+```
+
+A page can then declare the following map asset to easily get one created on the fly, with all sorts of options to customise it to the given page:
+
+```ts
+template.assets = (data: ProjectData, inputs: {[key in Inputs]: any}): Assets => ({
+  pointsOfInterest: {
+    type: AssetType.MAP,
+    address: data.coordinates || data.address,
+    city: data.city,
+    province: data.province,
+    config: {
+      style: 'LIGHT',
+      mapRadius: 1000,
+      pointsOfInterest: !!inputs.generatePointsOfInterest,
+      // as big as page
+      dimensions: { width: PAGE_A4.x - 60, height: PAGE_A4.y - 60 },
+      // bias right to leave space for text
+      positionBias: { h: 'RIGHT' },
+    },
+  },
+  bigLocation: {
+    type: AssetType.MAP,
+    address: data.coordinates || data.address,
+    city: data.city,
+    province: data.province,
+    config: {
+      style: 'PATTERN',
+      mapRadius: 50000,
+      dimensions: { width: BIG_LOCATION_DIMENSIONS.x, height: BIG_LOCATION_DIMENSIONS.y },
+      // bias down
+      positionBias: { v: 'DOWN' },
+    },
+  },
+});
+```
+
+And tada! Multiple maps! Points of interest!
+
+<figure>
+  <img src="/assets/images/posts/figma-plugin/map-view.png">
+</figure>
+
 ## Final Thoughts
 
 The Figma plugin documentation is quite robust (except for loading images and a good way to do the
@@ -443,8 +528,7 @@ out for myself), and feature-wise it's pretty comprehensive as well. If your tea
 design needs, I would highly recommend looking into automating some of your processes with Figma!
 
 That said, it can be a bit of work to do seemingly trivial things (at least at first), but when you
-get the hang of things you can do some pretty cool tricks with it - I'll probably follow up this post
-with another one about the map generation work I am about to do!
+get the hang of things you can do some pretty cool tricks with it, as outlined above!
 
 As an aside: the charts in this post were created with [Mermaid](https://github.com/mermaid-js/mermaid),
 which I recently (re)discovered - very nifty.
