@@ -479,7 +479,7 @@ switch (ast.type) {
 }
 ```
 
-A page can then declare the following map asset to easily get one created on the fly, with all sorts of options to customize it to the given page:
+A page can then declare the following map asset to easily get one created on the fly, with all sorts of options to customise it to the given page:
 
 ```ts
 template.assets = (data: ProjectData, inputs: {[key in Inputs]: any}): Assets => ({
