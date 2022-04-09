@@ -3,7 +3,7 @@
 all: serve
 
 install: install-checks
-	bundle install
+	bundle install --path=vendor/bundle
 
 install-checks:
 	${PRECOMMAND} npm i -g markdownlint-cli

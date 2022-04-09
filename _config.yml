@@ -13,7 +13,6 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-admin
-  - jekyll-mentions
   - jekyll-relative-links # https://github.blog/2016-12-05-relative-links-for-github-pages/
   - jemoji
 jekyll-mentions:
