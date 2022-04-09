@@ -10,3 +10,4 @@ package.json
 
 *.draft.md
 .ztr-directory
+vendor
