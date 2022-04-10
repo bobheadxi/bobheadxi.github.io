@@ -93,7 +93,7 @@ flowchart TB
       7([ComputeExcludedRepos])
 ```
 
-The typical example here is a search job that reaches out to our [Zoekt backends](https://github.com/sourcegraph/zoekt). A `Job` could also combine multiple search jobs, such as to [run a set of jobs in parallel](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L104-121) or to [prioritize results from certain jobs before others](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L38-81).
+The typical example here is a search job that reaches out to our [Zoekt backends](https://github.com/sourcegraph/zoekt). A `Job` could also combine multiple search jobs, such as to [run a set of jobs in parallel](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L104-121) or to [prioritise results from certain jobs before others](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L38-81).
 
 The evaluated search job varies based on your search query - an exhaustive commit search (`foo type:commit count:all`) will create the following job instead, with a longer timeout and higher limit:
 
@@ -156,7 +156,7 @@ The [`ToSearchJob` function](https://sourcegraph.com/github.com/sourcegraph/sour
 // about the fact that the query parse tree doesn't know anything about our
 // backends or architecture. It doesn't decide certain defaults, like whether we
 // should return multiple result types (pattern matches content, or a file name,
-// or a repo name). If we want to optimize a Sourcegraph query parse tree for a
+// or a repo name). If we want to optimise a Sourcegraph query parse tree for a
 // particular backend (e.g., skip repository resolution and just run a Zoekt
 // query on all indexed repositories) then we need to convert our tree to
 // Zoekt's internal inputs and representation. These concerns are all handled by
