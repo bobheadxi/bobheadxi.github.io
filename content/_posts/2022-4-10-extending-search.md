@@ -129,7 +129,7 @@ type Job interface {
 }
 ```
 
-So how do these jobs in the query plan get created? Poking around for constructors of the `Job` interface reveals (I think) the following flow for `Job` creation after a `query.Plan` is created (primarily with [`query.Pipeline`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e2ea74d18c7086b1bae12f4f34a8080d02/-/blob/internal/search/query/query.go?L171:6), which handles query parsing, validation, transformation, and so on):
+So how do these jobs in the query plan get created? Poking around for constructors of the `Job` interface reveals (I think) the following flow for `Job` creation after a `query.Plan` is created (primarily with [`query.Pipeline`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/query/query.go?L171:6), which handles query parsing, validation, transformation, and so on):
 
 ```mermaid
 graph TD
@@ -540,7 +540,7 @@ For the database layer, we now need to add blocks to our result type. Blocks are
 
 However, this does mean that we can't only select relevant blocks within the database query. A better long-term solution to this is likely to split `notebooks.blocks` out into a separate table and joining it at query time, but that's a lot of work for a hackathon so I decided to go for a cheap hack: post-filtering! This isn't too bad for now because the `notebooks.blocks_tsvector @@ to_tsquery` in our query conditions means that the returned notebooks are likely to have a matching block, but it definitely isn't very pretty.
 
-Even worse, blocks of various types have varying shapes (i.e. there's no single `block.text` field we can filter on), and I didn't want to special-case each block type for now. A closer look at [`notebooks.blocks_tsvector`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/migrations/frontend/1528395957/up.sql?L1-2&utm_source=raycast-sourcegraph) reveals it is backed by [a magic Postgres feature](https://www.postgresql.org/docs/current/functions-textsearch.html) that indexes all fields of type `string` within the `notebooks.blocks` JSON:
+Even worse, blocks of various types have varying shapes (i.e. there's no single `block.text` field we can filter on), and I didn't want to special-case each block type for now. A closer look at [`notebooks.blocks_tsvector`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/migrations/frontend/1528395957/up.sql?L1-2) reveals it is backed by [a magic Postgres feature](https://www.postgresql.org/docs/current/functions-textsearch.html) that indexes all fields of type `string` within the `notebooks.blocks` JSON:
 
 ```sql
 ALTER TABLE
