@@ -72,7 +72,7 @@ The Sourcegraph docs page [Life of a search query](https://docs.sourcegraph.com/
 2. The query makes its way to `sourcegraph-frontend`, which converts the query text into a search plan composed of search jobs to execute against various backends (such as [Zoekt](https://github.com/sourcegraph/zoekt)).
 3. Jobs get executed and the results get streamed back over the wire to the client.
 
-For example, a typical query `foobar` will evaluate to a plan of jobs like the following, calling out to a variety of search backends (`ZoektGlobalSearch`, `RepoSearch`, `ComputeExcludedRepos`) within certain limits, imposed by jobs for enforcing those limits on child jobs.
+For example, a typical query `foobar` will evaluate to a plan of jobs like the following, calling out to a variety of search backends (`ZoektGlobalSearch`, `RepoSearch`, `ComputeExcludedRepos`) within certain limits[^timeout], imposed by jobs for enforcing those limits on child jobs.
 
 ```mermaid
 flowchart TB
@@ -93,9 +93,11 @@ flowchart TB
       7([ComputeExcludedRepos])
 ```
 
+[^timeout]: By default, Sourcegraph search is limited to optimize for fast results. This extensiveness of a search is configurable through the `count:` and `timeout:`, as well as a special `count:all` mode, as described in our documentation: [Exhaustive search](https://docs.sourcegraph.com/code_search/how-to/exhaustive)!
+
 The typical example here is a search job that reaches out to our [Zoekt backends](https://github.com/sourcegraph/zoekt). A `Job` could also combine multiple search jobs, such as to [run a set of jobs in parallel](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L104-121) or to [prioritise results from certain jobs before others](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L38-81).
 
-The evaluated search job varies based on your search query - an exhaustive commit search (`foo type:commit count:all`) will create the following job instead, with a longer timeout and higher limit:
+The evaluated search job varies based on your search query - an [exhaustive](https://docs.sourcegraph.com/code_search/how-to/exhaustive) commit search (`foo type:commit count:all`) will create the following job instead, with a longer timeout and higher limit:
 
 ```mermaid
 flowchart TB
