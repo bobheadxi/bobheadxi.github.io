@@ -654,6 +654,9 @@ export const SELECTORS: Access[] = [
 
 <figure>
   <img src="/assets/images/posts/extending-search/select-suggest.png">
+  <figcaption>
+    Suggestions!
+  </figcaption>
 </figure>
 
 And now things get a bit hacky. For plain notebook results, we can leverage the same components used for repository matches with reasonable results by extending [the `StreamingSearchResultsList` component](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/client/search-ui/src/results/StreamingSearchResultsList.tsx?L67:14):
