@@ -93,7 +93,7 @@ flowchart TB
       7([ComputeExcludedRepos])
 ```
 
-[^timeout]: By default, Sourcegraph search is limited to optimize for fast results. This extensiveness of a search is configurable through the `count:` and `timeout:`, as well as a special `count:all` mode, as described in our documentation: [Exhaustive search](https://docs.sourcegraph.com/code_search/how-to/exhaustive)!
+[^timeout]: By default, Sourcegraph search is limited to optimize for fast results. This extensiveness of a search is configurable through the `count:` and `timeout:`, as well as a special `count:all` mode, as described in our documentation: [Exhaustive search](https://docs.sourcegraph.com/code_search/how-to/exhaustive).
 
 The typical example here is a search job that reaches out to our [Zoekt backends](https://github.com/sourcegraph/zoekt). A `Job` could also combine multiple search jobs, such as to [run a set of jobs in parallel](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L104-121) or to [prioritise results from certain jobs before others](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L38-81).
 
@@ -350,7 +350,7 @@ At this point, we basically have everything we need to see our results in the AP
 <figure>
   <img src="/assets/images/posts/extending-search/notebooks-network-stub.png">
   <figcaption>
-    Look closely at the '<code>matches</code>' entry!
+    Look closely at the '<code>matches</code>' entry for our hard-coded notebooks!
   </figcaption>
 </figure>
 
