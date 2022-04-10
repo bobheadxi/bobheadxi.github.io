@@ -512,4 +512,7 @@ Also, it's a lot of fun!
 
 ## About Sourcegraph
 
+Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
+
+Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
