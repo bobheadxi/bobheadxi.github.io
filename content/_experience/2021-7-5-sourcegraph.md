@@ -42,3 +42,5 @@ Most of the company's work is open-source, so you can [see my pull requests for 
 
 [Sourcegraph](https://about.sourcegraph.com/about) provides code search and intelligence on the web across massive collections of codebases.
 Sourcegraph is a fully distributed company with employees across the world.
+
+Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
