@@ -345,12 +345,12 @@ func fromNotebook(notebook *result.NotebookMatch) *streamhttp.EventNotebookMatch
 }
 ```
 
-At this point, we basically have everything we need to see our results in the API results! Indeed we can confirm by [spinning up Sourcegraph locally with `sg start`](https://docs.sourcegraph.com/dev/background-information/sg#sg-start-start-dev-environments), executing a search, and inspecting the response of the network request to `/.api/stream` within a browser for a notebook result:
+At this point, we basically have everything we need to see our results in the API results! We can confirm by [spinning up Sourcegraph locally with `sg start`](https://docs.sourcegraph.com/dev/background-information/sg#sg-start-start-dev-environments), executing a search, and inspecting the response of the network request to `/.api/stream` within a browser for our placeholder notebook results:
 
 <figure>
-  <img src="/assets/images/posts/extending-search/TODO">
+  <img src="/assets/images/posts/extending-search/notebooks-network-stub.png">
   <figcaption>
-    Screenshot coming soon!
+    Look closely at the '<code>matches</code>' entry!
   </figcaption>
 </figure>
 
@@ -439,13 +439,6 @@ func (s *SearchJob) Run(ctx context.Context, db database.DB, stream streaming.Se
 ```
 
 We can test this out by creating a few notebooks in our local Sourcegraph instance and inspecting the network requests in-browser again to see real notebooks being returned!
-
-<figure>
-  <img src="/assets/images/posts/extending-search/TODO">
-  <figcaption>
-    Screenshot coming soon!
-  </figcaption>
-</figure>
 
 ## Implementing notebook blocks results
 
@@ -595,6 +588,12 @@ func (s *notebooksSearchStore) SearchNotebooks(ctx context.Context, job *SearchJ
 
 Hey, it's a hackathon!
 
+Similarly to before, we can verify this works end-to-end by running a `type:notebook select:notebook.block` query and inspecting the response:
+
+<figure>
+  <img src="/assets/images/posts/extending-search/blocks-network.png">
+</figure>
+
 ## Rendering search notebook results
 
 Rendering results in the network tab is great and all, but we want to demo something pretty as well! We start off by adding types in the web app that correspond to our new event types:
@@ -625,7 +624,6 @@ export interface NotebookBlocksMatch {
 To extend `type:` completions in the search bar, we update [`FILTERS`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/client/shared/src/search/query/filters.ts?L289-292):
 
 ```ts
-
 export const FILTERS: Record<NegatableFilter, NegatableFilterDefinition> &
     Record<Exclude<FilterType, NegatableFilter>, BaseFilterDefinition> = {
     /* ... */
@@ -653,6 +651,10 @@ export const SELECTORS: Access[] = [
   },
 ]
 ```
+
+<figure>
+  <img src="/assets/images/posts/extending-search/select-suggest.png">
+</figure>
 
 And now things get a bit hacky. For plain notebook results, we can leverage the same components used for repository matches with reasonable results by extending [the `StreamingSearchResultsList` component](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/client/search-ui/src/results/StreamingSearchResultsList.tsx?L67:14):
 
