@@ -93,7 +93,7 @@ flowchart TB
       7([ComputeExcludedRepos])
 ```
 
-[^timeout]: By default, Sourcegraph search is limited to optimize for fast results. This extensiveness of a search is configurable through the `count:` and `timeout:`, as well as a special `count:all` mode, as described in our documentation: [Exhaustive search](https://docs.sourcegraph.com/code_search/how-to/exhaustive)!
+[^timeout]: By default, Sourcegraph search is limited to optimise for fast results. This extensiveness of a search is configurable through the `count:` and `timeout:`, as well as a special `count:all` mode, as described in our documentation: [Exhaustive search](https://docs.sourcegraph.com/code_search/how-to/exhaustive).
 
 The typical example here is a search job that reaches out to our [Zoekt backends](https://github.com/sourcegraph/zoekt). A `Job` could also combine multiple search jobs, such as to [run a set of jobs in parallel](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L104-121) or to [prioritise results from certain jobs before others](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/job/combinators.go?L38-81).
 
@@ -129,7 +129,7 @@ type Job interface {
 }
 ```
 
-So how do these jobs in the query plan get created? Poking around for constructors of the `Job` interface reveals (I think) the following flow for `Job` creation after a `query.Plan` is created (primarily with [`query.Pipeline`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e2ea74d18c7086b1bae12f4f34a8080d02/-/blob/internal/search/query/query.go?L171:6), which handles query parsing, validation, transformation, and so on):
+So how do these jobs in the query plan get created? Poking around for constructors of the `Job` interface reveals (I think) the following flow for `Job` creation after a `query.Plan` is created (primarily with [`query.Pipeline`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/internal/search/query/query.go?L171:6), which handles query parsing, validation, transformation, and so on):
 
 ```mermaid
 graph TD
@@ -345,12 +345,12 @@ func fromNotebook(notebook *result.NotebookMatch) *streamhttp.EventNotebookMatch
 }
 ```
 
-At this point, we basically have everything we need to see our results in the API results! Indeed we can confirm by [spinning up Sourcegraph locally with `sg start`](https://docs.sourcegraph.com/dev/background-information/sg#sg-start-start-dev-environments), executing a search, and inspecting the response of the network request to `/.api/stream` within a browser for a notebook result:
+At this point, we basically have everything we need to see our results in the API results! We can confirm by [spinning up Sourcegraph locally with `sg start`](https://docs.sourcegraph.com/dev/background-information/sg#sg-start-start-dev-environments), executing a search, and inspecting the response of the network request to `/.api/stream` within a browser for our placeholder notebook results:
 
 <figure>
-  <img src="/assets/images/posts/extending-search/TODO">
+  <img src="/assets/images/posts/extending-search/notebooks-network-stub.png">
   <figcaption>
-    Screenshot coming soon!
+    Look closely at the '<code>matches</code>' entry for our hard-coded notebooks!
   </figcaption>
 </figure>
 
@@ -439,13 +439,6 @@ func (s *SearchJob) Run(ctx context.Context, db database.DB, stream streaming.Se
 ```
 
 We can test this out by creating a few notebooks in our local Sourcegraph instance and inspecting the network requests in-browser again to see real notebooks being returned!
-
-<figure>
-  <img src="/assets/images/posts/extending-search/TODO">
-  <figcaption>
-    Screenshot coming soon!
-  </figcaption>
-</figure>
 
 ## Implementing notebook blocks results
 
@@ -547,7 +540,7 @@ For the database layer, we now need to add blocks to our result type. Blocks are
 
 However, this does mean that we can't only select relevant blocks within the database query. A better long-term solution to this is likely to split `notebooks.blocks` out into a separate table and joining it at query time, but that's a lot of work for a hackathon so I decided to go for a cheap hack: post-filtering! This isn't too bad for now because the `notebooks.blocks_tsvector @@ to_tsquery` in our query conditions means that the returned notebooks are likely to have a matching block, but it definitely isn't very pretty.
 
-Even worse, blocks of various types have varying shapes (i.e. there's no single `block.text` field we can filter on), and I didn't want to special-case each block type for now. A closer look at [`notebooks.blocks_tsvector`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/migrations/frontend/1528395957/up.sql?L1-2&utm_source=raycast-sourcegraph) reveals it is backed by [a magic Postgres feature](https://www.postgresql.org/docs/current/functions-textsearch.html) that indexes all fields of type `string` within the `notebooks.blocks` JSON:
+Even worse, blocks of various types have varying shapes (i.e. there's no single `block.text` field we can filter on), and I didn't want to special-case each block type for now. A closer look at [`notebooks.blocks_tsvector`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/migrations/frontend/1528395957/up.sql?L1-2) reveals it is backed by [a magic Postgres feature](https://www.postgresql.org/docs/current/functions-textsearch.html) that indexes all fields of type `string` within the `notebooks.blocks` JSON:
 
 ```sql
 ALTER TABLE
@@ -595,6 +588,12 @@ func (s *notebooksSearchStore) SearchNotebooks(ctx context.Context, job *SearchJ
 
 Hey, it's a hackathon!
 
+Similarly to before, we can verify this works end-to-end by running a `type:notebook select:notebook.block` query and inspecting the response:
+
+<figure>
+  <img src="/assets/images/posts/extending-search/blocks-network.png">
+</figure>
+
 ## Rendering search notebook results
 
 Rendering results in the network tab is great and all, but we want to demo something pretty as well! We start off by adding types in the web app that correspond to our new event types:
@@ -625,7 +624,6 @@ export interface NotebookBlocksMatch {
 To extend `type:` completions in the search bar, we update [`FILTERS`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/client/shared/src/search/query/filters.ts?L289-292):
 
 ```ts
-
 export const FILTERS: Record<NegatableFilter, NegatableFilterDefinition> &
     Record<Exclude<FilterType, NegatableFilter>, BaseFilterDefinition> = {
     /* ... */
@@ -653,6 +651,13 @@ export const SELECTORS: Access[] = [
   },
 ]
 ```
+
+<figure>
+  <img src="/assets/images/posts/extending-search/select-suggest.png">
+  <figcaption>
+    Suggestions!
+  </figcaption>
+</figure>
 
 And now things get a bit hacky. For plain notebook results, we can leverage the same components used for repository matches with reasonable results by extending [the `StreamingSearchResultsList` component](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@73a484e/-/blob/client/search-ui/src/results/StreamingSearchResultsList.tsx?L67:14):
 
@@ -749,9 +754,9 @@ Well, using [`NotebookComponent`](https://sourcegraph.com/github.com/sourcegraph
       )
 ```
 
-Gnarly, eh? All these fields required me to do all sorts of things to `StreamingSearchResultsListProps` to get the thing the build. Full disclaimer: I am far from a professional when it comes to web apps and React, so I'm sure there's a better way to do this than prop drilling, but oh well. The `NotebookComponent` also doesn't feel like it was meant for this kind of import and use, given notebooks is a pretty new product and the whole philosophy of iterate fast and polish later and all.
+Gnarly, eh? All these fields required me to do all sorts of things to `StreamingSearchResultsListProps` to get the props needed. Full disclaimer: I am far from a professional when it comes to web apps and React, so I'm sure there's a better way to do this than prop drilling, but oh well. The `NotebookComponent` also doesn't feel like it was meant for this kind of import and use, given notebooks is a pretty new product and the whole philosophy of iterate fast and polish later and all.
 
-That said, once the compiler stopped complaining the results were great - everything can of *just worked*, and looked pretty good after some CSS adjustments! Even running query blocks worked nicely.
+That said, once the compiler stopped complaining the results were great - everything kind of *just worked*, and looked pretty good after some CSS adjustments! Even running query blocks worked nicely.
 
 <figure>
   <img src="/assets/images/posts/extending-search/block-search.png">
