@@ -754,9 +754,9 @@ Well, using [`NotebookComponent`](https://sourcegraph.com/github.com/sourcegraph
       )
 ```
 
-Gnarly, eh? All these fields required me to do all sorts of things to `StreamingSearchResultsListProps` to get the thing the build. Full disclaimer: I am far from a professional when it comes to web apps and React, so I'm sure there's a better way to do this than prop drilling, but oh well. The `NotebookComponent` also doesn't feel like it was meant for this kind of import and use, given notebooks is a pretty new product and the whole philosophy of iterate fast and polish later and all.
+Gnarly, eh? All these fields required me to do all sorts of things to `StreamingSearchResultsListProps` to get the props needed. Full disclaimer: I am far from a professional when it comes to web apps and React, so I'm sure there's a better way to do this than prop drilling, but oh well. The `NotebookComponent` also doesn't feel like it was meant for this kind of import and use, given notebooks is a pretty new product and the whole philosophy of iterate fast and polish later and all.
 
-That said, once the compiler stopped complaining the results were great - everything can of *just worked*, and looked pretty good after some CSS adjustments! Even running query blocks worked nicely.
+That said, once the compiler stopped complaining the results were great - everything kind of *just worked*, and looked pretty good after some CSS adjustments! Even running query blocks worked nicely.
 
 <figure>
   <img src="/assets/images/posts/extending-search/block-search.png">
