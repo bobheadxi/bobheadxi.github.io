@@ -68,7 +68,7 @@ Additionally, I am basically a complete outsider when it comes to our search int
 
 The Sourcegraph docs page [Life of a search query](https://docs.sourcegraph.com/dev/background-information/architecture/life-of-a-search-query) briefly goes over what happens when, for example, you enter a query into [sourcegraph.com/search](https://sourcegraph.com/search):
 
-1. A client makes a request to (typically) the `/.api/stream` endpoint - see [how it is done in the `raycast-sourcegraph` extension for a simplified example](https://sourcegraph.com/github.com/bobheadxi/raycast-sourcegraph@7bc6dd80ffcb714b46b1911bc8368139d061dd82/-/blob/src/sourcegraph/stream-search/index.ts?L53-56#tab=references).
+1. A client makes a request to (typically) the `/.api/stream` endpoint - see [how it is done in the `raycast-sourcegraph` extension for a simplified example](https://sourcegraph.com/github.com/bobheadxi/raycast-sourcegraph@7bc6dd80ffcb714b46b1911bc8368139d061dd82/-/blob/src/sourcegraph/stream-search/index.ts?L53-56).
 2. The query makes its way to `sourcegraph-frontend`, which converts the query text into a search plan composed of search jobs to execute against various backends (such as [Zoekt](https://github.com/sourcegraph/zoekt)).
 3. Jobs get executed and the results get streamed back over the wire to the client.
 
