@@ -216,7 +216,186 @@ Based on these metrics, we can make adjustments to the numerous knobs available 
 
 ## Git mirror caches
 
-TODO
+During the initial stateless agent implementation, my teammates [@jhchabran](https://github.com/jhchabran/) and [@davejrt](https://github.com/davejrt) developed some nifty mechanisms for caching [asdf](https://asdf-vm.com/) (a tool management tool) and [Yarn](https://yarnpkg.com/) dependencies. It uses [a Buildkite plugin for caching](https://github.com/gencer/cache-buildkite-plugin) under the hood, and exposes a simple API for use with Sourcegraph's [generated pipelines](./2022-2-20-self-documenting-self-updating.md#continuous-integration-pipelines):
+
+{% raw %}
+
+```go
+func withYarnCache() buildkite.StepOpt {
+	return buildkite.Cache(&buildkite.CacheOptions{
+		ID:          "node_modules",
+		Key:         "cache-node_modules-{{ checksum 'yarn.lock' }}",
+		RestoreKeys: []string{"cache-node_modules-{{ checksum 'yarn.lock' }}"},
+		Paths:       []string{"node_modules", /* ... */},
+		Compress:    false,
+	})
+}
+```
+
+{% endraw %}
+
+```go
+func addPrettier(pipeline *bk.Pipeline) {
+	pipeline.AddStep(":lipstick: Prettier",
+		withYarnCache(),
+		bk.Cmd("dev/ci/yarn-run.sh format:check"))
+}
+```
+
+A lingering problem continued to be the initial clone step, however, especially in the main [`sourcegraph/sourcegraph` monorepo](https://github.com/sourcegraph/sourcegraph), which can take upwards of 30 seconds to perform a shallow clone. We can't entirely depend on shallow clones either, since our pipeline generator depends on performing diffs against our `main` branch to determine how to construct a pipeline. This is especially painful for short steps, where the time to run a linter check might be around the same amount of time it takes to perform a clone.
+
+Buildkite supports a feature that [allows all jobs on a single host to share a single git clone](https://buildkite.com/changelog/107-share-git-checkouts-with-the-git-mirrors-agent-experiment), using [`git clone --mirror`](https://git-scm.com/docs/git-clone/2.36.0#Documentation/git-clone.txt---mirror). Subsequent clones after the initial clone can leverage the mirror repository with [`git clone --reference`](https://git-scm.com/docs/git-clone/2.36.0#Documentation/git-clone.txt---reference-if-ableltrepositorygt):
+
+> If the reference repository is on the local machine, [...] obtain objects from the reference repository. Using an already existing repository as an alternate will require fewer objects to be copied from the repository being cloned, reducing network and local storage costs.
+
+On our old stateless agents, this means that while some jobs can take the same 30 seconds to clone the repository, most jobs that land on "warm" agents will have a much faster clone time - roughly 5 seconds.
+
+To recreate this feature on our stateless agents, I created a daily cron job that:
+
+1. Creates a disk in Google Cloud, with `gcloud compute disks create buildkite-git-references-"$BUILDKITE_BUILD_NUMBER"`
+2. Deploys a Kubernetes [PersistentVolume and PersistentVolumeClaim](https://kubernetes.io/docs/concepts/storage/persistent-volumes/) corresponding to the new disk
+3. Deploys a Kubernetes Job that mounts the generated PersistentVolumeClaim and creates a clone mirror
+4. Updates the PersistentVolumeClaim to be labelled `state: ready`
+
+We generate resources to deploy using [`envsubst <$TEMPLATE >$GENERATED`](https://www.gnu.org/software/gettext/manual/html_node/envsubst-Invocation.html) on a template spec. For example, the PersistentVolume template spec looks like:
+
+```yaml
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: buildkite-git-references-$BUILDKITE_BUILD_NUMBER
+  namespace: buildkite
+  labels:
+    deploy: buildkite
+    for: buildkite-git-references
+    state: $PV_STATE
+    id: '$BUILDKITE_BUILD_NUMBER'
+spec:
+  accessModes:
+    - ReadWriteOnce
+    - ReadOnlyMany
+  claimRef:
+    name: buildkite-git-references-$BUILDKITE_BUILD_NUMBER
+    namespace: buildkite
+  gcePersistentDisk:
+    fsType: ext4
+    # the disk we created with 'gcloud compute disks create'
+    pdName: buildkite-git-references-$BUILDKITE_BUILD_NUMBER
+  capacity:
+    storage: 16G
+  persistentVolumeReclaimPolicy: Delete
+  storageClassName: buildkite-git-references
+```
+
+PersitentVolumes are created with [`accessModes: [ReadWriteOnce, ReadOnlyMany]`](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#access-modes) - the idea is that we will mount it as `ReadWriteOnce` to populate the disk with a mirror repository, before allowing all our agents to mount the disk as `ReadOnlyMany`:
+
+```yaml
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: buildkite-git-references-populate
+  namespace: buildkite
+  annotations:
+    description: Populates the latest buildkite-git-references disk with data.
+spec:
+  parallelism: 1
+  completions: 1
+  ttlSecondsAfterFinished: 240 # allow us to fetch logs
+  template:
+    metadata:
+      labels:
+        app: buildkite-git-references-populate
+    spec:
+      containers:
+        - name: populate-references
+          image: alpine/git:v2.32.0
+          imagePullPolicy: IfNotPresent
+          command: ['/bin/sh']
+          args:
+            - '-c'
+            # Format:
+            # git clone git@github.com:sourcegraph/$REPO /buildkite-git-references/$REPO.reference;
+            - |
+              mkdir /root/.ssh; cp /buildkite/.ssh/* /root/.ssh/;
+              git clone git@github.com:sourcegraph/sourcegraph.git \
+                /buildkite-git-references/sourcegraph.reference;
+              echo 'Done';
+          volumeMounts:
+            - mountPath: /buildkite-git-references
+              name: buildkite-git-references
+      restartPolicy: OnFailure
+      volumes:
+        - name: buildkite-git-references
+          persistentVolumeClaim:
+            claimName: buildkite-git-references-$BUILDKITE_BUILD_NUMBER
+```
+
+The `buildkite-job-dispatcher` can now simply list all the available PersistentVolumeClaims that are ready:
+
+```go
+var gitReferencesPVC *corev1.PersistentVolumeClaim
+var listGitReferencesPVCs corev1.PersistentVolumeClaimList
+if err := k8sClient.List(ctx, config.TemplateJobNamespace, &listGitReferencesPVCs,
+  k8s.QueryParam("labelSelector", "state=ready,for=buildkite-git-references"),
+); err != nil {
+  runLog.Error("failed to fetch buildkite-git-references PVCs", zap.Error(err))
+} else {
+  gitReferencesPVCs := PersistentVolumeClaims(listGitReferencesPVCs.GetItems())
+  pvcCount := zapMetric("pvcs", len(gitReferencesPVCs))
+  if len(gitReferencesPVCs) > 0 {
+    sort.Sort(gitReferencesPVCs)
+    gitReferencesPVC = gitReferencesPVCs[0]
+  } else {
+    runLog.Warn("no buildkite-git-references PVCs found", pvcCount)
+  }
+}
+```
+
+And apply it to the agent Jobs we dispatch:
+
+```go
+if gitReferencePVC != nil {
+  job.Spec.Template.GetSpec().Volumes = append(job.Spec.Template.GetSpec().GetVolumes(),
+    &corev1.Volume{
+      Name: stringPtr("buildkite-git-references"),
+      VolumeSource: &corev1.VolumeSource{
+        PersistentVolumeClaim: &corev1.PersistentVolumeClaimVolumeSource{
+          ClaimName: gitReferencePVC.GetMetadata().Name,
+          ReadOnly:  boolPtr(true),
+        },
+      },
+    })
+  agentContainer.VolumeMounts = append(agentContainer.GetVolumeMounts(),
+    &corev1.VolumeMount{
+      Name:      stringPtr("buildkite-git-references"),
+      ReadOnly:  boolPtr(true),
+      MountPath: stringPtr("/buildkite-git-references"),
+    })
+}
+```
+
+And that's it! We now have repository clone times that are consistently within the 3-7 seconds range, depending on how much your branch has diverged from `main`. As new disks become available, newly dispatched agents will automatically leverage more up-to-date mirror repositories.
+
+<figure>
+  <img src="/assets/images/posts/stateless-ci/git-clone-reference.png">
+</figure>
+
+Within the same daily cron job that deploys these disks, we can also prune disks that are no longer used by any agents:
+
+```sh
+kubectl describe pvc -l for=buildkite-git-references,id!="$BUILDKITE_BUILD_NUMBER" |
+  grep -E "^Name:.*$|^Used By:.*$" | grep -B 2 "<none>" | grep -E "^Name:.*$" |
+  awk '$2 {print$2}' |
+  while read -r vol; do kubectl delete pvc/"${vol}" --wait=false; done
+```
+
+Interestingly enough, there is no way to easily detect if a PersistentVolumeClaim is completely unused. We can detect [*unbound*](https://kubernetes.io/docs/concepts/storage/persistent-volumes/#phase) disks easily, but that doesn't mean the same thing - in this setup PersistentVolumes are always bound, even when that PersistentVolumeClaim may or may not be in use. `kubectl describe` has this information though[^kubectl], which is what the above script (based on [this StackOverflow answer](https://stackoverflow.com/a/59758937)) uses.
+
+[^kubectl]: A quick Sourcegraph search for `"Used By"` quickly reveals [this line](https://sourcegraph.com/github.com/kubernetes/kubectl@18a5313a74f7d83f6b54377d72b421b5ebfa66c9/-/blob/pkg/describe/describe.go?L1616:25) as the source of the output. A [custom `getPodsForPVC`](https://sourcegraph.com/github.com/kubernetes/kubectl@18a5313a74f7d83f6b54377d72b421b5ebfa66c9/-/blob/pkg/describe/describe.go?L1583-1586) is the source of the pods listed here, and looking for references reveals that no `kubectl` command exposes this functionality except `kubectl describe`, so lengthy script it is!
+
+## Stateless agents
+
+So far, we have already seen a drastic reduction in tool-related flakes in CI, and the switch to stateless agents has helped us maintain confidence that issues are related to botched state and poor isolation. There are probably other mechanisms for maintaining isolation between builds, but for our case this seemed to have the easiest migration path.
 
 <br />
 
@@ -226,3 +405,5 @@ Sourcegraph builds universal code search for every developer and company so they
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
 
 Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
+
+---
