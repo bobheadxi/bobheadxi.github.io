@@ -34,12 +34,17 @@ _____________ _________________ ________________________
 And render search notebooks (and/or selected "blocks", or sections) within search results! For some context, this is what Sourcegraph's code search results usually look like:
 
 <figure>
-  <img src="https://about.sourcegraph.com/screenshots/search-page-single-image.png">
+  <img src="/assets/images/posts/extending-search/search.png">
 </figure>
 
 And this is what search notebooks look like, with each section being a separate notebook block:
 
-![notebooks demo](https://storage.googleapis.com/sourcegraph-assets/docs/images/notebooks/notebooks_home.gif)
+<figure>
+  <video autoplay loop muted playsinline>
+    <source src="https://storage.googleapis.com/sourcegraph-assets/notebooks/notebooks_overview_v3_dark.webm" type="video/webm">
+    <source src="https://storage.googleapis.com/sourcegraph-assets/notebooks/notebooks_overview_v3_dark.mp4" type="video/mp4">
+  </video>
+</figure>
 
 In this post, I'll walk through a brief overview of what I learned about how Sourcegraph search works and what we did to implement an additional search and search result type!
 
