@@ -11,7 +11,6 @@ tag:
 - sourcegraph
 category: blog
 author: robert
-featured: true
 description: adding sidecar services to Docker images of third-party services 
 ---
 
