@@ -220,9 +220,7 @@ Instead, at Sourcegraph we have `sg setup`, which automatically figures out what
 
 ...and `sg` will take the steps required to get you set up!
 
-<figure>
-  <img src="../../assets/images/posts/investing-in-devx/sg-setup-fix.gif" />
-</figure>
+![](../../assets/images/posts/investing-in-devx/sg-setup-fix.png)
 
 Programming this fixes enables us to standardise installations over time, automatically addressing issues teammates run into so that future teammates won’t have to.
 

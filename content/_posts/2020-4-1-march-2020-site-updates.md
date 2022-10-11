@@ -78,7 +78,7 @@ that. 🙃
     <img src="/assets/images/posts/march-2020-site-updates/noty-home.gif">
 </figure>
 
-This mostly stemmed from my [new Hypothes.is integration](#hypothesis-integration) - how do I let
+This mostly stemmed from my [new Hypothes.is integration](#hypothesis-integration-for-annotations) - how do I let
 the little traffic I get know that they can leave comments? Then I remembered, hey, I came across
 a really nice library for doing this a while back! After a bit of hunting through my
 [stars](https://github.com/bobheadxi?tab=stars) I found [`needim/noty`](https://github.com/needim/noty),

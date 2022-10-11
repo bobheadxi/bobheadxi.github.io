@@ -312,7 +312,7 @@ Some relevant pull requests implementing these features:
 * [sourcegraph#11427](https://github.com/sourcegraph/sourcegraph/pull/11427) - I ended up reverting this due to bugs in certain environments and adding it back in [sourcegraph#11483](https://github.com/sourcegraph/sourcegraph/pull/11483), but both PRs include relevant discussions. These PRs implements a basic sidecar without start and restart capabilities.
 * [sourcegraph#11554](https://github.com/sourcegraph/sourcegraph/pull/11554) adds the ability for the sidecar to start and restart the main service.
 
-Note that most of the above work has been superseded by a pivot to Prometheus (see the [update](#️update)).
+Note that most of the above work has been superseded by a pivot to Prometheus (see the update at the start of this post).
 Following the pivot, a lot of other work was enabled by the addition of this sidecar:
 
 * [sourcegraph#12010](https://github.com/sourcegraph/sourcegraph/issues/12010) (implementation: [sourcegraph#12491](https://github.com/sourcegraph/sourcegraph/pull/12491)) proposed a mechanism for denoting ownership in our monitoring and routing alerts appropriately.

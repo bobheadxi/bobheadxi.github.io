@@ -328,7 +328,7 @@ flowchart TB
         8([ComputeExcludedRepos])
 ```
 
-In this case, the `select:` term is just thrown in to demonstrate that it's a job that occurs *on top* of a child job, which contains the `NotebookSearch` job we created. This will be important [later](#implementing-selection)!
+In this case, the `select:` term is just thrown in to demonstrate that it's a job that occurs *on top* of a child job, which contains the `NotebookSearch` job we created. This will be important [later](#implementing-notebook-blocks-results))!
 
 ## Sending results over the wire
 
