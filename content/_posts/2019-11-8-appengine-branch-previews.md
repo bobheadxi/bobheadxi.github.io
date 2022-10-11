@@ -370,7 +370,7 @@ And that was it! As a bonus, notifications for these deployments show up in
   <img src="../../assets/images/posts/appengine/slack-deploy.png">
 </p>
 
-## Wrapup
+## Wrap-up
 
 There's definitely a bunch of caveats in this approach, and if the resources
 are available to you it might be easier to use a platform like [Heroku](https://www.heroku.com/)

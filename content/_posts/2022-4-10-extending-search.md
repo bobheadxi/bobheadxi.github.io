@@ -786,7 +786,7 @@ You can also check out the (messy) (and incomplete) code here: [sourcegraph#3331
 
 <br />
 
-## Wrapup
+## Wrap-up
 
 Thanks for reading! I hope this was an interesting glimpse at how search works at Sourcegraph. I'm not sure if this will ever make it into the product, but regardless, this was a really fun foray into a part of the codebase I've only interacted with at a surface level through my [Sourcegraph for Raycast extension project](https://github.com/bobheadxi/raycast-sourcegraph), and learning about the abstractions used to power code search (and more!) was fascinating, and a nice change of pace from [my usual work](../_experience/2021-7-5-sourcegraph.md)!
 

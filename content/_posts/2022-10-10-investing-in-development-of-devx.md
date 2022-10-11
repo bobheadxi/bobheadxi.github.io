@@ -226,7 +226,7 @@ Programming this fixes enables us to standardise installations over time, automa
 
 For example, we can configure `PATH` for you, or make sure things are installed in the right place and configured in the appropriate manner - building on top of other tool managers like [Homebrew](https://brew.sh/) and [asdf](https://asdf-vm.com/) to provide a smooth experience.
 
-## Wrapup
+## Wrap-up
 
 Enabling the development of good tooling, scripting, automation makes a difference.
 There’s a lot that can be done to improve how tooling is developed and improved, like the ideas I’ve brought up in this post - we don't have to settle for cryptic tooling everywhere!

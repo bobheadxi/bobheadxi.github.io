@@ -503,7 +503,7 @@ Learn more about our continuous integration ecosystem in our [developer document
 
 <br />
 
-## Wrapup
+## Wrap-up
 
 The generator approach has helped us build a low-maintenance and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, integrate, validate, and more.
 
