@@ -12,6 +12,7 @@ tag:
 - automation
 - configuration
 - design
+- tools
 - sourcegraph
 category: blog
 author: robert
