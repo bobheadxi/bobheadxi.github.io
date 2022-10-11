@@ -28,7 +28,7 @@ In my personal experience, I've seen logging cause some very real issues - [a de
 
 > Metrics indicated jobs were timing out, and a look at the logs revealed thousands upon thousands of lines of random comma-delimited numbers. It seemed that printing all this junk was causing the service to stall, and sure enough setting the log driver to none to disable all output on the relevant service allowed the sync to proceed and continue. [...] At scale these entries could contain many thousands of entries, causing the system to degrade. Be careful what you log!
 
-At [Sourcegraph](/content/_experience/2021-7-5-sourcegraph.md) we currently use the cheekily named [`log15` logging library](https://github.com/inconshreveable/log15). Of course, a faster logger likely would not have prevented the above scenario from occuring (though we are in the process of [migrating to our new Zap-based logger](https://github.com/sourcegraph/sourcegraph/issues/33192)), but here's a set of (very unscientific) profiles that compare a somewhat "average" scenario of logging 3 fields with 3 fields of existing context in JSON format to demonstrate just how different Zap and `log15` handles rendering a log entry behind the scenes:
+At [Sourcegraph](/content/_experience/2021-7-5-sourcegraph.md) we currently use the cheekily named [`log15` logging library](https://github.com/inconshreveable/log15). Of course, a faster logger likely would not have prevented the above scenario from occurring (though we are in the process of [migrating to our new Zap-based logger](https://github.com/sourcegraph/sourcegraph/issues/33192)), but here's a set of (very unscientific) profiles that compare a somewhat "average" scenario of logging 3 fields with 3 fields of existing context in JSON format to demonstrate just how different Zap and `log15` handles rendering a log entry behind the scenes:
 
 ```go
 const iters = 100000
@@ -39,7 +39,7 @@ var (
 )
 
 func profileZap(f *os.File) {
-	// Create JSON format l with fields, normalized against log15 features
+	// Create JSON format l with fields, normalised against log15 features
 	cfg := zap.NewProductionConfig()
 	cfg.Sampling = nil
 	cfg.DisableCaller = true
@@ -108,7 +108,7 @@ However, a closer look (like, *really* close - you gotta zoom all the way in!) r
 
 Zap's documentation provides a brief explanation of why delegating to `json` is an issue:
 
-> For applications that log in the hot path, reflection-based serialization and string formatting are prohibitively expensive — they're CPU-intensive and make many small allocations. Put differently, using `encoding/json` and `fmt.Fprintf` to log tons of `interface{}`s makes your application slow.
+> For applications that log in the hot path, reflection-based serialisation and string formatting are prohibitively expensive — they're CPU-intensive and make many small allocations. Put differently, using `encoding/json` and `fmt.Fprintf` to log tons of `interface{}`s makes your application slow.
 
 As a more scientific approach to demonstrating the benefits of Zap's implementation, here's a snapshot of the [advertised benchmarks against some other popular libraries (as of v1.21.0)](https://github.com/uber-go/zap/tree/v1.21.0#performance), emphasis mine:
 
@@ -166,7 +166,7 @@ In addition, we have distinct steps for:
 
 1. **Adding fields to the logger** (as opposed to just a specific entry): `With([]Field) Core` - this allows `Core` implementations render fields once and not repeat work for subsequent log entries. We'll get to how this works later!
    1. It's not noted on the interface documentation, but because of the above, the fields provided to `With()` are **not** provided to `Write()`.
-2. **Flushing output**: `Sync() error` allows for buffering output and batching writes together, minimizing instances of being bottlenecked by I/O, or allowing `Core` implementations to handle logs in an asynchronous manner.
+2. **Flushing output**: `Sync() error` allows for buffering output and batching writes together, minimising instances of being bottlenecked by I/O, or allowing `Core` implementations to handle logs in an asynchronous manner.
 
 We can see this in action in the default [`*zap.Logger`](https://sourcegraph.com/github.com/uber-go/zap@v1.21.0/-/blob/logger.go?L33-40) implementation. Let's check out the seemingly innocuous `.Info()` function:
 
@@ -233,7 +233,7 @@ func getCheckedEntry() *CheckedEntry {
 
 In short, `CheckedEntry` instances are created *or reused* on demand (this way, if no cores register themselves to write an `Entry`, no `CheckedEntry` is ever created) from a global [`sync.Pool`](https://pkg.go.dev/sync#Pool):
 
-> A Pool is a set of temporary objects that may be individually saved and retrieved [...] Pool's purpose is to cache allocated but unused items for later reuse, relieving pressure on the garbage collector. [...] Pool provides a way to amortize allocation overhead across many clients.
+> A Pool is a set of temporary objects that may be individually saved and retrieved [...] Pool's purpose is to cache allocated but unused items for later reuse, relieving pressure on the garbage collector. [...] Pool provides a way to amortise allocation overhead across many clients.
 
 If many logs entries are written in a short time, allocated memory can be recycled by `Pool`, which is faster than having the Go runtime always allocate new memory and garbage-collecting unused `CheckedEntry` instances.
 
@@ -320,7 +320,7 @@ type ObjectEncoder interface {
 	AddString(key, value string)
 	AddTime(key string, value time.Time)
 
-	// AddReflected uses reflection to serialize arbitrary objects, so it can be
+	// AddReflected uses reflection to serialise arbitrary objects, so it can be
 	// slow and allocation-heavy.
 	AddReflected(key string, value interface{}) error
 
@@ -433,7 +433,7 @@ func (f Field) AddTo(enc ObjectEncoder) {
 }
 ```
 
-Here we can see that for most cases, when one creates a strongly typed field with e.g. [`zap.String(key string, val string) Field`](https://sourcegraph.com/github.com/uber-go/zap@v1.21.0/-/blob/field.go?L221:6), Zap can track the type information and pass the `Field` directly to the most appropriate function on the underlying encoder. Together with the fact that the entire log message is constructed incrementally, this means that it's possible for most log messages to never encounter the need to reflect or use the `json` package to serialize the message. Nifty! This explains why we spend less time in `json` in the profile at the start of this post - most of the log message can be serialized directly, except for one field:
+Here we can see that for most cases, when one creates a strongly typed field with e.g. [`zap.String(key string, val string) Field`](https://sourcegraph.com/github.com/uber-go/zap@v1.21.0/-/blob/field.go?L221:6), Zap can track the type information and pass the `Field` directly to the most appropriate function on the underlying encoder. Together with the fact that the entire log message is constructed incrementally, this means that it's possible for most log messages to never encounter the need to reflect or use the `json` package to serialise the message. Nifty! This explains why we spend less time in `json` in the profile at the start of this post - most of the log message can be serialised directly, except for one field:
 
 ```go
 l.Info("message",
@@ -443,7 +443,7 @@ l.Info("message",
 )
 ```
 
-To get around this, we could implement [`ObjectMarshaler`](https://sourcegraph.com/github.com/uber-go/zap@v1.21.0/-/blob/zapcore/marshaler.go?L23-32) which we saw on the `Encoder` interface previously. If implemented, we can serialize our object directly in an efficient manner:
+To get around this, we could implement [`ObjectMarshaler`](https://sourcegraph.com/github.com/uber-go/zap@v1.21.0/-/blob/zapcore/marshaler.go?L23-32) which we saw on the `Encoder` interface previously. If implemented, we can serialise our object directly in an efficient manner:
 
 ```go
 type thing struct {

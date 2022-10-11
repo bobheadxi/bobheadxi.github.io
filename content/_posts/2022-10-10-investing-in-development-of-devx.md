@@ -41,7 +41,7 @@ goreman --set-ports=false --exit-on-error -f dev/Procfile
 
 This ends up going in a script or Makefile, to encode this setup as the de-facto way of running things that you can share with your team.
 
-Then you realize your tool doesn’t have hot-reloading, or some other feature, which you end up writing some automation for.
+Then you realise your tool doesn’t have hot-reloading, or some other feature, which you end up writing some automation for.
 
 [Your little start script](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@a73993357386775c55d28cc2f3de69b1b6328b56/-/blob/dev/start.sh?L42) ends up with several hundred lines of configuration options, which you can only find out by reading it, and alongside that you have [dozens of scripts that do various dev-related tasks](https://sourcegraph.com/search?q=context:global+repo:%5Egithub%5C.com/sourcegraph/sourcegraph$@a739933+file:%5Edev/.*.sh&patternType=standard):
 
@@ -59,7 +59,7 @@ This eventually leads to a frustrating and brittle developer experience.
 
 It became hard to find out what tooling was available, how each script was configured, and how to extend them and add to them - hindering progress in our tooling.
 
-That’s why we started `sg`, Sourcegraph’s developer tool, to become the centralized home for all development tasks.
+That’s why we started `sg`, Sourcegraph’s developer tool, to become the centralised home for all development tasks.
 
 `sg` started as a single command to run Sourcegraph locally in March 2021 - today it features over 60 commands covering all sorts of functionality and utilities that you might need throughout your development lifecycle:
 
@@ -123,7 +123,7 @@ sg db add-user -name=foo
 ```
 
 But to make this kind of tool effective, you need more than just converting scripts into a Go program.
-In developing `sg`, I’ve noticed some patterns come up that I belive are crucial to its utility - tooling should:
+In developing `sg`, I’ve noticed some patterns come up that I believe are crucial to its utility - tooling should:
 
 - [be approachable](#tooling-should-be-approachable)
 - [work with your tools](#tooling-should-work-with-your-tools)
@@ -192,7 +192,7 @@ A service configuration might look like:
       - cmd/frontend
 ```
 
-You’re not constrained to using `sg start` - you can run all these steps yourself still with tools of your choice, but sg start combines everything for you into tidied up output, complete with configuration, colors, hot-reloading, and everything you might need to start experimenting with your new features!
+You’re not constrained to using `sg start` - you can run all these steps yourself still with tools of your choice, but sg start combines everything for you into tidied up output, complete with configuration, colours, hot-reloading, and everything you might need to start experimenting with your new features!
 
 <figure>
   <img src="../../assets/images/posts/investing-in-devx/sg-start.gif" />
@@ -224,7 +224,7 @@ Instead, at Sourcegraph we have `sg setup`, which automatically figures out what
   <img src="../../assets/images/posts/investing-in-devx/sg-setup-fix.gif" />
 </figure>
 
-Programming this fixes enables us to standardize installations over time, automatically addressing issues teammates run into so that future teammates won’t have to.
+Programming this fixes enables us to standardise installations over time, automatically addressing issues teammates run into so that future teammates won’t have to.
 
 For example, we can configure `PATH` for you, or make sure things are installed in the right place and configured in the appropriate manner - building on top of other tool managers like [Homebrew](https://brew.sh/) and [asdf](https://asdf-vm.com/) to provide a smooth experience.
 
@@ -234,6 +234,8 @@ Enabling the development of good tooling, scripting, automation makes a differen
 There’s a lot that can be done to improve how tooling is developed and improved, like the ideas I’ve brought up in this post - we don't have to settle for cryptic tooling everywhere!
 
 If you’re interested in how all this is implemented, [`sg` is open source - come check us out on GitHub](https://github.com/sourcegraph/sourcegraph/tree/main/dev/sg)!
+
+*Note - I had originally hoped to present this as a lightning talk at Gophercon Chicago 2022, but I was too late to queue up on the day of the presentations, so I figured might as well turn it into a post.*
 
 <br />
 
