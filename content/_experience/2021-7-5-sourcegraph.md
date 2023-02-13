@@ -30,6 +30,7 @@ As part of the Developer Experience team, I've contributed extensively to:
 - the [Sourcegraph monitoring generator](https://docs.sourcegraph.com/dev/background-information/observability/monitoring-generator)
 - driving the discussion, implementation, and adoption of [standardized logging](https://github.com/sourcegraph/sourcegraph/pull/33956) and [OpenTelemetry](https://github.com/sourcegraph/sourcegraph/issues/39397) in Sourcegraph
 - [developing libraries](https://github.com/sourcegraph/run) for [ease of migration from Bash scripts](https://github.com/sourcegraph/sourcegraph/blob/main/doc/dev/adr/1652433602-use-go-for-scripting.md)
+- designing and building a new architecture for [scaleable, stateless continuous integration agents](../_posts/2022-4-18-stateless-ci.md)
 - the [Sourcegraph developer experience newsletter](https://handbook.sourcegraph.com/departments/product-engineering/engineering/enablement/dev-experience/newsletter)
 
 ...and more.
