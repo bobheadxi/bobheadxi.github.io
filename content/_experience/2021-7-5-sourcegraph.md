@@ -42,7 +42,7 @@ In addition to work directly related to the Developer Experience teams' ownershi
 
 ## Sourcegraph Cloud
 
-As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritizing our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the Cloud team to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers.
+As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritizing our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the [Cloud team](https://handbook.sourcegraph.com/departments/cloud/) to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers.
 
 <br />
 
