@@ -55,7 +55,7 @@ Site administrators can also trigger a manual sync.
 
 ---
 
-**⚠️ Update:** Since the writing of this post, I've contributed an improved and more in-depth description of how permissions sync works in Sourcegraph, if you are interested in a better overview: [*Repository permissions - Background permissions syncing*](https://docs.sourcegraph.com/admin/repo/permissions#background-permissions-syncing).
+**⚠️ Update:** Since the writing of this post, I've contributed an improved and more in-depth description of how permissions sync works in Sourcegraph, if you are interested in a better overview: [*Repository permissions - Background permissions syncing*](https://docs.sourcegraph.com/@4.4/admin/repo/permissions#background-permissions-syncing).
 
 ---
 
