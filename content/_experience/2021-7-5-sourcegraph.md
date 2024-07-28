@@ -19,6 +19,14 @@ Since July 2021, I have been working as a software engineer at [Sourcegraph](#ab
 
 Most of the company's work is open-source (to a lesser extent on the Sourcegraph Cloud team), so you can [see some of my contributions for Sourcegraph on GitHub](https://github.com/search?q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged+created%3A%3E2021-05-01&type=pullrequests&s=comments&o=desc)!
 
+## Core Services
+
+With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph.com/cody), and a new focus on product-led growth as opposed to Sourcegraph's traditionally enterprise and on-prem customer base, I joined the newly formed "Core Services" team in September 2023 to build the foundations of cloud-first services at Sourcegraph. Shortly after joining the team, I was assigned as the team's technical lead.
+
+## Sourcegraph Cloud
+
+As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritizing our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the [Cloud team](https://handbook.sourcegraph.com/departments/cloud/) in October 2022 to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers. I worked on the Cloud team for around 11 months.
+
 ## Developer experience
 
 The [Developer Experience team's](https://handbook.sourcegraph.com/departments/product-engineering/engineering/enablement/dev-experience) mission is to make it so that every developer feels empowered to be productive in contributing to the Sourcegraph application.
@@ -40,10 +48,6 @@ In addition to work directly related to the Developer Experience teams' ownershi
 - [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md) for large enterprises and supporting the continued maintenance of Sourcegraph's permissions syncing systems
 - designing and developing [an extended permissions model for Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/27916), notably [implementing expanded access control parsing for Perforce](https://github.com/sourcegraph/sourcegraph/pull/26745)
 - creating [standardised actor propagation tooling](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6OTI=) across services
-
-## Sourcegraph Cloud
-
-As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritizing our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the [Cloud team](https://handbook.sourcegraph.com/departments/cloud/) to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers.
 
 <br />
 
