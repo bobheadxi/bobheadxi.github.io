@@ -25,7 +25,7 @@ With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph
 
 ## Sourcegraph Cloud
 
-As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritizing our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the [Cloud team](https://handbook.sourcegraph.com/departments/cloud/) in October 2022 to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers. I worked on the Cloud team for around 11 months.
+As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritising our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the [Cloud team](https://handbook.sourcegraph.com/departments/cloud/) in October 2022 to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers. I worked on the Cloud team for around 11 months.
 
 ## Developer experience
 
@@ -36,9 +36,9 @@ As part of the Developer Experience team, I've contributed extensively to:
 - [`sg`, the Sourcegraph developer tool](https://docs.sourcegraph.com/dev/background-information/sg), in particular building out a infrastructure to [allow development of `sg` to scale](../_posts/2022-10-10-investing-in-development-of-devx.md)
 - Sourcegraph's continuous integration infrastructure and [pipeline generator](https://sourcegraph.com/notebooks/Tm90ZWJvb2s6MTE3)
 - the [Sourcegraph monitoring generator](https://docs.sourcegraph.com/dev/background-information/observability/monitoring-generator)
-- driving the discussion, implementation, and adoption of [standardized logging](https://github.com/sourcegraph/sourcegraph/pull/33956) and [OpenTelemetry](https://github.com/sourcegraph/sourcegraph/issues/39397) in Sourcegraph
+- driving the discussion, implementation, and adoption of [standardised logging](https://github.com/sourcegraph/sourcegraph/pull/33956) and [OpenTelemetry](https://github.com/sourcegraph/sourcegraph/issues/39397) in Sourcegraph
 - [developing libraries](https://github.com/sourcegraph/run) for [ease of migration from Bash scripts](https://github.com/sourcegraph/sourcegraph/blob/main/doc/dev/adr/1652433602-use-go-for-scripting.md)
-- designing and building a new architecture for [scaleable, stateless continuous integration agents](../_posts/2022-4-18-stateless-ci.md)
+- designing and building a new architecture for [scalable, stateless continuous integration agents](../_posts/2022-4-18-stateless-ci.md)
 - the [Sourcegraph developer experience newsletter](https://handbook.sourcegraph.com/departments/product-engineering/engineering/enablement/dev-experience/newsletter)
 
 ...and more.

@@ -136,7 +136,7 @@ In the diagram above, `InstanceTerraform` is one of our "subresource" types. It 
 3. `InstanceTerraform` would detect that its current spec differs from the last known infrastructure state. It will then regenerate the updated Terraform manifests using [CDKTF](https://developer.hashicorp.com/terraform/cdktf) and apply it directly using Terraform Cloud using "Tasks".
 4. Once the "task" execution completes, `InstanceTerraform` will updates its own status, which will be reflected by the `Instance`. This may cause cascading changes to "subsequent" subresourcs with dependencies on the modified subresource to apply.
 
-Operators would rarely interact directly with these subresources -  instead, they would only interact with the top-level `Instance` definition to request changes to the underlying infrastructure. Changes to the instance specification would automatically propagate to these subresources through the top-level `Instance` controller. Each subresource implemented an abstraction called "task driver" that generalized the ability for the top-level `Instance` controller to poll for completion or errors in a uniform manner.
+Operators would rarely interact directly with these subresources -  instead, they would only interact with the top-level `Instance` definition to request changes to the underlying infrastructure. Changes to the instance specification would automatically propagate to these subresources through the top-level `Instance` controller. Each subresource implemented an abstraction called "task driver" that generalised the ability for the top-level `Instance` controller to poll for completion or errors in a uniform manner.
 
 <figure>
     <img src="../../assets/images/posts/multi-single-tenant/subresources.png" />
@@ -155,7 +155,7 @@ At reconciliation time, each reconcile should be idempotent - the cause of the r
 
 For example, consider reconciling object `O`, where `O.x` and `O.y` are not yet in the desired state.
 
-1. Reconcile on object `O`. Fix `O.x` and requeue for another update imediately.
+1. Reconcile on object `O`. Fix `O.x` and requeue for another update immediately.
 2. Reconcile on object `O` (again). `O.x` is now fixed, so fix `O.y` and requeue for another update immediately (again).
 3. Reconcile on object `O` (again!).  Everything is in the desired state! Do not requeue for update immediately, because all is now right in this (particular) world.
 
@@ -181,12 +181,12 @@ $ gocyclo ./cmd/manager/controllers/taskdriver/taskdriver.go
 
 With a cyclomatic complexity score of 57, this implementation spans around 550 lines, and is covered by nearly 1000 lines of tests providing 72% coverage on `taskdriver.Ensure` - not bad for a component dealing extensively with integrations.
 
-This investment in a robust, re-usable component has paid dividends: the abstraction serves 5 "subresources" today, each handling a different aspect of Cloud instance management, and generalizes the implementation of:
+This investment in a robust, re-usable component has paid dividends: the abstraction serves 5 "subresources" today, each handling a different aspect of Cloud instance management, and generalises the implementation of:
 
 - **Diff detection**: During reconciliation you cannot (by design) refer to a "previous version" of your resource. `taskdriver.Ensure` handles detecting if a task execution has already been dispatched, and whether a new one needs to be dispatched for the current inputs.
 - **Tracking Task executions**: `taskdriver.Ensure` handles creating Task executions, tracking their status, and collecting their outputs across many reconciles. Notable events are tracked in "conditions", an ephemeral state field that records the last *N* interesting events to a subresource. ![](/assets/images/posts/multi-single-tenant/argocd-2.png)
 - **Concurrency control**: Subresources often need global concurrency management (to throttle the rate at which we hit external resources like Terraform Cloud) as well as per-instance concurrency management (e.g. an upgrade can't happen at the same time as a `kubectl apply`). `taskdriver.Ensure` consumes a configurable concurrency controller that can be tweaked based on the workload.
-- **Teardown and orphaned resource management**: On deletion of a subresource, `taskdriver.Ensure` can handle ["finalization"](https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/) of tasks resources, deleting past executions. This is most useful for one-time-use subresources like instance upgrades - over time, we can delete our records of past upgrades for an instance. `taskdriver.Ensure` has also since been extended to handle picking up and clearing Task executions.
+- **Teardown and orphaned resource management**: On deletion of a subresource, `taskdriver.Ensure` can handle ["finalisation"](https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/) of tasks resources, deleting past executions in GCP Cloud Run. This is most useful for one-time-use subresources like instance upgrades - over time, we can delete our records of past upgrades for an instance. `taskdriver.Ensure` has also since been extended to handle picking up and clearing Task executions.
 - **Uniform observability**: Logs and metrics emitted by `taskdriver.Ensure` allow our various subresources to be monitored the same way for alerting and debugging.
 
 To illustrate how this works in code, because I like interfaces, here's an abbreviated version of what the abstraction looks like:
@@ -305,7 +305,7 @@ func (r *UpgradeInstanceTaskReconciler) Reconcile(ctx context.Context, req ctrl.
 }
 ```
 
-This allows the system to be easily extended to accomodate more types of subresources to handle different tasks, allowing implementors to focus on the Task execution that gets the work done, before plugging it into the control plane with a fairly small integration surface.
+This allows the system to be easily extended to accommodate more types of subresources to handle different tasks, allowing implementors to focus on the Task execution that gets the work done, before plugging it into the control plane with a fairly small integration surface.
 
 ### Control plane lifecycle summary
 
@@ -382,7 +382,7 @@ I don't know if that helps much, but I think it looks nice!
 
 Sadly, I no longer work on the Sourcegraph Cloud platform, but since its launch, this system has delivered on our goals: today, the Cloud control plane operates over 150 completely isolated single-tenant Sourcegraph instances with a core team of just 2 to 3 engineers, nearly double the size of the fleet when we started this project.
 
-The Cloud control plane has also proven extensible: I've seen some pretty nifty extensions built since I departed the project, like an automatic disk resizer and "ephemeral instances", which can be used internally to deploy a branch of a Sourcegraph codebase to a temporary Cloud instance with just a few commands. Various features have also been added to accomodate scaling needs and specific customer requirements.
+The Cloud control plane has also proven extensible: I've seen some pretty nifty extensions built since I departed the project, like an automatic disk resizer and "ephemeral instances", which can be used internally to deploy a branch of a Sourcegraph codebase to a temporary Cloud instance with just a few commands. Various features have also been added to accommodate scaling needs and specific customer requirements.
 
 The rollout of the Cloud control plane, and adoption of Cloud from customers, have battle-tested the platform, and a lot of work has been done to cover more edge cases and improve the resilience of the Cloud control plane. There's also DX improvements, such as robust support for our internal concepts in [ArgoCD](https://argo-cd.readthedocs.io/en/stable/), allowing health and progress summaries to be surfaced in a friendly interface:
 
