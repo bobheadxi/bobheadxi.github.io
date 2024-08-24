@@ -21,6 +21,14 @@ During my [internship at Sourcegraph](../_experience/2020-5-7-sourcegraph-intern
 
 I'm pretty proud of the work I ended up doing on this project, the "Cloud control plane", and am very happy to see what the project has enabled since I left the Sourcegraph Cloud team in September 2023. So I thought it might be cool to write a little bit about what we did!
 
+- [The prototype](#the-prototype)
+- [Version 2](#version-2)
+- [Taking things to the control plane](#taking-things-to-the-control-plane)
+  - [Reconciliation](#reconciliation)
+  - [Writing the code](#writing-the-code)
+  - [Control plane lifecycle summary](#control-plane-lifecycle-summary)
+- [The future](#the-future)
+
 ## The prototype
 
 The first "managed instances" was managed by copy-pasting Terraform configuration and some gnarly VM setup scripts. I maintained and worked on this briefly before I [rejoined Sourcegraph as a full-time engineer in the Dev Experience team](../_experience/2021-7-5-sourcegraph.md). Operating the first "managed instances" was a very manual ordeal. At the scale of less than a dozen instances, a fleet-wide upgrade would take several days of painstakingly performing blue-green deploys for each by copy-pasting Terraform configurations and applying them directly, one instance at a time. The only automation to speak of was some gnarly Terraform-rewriting scripts that I built using Typescript and [Comby](https://comby.dev/) to make the task marginally less painful, and even this was prone to breaking on any unexpected formatting of the hand-written Terraform configurations.
@@ -31,7 +39,9 @@ The state of the first "managed instances" was a necessary first step to quickly
 
 By the time I joined the newly formed "Cloud team" that had inherited the first "managed instances" platform, the sweeping upgrades that comprised "Cloud V2" had been built, and the migration was already underway. These upgrades, largely driven by the talented and knowledgeable [Michael Lin](https://github.com/michaellzc), were sorely needed: operating individual Sourcegraph instances with Kubernetes and Helm instead of docker-compose, and leveraging off-the-shelf solutions like [GCP Cloud SQL](https://cloud.google.com/sql) and Terraform Cloud to operate the prerequisite infrastructure. [CDKTF](https://developer.hashicorp.com/terraform/cdktf) was also adopted so that Terraform manifests could be generated using a Go program, instead of being hand-written. Each instance got a YAML configuration file that was used to generate Terraform with CDKTF based on the desired attributes, which all got committed to a centralised configuration repository. These upgrades were the pieces needed to kickstart the company's transition to [bring the Cloud platform to general availability](https://sourcegraph.com/blog/enterprise-cloud) and encourage customers to consider "managed Sourcegraph" as the preferred option to self-hosting.
 
-That wasn't the end of the planned upgrades, however: defining each instance as a YAML configuration was a hint at what [Michael](https://github.com/michaellzc)'s grand vision for the "Cloud V2" platform was: to treat instances as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/), and manage each instance with individual "instance specifications", just like any other native Kubernetes resource. The design of the "Cloud V2" instance specifications also featured Kubernetes-like fields, such as `spec` and `status`, similar to native Kubernetes resources like [Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/), for example:
+This infrastructure was managed by a CLI tool we called `mi2`, based on its predecessor `mi`, which stood for "managed instances". The tool was generally run by a human operator to perform operations on the fleet of instances by manipulating its infrastructure-as-code components, such as the aforementioned CDKTF and Kubernetes manifests, based on each instance's YAML specification. It was also used to configure "runtime" invariants such as application configuration, also based on each instance's YAML specification.
+
+"Cloud V2" wasn't the end of the planned upgrades, however: defining each instance as a YAML configuration was a hint at what [Michael](https://github.com/michaellzc)'s grand vision for the "Cloud V2" platform was: to treat instances as [Kubernetes custom resources](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/), and manage each instance with individual "instance specifications", just like any other native Kubernetes resource. The design of the "Cloud V2" instance specifications also featured Kubernetes-like fields, such as `spec` and `status`, similar to native Kubernetes resources like [Pods](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/), for example:
 
 > In the Kubernetes API, Pods have both a specification and an actual status. The status for a Pod object consists of a set of Pod conditions.
 
@@ -40,7 +50,7 @@ In other words, each instance:
 - ...was defined by its `spec`: the *desired* state and attributes. For example, the version of Sourcegraph, the domain the instance should be served on, or the number of replicas for a particular services it should have (for services that can't scale automatically).
 - ...reports its `status`: the *actual* deployed state and as details that are only known after deployment, such as randomly generated resource names or IP addresses. A difference between `spec` and `status` for attributes that are reflected in both would indicate that the configuration change has not been applied yet.
 
-When the team first launched "Cloud V2", both `spec` and `status` were set in the configuration file, such that `spec` was generally handwritten, and `status` would be set and written to the file by the platform's CLI, `mi2` (named to preserve the existing `mi` acronym used for "managed instances"). In addition, there were some generated Kustomize and Helm assets that also required a human to run some generation command with the `mi2` CLI.
+When the team first launched "Cloud V2", both `spec` and `status` were set in the configuration file, such that `spec` was generally handwritten, and `status` would be set and written to the file by the platform's CLI, `mi2`. In addition, there were some generated Kustomize and Helm assets that also required a human to run some generation command with the `mi2` CLI.
 
 This meant that Git diffs representing a change usually must be made *after* changes have been already applied to GCP and other infrastructure, so that the status of the instance can be correctly reflected in the repository. This approach was error-prone and constantly caused drift between the repository state (where configurations were committed), and actual state of an instance in our infrastructure. Because the changes between specification and status are closely intertwined, pull requests with updates usually require review, further adding latency to the drift between actual status and the recorded status when left un-merged.
 
@@ -52,8 +62,8 @@ The key problems this situation posed were:
 
 1. The possibility of accidents and conflicts was very real. The consequences of mistakes were also very real, as we were highly reliant on customer trust that the service they paid for would be secure and reliable.
 2. The overhead required to operate the fleet, though much improved from the first "managed instances", was still high: it was very unlikely the small team could handle a fleet size in the hundreds of instances.
-	3. To compound the problem further, instances had to be created and  torn down on a frequent basis to enable customers to trial the product.
-4. We started relying heavily on [GitHub Actions](https://github.com/features/actions) for automation. This worked well for simple processes like "create a specification from a template and run the necessary commands to apply it", but the number of workflows grew, and some of them got very complex. These were difficult to test and prone to typos and conflicts due to the way our "Git ops" setup worked.
+	1. To compound the problem further, instances had to be created and  torn down on a frequent basis to enable customers to trial the product.
+3. We started relying heavily on [GitHub Actions](https://github.com/features/actions) for automation. This worked well for simple processes like "create a specification from a template and run the necessary commands to apply it", but the number of workflows grew, and some of them got very complex. These were difficult to test and prone to typos and conflicts due to the way our "Git ops" setup worked.
 
 To enable the Cloud V2 platform to scale out to more customers reliably, we had to take it further. Michael and I started discussing our next steps in earnest sometime in January 2023. Together, we circulated 2 RFCs within the team: [RFC 775: GitOps in Sourcegraph Cloud with Cloud control plane](https://docs.google.com/document/d/10ZZbY9FThT9FdmI5UWnPsBh6A-nTrn5AExlDOSM6EbU/edit) by myself, and [RFC 774: Task Framework for Sourcegraph Cloud Orchestration](https://docs.google.com/document/d/1eFct3CnypItxMG_wyAjcX1VRAajOyOIkdhw486WlQC8/edit) by Michael.[^rfcs]
 
@@ -65,13 +75,13 @@ In [my RFC](https://docs.google.com/document/d/10ZZbY9FThT9FdmI5UWnPsBh6A-nTrn5A
 
 ![](../../assets/images/posts/multi-single-tenant/control-plane.png)
 
-There's a lot to unpack here, but the overall gist was:
+There's a lot to unpack here, but the overall gist of the plan was:
 
 1. There would be no writing-to-the-repository by state changes. Operators (and operator-triggered automations) would commit changes to instances specifications (denoted by the blue box), and the required changes would somewhat opaquely happen in the "control plane".
 	- This would significantly reduce conflicts we were seeing in our existing Cloud infrastructure-as-code repository, because changes would now only occur in one direction when a change is merged, without needing to write back what changed to the repository.
 2. The platform would have a central "control plane", denoted by the green boxes ("Cloud Manager" and "Tasks").
 	- "Tasks" are an internal abstraction for [serverless jobs using Cloud Run](https://cloud.google.com/run). They allow us to run arbitrary tasks that mirror the `mi2` commands a human operator would run today.
-	- The "Cloud Manager" is the Kubernetes "controllers" service that would manage our Sourcegraph instances.  We called it “manager” since that is [the terminology used in `kubebuilder`](https://book.kubebuilder.io/reference/platform.html?highlight=manager#manager) - in the sense that a single manager service implements multiple "controllers", each owning the reconciliation of one Kubernetes custom resource type. More on this in a bit.
+	- The "Cloud Manager" is the Kubernetes "controllers" service that would manage our Sourcegraph instances.  We called it “manager” since that is [the terminology used in `kubebuilder`](https://book.kubebuilder.io/reference/platform.html?highlight=manager#manager) - in the sense that a single manager service implements multiple "controllers", and each controller owns the reconciliation of one Kubernetes custom resource type.
 3. We would continue to rely on off-the-shelf components, like existing dependencies on Terraform Cloud and Kubernetes + Helm (illustrated by the brown boxes).
 
 In the central "control plane", each instance specification would be "applied" as a custom resource in Kubernetes. This is enabled by [`kubebuilder`](https://github.com/kubernetes-sigs/kubebuilder), which makes it easy to write custom resource definitions (CRDs) and "controllers" for managing each custom resource type.
@@ -126,11 +136,14 @@ In the diagram above, `InstanceTerraform` is one of our "subresource" types. It 
 3. `InstanceTerraform` would detect that its current spec differs from the last known infrastructure state. It will then regenerate the updated Terraform manifests using [CDKTF](https://developer.hashicorp.com/terraform/cdktf) and apply it directly using Terraform Cloud using "Tasks".
 4. Once the "task" execution completes, `InstanceTerraform` will updates its own status, which will be reflected by the `Instance`. This may cause cascading changes to "subsequent" subresourcs with dependencies on the modified subresource to apply.
 
-Operators would rarely interact directly with these subresources -  instead, they would only interact with the top-level `Instance` definition to request changes to the underlying infrastructure. Changes to the instance specification would automatically propagate to these subresources through the top-level `Instance` controller. Each subresource implements a "task driver" (more on this soon!) that allows the top-level `Instance` controller to poll for completion or errors in a uniform manner.
+Operators would rarely interact directly with these subresources -  instead, they would only interact with the top-level `Instance` definition to request changes to the underlying infrastructure. Changes to the instance specification would automatically propagate to these subresources through the top-level `Instance` controller. Each subresource implemented an abstraction called "task driver" that generalized the ability for the top-level `Instance` controller to poll for completion or errors in a uniform manner.
 
-![](../../assets/images/posts/multi-single-tenant/subresources.png)
-
-This diagram from my original RFC is a little outdated because our "instance" custom resource controller never ended up interacting with any "tasks": all task execution management was handled by a corresponding subresource in a 1:1 manner.
+<figure>
+    <img src="../../assets/images/posts/multi-single-tenant/subresources.png" />
+    <figcaption>
+    Updated diagram adapted from my original RFC illustrating how the parent "Instance" controller creates child "subresources", which each own reconciling a specific component of an instance's state.
+    </figcaption>
+</figure>
 
 ### Reconciliation
 
@@ -150,14 +163,14 @@ After the steps above, where `O` is reconciled several times, all attributes of 
 
 ### Writing the code
 
-In [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) code terms (the SDK we use to build custom Kubernetes CRDs), reconciliations are effectively the `Reconcile` method of a controller implementation being called repeatedly on an object in the cluster. `Reconcile` implementations can get pretty long, however, even from examples I looked at from other projects. Using [gocyclo](https://github.com/fzipp/gocyclo) to evaluate the cyclomatic complexity (a crude measure of "how many code paths are in this function") of the top-level `Instance` controller today, we get a relatively high score:
+In [Kubebuilder](https://github.com/kubernetes-sigs/kubebuilder) code terms (the SDK we use to build custom Kubernetes CRDs), reconciliations are effectively the `Reconcile` method of a controller implementation being called repeatedly on an object in the cluster. `Reconcile` implementations can get pretty long, however, even from examples I looked at from other projects. Using [gocyclo](https://github.com/fzipp/gocyclo) to evaluate the "cyclomatic complexity" (a crude measure of "how many code paths are in this function") of the top-level `Instance` controller today, we get a cyclomatic complexity score almost twice as high as the rule-of-thumb "good" score of 15:
 
 ```
 $ gocyclo ./cmd/manager/controllers/instance_controller.go
 31 controllers (*InstanceReconciler).Reconcile ./cmd/manager/controllers/instance_controller.go:107:1
 ```
 
-Even this is already fairly abstracted, as a lot of the complicated reconciliation that needs to take place by executing and tracking "Tasks" is delegated to subresource controllers. The top-level `Instance` controller only handles interpreting what subresources need to be updated to bring the Cloud instance to the desired state.
+Even with a cyclomatic complexity score of 31, this is already fairly abstracted, as a lot of the complicated reconciliation that needs to take place by executing and tracking "Tasks" is delegated to subresource controllers. The top-level `Instance` controller only handles interpreting what subresources need to be updated to bring the Cloud instance to the desired state.
 
 To keep this complexity under control, I developed a pattern for making "sub-reconcilers": using package functions `<some resource>.Ensure`, these mini reconcilers would accept a variety of interfaces, with a touch of generics, that help us reuse similar behaviour over many subresources. The largest of these is `taskdriver.Ensure`, which encapsulates most of the logic required to dispatch task executions, track their progress, and collect their output.
 
@@ -166,7 +179,7 @@ $ gocyclo ./cmd/manager/controllers/taskdriver/taskdriver.go
 57 taskdriver Ensure ./cmd/manager/controllers/taskdriver/taskdriver.go:123:1
 ```
 
-This implementation spans around 550 lines, with nearly 1000 lines of tests providing 72% coverage on `taskdriver.Ensure` - not bad for a component dealing extensively with integrations.
+With a cyclomatic complexity score of 57, this implementation spans around 550 lines, and is covered by nearly 1000 lines of tests providing 72% coverage on `taskdriver.Ensure` - not bad for a component dealing extensively with integrations.
 
 This investment in a robust, re-usable component has paid dividends: the abstraction serves 5 "subresources" today, each handling a different aspect of Cloud instance management, and generalizes the implementation of:
 
@@ -294,7 +307,7 @@ func (r *UpgradeInstanceTaskReconciler) Reconcile(ctx context.Context, req ctrl.
 
 This allows the system to be easily extended to accomodate more types of subresources to handle different tasks, allowing implementors to focus on the Task execution that gets the work done, before plugging it into the control plane with a fairly small integration surface.
 
-## Summary diagram
+### Control plane lifecycle summary
 
 Putting it all together, here's a diagram I wrote up for some internal dev docs showing the lifecycle of a change a human operator might make to an instance:
 
@@ -367,11 +380,15 @@ I don't know if that helps much, but I think it looks nice!
 
 ## The future
 
-Sadly, I no longer work on the Sourcegraph Cloud platform, but I've seen some pretty nifty extensions have been built: an automatic disk resizer, and "ephemeral instances", which can be used internally to deploy a branch of a Sourcegraph codebase to a temporary Cloud instance with just a few commands. The rollout of the Cloud control plane, and adoption of Cloud from customers, have battle-tested the platform, and a lot of work has been done to cover more edge cases and improve the resilience of the Cloud control plane. There's also DX improvements, such as robust support for our internal concepts in [ArgoCD](https://argo-cd.readthedocs.io/en/stable/), allowing health and progress summaries to be surfaced in a friendly interface:
+Sadly, I no longer work on the Sourcegraph Cloud platform, but since its launch, this system has delivered on our goals: today, the Cloud control plane operates over 150 completely isolated single-tenant Sourcegraph instances with a core team of just 2 to 3 engineers, nearly double the size of the fleet when we started this project.
+
+The Cloud control plane has also proven extensible: I've seen some pretty nifty extensions built since I departed the project, like an automatic disk resizer and "ephemeral instances", which can be used internally to deploy a branch of a Sourcegraph codebase to a temporary Cloud instance with just a few commands. Various features have also been added to accomodate scaling needs and specific customer requirements.
+
+The rollout of the Cloud control plane, and adoption of Cloud from customers, have battle-tested the platform, and a lot of work has been done to cover more edge cases and improve the resilience of the Cloud control plane. There's also DX improvements, such as robust support for our internal concepts in [ArgoCD](https://argo-cd.readthedocs.io/en/stable/), allowing health and progress summaries to be surfaced in a friendly interface:
 
 ![](/assets/images/posts/multi-single-tenant/argocd-1.png)
 
-Through all this the core concepts have largely remained since I left the team however, which is a relief for sure. I'm very excited to see where else the team goes with the Sourcegraph Cloud offering, both internally and externally!
+The design of the Cloud control plane has allowed all these additions to be built in a sustainable fashion for the small Cloud team that operates it. The core concepts we initially designed for the Cloud control plane have largely remained intact, which is a relief for sure. I'm very excited to see where else the team goes with the Sourcegraph Cloud offering, both internally and externally!
 
 <br />
 
@@ -381,6 +398,10 @@ Sourcegraph builds universal code search for every developer and company so they
 Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
 
 Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
+
+<br />
+
+---
 
 [^managedsmtp]: I built and launched this ("managed SMTP"), which configured an external email vendor automatically so that Cloud instances could start sending emails "off the shelf".
 [^rfcs]: RFCs at Sourcegraph used to be primarily published as public Google Documents. This has become a bit rarer over the years, but hopefully this link doesn't stop working!
