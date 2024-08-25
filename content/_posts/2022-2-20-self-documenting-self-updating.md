@@ -166,11 +166,11 @@ func GitServer() *monitoring.Container {
 <figure>
     <figcaption>
         Explore
-        <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/monitoring/definitions/git_server.go">what our monitoring generator looks like today</a>!
+        <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/monitoring/definitions/git_server.go">what our monitoring generator looks like today</a>!
     </figcaption>
 </figure>
 
-Since the specification is built on a typed language, the API itself is self-documenting in that authors of monitoring definitions can easily access what options are available and what each does through [generated API docs](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/docs/monitoring/monitoring) or code intelligence available in Sourcegraph or in your IDE, making it very easy to pick up and work with.
+Since the specification is built on a typed language, the API itself is self-documenting in that authors of monitoring definitions can easily access what options are available and what each does through [generated API docs](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/docs/monitoring/monitoring) or code intelligence available in Sourcegraph or in your IDE, making it very easy to pick up and work with.
 
 ![](../../assets/images/posts/self-documenting/monitoring-api-hover.png)
 
@@ -185,13 +185,13 @@ We also now have a tool, [`sg`](https://docs.sourcegraph.com/dev/background-info
 
 This all comes together to form a cohesive monitoring development and usage ecosystem that is tightly integrated, encodes best practices, self-documenting (both in the content it generates as well as the APIs available), and easy to extend.
 
-Learn more about our observability ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/observability), and check out the [monitoring generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/monitoring/monitoring).
+Learn more about our observability ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/observability), and check out the [monitoring generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/monitoring/monitoring).
 
 <br />
 
 ## Continuous integration pipelines
 
-At Sourcegraph, our core continuous integration pipeline are - you guessed it - generated! Our [pipeline generator program](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/enterprise/dev/ci) analyses a build's variables (changes, branch names, commit messages, environment variables, and more) in order to create a pipeline to run on our [Buildkite](https://buildkite.com/) agent fleet.
+At Sourcegraph, our core continuous integration pipeline are - you guessed it - generated! Our [pipeline generator program](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/tree/enterprise/dev/ci) analyses a build's variables (changes, branch names, commit messages, environment variables, and more) in order to create a pipeline to run on our [Buildkite](https://buildkite.com/) agent fleet.
 
 Typically, [Buildkite pipelines](https://buildkite.com/docs/pipelines/defining-steps) are specified similarly to [GitHub Action workflows](https://docs.github.com/en/actions/using-workflows/workflow-syntax-for-github-actions) - by committing a YAML file to your repository that build agents pick up and run. This YAML file will specify what commands should get run over your codebase, and will usually support some simple conditions.
 
@@ -330,7 +330,7 @@ With just the pretty minimal configuration above, each step is generated with a 
   - agents:
       queue: standard
     command:
-    - ./tr ./dev/ci/go-backcompat/test.sh only github.com/sourcegraph/sourcegraph/internal/database
+    - ./tr ./dev/ci/go-backcompat/test.sh only github.com/sourcegraph/sourcegraph-public-snapshot/internal/database
     env:
       MINIMUM_UPGRADEABLE_VERSION: 3.36.0
     key: gopostgresBackcompattestinternaldatabase
@@ -343,7 +343,7 @@ In this snippet, we have:
 - A default queue to run the job on - this can be feature-flagged to run against experimental agents.
 - The shared `MINIMUM_UPGRADEABLE_VERSION` variable that gets used for other steps as well, such as upgrade tests.
 - A generated key, useful for identifying steps and creating [step dependencies](https://buildkite.com/docs/pipelines/dependencies).
-- Commands prefixed with `./tr`: [this script](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/enterprise/dev/ci/scripts/trace-command.sh) creates and uploads traces for our builds!
+- Commands prefixed with `./tr`: [this script](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/enterprise/dev/ci/scripts/trace-command.sh) creates and uploads traces for our builds!
 
 <figure>
     <img src="/assets/images/posts/self-documenting/pipeline-trace.png">
@@ -353,7 +353,7 @@ In this snippet, we have:
     </figcaption>
 </figure>
 
-Features like the build step traces [was implemented without having to make sweeping changes pipeline configuration](https://github.com/sourcegraph/sourcegraph/pull/29444/files), thanks to the generated approach - we just had to adjust the generator to inject the appropriate scripting, and now it _just works_ across all commands in the pipeline.
+Features like the build step traces [was implemented without having to make sweeping changes pipeline configuration](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/29444/files), thanks to the generated approach - we just had to adjust the generator to inject the appropriate scripting, and now it _just works_ across all commands in the pipeline.
 
 Additional functions are also available that tweak how a step is created. For example, with `bk.AnnotatedCmd` one can indicate that a step will generate annotations by writing to `./annotations` - a wrapper script is configured to make sure these annotations gets picked up and uploaded via Buildkite's API:
 
@@ -454,7 +454,7 @@ for rt := runtype.PullRequest + 1; rt < runtype.None; rt += 1 {
 <figure>
     <img src="/assets/images/posts/self-documenting/sg-ci-docs.png">
     <figcaption>
-        A web version of this reference page is also published to the <a href="https://docs.sourcegraph.com/dev/background-information/continuous_integration">pipeline types reference</a>. You can also check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/enterprise/dev/ci/gen-pipeline.go">docs generation code</a> directly!
+        A web version of this reference page is also published to the <a href="https://docs.sourcegraph.com/dev/background-information/continuous_integration">pipeline types reference</a>. You can also check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/enterprise/dev/ci/gen-pipeline.go">docs generation code</a> directly!
     </figcaption>
 </figure>
 
@@ -493,13 +493,13 @@ Using a similar iteration over the available run types we can also provide toolt
 <figure>
     <img src="/assets/images/posts/self-documenting/sg-ci-build.png">
     <figcaption>
-        Check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/blob/dev/sg/sg_ci.go"><code>sg ci build</code> source code</a> directly, or the <a href="https://github.com/sourcegraph/sourcegraph/pull/30932#discussion_r803196181">discussion behind the inception of this feature</a>.
+        Check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/dev/sg/sg_ci.go"><code>sg ci build</code> source code</a> directly, or the <a href="https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/30932#discussion_r803196181">discussion behind the inception of this feature</a>.
     </figcaption>
 </figure>
 
 So now we have generated pipelines, documentation about them, the capability to extend pipeline specifications with additional feature like tracing, _and_ tooling that is integrated and automatically kept in sync with pipeline specifications - all derived from a single source of truth!
 
-Learn more about our continuous integration ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/continuous_integration), and check out the [pipeline generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph/-/tree/enterprise/dev/ci).
+Learn more about our continuous integration ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/continuous_integration), and check out the [pipeline generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/tree/enterprise/dev/ci).
 
 <br />
 

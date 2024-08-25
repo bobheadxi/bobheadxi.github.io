@@ -15,9 +15,11 @@ description: "July 2021 - Present | Remote"
 author: robert
 ---
 
-Since July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph), firstly in the the newly created [Developer Experience team](#developer-experience) for about 5 months and later in the [Sourcegraph Cloud team](#sourcegraph-cloud).
+Since July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph) in various teams across the company over time.
 
-Most of the company's work is open-source (to a lesser extent on the Sourcegraph Cloud team), so you can [see some of my contributions for Sourcegraph on GitHub](https://github.com/search?q=org%3Asourcegraph+author%3Abobheadxi+is%3Amerged+created%3A%3E2021-05-01&type=pullrequests&s=comments&o=desc)!
+- [Core Services](#core-services)
+- [Sourcegraph Cloud](#sourcegraph-cloud)
+- [Developer experience](#developer-experience)
 
 ## Core Services
 
@@ -39,7 +41,7 @@ During my 15 months as part of the Developer Experience team, I contributed exte
 - [`sg`, the Sourcegraph developer tool](https://docs.sourcegraph.com/dev/background-information/sg), in particular building out a infrastructure to [allow development of `sg` to scale](../_posts/2022-10-10-investing-in-development-of-devx.md)
 - Sourcegraph's continuous integration infrastructure and CI pipeline generator
 - the Sourcegraph monitoring generator, which manages converting monitoring definitions into integrations with Sourcegraph's monitoring ecosystem like Grafana dashboards, Prometheus Alertmanager alerts, and generated alert response documentation.
-- driving the discussion, implementation, and adoption of [standardised logging](https://github.com/sourcegraph/sourcegraph/pull/33956) and [OpenTelemetry](https://github.com/sourcegraph/sourcegraph/issues/39397) in Sourcegraph
+- driving the discussion, implementation, and adoption of [standardised logging](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/33956) and [OpenTelemetry](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/39397) in Sourcegraph
 - designing and building a new architecture for [scalable, stateless continuous integration agents](../_posts/2022-4-18-stateless-ci.md)
 
 ...and more.
@@ -47,7 +49,7 @@ During my 15 months as part of the Developer Experience team, I contributed exte
 In addition to work directly related to the Developer Experience teams' ownership areas, I also contributed to other parts of the core Sourcegraph application during my time with the team, such as:
 
 - [scaling GitHub permissions mirroring](../_posts/2021-10-8-mirroring-github-permissions-at-scale.md) for large enterprises and supporting the continued maintenance of Sourcegraph's permissions syncing systems
-- designing and developing [an extended permissions model for Sourcegraph](https://github.com/sourcegraph/sourcegraph/issues/27916), notably [implementing expanded access control parsing for Perforce](https://github.com/sourcegraph/sourcegraph/pull/26745)
+- designing and developing [an extended permissions model for Sourcegraph](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/27916), notably [implementing expanded access control parsing for Perforce](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/26745)
 
 <br />
 

@@ -40,7 +40,7 @@ The time to sync increases dramatically for even larger numbers of users and rep
 
 ## Sourcegraph and repository authorization
 
-I got my first hands-on experience with Sourcegraph's authorization providers when [expanding `p4 protect` support for the Perforce integration](https://github.com/sourcegraph/sourcegraph/pull/23755).
+I got my first hands-on experience with Sourcegraph's authorization providers when [expanding `p4 protect` support for the Perforce integration](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/23755).
 
 In a nutshell, Sourcegraph internally defines an interface *authorization providers* can implement to provide access lists for users (*user-centric* permissions) and repositories (*repo-centric* permissions) - [`authz.Provider`](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@8685a6bef8c3e9d2556335cb25448dbc1b356a4a/-/blob/internal/authz/iface.go) - to populate a single source-of-truth table for permissions.
 This happens continuously and passively in the background. The populated table is then queried by various code paths that use the data to decide what content can and cannot be shown to a user.
@@ -116,9 +116,9 @@ Even if we had a 100 teams and organizations, this would fall under the hourly r
 
 To mitigate outdated caches, a flag to the provider interface was added to allow partial cache invalidation along the path of a sync (important because you don't want every single team and organization queued for a sync all at once) and tying it into the various ways of triggering a sync (notably webhook receivers and the API).
 
-The approach was promising, and a feature-flagged[^flagged] user-centric sync backed by a Redis cache was implemented in [sourcegraph#23978 authz/github: user-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph/pull/23978).
+The approach was promising, and a feature-flagged[^flagged] user-centric sync backed by a Redis cache was implemented in [sourcegraph#23978 authz/github: user-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/23978).
 
-[^flagged]: Well, admittedly, it was only feature-flagged to off by default [in a follow-up PR](https://github.com/sourcegraph/sourcegraph/pull/24318) when I realised this required additional authentication scopes we do not request by default against the GitHub API (in order to query organizations and teams).
+[^flagged]: Well, admittedly, it was only feature-flagged to off by default [in a follow-up PR](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/24318) when I realised this required additional authentication scopes we do not request by default against the GitHub API (in order to query organizations and teams).
 
 ## Two-way sync
 
@@ -145,7 +145,7 @@ org/team: {
 
 On paper, the performance improvements gained here are similar to the ones when implementing caching for user-centric sync, except scaling off the number of users in teams and organizations instead of repositories.
 
-This was implemented in [sourcegraph#24328 authz/github: repo-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph/pull/24328).
+This was implemented in [sourcegraph#24328 authz/github: repo-centric perms sync from team/org perms caches](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/24328).
 
 ## Scaling in practice
 
@@ -166,13 +166,13 @@ All was well at first in the trial run - the backlog of repositories queued for 
 
 Metrics indicated jobs were timing out, and a look at the logs revealed thousands upon thousands of lines of random comma-delimited numbers. It seemed that printing all this junk was causing the service to stall, and sure enough [setting the log driver to `none`](https://docs.docker.com/config/containers/logging/configure/#configure-the-logging-driver-for-a-container) to disable all output on the relevant service allowed the sync to proceed and continue.
 
-Where did the log come from? [I left a stray `log.Printf("%+v\n", group)` in there when I was debugging cache entries](https://github.com/sourcegraph/sourcegraph/pull/24822). At scale these entries could contain many thousands of entries, causing the system to degrade. Be careful what you log!
+Where did the log come from? [I left a stray `log.Printf("%+v\n", group)` in there when I was debugging cache entries](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/24822). At scale these entries could contain many thousands of entries, causing the system to degrade. Be careful what you log!
 
 ### Postgres parameter limits
 
-A service we call `repo-updater` has an internal service called `PermsSyncer` that manages a queue of jobs to request updated access lists using these authorization providers for users and repositories based on a variety of heuristics such as permissions age, as well as on events like webhooks and repository visits ([diagram](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@8685a6bef8c3e9d2556335cb25448dbc1b356a4a/-/blob/enterprise/cmd/repo-updater/internal/authz/doc.go)). Access lists returned by authorization providers are upserted into a single [`repo_permissions` table](https://github.com/sourcegraph/sourcegraph/blob/main/internal/database/schema.md#table-publicrepo_permissions) that is the source of truth for all repositories a *Sourcegraph* user can access, and vice versa.
+A service we call `repo-updater` has an internal service called `PermsSyncer` that manages a queue of jobs to request updated access lists using these authorization providers for users and repositories based on a variety of heuristics such as permissions age, as well as on events like webhooks and repository visits ([diagram](https://sourcegraph.com/github.com/sourcegraph/sourcegraph@8685a6bef8c3e9d2556335cb25448dbc1b356a4a/-/blob/enterprise/cmd/repo-updater/internal/authz/doc.go)). Access lists returned by authorization providers are upserted into a single [`repo_permissions` table](https://github.com/sourcegraph/sourcegraph-public-snapshot/blob/main/internal/database/schema.md#table-publicrepo_permissions) that is the source of truth for all repositories a *Sourcegraph* user can access, and vice versa.
 
-Entries can also be upserted into a table called [`repo_pending_permissions`](https://github.com/sourcegraph/sourcegraph/blob/main/internal/database/schema.md#table-publicrepo_pending_permissions), which is home to permissions that do not have a Sourcegraph user attached yet. When a user logs in via a code host's OAuth mechanism to Sourcegraph, the user's Sourcegraph identity attached to the user's identity on that code host (this allows a Sourcegraph user to be associated with multiple code hosts), and relevant entries in `repo_pending_permissions` are "granted" to the user.
+Entries can also be upserted into a table called [`repo_pending_permissions`](https://github.com/sourcegraph/sourcegraph-public-snapshot/blob/main/internal/database/schema.md#table-publicrepo_pending_permissions), which is home to permissions that do not have a Sourcegraph user attached yet. When a user logs in via a code host's OAuth mechanism to Sourcegraph, the user's Sourcegraph identity attached to the user's identity on that code host (this allows a Sourcegraph user to be associated with multiple code hosts), and relevant entries in `repo_pending_permissions` are "granted" to the user.
 
 This means that once the massive number of repositories in the trial run was fully mirrored from GitHub, a user attempting to log in could have a huge set of pending permissions granted to it all at once. Of course, this broke with a fun-looking error:
 
@@ -258,7 +258,7 @@ FROM
  unnest(ARRAY['hello','world']::TEXT[], ARRAY['1,2,3','4,5,6']::TEXT[]) AS t(a, b)
 ```
 
-An `EXPLAIN ANALYZE` on the 5000-row sample query that didn't hit the parameter limit, however, indicated that the performance of this was about 5x worse than before (with a cost of 337.51, compared to the previous cost of 62.50). It was also a bit of a dirty hack anyway, so I ended up resorting to simply paging the insert instead to avoid hitting the parameter limit. This was implemented in [sourcegraph#24852 database: page upsertRepoPermissionsBatchQuery](https://github.com/sourcegraph/sourcegraph/pull/24852).
+An `EXPLAIN ANALYZE` on the 5000-row sample query that didn't hit the parameter limit, however, indicated that the performance of this was about 5x worse than before (with a cost of 337.51, compared to the previous cost of 62.50). It was also a bit of a dirty hack anyway, so I ended up resorting to simply paging the insert instead to avoid hitting the parameter limit. This was implemented in [sourcegraph#24852 database: page upsertRepoPermissionsBatchQuery](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/24852).
 
 However, it seemed that this was not the only instance of us exceeding the parameter limits. Another query was running into a similar issue on a different customer instance. This time, there were no array types in the values being inserted, so I was able to try out the insert-as-arrays workaround:
 
@@ -290,7 +290,7 @@ This implementation of the query was slower for smaller cases, but for larger da
 
 I originally had the function decide which query to use based on the size of the insert, but during code review it was recommended that we just stick to one implementation for simplicity, since permissions mirroring happens asynchronously and is not particularly latency-sensitive.
 
-This was implemented in [sourcegraph#24972 database: provide upsertUserPendingPermissionsBatchQuery insert values as array](https://github.com/sourcegraph/sourcegraph/pull/24972/files).
+This was implemented in [sourcegraph#24972 database: provide upsertUserPendingPermissionsBatchQuery insert values as array](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/24972/files).
 
 ## Results
 

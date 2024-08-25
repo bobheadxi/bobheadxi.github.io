@@ -67,7 +67,7 @@ Note that all the code internals mentioned in this post may change - you can vie
 
 Additionally, I am basically a complete outsider when it comes to our search internals, and the search code I interact with in this post was built by [Sourcegraph's fantastic search teams](https://handbook.sourcegraph.com/departments/product-engineering/engineering/code-graph/search/), so kudos[^kudos] to the teams for making this hack possible in the first place!
 
-[^kudos]: So somewhat embarrassingly, on one of my iterations of this project [I complained a bit about the tedium of the many layers in the search backend](https://github.com/sourcegraph/sourcegraph/pull/33161), at which point I was educated by [Comby (structural search)](https://comby.dev/) creator [@rvantonder](https://github.com/rvantonder) on how [cleaning up the search internals is an ongoing effort and has improved significantly over the past year](https://github.com/sourcegraph/sourcegraph/pull/33161#issuecomment-1081441870). One of my biggest takeaways from this project is that search a very complex system and that building a suitable abstraction for the myriad of types of search that Sourcegraph already features is a monumental undertaking!
+[^kudos]: So somewhat embarrassingly, on one of my iterations of this project [I complained a bit about the tedium of the many layers in the search backend](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/33161), at which point I was educated by [Comby (structural search)](https://comby.dev/) creator [@rvantonder](https://github.com/rvantonder) on how [cleaning up the search internals is an ongoing effort and has improved significantly over the past year](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/33161#issuecomment-1081441870). One of my biggest takeaways from this project is that search a very complex system and that building a suitable abstraction for the myriad of types of search that Sourcegraph already features is a monumental undertaking!
 
 ## Introducing a search job
 
@@ -782,7 +782,7 @@ You can also check out a brief final demo I made of the state of the project at 
 
 [![demo](https://cdn.loom.com/sessions/thumbnails/23c8d3f23bf942f3ba24896472047f5b-1648802342917-with-play.gif)](https://www.loom.com/share/23c8d3f23bf942f3ba24896472047f5b)
 
-You can also check out the (messy) (and incomplete) code here: [sourcegraph#33316](https://github.com/sourcegraph/sourcegraph/pull/33316)
+You can also check out the (messy) (and incomplete) code here: [sourcegraph#33316](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/33316)
 
 <br />
 

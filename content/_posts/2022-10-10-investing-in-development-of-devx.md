@@ -179,7 +179,7 @@ A service configuration might look like:
       if [ -n "$DELVE" ]; then
         export GCFLAGS='all=-N -l'
       fi
-      go build -gcflags="$GCFLAGS" -o .bin/oss-frontend github.com/sourcegraph/sourcegraph/cmd/frontend
+      go build -gcflags="$GCFLAGS" -o .bin/oss-frontend github.com/sourcegraph/sourcegraph-public-snapshot/cmd/frontend
     checkBinary: .bin/oss-frontend
     env:
       CONFIGURATION_MODE: server
@@ -231,7 +231,7 @@ For example, we can configure `PATH` for you, or make sure things are installed 
 Enabling the development of good tooling, scripting, automation makes a difference.
 There’s a lot that can be done to improve how tooling is developed and improved, like the ideas I’ve brought up in this post - we don't have to settle for cryptic tooling everywhere!
 
-If you’re interested in how all this is implemented, [`sg` is open source - come check us out on GitHub](https://github.com/sourcegraph/sourcegraph/tree/main/dev/sg)!
+If you’re interested in how all this is implemented, [`sg` is open source - come check us out on GitHub](https://github.com/sourcegraph/sourcegraph-public-snapshot/tree/main/dev/sg)!
 
 *Note - I had originally hoped to present this as a lightning talk at Gophercon Chicago 2022, but I was too late to queue up on the day of the presentations, so I figured might as well turn it into a post.*
 
