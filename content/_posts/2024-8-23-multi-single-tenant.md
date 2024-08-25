@@ -190,7 +190,15 @@ With a cyclomatic complexity score of 57, this implementation spans around 550 l
 This investment in a robust, re-usable component has paid dividends: the abstraction serves 5 "subresources" today, each handling a different aspect of Cloud instance management, and generalises the implementation of:
 
 - **Diff detection**: During reconciliation you cannot (by design) refer to a "previous version" of your resource. `taskdriver.Ensure` handles detecting if a task execution has already been dispatched, and whether a new one needs to be dispatched for the current inputs.
-- **Tracking Task executions**: `taskdriver.Ensure` handles creating Task executions, tracking their status, and collecting their outputs across many reconciles. Notable events are tracked in "conditions", an ephemeral state field that records the last *N* interesting events to a subresource. ![](/assets/images/posts/multi-single-tenant/argocd-2.png)
+- **Tracking Task executions**: `taskdriver.Ensure` handles creating Task executions, tracking their status, and collecting their outputs across many reconciles. Notable events are tracked in "conditions", an ephemeral state field that records the last *N* interesting events to a subresource.
+
+<figure>
+    <img src="../../assets/images/posts/multi-single-tenant/argocd-2.png" />
+    <figcaption>
+    Sequence of TaskDriver events as viewed in <a href="https://argo-cd.readthedocs.io/en/stable/">ArgoCD</a>, from creation, to checking for completion, to detected completion.
+    </figcaption>
+</figure>
+
 - **Concurrency control**: Subresources often need global concurrency management (to throttle the rate at which we hit external resources like Terraform Cloud) as well as per-instance concurrency management (e.g. an upgrade can't happen at the same time as a `kubectl apply`). `taskdriver.Ensure` consumes a configurable concurrency controller that can be tweaked based on the workload.
 - **Teardown and orphaned resource management**: On deletion of a subresource, `taskdriver.Ensure` can handle ["finalisation"](https://kubernetes.io/docs/concepts/overview/working-with-objects/finalizers/) of tasks resources, deleting past executions in GCP Cloud Run. This is most useful for one-time-use subresources like instance upgrades - over time, we can delete our records of past upgrades for an instance. `taskdriver.Ensure` has also since been extended to handle picking up and clearing Task executions.
 - **Uniform observability**: Logs and metrics emitted by `taskdriver.Ensure` allow our various subresources to be monitored the same way for alerting and debugging.
@@ -392,7 +400,12 @@ The Cloud control plane has also proven extensible: I've seen some pretty nifty 
 
 The rollout of the Cloud control plane, and adoption of Cloud from customers, have battle-tested the platform, and a lot of work has been done to cover more edge cases and improve the resilience of the Cloud control plane. There's also DX improvements, such as robust support for our internal concepts in [ArgoCD](https://argo-cd.readthedocs.io/en/stable/), allowing health and progress summaries to be surfaced in a friendly interface:
 
-![](/assets/images/posts/multi-single-tenant/argocd-1.png)
+<figure>
+    <img src="../../assets/images/posts/multi-single-tenant/argocd-1.png" />
+    <figcaption>
+    Note the parent resource ("instance") and the subresources it owns ("instanceinvariants", "instancekubernetes", and friends).
+    </figcaption>
+</figure>
 
 The design of the Cloud control plane has allowed all these additions to be built in a sustainable fashion for the small Cloud team that operates it. The core concepts we initially designed for the Cloud control plane have largely remained intact, which is a relief for sure. I'm very excited to see where else the team goes with the Sourcegraph Cloud offering, both internally and externally!
 
