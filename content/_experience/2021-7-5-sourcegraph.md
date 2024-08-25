@@ -27,7 +27,7 @@ With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph
 
 As Sourcegraph [pivoted](https://about.sourcegraph.com/blog/single-tenant-cloud) towards prioritising our [managed single-tenant Sourcegraph Cloud offering](https://docs.sourcegraph.com/cloud), I joined the [Cloud team](https://handbook.sourcegraph.com/departments/cloud/) in October 2022 to build out the next-generation platform for deploying and operating hundreds of Sourcegraph instances for customers. I worked on the Cloud team for around 11 months, during which I worked on:
 
-- designing and building our next-generation [Sourcegraph Cloud instances control plane](../_posts/2024-6-20-multi-single-tenant.md)
+- designing and building our next-generation [Sourcegraph Cloud instances control plane](../_posts/2024-8-23-multi-single-tenant.md)
 - conducting the vendor evaluation and implementation of out-of-the-box SMTP (email delivery) capabilities for Sourcegraph Cloud instances
 
 ## Developer experience

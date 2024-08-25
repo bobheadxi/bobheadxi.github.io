@@ -13,7 +13,7 @@ tag:
 star: false
 category: blog
 author: robert
-featured: true
+featured: false
 description: Docker, docker-compose, and SSH services in Docker
 ---
 

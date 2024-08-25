@@ -1,12 +1,12 @@
 ---
-title: Scaling Sourcegraph's multi-single-tenant managed offering
+title: Scaling Sourcegraph's managed multi-single-tenant product
 layout: post
-image: /assets/images/posts/multi-single-tenant/sg.png
+image: /assets/images/posts/multi-single-tenant/control-plane.png
 hero_image: false
 headerImage: true
 maths: false
-featured: false
-diagrams: false
+featured: true
+diagrams: true
 tag:
 - kubernetes
 - golang
@@ -14,10 +14,16 @@ tag:
 - sourcegraph
 category: blog
 author: robert
-description: Laying the foundations for operating hundreds of Sourcegraph instances
+description: laying the foundations for operating hundreds of Sourcegraph instances
 ---
 
-During my [internship at Sourcegraph](../_experience/2020-5-7-sourcegraph-intern.md), the company took a stab at a managed offering of our [traditionally self-hosted, on-premises code search product](https://sourcegraph.com/code-search): a "multi-single tenant" product where each "instance" was a normal Sourcegraph deployment operated on isolated infrastructure managed by the company. A rushed implementation was built to serve the very small number of customers that were interested in a managed Sourcegraph offering, a product initialled called "managed instances".  A team of talented engineers took over the "managed instances" platform and launched the next generation of the product, which we dubbed "Cloud V2" internally. As the customer base for this offering grew, I was offered the opportunity to join this team to scale out "Cloud V2" to support the hundreds of instances the company aimed to reach - which it does today!
+As the customer base for Sourcegraph's "multi-single tenant" Sourcegraph Cloud offering grew, I had the opportunity to join the team to scale out the platform to support the hundreds of instances the company aimed to reach - which it does today!
+
+Sourcegraph's first stab at a managed offering of our [traditionally self-hosted, on-premises code search product](https://sourcegraph.com/code-search) started way back during my [internship at Sourcegraph](../_experience/2020-5-7-sourcegraph-intern.md). Dubbed "managed instances", this was a "multi-single tenant" product where each "instance" was a normal Sourcegraph deployment operated on isolated infrastructure managed by the company. A rushed implementation was built to serve the very small number of customers that were initially interested in a managed Sourcegraph offering.
+
+Managed Sourcegraph instances proved to be a good model for customers and Sourcegraph engineers alike: customers did not need to deal with the hassle of managing infrastructure and upgrades, and Sourcegraph engineers had direct access to diagnose problems and ensure a smooth user experience. The multi-single-tenant model ensured customer data remained securely isolated.
+
+The decision was made to invest more in the "managed instances" platform with the goal of bringing "Sourcegraph Cloud" to  general availability, and eventually make it the preferred option for all customers onboarding to Sourcegraph. A team of talented engineers took over to build what was internally referred to as "Cloud V2".
 
 I'm pretty proud of the work I ended up doing on this project, the "Cloud control plane", and am very happy to see what the project has enabled since I left the Sourcegraph Cloud team in September 2023. So I thought it might be cool to write a little bit about what we did!
 
