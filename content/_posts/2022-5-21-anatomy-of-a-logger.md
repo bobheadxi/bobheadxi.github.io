@@ -116,25 +116,25 @@ As a more scientific approach to demonstrating the benefits of Zap's implementat
 >
 > | Package | Time | Time % to zap | Objects Allocated |
 > | :------ | :--: | :-----------: | :---------------: |
-> | :zap: zap | 2900 ns/op | +0% | 5 allocs/op
-> | :zap: zap (sugared) | 3475 ns/op | +20% | 10 allocs/op
-> | zerolog | 10639 ns/op | +267% | 32 allocs/op
-> | go-kit | 14434 ns/op | +398% | 59 allocs/op
-> | logrus | 17104 ns/op | +490% | 81 allocs/op
-> | apex/log | 32424 ns/op | +1018% | 66 allocs/op
-> | **log15** | **33579 ns/op** | **+1058%** | **76 allocs/op**
+> | :zap: zap | 2900 ns/op | +0% | 5 allocs/op |
+> | :zap: zap (sugared) | 3475 ns/op | +20% | 10 allocs/op |
+> | zerolog | 10639 ns/op | +267% | 32 allocs/op |
+> | go-kit | 14434 ns/op | +398% | 59 allocs/op |
+> | logrus | 17104 ns/op | +490% | 81 allocs/op |
+> | apex/log | 32424 ns/op | +1018% | 66 allocs/op |
+> | **log15** | **33579 ns/op** | **+1058%** | **76 allocs/op** |
 >
 > Log a message with a logger that already has 10 fields of context:
 >
 > | Package | Time | Time % to zap | Objects Allocated |
 > | :------ | :--: | :-----------: | :---------------: |
-> | :zap: zap | 373 ns/op | +0% | 0 allocs/op
-> | :zap: zap (sugared) | 452 ns/op | +21% | 1 allocs/op
-> | zerolog | 288 ns/op | -23% | 0 allocs/op
-> | go-kit | 11785 ns/op | +3060% | 58 allocs/op
-> | logrus | 19629 ns/op | +5162% | 70 allocs/op
-> | **log15** | **21866 ns/op** | **+5762%** | **72 allocs/op**
-> | apex/log | 30890 ns/op | +8182% | 55 allocs/op
+> | :zap: zap | 373 ns/op | +0% | 0 allocs/op |
+> | :zap: zap (sugared) | 452 ns/op | +21% | 1 allocs/op |
+> | zerolog | 288 ns/op | -23% | 0 allocs/op |
+> | go-kit | 11785 ns/op | +3060% | 58 allocs/op |
+> | logrus | 19629 ns/op | +5162% | 70 allocs/op |
+> | **log15** | **21866 ns/op** | **+5762%** | **72 allocs/op** |
+> | apex/log | 30890 ns/op | +8182% | 55 allocs/op |
 
 In these scenarios, `log15` can be a whopping **10 to 50 times slower** - very cool! Evidently Zap's approach has impressive results, and we know roughly what it *doesn't* do to achieve this performance - but how does it work in practice?
 
