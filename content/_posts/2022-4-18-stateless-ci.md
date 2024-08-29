@@ -1,5 +1,5 @@
 ---
-title: "Scaling a CI service with dynamic and stateless Kubernetes Jobs"
+title: "Dynamic and stateless Kubernetes Jobs for stable CI"
 layout: post
 image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo_without_workmark.svg/1200px-Kubernetes_logo_without_workmark.svg.png
 hero_image: /assets/images/posts/stateless-ci/dashboard.png
@@ -73,7 +73,7 @@ sequenceDiagram
 
 As long as there are jobs in the Buildkite queue, deployed agent pods would remain online until the autoscaler deems it appropriate to scale down. As such, multiple jobs could be dispatched onto the same agent before the fleet gets scaled down.
 
-While Buildkite has mechanisms for mitigating state issues across jobs, and most Sourcegraph pipelines have cleanup and best practices for migitating them as well, we occasionally still run into "botched" agents. These are particularly prevalent in jobs where tools are installed globally, or Docker containers are started but not correctly cleaned up (for example, if directories are moounted), and so on. We've also had issues where certain pods encounter network issues, causing them to fail all the jobs they accept. We also have jobs work "by accident", especially in some of our more obscure repositories, where jobs rely on tools being installed by other jobs, and suddenly stop working if they land on a "fresh" agent, or those tools get upgraded unexpected.
+While Buildkite has mechanisms for mitigating state issues across jobs, and most Sourcegraph pipelines have cleanup and best practices for mitigating them as well, we occasionally still run into "botched" agents. These are particularly prevalent in jobs where tools are installed globally, or Docker containers are started but not correctly cleaned up (for example, if directories are moounted), and so on. We've also had issues where certain pods encounter network issues, causing them to fail all the jobs they accept. We also have jobs work "by accident", especially in some of our more obscure repositories, where jobs rely on tools being installed by other jobs, and suddenly stop working if they land on a "fresh" agent, or those tools get upgraded unexpected.
 
 All of these issues eventually lead us to decide to build a stateless approach to running our Buildkite agents.
 
