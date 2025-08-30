@@ -39,7 +39,7 @@ During my time in Core Services, I:
 - lead the implementation of multi-tenant Sourcegraph's coordination and billing service
 - designed the schema and architecture for a universal system to collect telemetry data while ensuring no sensitive data is accidentally collected, and built the services and frameworks to deliver the solution: as of 8/2025, this telemetry ingestion pipeline processes over 750 million events every month from nearly all Sourcegraph customers
 - lead the Core Services team strategy
-- received two "Sourcegraph Star" awards and a "Teammate of the Year" award thanks to the kind nominations from folks across the company
+- received a "Sourcegraph Star" award, a "Teammate of the Year" award, and another "Impact Award" thanks to the kind nominations from folks across the company
 
 ## Sourcegraph Cloud
 
