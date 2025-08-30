@@ -8,7 +8,7 @@ title: About
 <h1>👋</h1>
 <h1 style="font-weight:500;margin-top:-0.5rem;text-align:center;">about me!</h1>
 
-I'm Robert, and I'm a software engineer currently working at [Sourcegraph](./content/_experience/2021-7-5-sourcegraph.md).
+I'm Robert, and I'm a software engineer currently working at [Sourcegraph](/experience/sourcegraph).
 
 <br />
 
