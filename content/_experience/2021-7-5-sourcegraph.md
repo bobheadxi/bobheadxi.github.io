@@ -5,6 +5,11 @@ tag:
 - remote
 - sourcegraph
 - golang
+- terraform
+- kubernetes
+- typescript
+- graphql
+- protobuf
 - postgres
 image: /assets/images/experience/sourcegraph.png
 headerImage: true
