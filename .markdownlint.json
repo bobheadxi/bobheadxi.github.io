@@ -1,14 +1,20 @@
 {
     "MD001": false,
-    "MD004": { "style": "consistent" },
+    "MD004": {
+        "style": "consistent"
+    },
     "MD010": false,
     "MD013": false,
     "MD022": false,
     "MD026": false,
     "MD029": false,
-    "MD031": { "list_items": false },
+    "MD031": {
+        "list_items": false
+    },
     "MD032": false,
     "MD033": false,
+    "MD034": false,
     "MD040": false,
-    "MD045": false
+    "MD045": false,
+    "MD059": false
 }

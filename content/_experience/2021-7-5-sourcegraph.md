@@ -15,7 +15,7 @@ description: "July 2021 - Present | Remote"
 author: robert
 ---
 
-Since July 2021, I have been working as a software engineer at [Sourcegraph](#about-sourcegraph) in various teams across the company over time.
+Since July 2021, I have been working as a software engineer at [Sourcegraph](https://sourcegraph.com) in various teams across the company over time.
 
 - [Core Services](#core-services), as technical lead (February 2023 to present)
 - [Sourcegraph Cloud](#sourcegraph-cloud) (October 2022 to February 2023)
@@ -25,7 +25,7 @@ Before starting full-time, I also [interned at Sourcegraph](./2020-5-7-sourcegra
 
 ## Core Services
 
-With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph.com/cody), and a new focus on product-led growth as opposed to Sourcegraph's traditionally enterprise and on-prem customer base, I joined the newly formed "Core Services" team in September 2023 to build the foundations of cloud-first services at Sourcegraph. Shortly after joining the team, I was assigned as the team's technical lead. 
+With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph.com/cody), and a new focus on product-led growth as opposed to Sourcegraph's traditionally enterprise and on-prem customer base, I joined the newly formed "Core Services" team in September 2023 to build the foundations of cloud-first services at Sourcegraph. Shortly after joining the team, I was assigned as the team's technical lead.
 
 During my time in Core Services, I:
 
