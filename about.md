@@ -14,6 +14,7 @@ I'm Robert, and I'm a software engineer currently working at [Sourcegraph](/expe
 
 ## tl;dr?
 
+Read more about my experience [here](/#work-experience).
 A condensed (and often outdated) summary of my experience is also available in [resume form](https://resume.bobheadxi.dev).
 
 <br />
