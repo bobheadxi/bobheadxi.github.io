@@ -13,7 +13,7 @@ tag:
 - sumus
 category: blog
 author: robert
-featured: true
+featured: false
 description: building a Figma Plugin for making data immediately presentable
 alt_location:
   type: DEV

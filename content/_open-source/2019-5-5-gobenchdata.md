@@ -13,7 +13,7 @@ image: /assets/images/projects/gobenchdata/demo-chart.png
 headerImage: false
 description: "<i>gobenchdata</i> - Run Go benchmarks, publish results to an interactive web app, and check for performance regressions in your pull requests"
 author: robert
-star: true
+star: false
 externalLink: false
 ---
 

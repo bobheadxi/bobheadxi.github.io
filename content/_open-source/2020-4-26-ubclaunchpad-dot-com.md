@@ -10,7 +10,7 @@ image: https://raw.githubusercontent.com/ubclaunchpad/ubclaunchpad.com/master/.s
 headerImage: true
 description: "<i>ubclaunchpad.com</i> - the new official website for Launch Pad, UBC's student-lead software engineering club"
 author: robert
-star: true
+star: false
 externalLink: false
 ---
 

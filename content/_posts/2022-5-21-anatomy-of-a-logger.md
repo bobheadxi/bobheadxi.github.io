@@ -1,7 +1,6 @@
 ---
 title: "Anatomy of a logger"
 layout: post
-image: https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/313/high-voltage_26a1.png
 hero_image: false
 headerImage: true
 maths: false
@@ -483,10 +482,3 @@ Zap's design also provides some interesting ways to hook into its behaviour - Za
 At Sourcegraph, our [new Zap-based logger](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/33192) offers utilities to [hook into an our configured logger](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/lib/log/logtest/logtest.go?L118-121) using Zap's [`WrapCore` API](https://sourcegraph.com/github.com/uber-go/zap@v1.21.0/-/blob/options.go?L42:6) to assert against log output (mostly for testing the log library itself), partly built on the existing `zaptest` utilities. We're also working on custom `Core` implementations to [automatically send logged errors to Sentry](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/35582), and we [wrap `Field` constructors](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/lib/log/fields.go) to define custom behaviours (we disallow importing directly from Zap for this reason). Pretty nifty to still have such a high degree of customizability in an implementation so focused on optimizations!
 
 <br />
-
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!

@@ -37,7 +37,7 @@ title: Home
       {% if post.hero_image %}
         <img class="image" src="{{ post.hero_image }}" width="50%" />
       {% else %}
-        <img class="image" src="{{ post.image }}" style="max-height:48px"/>
+        <img class="image" src="{{ post.image }}" style="max-height:96px"/>
       {% endif %}
       <h3 class="title">{{ post.title }}</h3>
       <p style="margin-bottom: 0px;margin-top:4px"> {{ post.description }} </p>
@@ -60,9 +60,9 @@ title: Home
 
 <!-- OPEN SOURCE -->
 
-<section class="post-list">
+<!-- <section class="post-list">
   <h2 class="section-title" id="open-source-highlights">
-    <a href="#open-source-highlights">open source highlights</a>
+    <a href="#open-source-highlights">open source</a>
   </h2>
 
   {% for post in site.open-source reversed %} {% if post.star %}
@@ -83,5 +83,5 @@ title: Home
     </a>
   </p>
 
-</section>
+</section> -->
 

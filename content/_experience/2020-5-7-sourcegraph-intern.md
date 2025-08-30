@@ -118,10 +118,3 @@ The tooling performs Terraform rewrites, configuration updates, and more - a pre
 This tooling has enabled the team to operate increasing numbers of managed instances with minimal overhead.
 
 <br />
-
-### About Sourcegraph
-
-[Sourcegraph](https://about.sourcegraph.com/about) provides code search and intelligence on the web across massive collections of codebases.
-Sourcegraph is a fully distributed company with employees across the world.
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!

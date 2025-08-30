@@ -296,11 +296,4 @@ This was implemented in [sourcegraph#24972 database: provide upsertUserPendingPe
 
 After working through the issues mentioned in this article as well as a variety of other minor fixes, the customer was finally able to run a full permissions mirror to completion with everything working as expected. The final result was roughly 2.5 days to full sync, a **more than 10x improvement** to the previously projected 30 days. The improved performance unblocked the customer in question on this front and will hopefully open the door for Sourcegraph to function fully in even larger environments in the future!
 
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
-
 ---

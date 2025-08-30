@@ -1,7 +1,6 @@
 ---
 title: "Extending Sourcegraph search"
 layout: post
-image: https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/313/magnifying-glass-tilted-right_1f50e.png
 hero_image: /assets/images/posts/extending-search/block-search.png
 headerImage: true
 maths: false
@@ -791,12 +790,3 @@ You can also check out the (messy) (and incomplete) code here: [sourcegraph#3331
 Thanks for reading! I hope this was an interesting glimpse at how search works at Sourcegraph. I'm not sure if this will ever make it into the product, but regardless, this was a really fun foray into a part of the codebase I've only interacted with at a surface level through my [Sourcegraph for Raycast extension project](https://github.com/bobheadxi/raycast-sourcegraph), and learning about the abstractions used to power code search (and more!) was fascinating, and a nice change of pace from [my usual work](../_experience/2021-7-5-sourcegraph.md)!
 
 <br />
-
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
-
----

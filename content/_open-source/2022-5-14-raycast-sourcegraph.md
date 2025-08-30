@@ -10,7 +10,7 @@ image: https://github.com/bobheadxi/raycast-sourcegraph/raw/main/metadata/1-sear
 headerImage: false
 description: "<i>Sourcegraph for Raycast</i> - Search code, browse Notebooks, and manage Batch Changes on Sourcegraph with Raycast "
 author: robert
-star: true
+star: false
 externalLink: false
 ---
 

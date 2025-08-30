@@ -1,8 +1,7 @@
 ---
 title: Scaling Sourcegraph's managed multi-single-tenant product
 layout: post
-image: /assets/images/posts/multi-single-tenant/control-plane.png
-hero_image: false
+hero_image: /assets/images/posts/multi-single-tenant/control-plane.png
 headerImage: true
 maths: false
 featured: true
@@ -17,7 +16,7 @@ author: robert
 description: laying the foundations for operating hundreds of Sourcegraph instances
 ---
 
-As the customer base for Sourcegraph's "multi-single tenant" Sourcegraph Cloud offering grew, I had the opportunity to join the team to scale out the platform to support the hundreds of instances the company aimed to reach - which it does today!
+As the customer base for [Sourcegraph](../_experience/2021-7-5-sourcegraph.md)'s "multi-single tenant" Sourcegraph Cloud offering grew, I had the opportunity to join the team to scale out the platform to support the hundreds of instances the company aimed to reach - which it does today!
 
 Sourcegraph's first stab at a managed offering of our [traditionally self-hosted, on-premises code search product](https://sourcegraph.com/code-search) started way back during my [internship at Sourcegraph](../_experience/2020-5-7-sourcegraph-intern.md). Dubbed "managed instances", this was a "multi-single tenant" product where each "instance" was a normal Sourcegraph deployment operated on isolated infrastructure managed by the company. A rushed implementation was built to serve the very small number of customers that were initially interested in a managed Sourcegraph offering.
 
@@ -408,15 +407,6 @@ The rollout of the Cloud control plane, and adoption of Cloud from customers, ha
 </figure>
 
 The design of the Cloud control plane has allowed all these additions to be built in a sustainable fashion for the small Cloud team that operates it. The core concepts we initially designed for the Cloud control plane have largely remained intact, which is a relief for sure. I'm very excited to see where else the team goes with the Sourcegraph Cloud offering, both internally and externally!
-
-<br />
-
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
 
 <br />
 

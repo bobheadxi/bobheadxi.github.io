@@ -17,7 +17,7 @@ author: robert
 description: A quick look at some ideas within Sourcegraph's developer tool, and how we ensure the development of tooling continues to scale at Sourcegraph.
 ---
 
-At [Sourcegraph](https://github.com/sourcegraph/sourcegraph) we have a developer tool called [`sg`](https://docs.sourcegraph.com/dev/background-information/sg), which has become the way we ensure the development of tooling continues to scale at Sourcegraph.
+At [Sourcegraph](../_experience/2021-7-5-sourcegraph.md) we have a developer tool called [`sg`](https://docs.sourcegraph.com/dev/background-information/sg), which has become the way we ensure the development of tooling continues to scale at Sourcegraph.
 But why invest in ensuring contributions to your dev tooling scales?
 
 Imagine you’re developing a sizable application spanning multiple services - say, a code search and code intelligence platform like Sourcegraph.
@@ -236,10 +236,3 @@ If you’re interested in how all this is implemented, [`sg` is open source - co
 *Note - I had originally hoped to present this as a lightning talk at Gophercon Chicago 2022, but I was too late to queue up on the day of the presentations, so I figured might as well turn it into a post.*
 
 <br />
-
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!

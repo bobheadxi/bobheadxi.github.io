@@ -46,32 +46,6 @@ layout: page
     </script>
 {% endif %}
 
-{% if page.alt_location %}
-    <!-- alert guest to alternative places to view this post -->
-    <script>
-        if (!isMobile) {
-            let altPlatform = '{{ page.alt_location.type }}';
-            let altURL = '{{ page.alt_location.url }}';
-            console.log(`showing popup for alt_location ${altPlatform} at ${altURL}`);
-            new Noty({
-                type: 'success',
-                text: `📣 This post is also available on ${altPlatform}!`,
-                timeout: 5000,
-                buttons: [
-                    Noty.button(`Read on ${altPlatform}`, 'btn-box',
-                        function() {
-                            ga('send', 'event', 'Notification', 'click', 'alt_location', {
-                                hitCallback: function() {
-                                    window.open(altURL);
-                                }
-                            });
-                        }),
-                ],
-            }).show();
-        } else { console.log(`hiding alt post popup on isMobile=${isMobile}`); }
-    </script>
-{% endif %}
-
 {% if page.diagrams %}
     <!-- diagraming stuff -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/11.0.2/mermaid.min.js"></script>

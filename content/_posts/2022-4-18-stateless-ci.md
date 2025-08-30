@@ -5,7 +5,7 @@ image: https://upload.wikimedia.org/wikipedia/commons/thumb/3/39/Kubernetes_logo
 hero_image: /assets/images/posts/stateless-ci/dashboard.png
 headerImage: true
 maths: false
-featured: true
+featured: false
 diagrams: true
 tag:
 - kubernetes
@@ -398,12 +398,5 @@ Interestingly enough, there is no way to easily detect if a PersistentVolumeClai
 So far, we have already seen a drastic reduction in tool-related flakes in CI, and the switch to stateless agents has helped us maintain confidence that issues are related to botched state and poor isolation. There are probably other mechanisms for maintaining isolation between builds, but for our case this seemed to have the easiest migration path.
 
 <br />
-
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!
 
 ---

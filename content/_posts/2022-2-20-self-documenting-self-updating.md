@@ -1,7 +1,6 @@
 ---
 title: "Self-documenting and self-updating tooling"
 layout: post
-image: https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/240/google/313/pencil_270f-fe0f.png
 hero_image: /assets/images/posts/self-documenting/sg-ci-docs.png
 headerImage: true
 maths: false
@@ -508,12 +507,3 @@ Learn more about our continuous integration ecosystem in our [developer document
 The generator approach has helped us build a low-maintenance and reliable ecosystem around parts of our infrastructure. Tailor-making such an ecosystem is a non-trivial investment at first, but as an organization grows and business needs become more specific, the investment pays off by making systems easy to learn, use, extend, integrate, validate, and more.
 
 Also, it's a lot of fun!
-
-<br />
-
-## About Sourcegraph
-
-Sourcegraph builds universal code search for every developer and company so they can innovate faster. We help developers and companies with billions of lines of code create the software you use every day.
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).
-
-Interested in joining? [We're hiring](https://about.sourcegraph.com/jobs/)!

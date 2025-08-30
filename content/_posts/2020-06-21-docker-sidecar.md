@@ -318,7 +318,3 @@ Following the pivot, a lot of other work was enabled by the addition of this sid
 * [sourcegraph#12010](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/12010) (implementation: [sourcegraph#12491](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/12491)) proposed a mechanism for denoting ownership in our monitoring and routing alerts appropriately.
 * [sourcegraph#17602](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/17602) demonstrated potential summary capabilities a sidecar can export.
 * [sourcegraph#17014](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/17014) and [sourcegraph#17034](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/17034) adds timestamped links to relevant Grafana panels to alert messages.
-
-## About Sourcegraph
-
-Learn more about Sourcegraph [here](https://about.sourcegraph.com/).

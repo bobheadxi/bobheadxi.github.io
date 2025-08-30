@@ -11,7 +11,7 @@ tag:
 - python
 - bigquery
 category: blog
-featured: true
+featured: false
 author: robert
 description: messing around with Uber's deck.gl in a 2-day quarantine hack
 ---
