@@ -38,7 +38,8 @@ During my time in Core Services, I:
 - built and drove adoption of Sourcegraph's internal "managed services platform", a Heroku-like framework for developing and operating standalone services with deep integrations to internal company processes: as of 8/2025, this platform hosts over 30 services, of which over a dozen are externally facing
 - lead the implementation of multi-tenant Sourcegraph's coordination and billing service
 - designed the schema and architecture for a universal system to collect telemetry data while ensuring no sensitive data is accidentally collected, and built the services and frameworks to deliver the solution: as of 8/2025, this telemetry ingestion pipeline processes over 750 million events every month from nearly all Sourcegraph customers
-- spent a lot of time in Notion writing documentation and trying to support my team
+- lead the Core Services team strategy
+- received two "Sourcegraph Star" awards and a "Teammate of the Year" award thanks to the kind nominations from folks across the company
 
 ## Sourcegraph Cloud
 
