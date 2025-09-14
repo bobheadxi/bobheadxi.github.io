@@ -180,11 +180,11 @@ Since the specification is built on a typed language, the API itself is self-doc
     </figcaption>
 </figure>
 
-We also now have a tool, [`sg`](https://docs.sourcegraph.com/dev/background-information/sg), that enables us to spin up just the monitoring stack, complete with hot-reloading of Grafana dashboards, Prometheus configuration, and with a single command: `sg start monitoring`. You can even easily [test your dashboards against production metrics](https://docs.sourcegraph.com/dev/how-to/monitoring_local_dev#grafana)! This is all enabled by having a single tool and set of specifications as the source of truth for all our monitoring integrations.
+We also now have a tool, dubbed `sg`, that enables us to spin up just the monitoring stack, complete with hot-reloading of Grafana dashboards, Prometheus configuration, and with a single command: `sg start monitoring`. You can even easily test your dashboards against production metrics! This is all enabled by having a single tool and set of specifications as the source of truth for all our monitoring integrations.
 
 This all comes together to form a cohesive monitoring development and usage ecosystem that is tightly integrated, encodes best practices, self-documenting (both in the content it generates as well as the APIs available), and easy to extend.
 
-Learn more about our observability ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/observability), and check out the [monitoring generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/monitoring/monitoring).
+You can check out the [monitoring generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/monitoring/monitoring).
 
 <br />
 
@@ -453,7 +453,7 @@ for rt := runtype.PullRequest + 1; rt < runtype.None; rt += 1 {
 <figure>
     <img src="/assets/images/posts/self-documenting/sg-ci-docs.png">
     <figcaption>
-        A web version of this reference page is also published to the <a href="https://docs.sourcegraph.com/dev/background-information/continuous_integration">pipeline types reference</a>. You can also check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/enterprise/dev/ci/gen-pipeline.go">docs generation code</a> directly!
+        You can also check out the <a href="https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/blob/enterprise/dev/ci/gen-pipeline.go">docs generation code</a> directly!
     </figcaption>
 </figure>
 
@@ -498,7 +498,7 @@ Using a similar iteration over the available run types we can also provide toolt
 
 So now we have generated pipelines, documentation about them, the capability to extend pipeline specifications with additional feature like tracing, _and_ tooling that is integrated and automatically kept in sync with pipeline specifications - all derived from a single source of truth!
 
-Learn more about our continuous integration ecosystem in our [developer documentation](https://docs.sourcegraph.com/dev/background-information/continuous_integration), and check out the [pipeline generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/tree/enterprise/dev/ci).
+You can check out the [pipeline generator source code here](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/tree/enterprise/dev/ci).
 
 <br />
 

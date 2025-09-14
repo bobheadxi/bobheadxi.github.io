@@ -18,7 +18,7 @@ Many open-source services are distributed as [Docker images](https://docs.docker
 
 In some cases, such as for manipulating configuration, most images will allow you to mount configuration within the container or use environment variables, so you can build a proper sidecar service to do whatever updates you want and restart the target container. The same goes for extending endpoints - a proper sidecar can serve you well. You can have one service manage the a large number of containers, which is what I did for [a project I worked on at RTrade, *Nexus*](/ipfs-orchestrator).
 
-There's a significant convenience factor to keeping your service as a single container however - it's far easier to distribute and easier to deploy, and if you are trying to extend an off-the-shelf service like [Grafana](https://grafana.com/) that lives within a [large, multi-service deployment like Sourcegraph](https://docs.sourcegraph.com/dev/architecture), adding additional services becomes quite a pain. Heck, even adding an additional port is something that must have additional configuration propagated across an entire fleet of services across various deployment methods.
+There's a significant convenience factor to keeping your service as a single container however - it's far easier to distribute and easier to deploy, and if you are trying to extend an off-the-shelf service like [Grafana](https://grafana.com/) that lives within a large, multi-service deployment like Sourcegraph, adding additional services becomes quite a pain. Heck, even adding an additional port is something that must have additional configuration propagated across an entire fleet of services across various deployment methods.
 
 This article goes over the approach I took to achieve the following without significantly changing the public interface of our Grafana image:
 
@@ -30,7 +30,7 @@ While I'll generally refer to Grafana in this writeup, you can apply it to prett
 
 ---
 
-**⚠️ Update:** Since the writing of this post, we have pivoted on the plan ([sourcegraph#11452](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/tree/docker-images/prometheus), and relevant documentation [here](https://docs.sourcegraph.com/dev/background-information/observability/prometheus).
+**⚠️ Update:** Since the writing of this post, we have pivoted on the plan ([sourcegraph#11452](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/11452#issuecomment-648628953)) and most of the work here no longer lives in our Grafana distribution, but is instead a part of our Prometheus distribution - see [sourcegraph#11832](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/11832) for the new implementation. You can explore the source code [on Sourcegraph](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot/-/tree/docker-images/prometheus).
 
 Most of this article still applies though, but with Prometheus + Alertmanager instead of Grafana.
 
