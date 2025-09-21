@@ -17,8 +17,9 @@ serve-hard:
 checks: spellcheck mdlint
 
 spellcheck:
-	go run github.com/client9/misspell/cmd/misspell -error -locale UK -source text ${SHELLCHECK_FLAGS} \
-		-i "center,color,airplane,analyze,organization,organizations" \
+	go run -mod=mod \
+		github.com/client9/misspell/cmd/misspell -error -locale UK -source text ${SHELLCHECK_FLAGS} \
+		-i "center,color,airplane,analyze,organization,organizations,finalize,initialize" \
 		README.md index.html about.md blog open-source content
 
 mdlint:
