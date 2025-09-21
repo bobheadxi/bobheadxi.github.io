@@ -47,7 +47,7 @@ A few requirements for the multi-tenancy in Sourcegraph was decided upon from th
 
 ## The strategy
 
-The core concept was enable each Sourcegraph instance "host" to house many "tenants", with strict data isolation between tenants living on the same host. The [multi-single-tenant Sourcegraph Cloud](./2024-8-23-multi-single-tenant.md) platform would be the key technology to allow us to confidently scale the fleet horizontally to accommodate more tenants.
+The core concept was to enable each Sourcegraph instance "host" to run in a "multi-tenant mode", housing many "tenants", with strict data isolation between tenants living on the same host. The [multi-single-tenant Sourcegraph Cloud](./2024-8-23-multi-single-tenant.md) platform would be the key technology to allow us to confidently scale the fleet horizontally to accommodate more tenants.
 
 There are a few capabilities, however, that necessitated another level of abstraction on top of "tenants":
 
@@ -323,13 +323,15 @@ This is not a component that I worked significantly in, but without tenant isola
 3. Stateful services use directory namespacing, e.g. `/data/tenant/42/...`
 4. Enforcement of standardised tenancy-enforcing in-memory data structure libraries
 
-This was coupled in-application with an audit of our usage of Go `context.Context` propagation. Since all the microservices within a Sourcegraph instance is written in Go, we could leverage context propagation both within and between services to enforce tenant data isolation, by attaching the acting tenant to the context. Notably, we don't provide a way to create a new context with a specific tenant ID — for safety, we only allow this in places like our HTTP middleware where tenant context must be propagated over the wire within Sourcegraph services (but *not* from external traffic).
+This was coupled in-application with an audit and expansion of our usage of Go's `context.Context` propagation[^context]. Since all the microservices within a Sourcegraph instance is written in Go, we could leverage context propagation both within and between services to enforce tenant data isolation, by attaching the acting tenant to the context.
 
-To use the context, for example, enforcing tenant isolation in in-memory data structures looks like:
+Importantly, through some Go packaging trickery[^packaging], we don't provide an easy way to create a new context with a specific tenant — we only allow this in places like our HTTP middleware that [decides which tenant a request is designated for](#treating-each-workspace-as-a-full-sourcegraph-instance), or in HTTP middleware where tenant context must be propagated over the wire between Sourcegraph services (but *not* from external traffic). This prevents on-demand tenant impersonation except in places that absolutely need it, ensuring that requests are processed in the context of the tenant that the request pertains to only, and therefore preventing cross-tenant data leakage.
+
+Utilities that need to support multi-tenancy explicitly - for example, enforcing tenant isolation in in-memory data structures - will retrieve tenant information from context:
 
 ```go
 type keyWithTenant[K comparable] struct {
-  tenant int // ensure identical keys are still separated by tenant ID
+  tenant int // ensure identical keys are separated by tenant ID
   key    K
 }
 
@@ -339,16 +341,16 @@ func newKey[K comparable](tenantID int, key K) keyWithTenant[K] {
 
 // Get looks up a key's value from the cache.
 func (c *LRU[K, V]) Get(ctx context.Context, key K) (value V, ok bool, err error) {
-  tnt, err := tenant.FromContext(ctx)
+  tnt, err := tenant.FromContext(ctx) // retrieve tenant from context
   if err != nil {
     return value, false, err
   }
-  v, ok := c.cache.Get(newKey(tnt.ID, key))
+  v, ok := c.cache.Get(newKey(tnt.ID, key)) // attach tenant to data key
   return v, ok, nil
 }
 ```
 
-To most application components, tenancy concerns do not have to be handled explicitly, as long as the approved data management mechanisms are used (which we enforce in linters). This was important for our requirement that building new features with tenancy in mind should require minimal engineering overhead. For example, when using the above cache, note the lack of any explicit tenancy checks:
+To most application components, tenancy concerns do not have to be handled explicitly, as long as the approved data management mechanisms are used (which we enforce in linters). This was important for our requirement that building new features with tenancy in mind should require minimal engineering overhead. For example, when using the above cache, note the lack of any explicit tenancy checks - callsites just need to pass along the request context:
 
 ```go
 import (
@@ -356,29 +358,33 @@ import (
   "github.com/sourcegraph/sourcegraph/internal/memcache"
 )
 
+// Multi-tenant in-memory LRU cache
 var globalRevAtTimeCache = memcache.NewLRU[revAtTimeCacheKey, api.CommitID](/* ... */)
 
 func (g *gitCLIBackend) RevAtTime(ctx context.Context, spec string, t time.Time) (api.CommitID, error) {
   // ...
+
+  // Don't need to worry about the tenant; assume we are acting in a tenant context.
   key := revAtTimeCacheKey{g.repoID, sha, t}
   entry, ok, err := g.revAtTimeCache.Get(ctx, key)
   // ...
 }
 ```
 
-The same goes for database access: for all the many, many database queries used throughout Sourcegraph, as long as the shared database connection infrastructure is used, the appropriate session variable is added to satisfy PostgreSQL row-level security policies before access to data is granted.
+The same goes for database access: for all the many, many database queries used throughout Sourcegraph, as long as the shared database connection infrastructure is used, the appropriate session variable is automatically added based on tenant context to satisfy PostgreSQL row-level security (RLS) policies before data access is granted:
 
 ```go
 func (n *extendedConn) setTenant(ctx context.Context) error {
-  tnt, err := tenant.FromContext(ctx)
+  tnt, err := tenant.FromContext(ctx) // retrieve tenant from context
   if err != nil { /* ... */ }
 
   _, err := n.execerContext.ExecContext(ctx, 
-    // Set variable for policies, which are automatically injected and look like:
+    // Set `app.current_tenant` for RLS policy, which are enforced on all tables:
     //
     //   ((tenant_id = (SELECT (current_setting('app.current_tenant'::text))::integer AS current_tenant)))
     //
-    // where `tenant_id` is a column required on every single table.
+    // where `tenant_id` is a column required on every single table. This means that this
+    // session can only access data where `tenant_id = app.current_tenant`.
     fmt.Sprintf("SET app.current_tenant = '%s'", strconv.Itoa(tenantID)),
     nil,
   )
@@ -386,17 +392,17 @@ func (n *extendedConn) setTenant(ctx context.Context) error {
 }
 ```
 
-Note that all the descriptions above - particularly the consistent enforcement of row-level security policies in our databases - is *very* simplified. Adding a `tenant_id` column to all tables alone came with the discovery of all sorts of edge cases, performance issues, and difficult migrations. A lot of work had to be put into polishing the implementation of background jobs, for example: how do you efficiently and fairly queue and process background work on a per-tenant basis, for potentially thousands of tenants on a single host? How do we make sure this system is leak-proof, and what tools can we add to make plugging the gaps as simple as possible? 
+Note that all the descriptions above - particularly the consistent enforcement of row-level security policies in our databases - is *very* simplified. Adding a `tenant_id` column to all tables alone came with the discovery of all sorts of edge cases, performance issues, and difficult migrations. A lot of work had to be put into polishing the implementation of background jobs, for example: how do we extend our background work framework to efficiently and fairly queue and process jobs on a per-tenant basis, for potentially thousands of tenants on a single host, without making future background jobs hard to build? How do we make sure this whole system is leak-proof, and what tools[^pprof] can we add to make plugging the gaps as simple as possible? 
 
-The questions and problems seemed to go on and on, and while I didn't get to work very closely on most of this side of things, it was really cool to see the team systematically build tools and processes to cover everything.
+I didn't get to work very closely on most of this side of things - and there would be too many things to cover in one blog post anyway - but it was really cool to see the team systematically build libraries, tools, and processes to cover everything we needed to offer tenant isolation with confidence.
 
 ## The launch
 
-As launch day approached, the excitement within the team was palpable. Everyone working on every aspect of Sourcegraph Workspaces - from tenant isolation, to workspace coordination, to host management, to billing integrations, to the local development experience, to a fully functional staging environment for QA, to the in-product experience, to the Linear issue trackers that managed this sprawling project, to the operational playbooks for every conceivable scenario - had worked very hard to deliver the most robust, polished experience with the resources we had on hand. We knew Sourcegraph had a solid product that our customers already loved and paid a *lot* of money for. We were hopeful that, with the company's support, we were about to turn a new page in the Sourcegraph's history in making this product more accessible than ever.
+As launch day approached, the excitement within the team was palpable. Everyone working on every aspect of Sourcegraph Workspaces - from tenant isolation, to workspace coordination, to host management, to billing integrations, to the local development experience, to a fully functional staging environment for QA, to the in-product experience, to the Linear issue trackers that managed this sprawling project, to the operational playbooks for every conceivable scenario - had worked very hard over the preceding 6 months to deliver the most robust, polished experience we could offer with the resources we had on hand. We knew Sourcegraph had a solid product that our customers already loved. We were hopeful that we were about to turn a new page in the Sourcegraph's history by making this product more accessible than ever.
 
-Much to our relief, the launch went smoothly: we had no show-stopping issues, and everything seemed to be chugging along more or less exactly as designed. It "just worked", and I was very happy to see the product come together.
+Much to our relief, the launch went smoothly: we had no show-stopping issues, and everything seemed to chug along more or less exactly as designed. It "just worked", and I was very happy to see the product come together.
 
-Unfortunately, the launch also became a (perhaps obvious) learning experience for me: that even the most polished product can will not do well without a *lot* of other factors also aligning in just the right way. It was not the game-changer we hoped for, but Sourcegraph Workspaces continues to serve some customers well, and I'm proud of what we achieved.
+Unfortunately, the launch also became a (perhaps obvious) learning experience for me: that even the most polished product can will not do well without a *lot* of other factors also aligning in just the right way. It was not the game-changer we hoped for, but Sourcegraph Workspaces continues to serve some customers well, and I'm proud of what we built.
 
 ---
 
@@ -408,3 +414,6 @@ Unfortunately, the launch also became a (perhaps obvious) learning experience fo
 [^membership]: Workspace membership was implemented a concept tracked by the Workspaces service, even though there is a rudimentary in-Sourcegraph user management system for Sourcegraph administrators. The decision to not use the in-Sourcegraph user management system largely came from a need for "workspace billing admin" state to live in Workspaces service as a source of truth, and to make it easier to build the more product-lead-growth-oriented invitation flows that we anticipated building.
 [^cfworkers]: Michael made a very in-depth evaluation of a number of options, comparing pricing, latency, operational overhead, implementation complexity, and more before landing on this choice. Like many aspects of this project mentioned here, there's a lot of details that I probably can't get into as much as I would like to in a public post!
 [^erik]: MVP of this whole project, really.
+[^context]: In case you aren't familiar, `context.Context` is one of my favourite things about Go: it "[carries deadlines, cancellation signals, and other request-scoped values across API boundaries and between processes](https://pkg.go.dev/context)". There's a good example of propagating values with `context.Context` in [https://go.dev/blog/context#package-userip](https://go.dev/blog/context#package-userip). This is very useful for propagating authentication/authorization state for enforcement throughout an application.
+[^packaging]: There's a lot of ways to structure code using [Go's `/internal/` subpackages](https://go.dev/doc/go1.4#internalpackages) to ensure that only certain components have access to certain things. We built a lot of utilities into the `tenant` subpackage, which exports Sourcegraph-wide APIs like retrieving tenant from context and various HTTP middlewares, but *not* a way to directly create a context with a tenant. That is reserved for `tenant/internal/tenantcontext`, making it accessible only to multi-tenancy-related utilities in the `tenant/...` subpackages.
+[^pprof]: For example, using [`runtime/pprof`](https://pkg.go.dev/runtime/pprof) to [record callsites where tenant context is not correctly propagated](https://sourcegraph.com/github.com/sourcegraph/sourcegraph-public-snapshot@c864f15af264f0f456a6d8a83290b5c940715349/-/blob/internal/tenant/context.go?L28-29), which I never thought of as a profiling use case.
