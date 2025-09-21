@@ -1,6 +1,6 @@
 ---
 title: From single-tenant to multi-tenant
-description: Turning single-tenant Sourcegraph into a self-servable product
+description: turning single-tenant Sourcegraph into a self-servable product
 layout: post
 image: /assets/images/posts/mutli-tenant/workspace-create.png
 headerImage: true

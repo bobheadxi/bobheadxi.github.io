@@ -1,6 +1,6 @@
 ---
 title: Building and operating online services around an on-prem, single-tenant product
-description: Creating a Heroku-like "managed services platform" at Sourcegraph
+description: creating a Heroku-like "managed services platform" at Sourcegraph
 layout: post
 image: /assets/images/posts/msp/pitch.png
 headerImage: true
