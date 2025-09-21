@@ -35,8 +35,8 @@ With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph
 During my time in Core Services, I:
 
 - created the credits-based billing system for [Amp](https://ampcode.com), Sourcegraph's agentic AI coding tool
-- built and drove adoption of Sourcegraph's internal "managed services platform", a Heroku-like framework for developing and operating standalone services with deep integrations to internal company processes: as of 8/2025, this platform hosts over 30 services, of which over a dozen are externally facing
-- lead the implementation of multi-tenant Sourcegraph's coordination and billing service
+- built and drove adoption of [Sourcegraph's internal "managed services platform"](../_posts/2025-9-20-managed-services-platform.md), a Heroku-like framework for developing and operating standalone services with deep integrations to internal company processes: as of 8/2025, this platform hosts over 30 services, of which over a dozen are externally facing
+- lead the implementation of [multi-tenant Sourcegraph's coordination and billing service](../_posts/2025-9-21-multi-tenant.md)
 - designed the schema and architecture for a universal system to collect telemetry data while ensuring no sensitive data is accidentally collected, and built the services and frameworks to deliver the solution: as of 8/2025, this telemetry ingestion pipeline processes over 750 million events every month from nearly all Sourcegraph customers
 - lead the Core Services team strategy
 - received a "Sourcegraph Star" award, a "Teammate of the Year" award, and another "Impact Award" thanks to the kind nominations from folks across the company
@@ -54,7 +54,7 @@ The [Developer Experience team's](https://handbook.sourcegraph.com/departments/p
 
 During my 15 months as part of the Developer Experience team, I contributed extensively to:
 
-- [`sg`, the Sourcegraph developer tool](https://docs.sourcegraph.com/dev/background-information/sg), in particular building out a infrastructure to [allow development of `sg` to scale](../_posts/2022-10-10-investing-in-development-of-devx.md)
+- `sg`, the Sourcegraph developer tool, in particular building out a infrastructure to [allow development of `sg` to scale](../_posts/2022-10-10-investing-in-development-of-devx.md)
 - Sourcegraph's continuous integration infrastructure and CI pipeline generator
 - the Sourcegraph monitoring generator, which manages converting monitoring definitions into integrations with Sourcegraph's monitoring ecosystem like Grafana dashboards, Prometheus Alertmanager alerts, and generated alert response documentation.
 - driving the discussion, implementation, and adoption of [standardised logging](https://github.com/sourcegraph/sourcegraph-public-snapshot/pull/33956) and [OpenTelemetry](https://github.com/sourcegraph/sourcegraph-public-snapshot/issues/39397) in Sourcegraph
