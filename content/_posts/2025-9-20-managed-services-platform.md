@@ -18,7 +18,7 @@ author: robert
 draft: false
 ---
 
-The advent of LLMs and "AI-enabled" products lead to a rapid pivot within [Sourcegraph](../_experience/2021-7-5-sourcegraph.md) from a purely single-tenant product, into new product surfaces with key managed, multi-tenant components. This required rethinking how we built and operated mutli-tenant services.
+The advent of LLMs and "AI-enabled" products lead to a rapid pivot within [Sourcegraph](../_experience/2021-7-5-sourcegraph.md) from a purely single-tenant product, into new product surfaces with managed, multi-tenant components. This required rethinking how we built and operated mutli-tenant services.
 
 For a very long time, the public deployment of Sourcegraph's single-tenant, self-hosted code search product at [sourcegraph.com/search](https://sourcegraph.com/search) - internally dubbed "dotcom" - was the only user-facing service that we operated. As a result, anything that required an online, central service was simply glued onto our self-hosted product and conditionally enabled. This was easier in some ways, but later began to present a significant liability.
 
