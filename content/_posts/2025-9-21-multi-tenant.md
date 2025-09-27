@@ -65,6 +65,43 @@ We built this workspaces coordination layer around a standalone "Workspaces serv
 - [Treating each workspace as a full Sourcegraph instance](#treating-each-workspace-as-a-full-sourcegraph-instance)
 - [Tenant isolation](#tenant-isolation)
 
+```mermaid
+flowchart TD
+    %% Reverse direction + no arrows as a hack to get better positioning
+    sourcegraph1 ===|routes requests to| router
+    sourcegraph2 ===|routes requests to| router
+
+    requests([🧑‍🦲 Visit a workspace]) 
+    requests ==> router[Router]
+
+    subgraph instances[Host fleet]
+        subgraph sourcegraph1[Sourcegraph instance 1]
+            tenant1
+            tenant2
+        end
+
+        subgraph sourcegraph2[Sourcegraph instance 1]
+            tenant3
+            tenant4
+        end
+    end
+
+    subgraph workspaces[Workspaces service]
+        workspace1
+        workspace2
+        workspace3
+        workspace4
+    end
+
+    workspace1-.->|represented by|tenant1
+		workspace2-.->|represented by|tenant2
+		workspace3-.->|represented by|tenant3
+    workspace4-.->|represented by|tenant4
+
+    create([🧑‍🦲 Create a workspace]) 
+    create ==> workspaces
+```
+
 ### Workspace and tenant coordination
 
 I drew heavily from [my work on multi-single-tenant Sourcegraph Cloud](./2024-8-23-multi-single-tenant.md) in designing the architecture for the workspaces coordination layer. I proposed that tenants should be provisioned and managed in an eventually-consistent reconciliation model, with each host serving as the reconciler of the tenants assigned to it. This side-stepped issues around potential host downtime, particularly during Sourcegraph version upgrades, or general instability.
