@@ -94,8 +94,8 @@ flowchart TD
     end
 
     workspace1-.->|represented by|tenant1
-		workspace2-.->|represented by|tenant2
-		workspace3-.->|represented by|tenant3
+    workspace2-.->|represented by|tenant2
+    workspace3-.->|represented by|tenant3
     workspace4-.->|represented by|tenant4
 
     create([🧑‍🦲 Create a workspace]) 
