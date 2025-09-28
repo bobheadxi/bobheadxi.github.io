@@ -439,7 +439,7 @@ As launch day approached, the excitement within the team was palpable. Everyone 
 
 Much to our relief, the launch went smoothly: we had no show-stopping issues, and everything seemed to chug along more or less exactly as designed. It "just worked", and I was very happy to see the product come together.
 
-Unfortunately, the launch also became a (perhaps obvious) learning experience for me: that even the most polished product can will not do well without a *lot* of other factors also aligning in just the right way. It was not the game-changer we hoped for, but Sourcegraph Workspaces continues to serve some customers well, and I'm proud of what we built.
+Unfortunately, the launch also became a (perhaps obvious) learning experience for me: that even the most polished product might not do well without a *lot* of other factors also aligning in just the right way. Sourcegraph Workspaces was not the game-changer we hoped for, but it continues to serve some customers well, and I'm proud of what we built.
 
 ---
 
