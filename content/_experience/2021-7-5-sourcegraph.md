@@ -20,11 +20,12 @@ description: "July 2021 - Present | Remote"
 author: robert
 ---
 
-Since July 2021, I have been working as a software engineer at [Sourcegraph](https://sourcegraph.com) in various teams across the company over time.
+Since July 2021, I have been working as a software engineer at [Sourcegraph](https://sourcegraph.com) in various parts of the company as:
 
-- [Core Services](#core-services), as technical lead (February 2023 to present)
-- [Sourcegraph Cloud](#sourcegraph-cloud) (October 2022 to February 2023)
-- [Developer Experience](#developer-experience) (July 2021 to October 2022)
+- Lead Platform Engineer for the engineering org (November 2025 to present)
+- Technical lead for [Core Services](#core-services) (February 2023 to November 2025)
+- Engineer in [Sourcegraph Cloud](#sourcegraph-cloud) (October 2022 to February 2023)
+- Engineer in [Developer Experience](#developer-experience) (July 2021 to October 2022)
 
 Before starting full-time, I also [interned at Sourcegraph](./2020-5-7-sourcegraph-intern.md) for a while.
 
@@ -34,7 +35,7 @@ With the launch of Sourcegraph's [AI coding assistant, Cody](https://sourcegraph
 
 During my time in Core Services, I:
 
-- created the credits-based billing system for [Amp](https://ampcode.com), Sourcegraph's agentic AI coding tool
+- created the credits-based billing system for [Amp](https://ampcode.com)'s initial launch. Amp is an agentic AI coding tool that started as an experiment at Sourcegraph.
 - built and drove adoption of [Sourcegraph's internal "managed services platform"](../_posts/2025-9-20-managed-services-platform.md), a Heroku-like framework for developing and operating standalone services with deep integrations to internal company processes: as of 8/2025, this platform hosts over 30 services, of which over a dozen are externally facing
 - lead the implementation of [multi-tenant Sourcegraph's coordination and billing service](../_posts/2025-9-21-multi-tenant.md)
 - designed the schema and architecture for a universal system to collect telemetry data while ensuring no sensitive data is accidentally collected, and built the services and frameworks to deliver the solution: as of 8/2025, this telemetry ingestion pipeline processes over 750 million events every month from nearly all Sourcegraph customers
